@@ -1,5 +1,5 @@
 # Useful default when opening Windows Terminal with relative path but not inside a specific folder
-if [[ "$(pwd)" == "/c/Windows/System32" ]]; then
+if [[ "$(pwd)" == '/c/Windows/System32' ]]; then
 	cd ~
 fi
 
@@ -74,22 +74,23 @@ alias 8='cd -8'
 alias 9='cd -9'
 
 # Commands
+alias ls='exa --color=always --group-directories-first -al'
 alias kns=kubens
 alias kctx=kubectx
 alias clip=clip.exe
 alias java=java.exe
-alias mvn="cmd.exe /c mvn.cmd"
-alias start="cmd.exe /c"
+alias mvn='cmd.exe /c mvn.cmd'
+alias start='cmd.exe /c'
 alias d=docker
 alias dc=docker-compose
 alias helm=helm3
 
 # Missing aliases from kubectl OMZ plugin
-alias kd="kubectl describe"
-alias kg="kubectl get"
-alias ke="kubectl edit"
+alias kd='kubectl describe'
+alias kg='kubectl get'
+alias ke='kubectl edit'
 
-alias kesec="kubectl edit secret"
+alias kesec='kubectl edit secret'
 
 alias kdelir='kubectl delete ingressroute'
 alias kdir='kubectl describe ingressroute'

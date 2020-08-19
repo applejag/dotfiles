@@ -47,13 +47,15 @@ zinit pack'binary+keys' for fzf
 
 zinit from'gh-r' as'program' for \
     id-as'kubectx' bpick'kubectx*' ahmetb/kubectx \
-    id-as'kubens' bpick'kubens*' ahmetb/kubectx
+    id-as'kubens' bpick'kubens*' ahmetb/kubectx \
+    bpick'exa-linux*' cp'exa-linux* -> exa' pick'exa' ogham/exa
 
 # Completions
 zinit for \
     as'completion' OMZ::plugins/docker/_docker \
     as'completion' OMZ::plugins/fd/_fd \
     as'completion' OMZ::plugins/pass/_pass \
+    as'completion' cp'completions.zsh -> _exa' https://github.com/ogham/exa/blob/master/contrib/completions.zsh \
     jilleJr/helm-2n3-completions \
     OMZ::plugins/kubectl/kubectl.plugin.zsh \
     OMZ::plugins/dotnet/dotnet.plugin.zsh
