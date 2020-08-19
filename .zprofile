@@ -1,5 +1,9 @@
 # Useful default when opening Windows Terminal with relative path but not inside a specific folder
-if [[ "$(pwd)" == '/c/Windows/System32' ]]; then
+current_path="$(pwd)"
+if [[ "$current_path" == '/c/Windows/System32' \
+    || "$current_path" == '/c/Program Files/PowerToys' \
+    || "$current_path" == '/c/Users/kalle.jillheden/AppData/Local/Microsoft/WindowsApps' ]]
+then
 	cd ~
 fi
 
