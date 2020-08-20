@@ -25,3 +25,7 @@ export GPG_TTY="$(tty)"
 
 # Enable pass extensions
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
+# forgit custom pager
+export FORGIT_PAGER='cat'
+
