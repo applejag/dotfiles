@@ -3,7 +3,7 @@ current_path="$(pwd)"
 if [[ "$current_path" == '/c/Windows/System32' \
     || "$current_path" == '/c/Program Files/PowerToys' \
     || "$current_path" == '/c/ProgramData/Microsoft/Windows/Start Menu/Programs/Alacritty' \
-    || "$current_path" == '/c/Users/kalle.jillheden/AppData/Local/Microsoft/WindowsApps' ]]
+    || "$current_path" == '/c/Users/kalle/AppData/Local/Microsoft/WindowsApps' ]]
 then
 	cd ~
 fi
@@ -32,15 +32,15 @@ fi
 unset agent_env
 
 # Directories inside Windows host
-hash -d documents=/c/Users/kalle.jillheden/Documents
-hash -d downloads=/c/Users/kalle.jillheden/Downloads
-hash -d desktop=/c/Users/kalle.jillheden/Desktop
-hash -d wssh=/c/Users/kalle.jillheden/.ssh
+hash -d documents=/c/Users/kalle/Documents
+hash -d downloads=/c/Users/kalle/Downloads
+hash -d desktop=/c/Users/kalle/Desktop
+hash -d wssh=/c/Users/kalle/.ssh
 
 # Mimic Windows environment variables
-hash -d profile=/c/Users/kalle.jillheden/ # %USERPROFILE%
-hash -d appdata=/c/Users/kalle.jillheden/AppData/Roaming # %APPDATA%
-hash -d localappdata=/c/Users/kalle.jillheden/AppData/Local # %LOCALAPPDATA%
+hash -d profile=/c/Users/kalle/ # %USERPROFILE%
+hash -d appdata=/c/Users/kalle/AppData/Roaming # %APPDATA%
+hash -d localappdata=/c/Users/kalle/AppData/Local # %LOCALAPPDATA%
 hash -d progd=/c/ProgramData # %PROGRAMDATA%
 hash -d progf='/c/Program Files' # %PROGRAMFILES%
 hash -d progfx='/c/Program Files (x86)' # %PROGRAMFILES(X86)%
@@ -51,12 +51,7 @@ hash -d certs=/usr/local/share/ca-certificates
 hash -d ssh=~/.ssh
 
 # This is the folders where I keep all my repositories I develop with
-hash -d p=/c/Projekt
 hash -d dev=~/dev
-hash -d river=/c/Projekt/river
-hash -d wharf=~/dev/wharf-project
-hash -d spark=/c/Projekt/spark
-hash -d spark2=/c/Projekt/spark2
 
 # Global aliases
 alias -g '%%=| grep'
@@ -89,6 +84,7 @@ alias start='cmd.exe /c'
 alias d=docker
 alias dc=docker-compose
 alias helm=helm3
+alias fd=fdfind
 
 # Missing aliases from kubectl OMZ plugin
 alias kd='kubectl describe'
