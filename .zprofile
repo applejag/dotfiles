@@ -51,7 +51,10 @@ hash -d certs=/usr/local/share/ca-certificates
 hash -d ssh=~/.ssh
 
 # This is the folders where I keep all my repositories I develop with
-hash -d dev=~/dev
+hash -d dev=/c/dev
+hash -d json=/c/dev/Newtonsoft.Json-for-Unity
+hash -d json.w=/c/dev/Newtonsoft.Json-for-Unity.wiki
+hash -d json.c=/c/dev/Newtonsoft.Json-for-Unity.Converters
 
 # Global aliases
 alias -g '%%=| grep'
