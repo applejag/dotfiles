@@ -26,6 +26,10 @@ Plug 'ionide/Ionide-vim', {
 
 Plug 'Shougo/echodoc.vim'
 
+" crystal-lang
+Plug 'vim-crystal/vim-crystal'
+Plug 'vim-syntastic/syntastic'
+
 " Utility
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf'
@@ -85,6 +89,16 @@ augroup LSP
 augroup END
 
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Misc settings
 if &listchars ==# 'eol:$'
