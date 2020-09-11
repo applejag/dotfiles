@@ -7,6 +7,7 @@ ln -s `pwd`/zsh/.zprofile ~/.zprofile
 ln -s `pwd`/zsh/.zshenv ~/.zshenv
 ln -s `pwd`/zinit/.zshrc ~/.zshrc
 ln -s `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
+sudo ln -s `pwd`/wsl/git /usr/local/bin/git
 ```
 
 ## Make links to dotfiles, Windows

@@ -1,0 +1,13 @@
+#! /bin/bash
+
+LINUX_GIT='/usr/bin/git'
+WINDOWS_GIT='cmd.exe /c git'
+
+WORKING_DIR="$(pwd)"
+
+if [[ "${WORKING_DIR:0:3}" == '/c/' ]]; then
+	$WINDOWS_GIT "$@"
+else
+	$LINUX_GIT "$@"
+fi
+
