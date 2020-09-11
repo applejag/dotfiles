@@ -24,7 +24,7 @@ config.set('url.searchengines', {
 
 config.set('colors.completion.category.bg', 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #3f4c6b, stop:1 #525252)')
 config.set('colors.completion.even.bg', 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #333, stop:1 #444)')
-config.set('colors.completion.odd.bg', '#444')
+config.set('colors.completion.odd.bg', '#484849')
 config.set('font.default_family', 'Fira Code')
 config.set('font.default_size', '9pt')
 config.set('colors.webpage.bg', 'black')
