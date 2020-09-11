@@ -91,6 +91,7 @@ alias dc=docker-compose
 alias helm=helm3
 alias cr='crystal run'
 alias cb='crystal build'
+alias bat='bat --decorations never'
 
 # Missing aliases from kubectl OMZ plugin
 alias kd='kubectl describe'
