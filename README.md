@@ -14,5 +14,8 @@ ln -s `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
 ```powershell
 New-Item -ItemType HardLink -Path "$env:AppData\alacritty\alacritty.yml" -Target ".\alacritty\alacritty.yml"
 New-Item -ItemType HardLink -Path "$env:AppData\bug.n\Config.ini" -Target ".\bug.n\Config.ini"
-```
+New-Item -ItemType HardLink -Path "$env:AppData\qutebrowser\config\config.py" -Target ".\qutebrowser\config.py"
 
+$wt = Get-Item "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_*"
+New-Item -ItemType HardLink -Path "$wt\LocalState\settings.json" -Target ".\wt\settings.json"
+```
