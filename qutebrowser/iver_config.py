@@ -72,4 +72,9 @@ config.set(
     }
 )
 
+# keybindings
+
 config.bind(';c', 'hint scrollable')
+config.bind('xx', 'config-cycle statusbar.show always never ;; config-cycle tabs.show always switching')
+config.bind('xt', 'config-cycle tabs.show always switching')
+config.bind('xb', 'config-cycle statusbar.show always never')
