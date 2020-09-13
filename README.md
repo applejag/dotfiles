@@ -7,11 +7,21 @@
 ## Make links to dotfiles, Linux
 
 ```sh
-ln -vfs `pwd`/zsh/.zprofile ~/.zprofile
+ln -vfs `pwd`/zsh/.zprofile ~/.zprofile_base
 ln -vfs `pwd`/zsh/.zshenv ~/.zshenv
 ln -vfs `pwd`/zinit/.zshrc ~/.zshrc
 ln -vfs `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
 sudo ln -vfs `pwd`/wsl/git /usr/local/bin/git
+mkdir -pv ~/.config/nvim
+ln -vfs `pwd`/nvim/init.vim ~/.config/nvim/base.vim
+
+# Zifro laptop
+ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
+ln -vfs `pwd`/nvim/zifro_init.vim ~/.config/nvim/init.vim
+
+# Iver laptop
+ln -vfs `pwd`/zsh/iver.zprofile ~/.zprofile
+ln -vfs `pwd`/nvim/iver_init.vim ~/.config/nvim/init.vim
 ```
 
 ## Make links to dotfiles, Windows
@@ -20,11 +30,14 @@ sudo ln -vfs `pwd`/wsl/git /usr/local/bin/git
 New-Item  -Force -ItemType HardLink -Path "$env:AppData\alacritty\alacritty.yml" -Target ".\alacritty\alacritty.yml"
 New-Item  -Force -ItemType HardLink -Path "$env:AppData\bug.n\Config.ini" -Target ".\bug.n\Config.ini"
 New-Item  -Force -ItemType HardLink -Path "$env:AppData\qutebrowser\config\config.py" -Target ".\qutebrowser\config.py"
+New-Item  -Force -ItemType HardLink -Path "$env:AppData\qutebrowser\config\base_config.py" -Target ".\qutebrowser\config.py"
 
 $wt = Get-Item "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_*"
 New-Item  -Force -ItemType HardLink -Path "$wt\LocalState\settings.json" -Target ".\wt\settings.json"
 
-# on Iver laptop
-New-Item  -Force -ItemType HardLink -Path "$env:AppData\qutebrowser\config\base_config.py" -Target ".\qutebrowser\config.py"
+# Zifro laptop
+New-Item  -Force -ItemType HardLink -Path "$env:AppData\qutebrowser\config\config.py" -Target ".\qutebrowser\zifro_config.py"
+
+# Iver laptop
 New-Item  -Force -ItemType HardLink -Path "$env:AppData\qutebrowser\config\config.py" -Target ".\qutebrowser\iver_config.py"
 ```
