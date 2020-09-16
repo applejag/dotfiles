@@ -1,9 +1,5 @@
 " ~/.config/nvim/init.vim
 
-source ~/.config/nvim/base.vim
-
-call plug#begin('~/.vim/plugged')
-
 " Syntax highlighting
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'yuezk/vim-js'
@@ -32,8 +28,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim' " For async completion
 Plug 'Shougo/denite.nvim' " For Denite features
-
-call plug#end()
 
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1

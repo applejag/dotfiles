@@ -24,6 +24,10 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'yggdroot/indentline'
 
+if !empty(glob('~/.config/nvim/local.nvim'))
+    source $HOME/.vimrc_local
+endif
+
 call plug#end()
 
 " yggdroot/indentline
@@ -32,7 +36,7 @@ let g:indentLine_color_term = 239
 
 " Syntastic
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1

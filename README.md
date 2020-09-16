@@ -13,15 +13,14 @@ ln -vfs `pwd`/zinit/.zshrc ~/.zshrc
 ln -vfs `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
 sudo ln -vfs `pwd`/wsl/git /usr/local/bin/git
 mkdir -pv ~/.config/nvim
-ln -vfs `pwd`/nvim/init.vim ~/.config/nvim/base.vim
+ln -vfs `pwd`/nvim/init.vim ~/.config/nvim/init.vim
 
 # Zifro laptop
 ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
-ln -vfs `pwd`/nvim/zifro_init.vim ~/.config/nvim/init.vim
 
 # Iver laptop
 ln -vfs `pwd`/zsh/iver.zprofile ~/.zprofile
-ln -vfs `pwd`/nvim/iver_init.vim ~/.config/nvim/init.vim
+ln -vfs `pwd`/nvim/iver_init.vim ~/.config/nvim/local.vim
 ```
 
 ## Make links to dotfiles, Windows
