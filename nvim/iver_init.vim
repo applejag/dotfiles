@@ -29,6 +29,8 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim' " For async completion
 Plug 'Shougo/denite.nvim' " For Denite features
 
+call plug#end()
+
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 
@@ -53,11 +55,13 @@ function SetLSPShortcuts()
   nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
   nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
   nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+
+  nnoremap <leader><Space> :call LanguageClient#textDocument_completion()<CR>
 endfunction()
 
 augroup LSP
   autocmd!
-  autocmd FileType fs,fsi,fsx call SetLSPShortcuts()
+  autocmd FileType fsharp call SetLSPShortcuts()
 augroup END
 
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
