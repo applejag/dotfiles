@@ -45,6 +45,9 @@ config.set(
     {
         **default_selectors,
         'all': default_selectors['all'] + [
+            # class-based buttons
+            '.button',
+            '.btn',
 
             # spark
             '[role="treeitem"]',
@@ -63,6 +66,7 @@ config.set(
             'body',
             '.user-card-container',
             '.tab-content-wrapper',
+            '.dx-scrollable-container',
         ]
     }
 )
