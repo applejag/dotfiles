@@ -61,7 +61,6 @@ alias start='cmd.exe /c'
 alias d=docker
 alias dc=docker-compose
 alias helm=helm3
-alias fd=fdfind
 alias cr='crystal run'
 alias cb='crystal build'
 alias bat='bat --decorations never'

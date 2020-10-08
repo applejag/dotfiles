@@ -6,7 +6,7 @@ with open(os.path.dirname(__file__)+'/base_config.py') as f:
 # home page
 
 config.set('url.default_page', 'https://cure.dgc.local/')
-config.set('url.start_pages', 'https://cure.dgc.local/')
+config.set('url.start_pages', 'https://iverab.sharepoint.com/')
 
 # search engines
 
@@ -18,6 +18,7 @@ config.set('url.searchengines', {
     "g": "https://google.com/search?q={}",
     "gl": "https://gitlab.dgc.local/search?utf8=%E2%9C%93&search={}&search_code=true",
     "spr": "https://techtfs01.develop.local/DefaultCollection/_git/Iver.Spark/pullrequest/{}?_a=overview",
-    "st": "https://spark.iver.com/tickets/detail/{}",
+    "s": "https://spark.iver.com/tickets/detail/{}",
+    "ss": "https://spark.atlas.dgc.local/tickets/detail/{}",
     "y": "https://www.youtube.com/results?search_query={}",
 })
