@@ -5,7 +5,8 @@ current_path="$(pwd)"
 if [[ "$current_path" == '/c/Windows/System32' \
     || "$current_path" == '/c/Program Files/PowerToys' \
     || "$current_path" == '/c/ProgramData/Microsoft/Windows/Start Menu/Programs/Alacritty' \
-    || "$current_path" == '/c/Users/kalle.jillheden/AppData/Local/Microsoft/WindowsApps' ]]
+    || "$current_path" == '/c/Users/kalle.jillheden/AppData/Local/Microsoft/WindowsApps' \
+    || "$current_path" == '/c/Users/kalle.jillheden/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup' ]]
 then
 	cd ~
 fi
