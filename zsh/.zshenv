@@ -10,6 +10,9 @@ export PATH="$PATH:/usr/local/go/bin:${GOHOME:-$HOME/go}/bin"
 # Dotnet tool
 export PATH="$PATH:$HOME/.dotnet/tools"
 
+# Doom Emacs
+export PATH="$PATH:$HOME/.emacs.d/bin"
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
@@ -29,3 +32,6 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 # forgit custom pager
 export FORGIT_PAGER='cat'
 
+# X11, customized for WSL 2
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
