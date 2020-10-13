@@ -15,6 +15,8 @@ sudo ln -vfs `pwd`/wsl/git /usr/local/bin/git
 mkdir -pv ~/.config/nvim
 ln -vfs `pwd`/nvim/init.vim ~/.config/nvim/init.vim
 ln -vfs `pwd`/tmux/.tmux.conf ~/.tmux.conf
+mkdir -pv ~/.tmux/plugins
+ln -vfs `pwd`/tmux/tpm ~/.tmux/plugins/tpm
 
 # Zifro laptop
 ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
