@@ -99,7 +99,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: MesloLGS NF
+    family: FuraCode NF
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -655,7 +655,8 @@ key_bindings:
   - { key: Minus,    mods: Control,                 action: DecreaseFontSize }
 
   # (Windows only)
-  - { key: Return,   mods: Alt,           action: ToggleFullscreen }
+  #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
+  - { key: Return,   mods: Alt,           action: ReceiveChar }
 
   # (macOS only)
   #- { key: K,      mods: Command, mode: ~Vi, chars: "\x0c"            }

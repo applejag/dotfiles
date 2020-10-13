@@ -1,4 +1,3 @@
-
 config.load_autoconfig()
 
 # home page
@@ -32,7 +31,7 @@ config.set('colors.webpage.darkmode.contrast', 0.0)
 config.set('colors.webpage.darkmode.enabled', True)
 config.set('colors.webpage.darkmode.grayscale.all', False)
 config.set('colors.webpage.darkmode.grayscale.images', 0.0)
-config.set('colors.webpage.darkmode.policy.images', 'never')
+config.set('colors.webpage.darkmode.policy.images', 'smart')
 config.set('colors.webpage.darkmode.policy.page', 'smart')
 config.set('colors.webpage.darkmode.threshold.background', 70)
 config.set('colors.webpage.prefers_color_scheme_dark', True)
@@ -45,6 +44,9 @@ config.set(
     {
         **default_selectors,
         'all': default_selectors['all'] + [
+            # class-based buttons
+            '.button',
+            '.btn',
 
             # spark
             '[role="treeitem"]',
@@ -63,6 +65,7 @@ config.set(
             'body',
             '.user-card-container',
             '.tab-content-wrapper',
+            '.dx-scrollable-container',
         ]
     }
 )
