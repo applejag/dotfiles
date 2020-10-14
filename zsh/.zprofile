@@ -64,6 +64,7 @@ alias helm=helm3
 alias cr='crystal run'
 alias cb='crystal build'
 alias bat='bat --decorations never'
+alias '?=todo --flat'
 
 # Missing aliases from kubectl OMZ plugin
 alias kd='kubectl describe'

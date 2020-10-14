@@ -102,7 +102,7 @@ if command -v todo &> /dev/null; then
     echo -e "\e[90m=== Nothing on your todo list ===\e[0m"
   else
     echo -e "\e[90m=== \e[33mTodo: 📝 $TASK_COUNT tasks \e[90m===\e[0m"
-    todo
+    todo --flat
   fi
 fi
 
