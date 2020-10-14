@@ -96,3 +96,13 @@ zinit as'null' \
 zinit lucid blockf atpull'zinit creinstall -q' light-mode for \
     zsh-users/zsh-completions
 
+if command -v todo &> /dev/null; then
+  TASK_COUNT=$(todo --flat | wc -l)
+  if [ $TASK_COUNT = 0 ]; then
+    echo -e "\e[90m=== Nothing on your todo list ===\e[0m"
+  else
+    echo -e "\e[90m=== \e[33mTodo: 📝 $TASK_COUNT tasks \e[90m===\e[0m"
+    todo
+  fi
+fi
+
