@@ -5,6 +5,7 @@ CACHE_NAME_FILE='~/.local/share/namnsdag/cached_name.txt'
 CACHE_DATE_FILE='~/.local/share/namnsdag/cached_date.txt'
 
 fetch_names() {
+    echo -e "\e[90m\e[3mFetching namnes from https://www.dagensnamn.nu/\e[0m" >&2
     curl -sL 'http://www.dagensnamn.nu/' \
 	| grep '<div class="today mt-0 mb-2"' \
 	| grep -oP '<h1>\K[^<]+(?=</h1>)'
@@ -29,4 +30,4 @@ get_or_fetch_names() {
 
 NAMES="$(get_or_fetch_names)"
 
-echo -e "\e[90m=== \e[33mToday's names: $NAMES \e[90m(https://www.dagensnamn.nu/)\e[0m"
+echo -e "\e[90m=== \e[33mToday's names: $NAMES\e[0m"
