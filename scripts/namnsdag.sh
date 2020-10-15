@@ -1,8 +1,8 @@
 #!/bin/bash
 
-CACHE_DIR='~/.local/share/namnsdag'
-CACHE_NAME_FILE='~/.local/share/namnsdag/cached_name.txt'
-CACHE_DATE_FILE='~/.local/share/namnsdag/cached_date.txt'
+CACHE_DIR="$HOME/.cache/namnsdag"
+CACHE_NAME_FILE="$CACHE_DIR/latest_name.txt"
+CACHE_DATE_FILE="$CACHE_DIR/latest_date.txt"
 
 fetch_names() {
     echo -e "\e[90m\e[3mFetching namnes from https://www.dagensnamn.nu/\e[0m" >&2
@@ -24,7 +24,7 @@ get_or_fetch_names() {
     fi
 
     mkdir -p "$CACHE_DIR"
-    NAMES="$(fetch_names | tee "$CACHE_NAME_FILE")"
+    fetch_names | tee "$CACHE_NAME_FILE"
     printf '%s' "$TODAYS_DATE" > "$CACHE_DATE_FILE"
 }
 
