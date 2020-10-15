@@ -96,7 +96,7 @@ zinit as'null' \
 zinit lucid blockf atpull'zinit creinstall -q' light-mode for \
     zsh-users/zsh-completions
 
-if [ -x ~/dev/startup/namnsdag.sh ]; then
+if [ -x ~/dev/scripts/namnsdag.sh ]; then
   ~/dev/scripts/namnsdag.sh
 fi
 

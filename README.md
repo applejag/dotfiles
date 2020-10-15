@@ -19,7 +19,7 @@ mkdir -pv ~/.tmux/plugins
 ln -vfs `pwd`/tmux/tpm ~/.tmux/plugins/tpm
 ln -vfs `pwd`/tmux/todo.sh ~/.tmux/todo.sh
 mkdir -pv ~/dev
-ln -vfs `pwd`/scripts/namnsdag.sh ~/dev/scripts
+ln -vfs `pwd`/scripts ~/dev/scripts
 
 # Zifro laptop
 ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
