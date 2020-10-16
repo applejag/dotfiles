@@ -66,6 +66,12 @@ alias cb='crystal build'
 alias bat='bat --decorations never'
 alias '?=todo --flat'
 
+if ! command -v fd &> /dev/null \
+  && command -v fdfind &> /dev/null
+then
+  alias fd=fdfind
+fi
+
 # Missing aliases from kubectl OMZ plugin
 alias kd='kubectl describe'
 alias kg='kubectl get'
