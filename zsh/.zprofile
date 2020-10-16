@@ -56,7 +56,6 @@ alias 9='cd -9'
 alias ls='exa --color=always --group-directories-first -al'
 alias kns=kubens
 alias kctx=kubectx
-alias clip=clip.exe
 alias start='cmd.exe /c'
 alias d=docker
 alias dc=docker-compose
@@ -65,6 +64,12 @@ alias cr='crystal run'
 alias cb='crystal build'
 alias bat='bat --decorations never'
 alias '?=todo --flat'
+
+if command -v gocopy.exe &> /dev/null; then
+    alias clip=gocopy.exe
+else
+    alias clip=clip.exe
+fi
 
 if ! command -v fd &> /dev/null \
   && command -v fdfind &> /dev/null
