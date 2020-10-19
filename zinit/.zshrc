@@ -3,7 +3,9 @@ if command -v tmux &> /dev/null \
   && [[ ! "$TERM" =~ screen ]] \
   && [[ ! "$TERM" =~ tmux ]] \
   && [ -z "$TMUX" ]; then
-  exec tmux || exec tmux new-session
+  # https://unix.stackexchange.com/a/529049/428922
+  tmux attach -t $(,tmux-first-unattached-session) 2> /dev/null \
+    || tmux new-session
   exit
 fi
 
