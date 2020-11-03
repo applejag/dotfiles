@@ -72,7 +72,7 @@ else
 fi
 
 if command -v bat &> /dev/null; then
-  alias cat='bat --decorations never'
+    alias cat='bat --decorations never'
 fi
 
 if ! command -v fd &> /dev/null \
