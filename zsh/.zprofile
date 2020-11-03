@@ -71,6 +71,10 @@ else
     alias clip=clip.exe
 fi
 
+if command -v bat &> /dev/null; then
+  alias cat='bat --decorations never'
+fi
+
 if ! command -v fd &> /dev/null \
   && command -v fdfind &> /dev/null
 then
