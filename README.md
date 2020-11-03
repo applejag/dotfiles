@@ -22,6 +22,10 @@ ln -vfs `pwd`/tmux/kubeconfig.sh ~/.tmux/kubeconfig.sh
 sudo ln -vfs `pwd`/tmux/tmux-first-unattached-session /usr/local/bin/,tmux-first-unattached-session
 mkdir -pv ~/dev
 ln -vfs `pwd`/scripts ~/dev/scripts
+mkdir -pv ~/.doom.d
+ln -vfs `pwd`/doom/config.el ~/.doom.d/config.el
+ln -vfs `pwd`/doom/packages.el ~/.doom.d/packages.el
+ln -vfs `pwd`/doom/init.el ~/.doom.d/init.el
 
 # Zifro laptop
 ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
