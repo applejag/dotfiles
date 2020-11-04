@@ -14,6 +14,8 @@ ln -vfs `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
 sudo ln -vfs `pwd`/wsl/git /usr/local/bin/git
 mkdir -pv ~/.config/nvim
 ln -vfs `pwd`/nvim/init.vim ~/.config/nvim/init.vim
+mkdir -pv ~/.config/bat
+ln -vfs `pwd`/bat/config ~/.config/bat/config
 ln -vfs `pwd`/tmux/.tmux.conf ~/.tmux.conf
 mkdir -pv ~/.tmux/plugins
 ln -vfs `pwd`/tmux/tpm ~/.tmux/plugins/tpm

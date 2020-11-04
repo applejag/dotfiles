@@ -62,7 +62,6 @@ alias dc=docker-compose
 alias helm=helm3
 alias cr='crystal run'
 alias cb='crystal build'
-alias bat='bat --decorations never'
 alias '?=todo --flat'
 
 if command -v gocopy.exe &> /dev/null; then
