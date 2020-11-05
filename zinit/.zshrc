@@ -72,9 +72,9 @@ zinit for \
     OMZ::plugins/dotnet/dotnet.plugin.zsh
 
 zinit wait lucid svn as'completion' light-mode \
-    atclone"ln -s kubectx.zsh _kubectx" \
-    atclone"ln -s kubens.zsh _kubens" \
     atpull"zinit creinstall -q ." \
+    atclone'ln -s "$(pwd)"/kubectx.zsh _kubectx' \
+    atclone'ln -s "$(pwd)"/kubens.zsh _kubens' \
     for https://github.com/ahmetb/kubectx/trunk/completion
 
 # Utilities
