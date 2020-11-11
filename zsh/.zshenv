@@ -39,3 +39,6 @@ export LIBGL_ALWAYS_INDIRECT=1
 # FZF customization
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+
+# Term setting
+export TERM=xterm-256color
