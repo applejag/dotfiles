@@ -54,3 +54,5 @@
 ;; they are implemented.
 
 (setq inferior-fsharp-program "dotnet fsi --readline-")
+
+;;(setq lsp-yaml-schemas '(/home/kalle/dev/wharf-project/wharf-ci-schema.json ".wharf-ci.yml"))
