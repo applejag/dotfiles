@@ -72,6 +72,12 @@ fi
 
 if command -v bat &> /dev/null; then
     alias cat='bat --decorations never'
+
+    function _todo_pretty() {
+      todo task "$1" | bat --language md --theme DarkNeon
+    }
+
+    alias '?#'=_todo_pretty
 fi
 
 if ! command -v fd &> /dev/null \
