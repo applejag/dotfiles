@@ -35,9 +35,17 @@ hash -d ssh=~/.ssh
 # Global aliases
 alias -g '%%=| grep'
 alias -g '%yaml=| bat -l yaml'
+alias -g '%y=| bat -l yaml'
 alias -g '%json=| jq'
+alias -g '%j=| jq'
+alias -g '%xml=| xmlstarlet fo | bat --language xml'
+alias -g '%x=| xmlstarlet fo | bat --language xml'
+alias -g '%html=| xmlstarlet fo -H | bat --language html'
+alias -g '%h=| xmlstarlet fo -H | bat --language html'
 alias -g '%oyaml=-o yaml | bat -l yaml'
+alias -g '%oy=-o yaml | bat -l yaml'
 alias -g '%ojson=-o json | jq'
+alias -g '%oj=-o json | jq'
 
 # Easy history navigation
 setopt autopushd
@@ -73,11 +81,19 @@ fi
 if command -v bat &> /dev/null; then
     alias cat='bat --decorations never'
 
-    function _todo_pretty() {
+    function _todo_task_pretty() {
+      todo task "$@" >/dev/null
       todo task "$1" | bat --language md --theme DarkNeon
     }
 
-    alias '?#'=_todo_pretty
+    alias '?#'=_todo_task_pretty
+
+    funciton _todo_done_pretty() {
+      todo done "$@"
+      todo task "$1" | bat --language md --theme DarkNeon
+    }
+
+    alias '?!'=_todo_done_pretty
 fi
 
 if ! command -v fd &> /dev/null \
