@@ -56,3 +56,6 @@
 (setq inferior-fsharp-program "dotnet fsi --readline-")
 
 ;;(setq lsp-yaml-schemas '(/home/kalle/dev/wharf-project/wharf-ci-schema.json ".wharf-ci.yml"))
+
+(setq lsp-clients-emmy-lua-java-path "/usr/bin/java")
+(setq lsp-clients-emmy-lua-jar-path (expand-file-name "EmmyLua-LS-all.jar" user-emacs-directory))
