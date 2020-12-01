@@ -81,14 +81,15 @@ fi
 if command -v bat &> /dev/null; then
     alias cat='bat --decorations never'
 
-    function _todo_pretty() {
+    function _todo_task_pretty() {
+      todo task "$@" >/dev/null
       todo task "$1" | bat --language md --theme DarkNeon
     }
 
-    alias '?#'=_todo_pretty
+    alias '?#'=_todo_task_pretty
 
     funciton _todo_done_pretty() {
-      todo done "$1"
+      todo done "$@"
       todo task "$1" | bat --language md --theme DarkNeon
     }
 
