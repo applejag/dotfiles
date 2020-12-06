@@ -20,6 +20,7 @@ Plug 'ionide/Ionide-vim', {
       \}
 
 Plug 'Shougo/echodoc.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " For async completion
 
 " Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -46,6 +47,11 @@ call plug#end()
 set cmdheight=2
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'signature'
+
+" Shougo/deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+" <TAB>: completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
