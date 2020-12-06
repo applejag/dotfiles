@@ -1,13 +1,13 @@
-if command -v tmux &> /dev/null \
-  && [ -n "$PS1" ] \
-  && [[ ! "$TERM" =~ screen ]] \
-  && [[ ! "$TERM" =~ tmux ]] \
-  && [ -z "$TMUX" ]; then
-  # https://unix.stackexchange.com/a/529049/428922
-  tmux attach -t $(,tmux-first-unattached-session) 2> /dev/null \
-    || tmux new-session
-  exit
-fi
+#if command -v tmux &> /dev/null \
+#  && [ -n "$PS1" ] \
+#  && [[ ! "$TERM" =~ screen ]] \
+#  && [[ ! "$TERM" =~ tmux ]] \
+#  && [ -z "$TMUX" ]; then
+#  # https://unix.stackexchange.com/a/529049/428922
+#  tmux attach -t $(,tmux-first-unattached-session) 2> /dev/null \
+#    || tmux new-session
+#  exit
+#fi
 
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
