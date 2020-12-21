@@ -61,7 +61,7 @@ alias 8='cd -8'
 alias 9='cd -9'
 
 # Commands
-alias ls='exa --color=always --group-directories-first -al'
+alias ls='exa --color=always --group-directories-first -al --git --icons'
 alias kns=kubens
 alias kctx=kubectx
 alias start='cmd.exe /c'
