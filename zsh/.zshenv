@@ -42,3 +42,6 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 
 # Term setting
 export TERM=xterm-256color
+
+# Disable "alias ls=..." override by OMZ
+DISABLE_LS_COLORS=true
