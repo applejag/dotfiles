@@ -1,9 +1,10 @@
 # Doom Emacs
 
-## Go dependencies
+## go-mode dependencies
 
 ```sh
 # The -u flag makes it a "get or update"
+go get -u golang.org/x/tools/gopls # Language server
 go get -u github.com/nsf/gocode # Autocompletion daemon
 go get -u github.com/fatih/gomodifytags # Modify struct field tags
 go get -u github.com/cweill/gotests/gotests # Test generation
