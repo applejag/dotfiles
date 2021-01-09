@@ -46,6 +46,7 @@ alias -g '%oyaml=-o yaml | bat -l yaml'
 alias -g '%oy=-o yaml | bat -l yaml'
 alias -g '%ojson=-o json | jq'
 alias -g '%oj=-o json | jq'
+alias -g '%jwt= | jwt decode - | bat --language json'
 
 # Easy history navigation
 setopt autopushd

@@ -4,6 +4,9 @@ skip_global_compinit=1
 # Krew - Kubectl plugin manager
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# Rust/Cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # GoLang
 export PATH="$PATH:/usr/local/go/bin:${GOHOME:-$HOME/go}/bin"
 
