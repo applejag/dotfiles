@@ -59,3 +59,11 @@
 
 (setq lsp-clients-emmy-lua-java-path "/usr/bin/java")
 (setq lsp-clients-emmy-lua-jar-path (expand-file-name "EmmyLua-LS-all.jar" user-emacs-directory))
+
+;; Workaround for gofmt-on-save bug
+;; https://github.com/hlissner/doom-emacs/issues/4201#issuecomment-735222478
+(after! go-mode
+  (setq gofmt-command "goimports")
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (add-hook 'after-save-hook 'gofmt nil 'make-it-local))))
