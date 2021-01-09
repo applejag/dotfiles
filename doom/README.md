@@ -10,4 +10,9 @@ go get -u github.com/fatih/gomodifytags # Modify struct field tags
 go get -u github.com/cweill/gotests/gotests # Test generation
 go get -u github.com/motemen/gore/cmd/gore # REPL
 go get -u golang.org/x/tools/cmd/guru # Definitions/references navigation + refactoring
+go get -u golang.org/x/tools/cmd/goimports # Formatting imports
+
+# golangci-lint is not installed from source as they find it unreliable
+# More info: https://golangci-lint.run/usage/install/#install-from-source
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.35.0
 ```
