@@ -11,20 +11,29 @@ ln -vfs `pwd`/zsh/.zprofile ~/.zprofile_base
 ln -vfs `pwd`/zsh/.zshenv ~/.zshenv
 ln -vfs `pwd`/zinit/.zshrc ~/.zshrc
 ln -vfs `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
+
+mkdir -pv ~/.config/gh
+ln -vfs `pwd`/gh/config.yml ~/.config/gh/config.yml
+
 sudo ln -vfs `pwd`/wsl/git /usr/local/bin/git
 sudo ln -vfs `pwd`/wsl/wsl.conf /etc/wsl.conf
+
 mkdir -pv ~/.config/nvim
 ln -vfs `pwd`/nvim/init.vim ~/.config/nvim/init.vim
+
 mkdir -pv ~/.config/bat
 ln -vfs `pwd`/bat/config ~/.config/bat/config
+
 ln -vfs `pwd`/tmux/.tmux.conf ~/.tmux.conf
 mkdir -pv ~/.tmux/plugins
 ln -vfs `pwd`/tmux/tpm ~/.tmux/plugins/tpm
 ln -vfs `pwd`/tmux/todo.sh ~/.tmux/todo.sh
 ln -vfs `pwd`/tmux/kubeconfig.sh ~/.tmux/kubeconfig.sh
 sudo ln -vfs `pwd`/tmux/tmux-first-unattached-session /usr/local/bin/,tmux-first-unattached-session
+
 mkdir -pv ~/dev
 ln -vfs `pwd`/scripts ~/dev/scripts
+
 mkdir -pv ~/.doom.d
 ln -vfs `pwd`/doom/config.el ~/.doom.d/config.el
 ln -vfs `pwd`/doom/packages.el ~/.doom.d/packages.el
