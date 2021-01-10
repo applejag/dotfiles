@@ -12,6 +12,7 @@ ln -vfs `pwd`/zsh/.zshenv ~/.zshenv
 ln -vfs `pwd`/zinit/.zshrc ~/.zshrc
 ln -vfs `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
 sudo ln -vfs `pwd`/wsl/git /usr/local/bin/git
+sudo ln -vfs `pwd`/wsl/wsl.conf /etc/wsl.conf
 mkdir -pv ~/.config/nvim
 ln -vfs `pwd`/nvim/init.vim ~/.config/nvim/init.vim
 mkdir -pv ~/.config/bat
