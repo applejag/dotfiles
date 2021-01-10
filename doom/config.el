@@ -67,3 +67,7 @@
   (add-hook 'go-mode-hook
             (lambda ()
               (add-hook 'after-save-hook 'gofmt nil 'make-it-local))))
+
+(custom-set-variables
+ '(markdown-toc-header-toc-title "## Table of contents")
+ '(markdown-toc-indentation-space 2))
