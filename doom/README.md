@@ -8,7 +8,8 @@
    sudo apt update
    sudo apt-get install build-essential texinfo libx11-dev libxpm-dev \
        libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev \
-       libncurses-dev libxpm-dev automake autoconf gnutls libgnutls28-dev
+       libncurses-dev libxpm-dev automake autoconf gnutls libgnutls28-dev \
+       libjansson-dev
    ```
 
 2. Find version you want from <https://ftp.gnu.org/gnu/emacs/>
