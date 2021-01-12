@@ -71,3 +71,6 @@
 (custom-set-variables
  '(markdown-toc-header-toc-title "## Table of contents")
  '(markdown-toc-indentation-space 2))
+
+(add-hook 'markdown-mode-hook 'display-fill-column-indicator-mode)
+(setq-default display-fill-column-indicator-column 80)
