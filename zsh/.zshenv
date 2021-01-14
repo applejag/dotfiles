@@ -1,6 +1,9 @@
 # Skip the not really helping Ubuntu global compinit
 skip_global_compinit=1
 
+# Editor
+export EDITOR=nvim
+
 # Krew - Kubectl plugin manager
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
