@@ -11,7 +11,7 @@ config.set('url.start_pages', 'https://iverab.sharepoint.com/')
 # search engines
 
 config.set('url.searchengines', {
-    "DEFAULT": "https://google.com/search?q={}",
+    "DEFAULT": "http://localhost:8090/yacysearch.html?query={}",
     "c": "https://cure.dgc.local/#/nav/requests/?q={}",
     "cr": "https://cure.dgc.local/#/{}",
     "ddg": "https://duckduckgo.com/?q={}",
@@ -21,4 +21,5 @@ config.set('url.searchengines', {
     "s": "https://spark.iver.com/tickets/detail/{}",
     "ss": "https://spark.atlas.dgc.local/tickets/detail/{}",
     "y": "https://www.youtube.com/results?search_query={}",
+    "yacy": "http://localhost:8090/yacysearch.html?query={}",
 })
