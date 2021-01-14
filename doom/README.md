@@ -52,10 +52,8 @@
 
    ```sh
    cd ~/dotfiles
-   mkdir -pv ~/.doom.d
-   ln -vfs `pwd`/doom/config.el ~/.doom.d/config.el
-   ln -vfs `pwd`/doom/packages.el ~/.doom.d/packages.el
-   ln -vfs `pwd`/doom/init.el ~/.doom.d/init.el
+   mv -f ~/.doom.d ~/.doom.d.old
+   ln -vfs `pwd`/doom ~/.doom.d
    ```
 
 9. Sync configs

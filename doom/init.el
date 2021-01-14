@@ -104,6 +104,7 @@
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
+       neuron            ; https://github.com/felko/neuron-mode
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
