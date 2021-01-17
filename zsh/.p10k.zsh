@@ -48,7 +48,7 @@
 
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-    time                    # current time
+    # time                    # current time
     # context                   # user@host
     dir                       # current directory
     vcs                       # git status
