@@ -84,14 +84,14 @@ if command -v bat &> /dev/null; then
 
   function _todo_task_pretty() {
     todo task "$@" >/dev/null
-    todo task "$1" | bat --language md --theme DarkNeon
+    todo task "$1" | bat --language md --theme DarkNeon --decorations never
   }
 
   alias '?#'=_todo_task_pretty
 
   funciton _todo_done_pretty() {
     todo done "$@"
-    todo task "$1" | bat --language md --theme DarkNeon
+    todo task "$1" | bat --language md --theme DarkNeon --decorations never
   }
 
   alias '?!'=_todo_done_pretty
