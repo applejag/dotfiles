@@ -74,27 +74,27 @@ alias cb='crystal build'
 alias '?=todo --flat'
 
 if command -v gocopy.exe &> /dev/null; then
-    alias clip=gocopy.exe
+  alias clip=gocopy.exe
 else
-    alias clip=clip.exe
+  alias clip=clip.exe
 fi
 
 if command -v bat &> /dev/null; then
-    alias cat='bat --decorations never'
+  alias cat='bat --decorations never'
 
-    function _todo_task_pretty() {
-      todo task "$@" >/dev/null
-      todo task "$1" | bat --language md --theme DarkNeon
-    }
+  function _todo_task_pretty() {
+    todo task "$@" >/dev/null
+    todo task "$1" | bat --language md --theme DarkNeon
+  }
 
-    alias '?#'=_todo_task_pretty
+  alias '?#'=_todo_task_pretty
 
-    funciton _todo_done_pretty() {
-      todo done "$@"
-      todo task "$1" | bat --language md --theme DarkNeon
-    }
+  funciton _todo_done_pretty() {
+    todo done "$@"
+    todo task "$1" | bat --language md --theme DarkNeon
+  }
 
-    alias '?!'=_todo_done_pretty
+  alias '?!'=_todo_done_pretty
 fi
 
 if ! command -v fd &> /dev/null \

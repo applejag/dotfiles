@@ -1,4 +1,4 @@
-source ~/.zprofile_base
+source ~/.zprofile_base.zsh
 
 # Useful default when opening Windows Terminal with relative path but not inside a specific folder
 current_path="$(pwd)"

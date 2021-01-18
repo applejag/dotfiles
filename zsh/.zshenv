@@ -51,4 +51,6 @@ export TERM=xterm-256color
 
 # Disable "alias ls=..." override by OMZ
 DISABLE_LS_COLORS=true
+
+# Nix binaries
 if [ -e /home/kalle/.nix-profile/etc/profile.d/nix.sh ]; then . /home/kalle/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
