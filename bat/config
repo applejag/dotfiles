@@ -1,2 +1,4 @@
 --theme="OneHalfDark"
 --decorations="never"
+--map-syntax '*.{cs,fs,vb}proj:XML'
+
