@@ -10,6 +10,7 @@ config.set('url.start_pages', 'https://www.dagensnamn.nu/')
 
 config.set('url.searchengines', {
     "DEFAULT": "http://localhost:8090/yacysearch.html?query={}",
+    "x": "https://searx.prvcy.eu/search?q={}&categories=general&language=en-US",
     "ddg": "https://duckduckgo.com/?q={}",
     "g": "https://google.com/search?q={}",
     "y": "https://www.youtube.com/results?search_query={}",
