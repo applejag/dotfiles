@@ -15,6 +15,7 @@ config.set('url.searchengines', {
     "g": "https://google.com/search?q={}",
     "y": "https://www.youtube.com/results?search_query={}",
     "yacy": "http://localhost:8090/yacysearch.html?query={}+%2Flanguage%2Fen",
+    "def": "https://www.merriam-webster.com/dictionary/{}",
 })
 
 # themes
