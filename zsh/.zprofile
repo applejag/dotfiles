@@ -40,7 +40,7 @@ alias -g '%json=| jq'
 alias -g '%j=| jq'
 alias -g '%xml=| xmlstarlet fo | bat --language xml'
 alias -g '%x=| xmlstarlet fo | bat --language xml'
-alias -g '%html=| xmlstarlet fo -H | bat --language html'
+alias -g '%html=| xmlstarlet fo -H | sed "s/\]\]>//g; s/<!\[CDATA\[//g" |  bat --language html'
 alias -g '%h=| xmlstarlet fo -H | bat --language html'
 alias -g '%oyaml=-o yaml | bat -l yaml'
 alias -g '%oy=-o yaml | bat -l yaml'
@@ -66,14 +66,23 @@ alias ls='exa --color=always --group-directories-first -al --icons'
 alias kns=kubens
 alias kctx=kubectx
 alias start='cmd.exe /c'
-alias d=docker
-alias dc=docker-compose
-alias p=podman
-alias pc=podman-compose
 alias helm=helm3
 alias cr='crystal run'
 alias cb='crystal build'
 alias '?=todo --flat'
+
+alias p=podman
+alias pc=podman-compose
+
+if command -v docker &> /dev/null; then
+  alias d=docker
+  alias dc=docker-compose
+elif command -v podman &> /dev/null; then
+  alias docker=podman
+  alias docker-compose=podman-compose
+  alias d=podman
+  alias dc=podman-compose
+fi
 
 if command -v gocopy.exe &> /dev/null; then
   alias clip=gocopy.exe
