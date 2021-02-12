@@ -1,15 +1,4 @@
-source ~/.zprofile_base
-
-# Useful default when opening Windows Terminal with relative path but not inside a specific folder
-current_path="$(pwd)"
-if [[ "$current_path" == '/c/Windows/System32' \
-    || "$current_path" == '/c/Program Files/PowerToys' \
-    || "$current_path" == '/c/ProgramData/Microsoft/Windows/Start Menu/Programs/Alacritty' \
-    || "$current_path" == '/c/Users/kalle/AppData/Local/Microsoft/WindowsApps' \
-    || "$current_path" == '/c/Users/kalle/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup' ]]
-then
-	cd ~
-fi
+source ~/.zprofile_base.zsh
 
 # Directories inside Windows host
 hash -d documents=/c/Users/kalle/Documents
