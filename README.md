@@ -31,6 +31,8 @@ ln -vfs `pwd`/tmux/todo.sh ~/.tmux/todo.sh
 ln -vfs `pwd`/tmux/kubeconfig.sh ~/.tmux/kubeconfig.sh
 sudo ln -vfs `pwd`/tmux/tmux-first-unattached-session /usr/local/bin/,tmux-first-unattached-session
 
+ln -vfs `pwd`/awesomewm/rc.lua ~/.config/awesome/rc.lua
+
 mkdir -pv ~/dev
 ln -vfs `pwd`/scripts ~/dev/scripts
 
