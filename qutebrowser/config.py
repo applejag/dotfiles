@@ -23,7 +23,7 @@ config.set('url.searchengines', {
 config.set('colors.completion.category.bg', 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #3f4c6b, stop:1 #525252)')
 config.set('colors.completion.even.bg', 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #333, stop:1 #444)')
 config.set('colors.completion.odd.bg', '#484849')
-config.set('fonts.default_family', 'Fira Code')
+config.set('fonts.default_family', 'Fira Code Nerd Font')
 config.set('fonts.default_size', '9pt')
 config.set('fonts.hints', 'default_size default_family')
 config.set('colors.hints.bg', 'qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgba(58, 123, 213, 0.9), stop:1 rgba(58, 96, 115, 0.9))')
