@@ -33,6 +33,8 @@ sudo ln -vfs `pwd`/tmux/tmux-first-unattached-session /usr/local/bin/,tmux-first
 
 ln -vfs `pwd`/awesomewm/rc.lua ~/.config/awesome/rc.lua
 
+ln -vfs `pwd`/alacritty/alacritty-zifro.yml ~/.config/alacritty/alacritty.yml
+
 mkdir -pv ~/dev
 ln -vfs `pwd`/scripts ~/dev/scripts
 
@@ -51,7 +53,7 @@ ln -vfs `pwd`/nvim/iver_init.vim ~/.config/nvim/local.vim
 
 ```powershell
 # Run as administrator
-New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\alacritty\alacritty.yml" -Target ".\alacritty\alacritty.yml"
+New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\alacritty\alacritty.yml" -Target ".\alacritty\alacritty-iver.yml"
 New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\bug.n\Config.ini" -Target ".\bug.n\Config.ini"
 New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\qutebrowser\config\config.py" -Target ".\qutebrowser\config.py"
 New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\qutebrowser\config\base_config.py" -Target ".\qutebrowser\config.py"
