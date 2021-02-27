@@ -50,6 +50,8 @@ beautiful.titlebar_close_button_focus = "/usr/share/awesome/themes/cesious/title
 beautiful.font              = "Noto Sans Regular 10"
 beautiful.notification_font = "Noto Sans Bold 14"
 beautiful.wallpaper = "/home/kalle/Pictures/Wallpaper/Bright-colorful-wallpaper-iphone.jpg"
+beautiful.bg_systray = "#222D32"
+beautiful.systray_icon_spacing = 0
 
 -- This is used later as the default terminal and editor to run.
 browser = "exo-open --launch WebBrowser" or "firefox"
@@ -136,6 +138,9 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- {{{ Wibar
+-- Create systray
+mysystray = wibox.widget.systray()
+mysystray:set_base_size(28)
 -- Create a textclock widget
 mytextdate = wibox.widget.textclock(" %Y-%m-%d ")
 mytextclock = wibox.widget.textclock(" %H:%M %Z ")
@@ -245,8 +250,8 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
             spacer,
+            mysystray,
             mykeyboardlayout,
             separator,
             mytextclock,
