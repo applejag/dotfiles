@@ -9,7 +9,7 @@
    sudo apt-get install build-essential texinfo libx11-dev libxpm-dev \
        libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev \
        libncurses-dev libxpm-dev automake autoconf libgnutls28-dev \
-       libjansson-dev
+       libjansson-dev libgccjit-10-dev
    ```
 
 2. Find version you want from <https://ftp.gnu.org/gnu/emacs/>
@@ -18,15 +18,15 @@
 
    ```sh
    cd ~
-   wget https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.gz
-   tar -xf emacs-27.1.tar.gz
-   cd emacs-27.1
+   git clone git://git.savannah.gnu.org/emacs.git -b feature/native-comp
+   cd emacs
    ```
 
-4. Configure with native JSON support
+4. Configure with native JSON and GCC JIT support
 
    ```sh
-   ./configure --with-json
+   ./autogen.sh
+   ./configure --with-json --with-native-compilation
    ```
 
 5. Build
