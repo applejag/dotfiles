@@ -59,7 +59,6 @@ zinit pack'binary+keys' for fzf
 zinit from'gh-r' as'program' for \
     id-as'kubectx' bpick'kubectx*' ahmetb/kubectx \
     id-as'kubens' bpick'kubens*' ahmetb/kubectx \
-    bpick'exa-linux*' cp'exa-linux* -> exa' pick'exa' ogham/exa
 
 # Completions
 zinit for \
