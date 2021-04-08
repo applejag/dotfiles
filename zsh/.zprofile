@@ -70,6 +70,8 @@ alias helm=helm3
 alias cr='crystal run'
 alias cb='crystal build'
 alias '?=todo --flat'
+alias ty='t y all -v'
+alias td='t d all -v'
 
 alias p=podman
 alias pc=podman-compose
