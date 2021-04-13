@@ -109,6 +109,14 @@ let g:mapleader = ','
 hi Normal ctermbg=None
 hi Comment cterm=Italic
 
+" Mouse support
+set mouse=a
+" Copy/Paste (Yank/Paste) via system clipboard
+set clipboard+=unnamedplus
+
+" GUI styling
+set guifont=FuraCode\ Nerd\ Font:h14
+
 " Escape '-- TERMINAL --' mode with ESC
 tnoremap <Esc> <C-\><C-n>
 
