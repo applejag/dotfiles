@@ -38,7 +38,7 @@ config.set('colors.webpage.darkmode.grayscale.images', 0.0)
 config.set('colors.webpage.darkmode.policy.images', 'smart')
 config.set('colors.webpage.darkmode.policy.page', 'smart')
 config.set('colors.webpage.darkmode.threshold.background', 70)
-config.set('colors.webpage.prefers_color_scheme_dark', True)
+config.set('colors.webpage.preferred_color_scheme', 'dark')
 
 # hints
 

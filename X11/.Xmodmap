@@ -1,0 +1,6 @@
+! Change CAPS to act as ESC
+clear Lock
+keysym Caps_Lock = Escape
+
+keysym Prior = Home
+keysym Next = End
