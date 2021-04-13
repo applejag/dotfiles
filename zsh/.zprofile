@@ -70,18 +70,23 @@ alias helm=helm3
 alias cr='crystal run'
 alias cb='crystal build'
 alias '?=todo --flat'
+alias ty='t y all -v'
+alias td='t d all -v'
 
 alias p=podman
 alias pc=podman-compose
 
 if command -v docker &> /dev/null; then
   alias d=docker
-  alias dc=docker-compose
 elif command -v podman &> /dev/null; then
   alias docker=podman
-  alias docker-compose=podman-compose
   alias d=podman
+fi
+if command -v docker-compose &> /dev/null; then
+  alias dc=docker-compose
+elif command -v podman-compose &> /dev/null; then
   alias dc=podman-compose
+  alias docker-compose=podman-compose
 fi
 
 if command -v gocopy.exe &> /dev/null; then

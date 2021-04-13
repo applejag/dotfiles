@@ -7,7 +7,7 @@ CACHE_DATE_FILE="$CACHE_DIR/latest_date.txt"
 fetch_names() {
     echo -e "\e[90m\e[3mFetching namnes from https://www.dagensnamn.nu/\e[0m" >&2
     curl -sL 'http://www.dagensnamn.nu/' \
-	| grep '<div class="today mt-0 mb-2"' \
+	| grep '<div class="today ' \
 	| grep -oP '<h1>\K[^<]+(?=</h1>)'
 }
 

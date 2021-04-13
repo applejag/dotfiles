@@ -99,7 +99,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: FuraCode NF
+    family: FuraCode Nerd Font
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -359,9 +359,9 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: wsl.exe
-#  args:
-#    - --login
+  program: /bin/zsh
+  args:
+    - --login
 
 # Startup directory
 #
@@ -407,7 +407,7 @@ mouse:
     #   - (Linux/BSD) xdg-open
     #   - (Windows) explorer
     launcher:
-      program: C:\Program Files\qutebrowser\qutebrowser.exe
+      program: xdg-open
       args: [ ]
 
     # URL modifiers

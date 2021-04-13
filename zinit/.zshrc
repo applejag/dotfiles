@@ -59,7 +59,6 @@ zinit pack'binary+keys' for fzf
 zinit from'gh-r' as'program' for \
     id-as'kubectx' bpick'kubectx*' ahmetb/kubectx \
     id-as'kubens' bpick'kubens*' ahmetb/kubectx \
-    bpick'exa-linux*' cp'exa-linux* -> exa' pick'exa' ogham/exa
 
 # Completions
 zinit for \
@@ -67,6 +66,7 @@ zinit for \
     as'completion' OMZ::plugins/fd/_fd \
     as'completion' OMZ::plugins/pass/_pass \
     as'completion' cp'completions.zsh -> _exa' https://github.com/ogham/exa/blob/master/completions/completions.zsh \
+    as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     jilleJr/helm-2n3-completions \
     https://github.com/jilleJr/ohmyzsh/blob/feature/gh-plugin/plugins/gh/gh.plugin.zsh \
     OMZ::plugins/kubectl/kubectl.plugin.zsh \
