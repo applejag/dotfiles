@@ -2,7 +2,7 @@
 	insteadOf = https://tfs.dgc.local/
 [url "ssh://git@gitlab.dgc.local/"]
 	insteadOf = https://gitlab.dgc.local/
-[url "ssh://git@github.com/"]
+[url "git@github.com:"]
 	insteadOf = https://github.com/
 [color]
 	ui = true
