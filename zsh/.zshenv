@@ -9,6 +9,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Rust/Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME/.cargo/env"
 
 # GoLang
 export PATH="$PATH:/usr/local/go/bin:${GOHOME:-$HOME/go}/bin"
