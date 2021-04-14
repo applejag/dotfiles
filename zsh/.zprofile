@@ -62,7 +62,6 @@ alias 8='cd -8'
 alias 9='cd -9'
 
 # Commands
-alias ls='exa --color=always --group-directories-first -al --icons'
 alias kns=kubens
 alias kctx=kubectx
 alias start='cmd.exe /c'
@@ -72,6 +71,10 @@ alias cb='crystal build'
 alias '?=todo --flat'
 alias ty='t y all -v'
 alias td='t d all -v'
+
+if command -v exa &> /dev/null; then
+  alias ls='exa --color=always --group-directories-first -al --icons'
+fi
 
 alias p=podman
 alias pc=podman-compose
