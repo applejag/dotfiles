@@ -20,6 +20,7 @@ sudo ln -vfs `pwd`/wsl/wsl.conf /etc/wsl.conf
 
 mkdir -pv ~/.config/nvim
 ln -vfs `pwd`/nvim/init.vim ~/.config/nvim/init.vim
+ln -vfs `pwd`/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 
 mkdir -pv ~/.config/bat
 ln -vfs `pwd`/bat/config ~/.config/bat/config

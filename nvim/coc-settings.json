@@ -1,0 +1,8 @@
+{
+	"yaml.schemas": {
+		//"https://iver-wharf.github.io/_static/wharf-ci-schema.json": [
+		"/home/kalle/dev/wharf/iver-wharf.github.io/docs/_static/wharf-ci-schema.json": [
+			".wharf-ci.yml"
+		]
+	}
+}
