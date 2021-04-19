@@ -3,4 +3,5 @@
 --map-syntax '*.{cs,fs,vb}proj:XML'
 --map-syntax '[dD]irectory.[bB]uild.[pP]rops:XML'
 --map-syntax '[nN]u[gG]et.[cC]onfig:XML'
+--map-syntax '**/.kube/config:YAML'
 
