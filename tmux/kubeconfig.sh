@@ -10,7 +10,7 @@ if ! command -v jq &> /dev/null; then
     exit 0
 fi
 
-VALUES="$(yq -r '. as $config
+VALUES="$(yq eval '. as $config
     | $config["current-context"] as $context
     | [
 	$context,
