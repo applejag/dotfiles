@@ -9,18 +9,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-crystal/vim-crystal'
 Plug 'vim-syntastic/syntastic'
 
-" f#
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
-Plug 'ionide/Ionide-vim', {
-      \ 'do':  'make fsautocomplete',
-      \}
-
-Plug 'Shougo/echodoc.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " For async completion
+" Coc.vim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -43,42 +33,30 @@ endif
 
 call plug#end()
 
-" Shougo/echodoc.vim
-set cmdheight=2
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'signature'
+"" CoC
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"" CoC end
 
-" Shougo/deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" LanguageClient-neovim
-let g:LanguageClient_serverCommands = {
-  \ 'fsharp': g:fsharp#languageserver_command
-  \ }
-
-function SetLSPShortcuts()
-  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-
-  nnoremap <leader><Space> :call LanguageClient#textDocument_completion()<CR>
-endfunction()
-
-augroup LSP
-  autocmd!
-  autocmd FileType fsharp call SetLSPShortcuts()
-augroup END
-
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" Allow comments in JSON files
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " yggdroot/indentline
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
