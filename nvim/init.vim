@@ -12,6 +12,9 @@ Plug 'vim-syntastic/syntastic'
 " Coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" ALE
+Plug 'dense-analysis/ale'
+
 " Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
 
@@ -32,6 +35,8 @@ if !empty(glob('~/.config/nvim/local.vim'))
 endif
 
 call plug#end()
+let mapleader = ','
+let g:mapleader = ','
 
 "" CoC
 " Use <c-space> to trigger completion.
@@ -54,6 +59,17 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "" CoC end
+
+" ALE
+let g:ale_disable_lsp = 1
+
+" Always show the signcolumn, even if there are no errors/messages
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Allow comments in JSON files
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -82,8 +98,6 @@ set cursorline
 set colorcolumn=80
 set showtabline=2
 colorscheme dracula
-let mapleader = ','
-let g:mapleader = ','
 hi Normal ctermbg=None
 hi Comment cterm=Italic
 

@@ -4,5 +4,6 @@
 		"/home/kalle/dev/wharf/iver-wharf.github.io/docs/_static/wharf-ci-schema.json": [
 			".wharf-ci.yml"
 		]
-	}
+	},
+	"diagnostic.displayByAle": true
 }
