@@ -72,6 +72,10 @@ alias '?=todo --flat'
 alias ty='t y all -v'
 alias td='t d all -v'
 
+# Resetting weird Forgit aliases
+export forgit_checkout_commit=gcoc
+alias gco='git checkout'
+
 if command -v exa &> /dev/null; then
   alias ls='exa --color=always --group-directories-first -al --icons'
 fi
