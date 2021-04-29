@@ -1,9 +1,5 @@
 " ~/.config/nvim/init.vim
 
-" Syntax highlighting
-Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'towolf/vim-helm'
-
 " Utility
 Plug 'ervandew/supertab'
 

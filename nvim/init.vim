@@ -30,6 +30,9 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'yggdroot/indentline'
 
+" Syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
 if !empty(glob('~/.config/nvim/local.vim'))
   source $HOME/.config/nvim/local.vim
 endif
