@@ -68,7 +68,6 @@ zinit for \
     as'completion' cp'completions.zsh -> _exa' https://github.com/ogham/exa/blob/master/completions/completions.zsh \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     jilleJr/helm-2n3-completions \
-    https://github.com/jilleJr/ohmyzsh/blob/feature/gh-plugin/plugins/gh/gh.plugin.zsh \
     OMZ::plugins/kubectl/kubectl.plugin.zsh \
     OMZ::plugins/dotnet/dotnet.plugin.zsh
 
