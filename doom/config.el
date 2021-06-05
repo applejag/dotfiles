@@ -61,6 +61,9 @@
 (setq lsp-clients-emmy-lua-java-path "/usr/bin/java")
 (setq lsp-clients-emmy-lua-jar-path (expand-file-name "EmmyLua-LS-all.jar" user-emacs-directory))
 
+;; omnisharp fix
+(setq omnisharp-server-executable-path "~/.doom.d/start-omnisharp.sh")
+
 ;; Workaround for gofmt-on-save bug
 ;; https://github.com/hlissner/doom-emacs/issues/4201#issuecomment-735222478
 (after! go-mode
