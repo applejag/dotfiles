@@ -40,6 +40,7 @@ endif
 call plug#end()
 let mapleader = ','
 let g:mapleader = ','
+let g:vim_markdown_conceal=0
 
 "" CoC
 " Use <c-space> to trigger completion.
