@@ -9,13 +9,15 @@ config.set('url.start_pages', 'https://www.dagensnamn.nu/')
 # search engines
 
 config.set('url.searchengines', {
-    "DEFAULT": "http://localhost:8090/yacysearch.html?query={}+%2Flanguage%2Fen",
+    "DEFAULT": "https://search.brave.com/search?q={}",
+    "b": "https://search.brave.com/search?q={}",
     "x": "https://searx.prvcy.eu/search?q={}&categories=general&language=en-US",
     "ddg": "https://duckduckgo.com/?q={}",
     "g": "https://google.com/search?q={}",
     "y": "https://www.youtube.com/results?search_query={}",
     "yacy": "http://localhost:8090/yacysearch.html?query={}+%2Flanguage%2Fen",
     "def": "https://www.merriam-webster.com/dictionary/{}",
+    "go": "https://pkg.go.dev/search?q={}",
 })
 
 # themes

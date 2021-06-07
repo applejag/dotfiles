@@ -12,7 +12,8 @@ config.set('url.start_pages', 'https://iverab.sharepoint.com/')
 
 config.set('url.searchengines', {
     #"DEFAULT": "http://localhost:8090/yacysearch.html?query={}+%2Flanguage%2Fen",
-    "DEFAULT": "https://duckduckgo.com/?q={}",
+    "DEFAULT": "https://search.brave.com/search?q={}",
+    "b": "https://search.brave.com/search?q={}",
     "x": "https://searx.prvcy.eu/search?q={}&categories=general&language=en-US",
     "c": "https://cure.dgc.local/#/nav/requests/?q={}",
     "cr": "https://cure.dgc.local/#/{}",
@@ -25,4 +26,5 @@ config.set('url.searchengines', {
     "y": "https://www.youtube.com/results?search_query={}",
     "yacy": "http://localhost:8090/yacysearch.html?query={}+%2Flanguage%2Fen",
     "def": "https://www.merriam-webster.com/dictionary/{}",
+    "go": "https://pkg.go.dev/search?q={}",
 })
