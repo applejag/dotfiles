@@ -51,7 +51,7 @@ ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
 ln -vfs `pwd`/zsh/iver.zprofile ~/.zprofile
 ln -vfs `pwd`/nvim/iver_init.vim ~/.config/nvim/local.vim
 
-ln -vfs `pwd`/git/.gitconfig ~/iver.gitconfig
+ln -vfs `pwd`/git/iver.gitconfig ~/.gitconfig
 ```
 
 ## Make links to dotfiles, Windows
