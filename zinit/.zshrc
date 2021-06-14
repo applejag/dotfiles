@@ -65,7 +65,7 @@ zinit for \
     as'completion' OMZ::plugins/docker/_docker \
     as'completion' OMZ::plugins/fd/_fd \
     as'completion' OMZ::plugins/pass/_pass \
-    as'completion' cp'completions.zsh -> _exa' https://github.com/ogham/exa/blob/master/completions/completions.zsh \
+    as'completion' https://github.com/ogham/exa/blob/master/completions/zsh/_exa \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     jilleJr/helm-2n3-completions \
     OMZ::plugins/kubectl/kubectl.plugin.zsh \
