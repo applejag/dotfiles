@@ -63,3 +63,6 @@ fi # added by Nix installer
 # fontpreview-ueberzug customization
 FONTPREVIEW_BG_COLOR='#282A36'
 FONTPREVIEW_FG_COLOR='#FFFFFF'
+
+# Docker via rootless podman
+export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock

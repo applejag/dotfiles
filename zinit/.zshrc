@@ -67,6 +67,7 @@ zinit for \
     as'completion' OMZ::plugins/pass/_pass \
     as'completion' https://github.com/ogham/exa/blob/master/completions/zsh/_exa \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
+    as'completion' https://github.com/containers/podman/blob/master/completions/zsh/_podman \
     jilleJr/helm-2n3-completions \
     OMZ::plugins/kubectl/kubectl.plugin.zsh \
     OMZ::plugins/dotnet/dotnet.plugin.zsh
@@ -112,6 +113,6 @@ if command -v todo &> /dev/null; then
   fi
 fi
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
