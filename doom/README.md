@@ -12,43 +12,41 @@
        libjansson-dev libgccjit-10-dev
    ```
 
-2. Find version you want from <https://ftp.gnu.org/gnu/emacs/>
-
-3. Download and unpack
+2. Download and unpack
 
    ```sh
    cd ~
-   git clone git://git.savannah.gnu.org/emacs.git -b feature/native-comp
+   git clone git://git.savannah.gnu.org/emacs.git
    cd emacs
    ```
 
-4. Configure with native JSON and GCC JIT support
+3. Configure with native JSON and GCC JIT support
 
    ```sh
    ./autogen.sh
    ./configure --with-json --with-native-compilation
    ```
 
-5. Build
+4. Build
 
    ```sh
    make
    ```
 
-6. Install Emacs
+5. Install Emacs
 
    ```sh
    sudo make install
    ```
 
-7. Install Doom
+6. Install Doom
 
    ```sh
    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
    ~/.emacs.d/bin/doom install
    ```
 
-8. Setup configs
+7. Setup configs
 
    ```sh
    cd ~/dotfiles
@@ -56,13 +54,13 @@
    ln -vfs `pwd`/doom ~/.doom.d
    ```
 
-9. Sync configs
+8. Sync configs
 
    ```sh
    ~/.emacs.d/bin/doom sync
    ```
 
-10. Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
+9. Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
    reading.
 
 ## go-mode
