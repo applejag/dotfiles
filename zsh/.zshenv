@@ -59,3 +59,7 @@ DISABLE_LS_COLORS=true
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi # added by Nix installer
+
+# fontpreview-ueberzug customization
+FONTPREVIEW_BG_COLOR='#282A36'
+FONTPREVIEW_FG_COLOR='#FFFFFF'
