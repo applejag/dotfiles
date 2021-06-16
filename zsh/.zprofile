@@ -69,6 +69,7 @@ alias helm=helm3
 alias '?=todo --flat'
 alias ty='t y all -v'
 alias td='t d all -v'
+alias tt='t t all -v'
 
 # Resetting weird Forgit aliases
 export forgit_checkout_commit=gcoc
