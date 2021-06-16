@@ -44,14 +44,21 @@ ln -vfs `pwd`/scripts ~/dev/scripts
 mv -f ~/.doom.d ~/.doom.d.old
 ln -vfs `pwd`/doom ~/.doom.d
 
+mkdir -pv ~/.config/qutebrowser
+ln -vfs `pwd`/qutebrowser/config.py ~/.config/qutebrowser/base_config.py
+
 # Zifro laptop
 ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
+
+ln -vfs `pwd`/qutebrowser/zifro_config.py ~/.config/qutebrowser/config.py
 
 # Iver laptop
 ln -vfs `pwd`/zsh/iver.zprofile ~/.zprofile
 ln -vfs `pwd`/nvim/iver_init.vim ~/.config/nvim/local.vim
 
 ln -vfs `pwd`/git/iver.gitconfig ~/.gitconfig
+
+ln -vfs `pwd`/qutebrowser/iver_config.py ~/.config/qutebrowser/config.py
 ```
 
 ## Make links to dotfiles, Windows
