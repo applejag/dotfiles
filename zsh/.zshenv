@@ -66,3 +66,6 @@ FONTPREVIEW_FG_COLOR='#FFFFFF'
 
 # Docker via rootless podman
 export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+
+# Kubeconfig
+export KUBECONFIG=$HOME/.kube/config
