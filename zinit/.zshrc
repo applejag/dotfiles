@@ -41,16 +41,16 @@ zinit light-mode for \
 zinit svn multisrc'*.zsh' blockf is-snippet for OMZ::lib
 
 # Snippets
-zinit wait lucid is-snippet for \
-    OMZ::plugins/git/git.plugin.zsh \
-    OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh \
-    OMZ::plugins/command-not-found/command-not-found.plugin.zsh
+zinit is-snippet for \
+    OMZP::git \
+    OMZP::colored-man-pages \
+    OMZP::command-not-found
 
 zinit is-snippet for \
-    OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+    OMZP::vi-mode
 
 # Programs
-zinit wait lucid for \
+zinit for \
     as'program' pick'diff-so-fancy' so-fancy/diff-so-fancy \
     depth=1 wfxr/forgit
 
@@ -62,17 +62,26 @@ zinit from'gh-r' as'program' for \
 
 # Completions
 zinit for \
-    as'completion' OMZ::plugins/docker/_docker \
-    as'completion' OMZ::plugins/fd/_fd \
-    as'completion' OMZ::plugins/pass/_pass \
+    as'completion' OMZP::docker/_docker \
+    as'completion' OMZP::fd/_fd \
+    as'completion' OMZP::pass/_pass \
     as'completion' https://github.com/ogham/exa/blob/master/completions/zsh/_exa \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     as'completion' https://github.com/containers/podman/blob/master/completions/zsh/_podman \
     jilleJr/helm-2n3-completions \
-    OMZ::plugins/kubectl/kubectl.plugin.zsh \
-    OMZ::plugins/dotnet/dotnet.plugin.zsh
+    OMZP::kubectl \
+    OMZP::dotnet
 
-zinit wait lucid svn as'completion' light-mode \
+zinit for \
+    has'kubectl' \
+    id-as'kubectl_completion' \
+    as'completion' \
+    atclone'kubectl completion zsh > _kubectl' \
+    atpull'%atclone' \
+    run-atpull \
+    zdharma/null
+
+zinit svn as'completion' light-mode \
     atpull"zinit creinstall -q ." \
     atclone'mv kubectx.zsh _kubectx' \
     atclone'mv kubens.zsh _kubens' \
@@ -90,17 +99,16 @@ zinit depth=1 light-mode for romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-zinit as'null' \
-    atinit'zicompinit; zicdreplay' \
-    id-as'zicompinit-zicdreplay' \
-    for zdharma/null
-
 # Recommended to be loaded last
 zinit lucid blockf atpull'zinit creinstall -q' light-mode for \
     zsh-users/zsh-completions
 
-if [ -x ~/dev/scripts/namnsdag.sh ]; then
-  ~/dev/scripts/namnsdag.sh
+autoload -Uz compinit
+compinit
+zinit cdreplay -q
+
+if [ -x ~/dotfiles/scripts/namnsdag.sh ]; then
+  ~/dotfiles/scripts/namnsdag.sh
 fi
 
 if command -v todo &> /dev/null; then
