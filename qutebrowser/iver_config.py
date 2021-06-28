@@ -12,8 +12,8 @@ config.set('url.start_pages', 'https://iverab.sharepoint.com/')
 
 config.set('url.searchengines', {
     #"DEFAULT": "http://localhost:8090/yacysearch.html?query={}+%2Flanguage%2Fen",
-    "DEFAULT": "https://duckduckgo.com/?q={}",
-    #"DEFAULT": "https://search.brave.com/search?q={}",
+    #"DEFAULT": "https://duckduckgo.com/?q={}",
+    "DEFAULT": "https://search.brave.com/search?q={}",
     "b": "https://search.brave.com/search?q={}",
     "x": "https://searx.prvcy.eu/search?q={}&categories=general&language=en-US",
     "c": "https://cure.dgc.local/#/nav/requests/?q={}",
