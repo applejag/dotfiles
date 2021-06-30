@@ -40,3 +40,5 @@
 	graph = log --oneline --graph --decorate --all
 [pull]
 	rebase = false
+[init]
+	defaultBranch = master

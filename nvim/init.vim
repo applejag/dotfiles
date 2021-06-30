@@ -1,13 +1,9 @@
 " ~/.config/nvim/base.vim
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
+"filetype off                  " required
 
 call plug#begin('~/.vim/plugged')
-
-" crystal-lang
-Plug 'vim-crystal/vim-crystal'
-Plug 'vim-syntastic/syntastic'
 
 " Coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -25,7 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-pathogen'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sleuth'
+"Plug 'tpope/vim-sleuth' " Included in sheerun/vim-polyglot
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'yggdroot/indentline'
@@ -35,9 +31,10 @@ Plug 'sheerun/vim-polyglot'
 
 if !empty(glob('~/.config/nvim/local.vim'))
   source $HOME/.config/nvim/local.vim
+else
+  call plug#end()
 endif
 
-call plug#end()
 let mapleader = ','
 let g:mapleader = ','
 let g:vim_markdown_conceal=0
