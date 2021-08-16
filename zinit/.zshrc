@@ -67,7 +67,7 @@ zinit for \
     as'completion' OMZP::pass/_pass \
     as'completion' https://github.com/ogham/exa/blob/master/completions/zsh/_exa \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
-    as'completion' https://github.com/containers/podman/blob/master/completions/zsh/_podman \
+    as'completion' https://github.com/containers/podman/blob/main/completions/zsh/_podman \
     OMZP::kubectl \
     OMZP::dotnet
 
