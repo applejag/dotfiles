@@ -51,6 +51,10 @@ mkdir -pv $QUTEBROWSER_CONF
 ln -vfs `pwd`/qutebrowser/config.py $QUTEBROWSER_CONF/base_config.py # default
 cp -v `pwd`/qutebrowser/config.py $QUTEBROWSER_CONF/base_config.py # flatpak
 
+mkdir -pv ~/.local/share/timetrap
+ln -vfs `pwd`/timetrap/.timetrap.yml ~/.timetrap.yml
+git clone git://github.com/samg/timetrap_formatters ~/.local/share/timetrap/timetrap_formatters
+
 # Zifro laptop
 ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
 
