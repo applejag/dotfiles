@@ -79,5 +79,7 @@
 (setq-default display-fill-column-indicator-column 80)
 (global-display-fill-column-indicator-mode 1)
 
+(set-frame-parameter nil 'undecorated t)
+
 ;; If I only want it for markdown-mode
 ;; (add-hook 'markdown-mode-hook 'display-fill-column-indicator-mode)
