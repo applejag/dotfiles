@@ -69,3 +69,4 @@ export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 
 # Kubeconfig
 export KUBECONFIG=$HOME/.kube/config
+if [ -e /home/kalle/.nix-profile/etc/profile.d/nix.sh ]; then . /home/kalle/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

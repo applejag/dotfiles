@@ -65,7 +65,9 @@ alias 9='cd -9'
 alias kns=kubens
 alias kctx=kubectx
 alias start='cmd.exe /c'
-alias helm=helm3
+if command -v helm3 &> /dev/null; then
+  alias helm=helm3
+fi
 alias '?=todo --flat'
 alias ty='t y all -v'
 alias td='t d all -v'

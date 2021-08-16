@@ -68,18 +68,25 @@ zinit for \
     as'completion' https://github.com/ogham/exa/blob/master/completions/zsh/_exa \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     as'completion' https://github.com/containers/podman/blob/master/completions/zsh/_podman \
-    jilleJr/helm-2n3-completions \
     OMZP::kubectl \
     OMZP::dotnet
 
-zinit for \
-    has'kubectl' \
-    id-as'kubectl_completion' \
-    as'completion' \
-    atclone'kubectl completion zsh > _kubectl' \
-    atpull'%atclone' \
-    run-atpull \
-    zdharma/null
+cmd_completions() {
+    local name="$1"
+    local cmd="$@"
+
+    zinit for \
+        has"${name}" \
+        id-as"${name}_completion" \
+        as'completion' \
+        atclone"${cmd} > _${name}" \
+        atpull'%atclone' \
+        run-atpull \
+        zdharma/null
+}
+
+cmd_completions kubectl completion zsh
+cmd_completions helm completion zsh
 
 zinit svn as'completion' light-mode \
     atpull"zinit creinstall -q ." \
