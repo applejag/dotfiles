@@ -42,7 +42,7 @@ zinit svn multisrc'*.zsh' blockf is-snippet for OMZ::lib
 
 # Snippets
 zinit is-snippet for \
-    OMZP::git \
+    has'git' OMZP::git \
     OMZP::colored-man-pages \
     OMZP::command-not-found
 
@@ -51,8 +51,8 @@ zinit is-snippet for \
 
 # Programs
 zinit for \
-    as'program' pick'diff-so-fancy' so-fancy/diff-so-fancy \
-    depth=1 wfxr/forgit
+    has'git' as'program' pick'diff-so-fancy' so-fancy/diff-so-fancy \
+    has'git' depth=1 wfxr/forgit
 
 zinit pack'binary+keys' for fzf
 
@@ -69,7 +69,10 @@ zinit for \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     as'completion' https://github.com/containers/podman/blob/main/completions/zsh/_podman \
     OMZP::kubectl \
-    OMZP::dotnet
+    'has' OMZP::dotnet \
+    has'npm' OMZP::npm \
+    has'npx' OMZP::npx \
+    has'node' OMZP::node
 
 cmd_completions() {
     local name="$1"
