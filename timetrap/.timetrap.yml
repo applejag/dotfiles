@@ -5,7 +5,7 @@ append_notes_delimiter: " "
 formatter_search_paths:
 - /home/kalle/.local/share/timetrap/timetrap_formatters/formatters
 default_formatter: fraction
-auto_sheet: default
+auto_sheet: dotfiles
 auto_sheet_search_paths:
 - "/home/kalle/.local/share/timetrap/auto_sheets"
 default_command: 
