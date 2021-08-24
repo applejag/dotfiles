@@ -69,13 +69,14 @@
 
 ```sh
 # The -u flag makes it a "get or update"
-go get -u golang.org/x/tools/gopls # Language server
-go get -u github.com/nsf/gocode # Autocompletion daemon
-go get -u github.com/fatih/gomodifytags # Modify struct field tags
-go get -u github.com/cweill/gotests/gotests # Test generation
-go get -u github.com/motemen/gore/cmd/gore # REPL
-go get -u golang.org/x/tools/cmd/guru # Definitions/references navigation + refactoring
-go get -u golang.org/x/tools/cmd/goimports # Formatting imports
+go install golang.org/x/tools/gopls@latest # Language server
+go install github.com/nsf/gocode@latest # Autocompletion daemon
+go install github.com/mdempsky/gocode@latest   # for code completion
+go install github.com/fatih/gomodifytags@latest # Modify struct field tags
+go install github.com/cweill/gotests/gotests@latest # Test generation
+go install github.com/x-motemen/gore/cmd/gore@latest # REPL
+go install golang.org/x/tools/cmd/guru@latest # Definitions/references navigation + refactoring
+go install golang.org/x/tools/cmd/goimports@latest # Formatting imports
 
 # golangci-lint is not installed from source as they find it unreliable
 # More info: https://golangci-lint.run/usage/install/#install-from-source
