@@ -71,7 +71,6 @@ zinit for \
     OMZP::kubectl \
     'has' OMZP::dotnet \
     has'npm' OMZP::npm \
-    has'npx' OMZP::npx \
     has'node' OMZP::node
 
 cmd_completions() {
