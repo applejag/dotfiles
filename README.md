@@ -32,6 +32,8 @@ ln -vfs `pwd`/tmux/todo.sh ~/.tmux/todo.sh
 ln -vfs `pwd`/tmux/kubeconfig.sh ~/.tmux/kubeconfig.sh
 sudo ln -vfs `pwd`/tmux/tmux-first-unattached-session /usr/local/bin/,tmux-first-unattached-session
 
+mkdir -pv ~/.config/awesome
+ln -vfs `pwd`/awesomewm/autorun.sh ~/.config/awesome/autorun.sh
 ln -vfs `pwd`/awesomewm/rc.lua ~/.config/awesome/rc.lua
 
 ln -vfs `pwd`/alacritty/alacritty-zifro.yml ~/.config/alacritty/alacritty.yml
