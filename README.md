@@ -55,6 +55,9 @@ mkdir -pv ~/.local/share/timetrap
 ln -vfs `pwd`/timetrap/.timetrap.yml ~/.timetrap.yml
 git clone git://github.com/samg/timetrap_formatters ~/.local/share/timetrap/timetrap_formatters
 
+mkdir -pv ~/.config/picom
+ln -vfs `pwd`/picom/picom.conf ~/.config/picom/picom.conf
+
 # Zifro laptop
 ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
 
