@@ -73,6 +73,8 @@ alias ty='t y all -v'
 alias td='t d all -v'
 alias tt='t t all -v'
 
+alias musicforprogramming='xdg-open "https://musicforprogramming.net/?$(rng 1 63 -f english | tr -d -)"'
+
 # Resetting weird Forgit aliases
 export forgit_checkout_commit=gcoc
 alias gco='git checkout'
@@ -99,8 +101,10 @@ fi
 
 if command -v gocopy.exe &> /dev/null; then
   alias clip=gocopy.exe
-else
+elif command -v clip.exe &> /dev/null; then
   alias clip=clip.exe
+elif command -v xclip &> /dev/null; then
+  alias clip='xclip -selection clipboard'
 fi
 
 if command -v bat &> /dev/null; then

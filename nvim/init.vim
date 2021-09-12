@@ -26,6 +26,9 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'yggdroot/indentline'
 
+" Spelling
+Plug 'kamykn/spelunker.vim'
+
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 
@@ -75,6 +78,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ALE
 let g:ale_disable_lsp = 1
+let g:ale_writegood_use_global = 1
+let g:ale_writegood_options = '--no-passive'
+let g:ale_alex_use_global = 1
 
 " Always show the signcolumn, even if there are no errors/messages
 if has("patch-8.1.1564")
@@ -110,6 +116,7 @@ set relativenumber
 set cursorline
 set colorcolumn=80
 set showtabline=2
+set conceallevel=0
 colorscheme dracula
 hi Normal ctermbg=None
 hi Comment cterm=Italic
