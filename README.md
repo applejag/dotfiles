@@ -32,6 +32,8 @@ ln -vfs `pwd`/tmux/todo.sh ~/.tmux/todo.sh
 ln -vfs `pwd`/tmux/kubeconfig.sh ~/.tmux/kubeconfig.sh
 sudo ln -vfs `pwd`/tmux/tmux-first-unattached-session /usr/local/bin/,tmux-first-unattached-session
 
+mkdir -pv ~/.config/awesome
+ln -vfs `pwd`/awesomewm/autorun.sh ~/.config/awesome/autorun.sh
 ln -vfs `pwd`/awesomewm/rc.lua ~/.config/awesome/rc.lua
 
 ln -vfs `pwd`/alacritty/alacritty-zifro.yml ~/.config/alacritty/alacritty.yml
@@ -54,6 +56,9 @@ cp -v `pwd`/qutebrowser/config.py $QUTEBROWSER_CONF/base_config.py # flatpak
 mkdir -pv ~/.local/share/timetrap
 ln -vfs `pwd`/timetrap/.timetrap.yml ~/.timetrap.yml
 git clone git://github.com/samg/timetrap_formatters ~/.local/share/timetrap/timetrap_formatters
+
+mkdir -pv ~/.config/picom
+ln -vfs `pwd`/picom/picom.conf ~/.config/picom/picom.conf
 
 # Zifro laptop
 ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile

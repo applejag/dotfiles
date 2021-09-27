@@ -45,6 +45,7 @@ beautiful.init("/usr/share/awesome/themes/cesious/theme.lua")
 beautiful.icon_theme        = "Papirus-Dark"
 beautiful.bg_normal         = "#222D32"
 beautiful.bg_focus          = "#2C3940"
+beautiful.useless_gap       = 4 -- empty margin space around windows
 beautiful.titlebar_close_button_normal = "/usr/share/awesome/themes/cesious/titlebar/close_normal_adapta.png"
 beautiful.titlebar_close_button_focus = "/usr/share/awesome/themes/cesious/titlebar/close_focus_adapta.png"
 beautiful.font              = "Noto Sans Regular 10"
@@ -59,6 +60,8 @@ filemanager = "exo-open --launch FileManager" or "thunar"
 gui_editor = "mousepad"
 --terminal = os.getenv("TERMINAL") or "lxterminal"
 terminal = os.getenv("TERMINAL") or "alacritty"
+
+home = os.getenv("HOME")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -343,8 +346,10 @@ globalkeys = gears.table.join(
               {description = "decrease the number of columns", group = "layout"}),
     awful.key({ modkey     }, "b", function () awful.spawn(browser)          end,
               {description = "launch Browser", group = "launcher"}),
-    awful.key({ modkey, "Control"}, "Escape", function () awful.spawn("/usr/bin/rofi -show drun -modi drun") end,
+    awful.key({ modkey, "Control"}, "Escape", function () awful.spawn(home.."/.config/rofi/bin/launcher_misc") end,
               {description = "launch rofi", group = "launcher"}),
+    --awful.key({ modkey, "Control"}, "Escape", function () awful.spawn("/usr/bin/rofi -show drun -modi drun") end,
+    --          {description = "launch rofi", group = "launcher"}),
     awful.key({ modkey,           }, "e", function () awful.spawn(filemanager)            end,
               {description = "launch filemanager", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                       end,
