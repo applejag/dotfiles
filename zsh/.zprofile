@@ -73,7 +73,11 @@ alias ty='t y all -v'
 alias td='t d all -v'
 alias tt='t t all -v'
 
-alias musicforprogramming='xdg-open "https://musicforprogramming.net/?$(rng 1 63 -f english | tr -d -)"'
+if command -v brave-browser &> /dev/null; then
+  alias musicforprogramming='brave-browser "ipns://mfp.jillejr.tech/?$(rng 1 63 -f english | tr -d -)" &> /dev/null &'
+else
+  alias musicforprogramming='xdg-open "https://musicforprogramming.net/?$(rng 1 63 -f english | tr -d -)"'
+fi
 
 # Resetting weird Forgit aliases
 export forgit_checkout_commit=gcoc
@@ -117,7 +121,7 @@ if command -v bat &> /dev/null; then
 
   alias '?#'=_todo_task_pretty
 
-  funciton _todo_done_pretty() {
+  function _todo_done_pretty() {
     todo done "$@"
     todo task "$1" | bat --language md --theme DarkNeon --decorations never
   }
