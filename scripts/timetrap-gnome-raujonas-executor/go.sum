@@ -1,3 +1,5 @@
+github.com/jilleJr/go-timetrap v0.0.0-20210929120457-5dce201b3956 h1:gtIGckgSPE0WgeabdpSlEVsoF37pI+VhHQmwyroc1oc=
+github.com/jilleJr/go-timetrap v0.0.0-20210929120457-5dce201b3956/go.mod h1:uY/ILq+oMRpFK77RB4X2leFcIvux8BL0OHNDKJsJcnY=
 github.com/jinzhu/inflection v1.0.0 h1:K317FqzuhWc8YvSVlFMCCUb36O/S9MCKRDI7QkRKD/E=
 github.com/jinzhu/inflection v1.0.0/go.mod h1:h+uFLlag+Qp1Va5pdKtLDYj+kHp5pxUVkryuEj+Srlc=
 github.com/jinzhu/now v1.1.2 h1:eVKgfIdy9b6zbWBMgFpfDPoAMifwSZagU9HmEU6zgiI=
