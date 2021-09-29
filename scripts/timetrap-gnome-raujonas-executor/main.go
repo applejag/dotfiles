@@ -1,59 +1,93 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"os"
 	"os/exec"
+	"strconv"
 	"strings"
-	"regexp"
+	"time"
+
+	"github.com/jilleJr/go-timetrap/pkg/timetrap"
 )
 
-var timeRegex = regexp.MustCompile("(?:(?:[0-9]+:)+[0-9]+)")
-var percentageRegex = regexp.MustCompile("(?:[0-9]+)%")
-
 func main() {
-	dayOutput, err := execCmd("timetrap", "display", "all", "--format", "day")
+	config, err := timetrap.NewConfigLocal()
+	if err != nil {
+		printErr(err)
+		os.Exit(1)
+	}
+	if config.DatabaseFile == "" {
+		printErr(fmt.Errorf("err: no database file specified in config: %s", timetrap.DefaultConfigPath))
+		os.Exit(1)
+	}
+
+	db, err := timetrap.NewDB(config.DatabaseFile)
 	if err != nil {
 		printErr(err)
 		os.Exit(1)
 	}
 
-	nowOutput, err := execCmd("timetrap", "now")
+	currentSheet, err := db.GetCurrentSheet()
 	if err != nil {
 		printErr(err)
 		os.Exit(1)
 	}
 
-	nowColor := "gray"
-	nowString := nowOutput.stderr
-	if nowOutput.stdout != "" {
-		nowColor = "lime"
-		nowString = nowOutput.stdout
-	}
-	nowString = strings.TrimSpace(nowString)
-
-	dayBytes := []byte(dayOutput.stderr)
-	if dayOutput.stdout != "" {
-		dayBytes = []byte(dayOutput.stdout)
+	active, err := db.GetActiveEntry()
+	hasActive := true
+	if errors.Is(err, timetrap.ErrNotFound) {
+		hasActive = false
+	} else if err != nil {
+		printErr(err)
+		os.Exit(1)
 	}
 
-	timeString := string(timeRegex.Find(dayBytes))
-	percentageString := string(percentageRegex.Find(dayBytes))
+	now := time.Now()
+	today := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
+	entries, err := db.GetEntriesTimeRange(today, today.Add(24*time.Hour))
+
+	var sumTimes time.Duration
+	for _, entry := range entries {
+		sumTimes += entry.Duration()
+	}
+	
+	dayLength := time.Hour * time.Duration(config.DayLengthHours)
+	dayPercentage := int64(100*sumTimes/dayLength)
 
 	var sb strings.Builder
 	sb.WriteString("<executor.markup.true>")
 	sb.WriteString(" <span foreground='")
-	sb.WriteString(nowColor)
+	if hasActive {
+		sb.WriteString("lime")
+	} else {
+		sb.WriteString("gray")
+	}
 	sb.WriteString("'>")
-	sb.WriteString(nowString)
+	if hasActive {
+		sb.WriteRune('*')
+		sb.WriteString(currentSheet)
+		sb.WriteString(": ")
+		if active.Note != nil {
+			sb.WriteString(*active.Note)
+		} else {
+			sb.WriteString("<null>")
+		}
+	} else {
+		sb.WriteRune('*')
+		sb.WriteString(currentSheet)
+		sb.WriteString(": not running")
+	}
 	sb.WriteString("</span>")
 
 	sb.WriteString(" | <span>")
-	sb.WriteString(timeString)
+	sb.WriteString(FormatDuration(sumTimes))
 	sb.WriteString("</span>")
 	sb.WriteString(" | <span>")
-	sb.WriteString(percentageString)
+	sb.WriteString(strconv.FormatInt(dayPercentage, 10))
+	sb.WriteRune('%')
 	sb.WriteString("</span>")
 
 	fmt.Print(sb.String())
@@ -106,4 +140,29 @@ func execCmd(name string, args ...string) (cmdResult, error) {
 		stdout: string(stdout),
 		stderr: string(stderr),
 	}, nil
+}
+
+func FormatDuration(d time.Duration) string {
+	totalSeconds := int64(d / time.Second)
+	var b []byte
+
+	b = strconv.AppendInt(b, totalSeconds/3600, 10)
+
+	b = append(b, ':')
+
+	minutes := totalSeconds / 60 % 60
+	if minutes < 10 {
+		b = append(b, '0')
+	}
+	b = strconv.AppendInt(b, minutes, 10)
+
+	b = append(b, ':')
+
+	seconds := totalSeconds % 60
+	if seconds < 10 {
+		b = append(b, '0')
+	}
+	b = strconv.AppendInt(b, seconds, 10)
+
+	return string(b)
 }
