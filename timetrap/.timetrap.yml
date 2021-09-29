@@ -13,3 +13,4 @@ auto_checkout: true
 require_note: false
 note_editor: false
 week_start: Monday
+day_length_hours: 8
