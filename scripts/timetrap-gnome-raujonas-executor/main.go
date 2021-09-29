@@ -70,10 +70,11 @@ func main() {
 		sb.WriteRune('*')
 		sb.WriteString(currentSheet)
 		sb.WriteString(": ")
+		sb.WriteString(FormatDuration(active.Duration()))
 		if active.Note != nil {
+			sb.WriteString(" (")
 			sb.WriteString(*active.Note)
-		} else {
-			sb.WriteString("<null>")
+			sb.WriteRune(')')
 		}
 	} else {
 		sb.WriteRune('*')
