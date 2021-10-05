@@ -69,7 +69,8 @@ zinit for \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     as'completion' https://github.com/containers/podman/blob/main/completions/zsh/_podman \
     OMZP::kubectl \
-    'has' OMZP::dotnet \
+    has'dotnet' OMZP::dotnet \
+    has'ipfs' OMZP::ipfs/_ipfs \
     has'npm' OMZP::npm \
     has'node' OMZP::node
 
