@@ -48,6 +48,13 @@ alias -g '%ojson=-o json | jq'
 alias -g '%oj=-o json | jq'
 alias -g '%jwt= | jwt decode - | bat --language json'
 
+alias -g '%b64d= | base64 -d'
+alias -g '%b64= | base64'
+alias -g '%b64dx509= | base64 -d | openssl x509 -noout -text'
+alias -g '%x509= | openssl x509 -noout -text'
+alias -g "%ocacrt=-o json | jq '.data[\"ca.crt\"]' -r | base64 -d | openssl x509 -noout -text"
+alias -g "%otlscrt=-o json | jq '.data[\"tls.crt\"]' -r | base64 -d | openssl x509 -noout -text"
+
 # Easy history navigation
 setopt autopushd
 alias 0='dirs -v | head -10'
