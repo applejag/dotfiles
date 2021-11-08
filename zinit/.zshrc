@@ -62,17 +62,16 @@ zinit from'gh-r' as'program' for \
 
 # Completions
 zinit for \
-    as'completion' OMZP::docker/_docker \
-    as'completion' OMZP::fd/_fd \
+    has'docker' as'completion' OMZP::docker/_docker \
+    has'fd' as'completion' OMZP::fd/_fd \
     as'completion' OMZP::pass/_pass \
+    has'ipfs' as'completion' OMZP::ipfs/_ipfs \
     as'completion' https://github.com/ogham/exa/blob/master/completions/zsh/_exa \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     as'completion' https://github.com/containers/podman/blob/main/completions/zsh/_podman \
     OMZP::kubectl \
     has'dotnet' OMZP::dotnet \
-    has'ipfs' OMZP::ipfs/_ipfs \
-    has'npm' OMZP::npm \
-    has'node' OMZP::node
+    has'npm' OMZP::npm
 
 cmd_completions() {
     local name="$1"
