@@ -71,7 +71,8 @@ zinit for \
     as'completion' https://github.com/containers/podman/blob/main/completions/zsh/_podman \
     OMZP::kubectl \
     has'dotnet' OMZP::dotnet \
-    has'npm' OMZP::npm
+    has'npm' OMZP::npm \
+    has'node' OMZP::node
 
 cmd_completions() {
     local name="$1"
