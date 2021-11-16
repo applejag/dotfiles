@@ -23,8 +23,8 @@
 	autocrlf = false
 	eol = lf
 [user]
-	name = Kalle Jillheden
-	email = kalle.jillheden@iver.se
+	name = Kalle Fagerberg
+	email = kalle.fagerberg@iver.se
 	signingKey = A127A9772AFF497D
 [commit]
 	gpgSign = true
