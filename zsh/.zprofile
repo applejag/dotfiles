@@ -79,6 +79,7 @@ alias '?=todo --flat'
 alias ty='t y all -v'
 alias td='t d all -v'
 alias tt='t t all -v'
+alias e='emacsclient -c -a "emacs"'
 
 if command -v brave-browser &> /dev/null; then
   alias musicforprogramming='brave-browser "ipns://mfp.jillejr.tech/?$(rng 1 63 -f english | tr -d -)" &> /dev/null &'
