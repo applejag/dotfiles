@@ -25,7 +25,7 @@
 [user]
 	name = Kalle Fagerberg
 	email = kalle.fagerberg@iver.se
-	signingKey = A127A9772AFF497D
+	signingKey = E645AA1B2CAD9F53
 [commit]
 	gpgSign = true
 [tag]
