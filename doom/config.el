@@ -83,3 +83,16 @@
 
 ;; If I only want it for markdown-mode
 ;; (add-hook 'markdown-mode-hook 'display-fill-column-indicator-mode)
+
+;; Whitespace display
+;(setq whitespace-style (default-value 'whitespace-style))
+(setq whitespace-style '(face tabs tab-mark spaces trailing lines-tail space-before-tab space-after-tab))
+;(setq whitespace-display-mappings (default-value 'whitespace-display-mappings))
+(setq-default
+  whitespace-display-mappings 
+ '((tab-mark ?\t [?› ?\t])
+   (newline-mark 10 [?¬ 10])
+   (space-mark 32 [183] [46])))
+
+(setq whitespace-global-modes t)
+(global-whitespace-mode)
