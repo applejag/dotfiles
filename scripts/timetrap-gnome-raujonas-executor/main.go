@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"html"
 	"io"
 	"os"
 	"os/exec"
@@ -53,9 +54,9 @@ func main() {
 	for _, entry := range entries {
 		sumTimes += entry.Duration()
 	}
-	
+
 	dayLength := time.Hour * time.Duration(config.DayLengthHours)
-	dayPercentage := int64(100*sumTimes/dayLength)
+	dayPercentage := int64(100 * sumTimes / dayLength)
 
 	var sb strings.Builder
 	sb.WriteString("<executor.markup.true>")
@@ -68,17 +69,17 @@ func main() {
 	sb.WriteString("'>")
 	if hasActive {
 		sb.WriteRune('*')
-		sb.WriteString(currentSheet)
+		sb.WriteString(html.EscapeString(currentSheet))
 		sb.WriteString(": ")
 		sb.WriteString(FormatDuration(active.Duration()))
 		if active.Note != nil {
 			sb.WriteString(" (")
-			sb.WriteString(*active.Note)
+			sb.WriteString(html.EscapeString(*active.Note))
 			sb.WriteRune(')')
 		}
 	} else {
 		sb.WriteRune('*')
-		sb.WriteString(currentSheet)
+		sb.WriteString(html.EscapeString(currentSheet))
 		sb.WriteString(": not running")
 	}
 	sb.WriteString("</span>")
