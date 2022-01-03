@@ -147,6 +147,7 @@ fi
 alias kd='kubectl describe'
 alias kg='kubectl get'
 alias ke='kubectl edit'
+alias kv='kubectl version --short'
 
 alias kesec='kubectl edit secret'
 
