@@ -75,10 +75,11 @@ alias start='cmd.exe /c'
 if command -v helm3 &> /dev/null; then
   alias helm=helm3
 fi
-alias '?=todo --flat'
-alias ty='t y all -v'
-alias td='t d all -v'
-alias tt='t t all -v'
+alias ur=dinkur
+alias '?=dinkur ls'
+alias ury='dinkur ls -r yesterday'
+alias urd='dinkur ls -r today'
+alias urt='dinkur ls -r all'
 alias e='emacsclient -c -a "emacs"'
 
 if command -v brave-browser &> /dev/null; then
