@@ -12,3 +12,10 @@ aliases:
     pc: pr checks
     ps: pr status
     pco: pr checkout
+    ie: issue edit
+    il: issue list
+    i: issue
+    is: issue show
+    iv: issue view
+    prv: pr view
+    ic: issue create
