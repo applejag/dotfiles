@@ -37,7 +37,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	tasks, err := db.ListTasks(ctx, dinkur.SearchTask{
+	tasks, err := db.GetEntryList(ctx, dinkur.SearchEntry{
 		Shorthand: timeutil.TimeSpanThisDay,
 	})
 	if err != nil {
@@ -45,11 +45,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	var activeTask *dinkur.Task
+	var activeEntry *dinkur.Entry
 	var sumTimes time.Duration
 	for _, task := range tasks {
 		if task.End == nil {
-			activeTask = &task
+			activeEntry = &task
 		}
 		sumTimes += task.Elapsed()
 	}
@@ -60,17 +60,17 @@ func main() {
 	var sb strings.Builder
 	sb.WriteString("<executor.markup.true>")
 	sb.WriteString(" <span foreground='")
-	if activeTask != nil {
+	if activeEntry != nil {
 		sb.WriteString("lime")
 	} else {
 		sb.WriteString("gray")
 	}
 	sb.WriteString("'>")
-	if activeTask != nil {
-		sb.WriteString(FormatDuration(activeTask.Elapsed()))
-		if activeTask.Name != "" {
+	if activeEntry != nil {
+		sb.WriteString(FormatDuration(activeEntry.Elapsed()))
+		if activeEntry.Name != "" {
 			sb.WriteString(" (")
-			sb.WriteString(html.EscapeString(activeTask.Name))
+			sb.WriteString(html.EscapeString(activeEntry.Name))
 			sb.WriteRune(')')
 		}
 	} else {
