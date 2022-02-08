@@ -4,6 +4,7 @@ source ~/.zprofile_base.zsh
 hash -d dev=~/dev
 hash -d wharf=~/dev/wharf
 hash -d ics=~/dev/iver-ics
+hash -d river=~/dev/default/river
 
 # Rootfull podman
 export DOCKER_HOST=unix:///run/podman/podman.sock
