@@ -93,8 +93,8 @@ cmd_completions helm completion zsh
 
 zinit svn as'completion' light-mode \
     atpull"zinit creinstall -q ." \
-    atclone'mv kubectx.zsh _kubectx' \
-    atclone'mv kubens.zsh _kubens' \
+    atclone'mv _kubectx.zsh _kubectx' \
+    atclone'mv _kubens.zsh _kubens' \
     for https://github.com/ahmetb/kubectx/trunk/completion
 
 # Utilities
