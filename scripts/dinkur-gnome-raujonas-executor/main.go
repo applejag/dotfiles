@@ -18,6 +18,13 @@ import (
 )
 
 func main() {
+	defer func() {
+		if p := recover(); p != nil {
+			printErr(fmt.Errorf("panic: %v", p))
+			os.Exit(0)
+		}
+	}()
+
 	home, err := os.UserHomeDir()
 	if err != nil {
 		printErr(err)
@@ -40,6 +47,11 @@ func main() {
 	tasks, err := db.GetEntryList(ctx, dinkur.SearchEntry{
 		Shorthand: timeutil.TimeSpanThisDay,
 	})
+	if err != nil {
+		printErr(err)
+		os.Exit(1)
+	}
+	status, err := db.GetStatus(ctx)
 	if err != nil {
 		printErr(err)
 		os.Exit(1)
@@ -85,6 +97,22 @@ func main() {
 	sb.WriteString(strconv.FormatInt(dayPercentage, 10))
 	sb.WriteRune('%')
 	sb.WriteString("</span>")
+
+	if status.AFKSince != nil {
+		if status.BackSince != nil {
+			// has returned
+			dur := status.BackSince.Sub(*status.AFKSince)
+			sb.WriteString(" | <span foreground='orange'>AFK for ")
+			sb.WriteString(FormatDuration(dur))
+			sb.WriteString(" (welcome back)</span>")
+		} else {
+			// is AFK
+			dur := time.Since(*status.AFKSince)
+			sb.WriteString(" | <span foreground='red'>AFK for ")
+			sb.WriteString(FormatDuration(dur))
+			sb.WriteString("</span>")
+		}
+	}
 
 	fmt.Print(sb.String())
 }
