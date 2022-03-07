@@ -13,6 +13,10 @@ if [ -e "$HOME/.cargo/env" ]; then
     source "$HOME/.cargo/env"
 fi
 
+# Deno
+export DENO_INSTALL="/home/kalle/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # GoLang
 export PATH="$PATH:/usr/local/go/bin:${GOHOME:-$HOME/go}/bin"
 
