@@ -105,7 +105,17 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: FuraCode Nerd Font
+    #family: FuraCode Nerd Font
+    family: FuraCode Nerd Font Modified
+    #family: Ubuntu Mono
+    #family: Monoid Nerd Font
+    #family: Hasklug Nerd Font
+    #family: CaskaydiaCove Nerd Font
+    #family: VictorMono Nerd Font
+    #family: JetBrainsMono Nerd Font
+    #family: Iosevka Nerd Font
+    #family: Inconsolata Nerd Font
+    #family: FantasqueSansMono Nerd Font
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
