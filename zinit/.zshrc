@@ -63,6 +63,7 @@ zinit from'gh-r' as'program' for \
 # Completions
 zinit for \
     has'docker' as'completion' OMZP::docker/_docker \
+    has'docker-compose' as'completion' OMZP::docker-compose/_docker-compose \
     has'fd' as'completion' OMZP::fd/_fd \
     as'completion' OMZP::pass/_pass \
     has'ipfs' as'completion' OMZP::ipfs/_ipfs \
