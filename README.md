@@ -39,6 +39,7 @@ ln -vfs `pwd`/awesomewm/rc.lua ~/.config/awesome/rc.lua
 ln -vfs `pwd`/alacritty/alacritty-zifro.yml ~/.config/alacritty/alacritty.yml
 
 ln -vfs `pwd`/X11/.Xmodmap ~/.Xmodmap
+ln -vfs `pwd`/X11/.xinitrc ~/.xinitrc
 
 mkdir -pv ~/dev
 ln -vfs `pwd`/scripts ~/dev/scripts
