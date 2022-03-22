@@ -2,5 +2,6 @@
 clear Lock
 keysym Caps_Lock = Escape
 
+! Change PgUp and PgDown to act as Home and End
 keysym Prior = Home
 keysym Next = End
