@@ -118,7 +118,9 @@ autoload -Uz compinit
 compinit
 zinit cdreplay -q
 
-if [ -x ~/dotfiles/scripts/namnsdag.sh ]; then
+if command -v namnsdag &> /dev/null; then
+  namnsdag
+elif [ -x ~/dotfiles/scripts/namnsdag.sh ]; then
   ~/dotfiles/scripts/namnsdag.sh
 fi
 
