@@ -73,7 +73,8 @@ zinit for \
     OMZP::kubectl \
     has'dotnet' OMZP::dotnet \
     has'npm' OMZP::npm \
-    has'node' OMZP::node
+    has'node' OMZP::node \
+    has'gopass' as'completion' atclone'mv zsh.completion _gopass' https://raw.githubusercontent.com/gopasspw/gopass/master/zsh.completion
 
 cmd_completions() {
     local name="$1"

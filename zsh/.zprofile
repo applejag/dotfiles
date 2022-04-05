@@ -81,11 +81,16 @@ alias ury='dinkur ls -r yesterday'
 alias urd='dinkur ls -r today'
 alias urt='dinkur ls -r all'
 alias e='emacsclient -c -a "emacs"'
+alias xo=xdg-open
 
 if command -v brave-browser &> /dev/null; then
   alias musicforprogramming='brave-browser "ipns://mfp.jillejr.tech/?$(rng 1 63 -f english | tr -d -)" &> /dev/null &'
 else
   alias musicforprogramming='xdg-open "https://musicforprogramming.net/?$(rng 1 63 -f english | tr -d -)"'
+fi
+
+if command -v gopass &> /dev/null; then
+  alias pass='gopass'
 fi
 
 # Resetting weird Forgit aliases
