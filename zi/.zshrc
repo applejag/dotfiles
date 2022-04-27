@@ -34,7 +34,7 @@ bindkey -v
 export ZSH="/home/kalle/.oh-my-zsh"
 
 # OMZ libraries. Should be loaded before any OMZ plugins
-zinit svn multisrc'*.zsh' blockf is-snippet for OMZ::lib
+zi svn multisrc'*.zsh' blockf is-snippet for OMZ::lib
 
 # Zi annexes: https://z.digitalclouds.dev/ecosystem/annexes/meta-plugins#the-list-of-available-meta-plugins
 zi light-mode for z-shell/z-a-meta-plugins @annexes \
@@ -71,28 +71,12 @@ zi for \
     as'completion' https://github.com/ogham/exa/blob/master/completions/zsh/_exa \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     as'completion' https://github.com/containers/podman/blob/main/completions/zsh/_podman \
-    has'kubectl' OMZP::kubectl \
+    has'kubectl' atclone"mkdir -pv $ZSH_CACHE_DIR/completions" OMZP::kubectl \
+    has'helm' atclone"mkdir -pv $ZSH_CACHE_DIR/completions" OMZP::helm \
     has'dotnet' OMZP::dotnet \
     has'npm' OMZP::npm \
     has'node' OMZP::node \
     has'gopass' as'completion' atclone'mv zsh.completion _gopass' https://raw.githubusercontent.com/gopasspw/gopass/master/zsh.completion
-
-cmd_completions() {
-    local name="$1"
-    local cmd="$@"
-
-    zinit for \
-        has"${name}" \
-        id-as"${name}_completion" \
-        as'completion' \
-        atclone"${cmd} > _${name}" \
-        atpull'%atclone' \
-        run-atpull \
-        z-shell/null
-}
-
-cmd_completions kubectl completion zsh
-cmd_completions helm completion zsh
 
 zi svn as'completion' light-mode \
     atpull"zi creinstall -q ." \
