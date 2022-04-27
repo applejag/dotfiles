@@ -15,9 +15,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 #  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[_zinit]=_zinit
+# Load Zi
+zi_home="${HOME}/.zi"
+source "${zi_home}/bin/zi.zsh"
+# Zi autocompletions
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -30,38 +33,36 @@ bindkey -v
 # Oh-My-Zsh conf
 export ZSH="/home/kalle/.oh-my-zsh"
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-bin-gem-node
-
 # OMZ libraries. Should be loaded before any OMZ plugins
 zinit svn multisrc'*.zsh' blockf is-snippet for OMZ::lib
 
+# Zi annexes: https://z.digitalclouds.dev/ecosystem/annexes/meta-plugins#the-list-of-available-meta-plugins
+zi light-mode for z-shell/z-a-meta-plugins @annexes \
+    @zsh-users+fast \
+    @romkatv
+
 # Snippets
-zinit is-snippet for \
+zi is-snippet for \
     has'git' OMZP::git \
     OMZP::colored-man-pages \
     OMZP::command-not-found
 
-zinit is-snippet for \
+zi is-snippet for \
     OMZP::vi-mode
 
 # Programs
-zinit for \
+zi for \
     has'git' as'program' pick'diff-so-fancy' so-fancy/diff-so-fancy \
     has'git' depth=1 wfxr/forgit
 
-zinit pack'binary+keys' for fzf
+zi pack'binary+keys' for fzf
 
-zinit from'gh-r' as'program' for \
+zi from'gh-r' as'program' for \
     id-as'kubectx' bpick'kubectx*' ahmetb/kubectx \
     id-as'kubens' bpick'kubens*' ahmetb/kubectx \
 
 # Completions
-zinit for \
+zi for \
     has'docker' as'completion' OMZP::docker/_docker \
     has'docker-compose' as'completion' OMZP::docker-compose/_docker-compose \
     has'fd' as'completion' OMZP::fd/_fd \
@@ -70,7 +71,7 @@ zinit for \
     as'completion' https://github.com/ogham/exa/blob/master/completions/zsh/_exa \
     as'completion' https://github.com/samg/timetrap/blob/master/completions/zsh/_t \
     as'completion' https://github.com/containers/podman/blob/main/completions/zsh/_podman \
-    OMZP::kubectl \
+    has'kubectl' OMZP::kubectl \
     has'dotnet' OMZP::dotnet \
     has'npm' OMZP::npm \
     has'node' OMZP::node \
@@ -87,37 +88,24 @@ cmd_completions() {
         atclone"${cmd} > _${name}" \
         atpull'%atclone' \
         run-atpull \
-        zdharma/null
+        z-shell/null
 }
 
 cmd_completions kubectl completion zsh
 cmd_completions helm completion zsh
 
-zinit svn as'completion' light-mode \
-    atpull"zinit creinstall -q ." \
+zi svn as'completion' light-mode \
+    atpull"zi creinstall -q ." \
     atclone'mv _kubectx.zsh _kubectx' \
     atclone'mv _kubens.zsh _kubens' \
     for https://github.com/ahmetb/kubectx/trunk/completion
 
-# Utilities
-zinit light-mode for \
-    zdharma/fast-syntax-highlighting
-
-zinit atload'_zsh_autosuggest_start' light-mode for \
-    zsh-users/zsh-autosuggestions
-
-zinit depth=1 light-mode for romkatv/powerlevel10k
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Recommended to be loaded last
-zinit lucid blockf atpull'zinit creinstall -q' light-mode for \
-    zsh-users/zsh-completions
-
 autoload -Uz compinit
 compinit
-zinit cdreplay -q
+zi cdreplay -q
 
 if command -v namnsdag &> /dev/null; then
   namnsdag
