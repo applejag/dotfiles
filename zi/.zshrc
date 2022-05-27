@@ -14,8 +14,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 #  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Load Zi
 zi_home="${HOME}/.zi"
 source "${zi_home}/bin/zi.zsh"
+# Zi autocompletions
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 
@@ -30,11 +32,22 @@ bindkey -v
 # Oh-My-Zsh conf
 export ZSH="/home/kalle/.oh-my-zsh"
 
+# OMZ libraries. Should be loaded before any OMZ plugins
+zi svn multisrc'*.zsh' blockf is-snippet for OMZ::lib
+
+# Zi annexes: https://z.digitalclouds.dev/ecosystem/annexes/meta-plugins#the-list-of-available-meta-plugins
+zi light-mode for z-shell/z-a-meta-plugins @annexes \
+    @zsh-users+fast \
+    @romkatv
+
 # Snippets
 zi is-snippet for \
     has'git' OMZP::git \
     OMZP::colored-man-pages \
     OMZP::command-not-found
+
+zi is-snippet for \
+    OMZP::vi-mode
 
 # Programs
 zi for \
@@ -60,43 +73,8 @@ zi for \
     has'node' OMZP::node \
     has'gopass' as'completion' atclone'mv zsh.completion _gopass' https://raw.githubusercontent.com/gopasspw/gopass/master/zsh.completion
 
-cmd_completions() {
-    local name="$1"
-    local cmd="$@"
-
-    zi for \
-        has"${name}" \
-        id-as"${name}_completion" \
-        as'completion' \
-        atclone"${cmd} > _${name}" \
-        atpull'%atclone' \
-        run-atpull \
-        zdharma/null
-}
-
-cmd_completions kubectl completion zsh
-cmd_completions helm completion zsh
-
-zi has'kubectx' svn as'completion' light-mode \
-    atpull"zi creinstall -q ." \
-    atclone'mv _kubectx.zsh _kubectx' \
-    atclone'mv _kubens.zsh _kubens' \
-    for https://github.com/ahmetb/kubectx/trunk/completion
-
-# Utilities
-
-zi light-mode for \
-  atinit"zicompinit; zicdreplay" \
-    z-shell/F-Sy-H \
-  atload"_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
-  blockf atpull'zi creinstall -q .' \
-    zsh-users/zsh-completions
-
-zi light-mode for z-shell/z-a-meta-plugins \
-    @romkatv
-
-# Recommended to be loaded last
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 autoload -Uz compinit
 compinit

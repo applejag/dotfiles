@@ -9,7 +9,7 @@
 ```sh
 ln -vfs `pwd`/zsh/.zprofile ~/.zprofile_base.zsh
 ln -vfs `pwd`/zsh/.zshenv ~/.zshenv
-ln -vfs `pwd`/zinit/.zshrc ~/.zshrc
+ln -vfs `pwd`/zi/.zshrc ~/.zshrc
 ln -vfs `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
 
 mkdir -pv ~/.config/gh
