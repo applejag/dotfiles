@@ -1,18 +1,32 @@
 # Doom Emacs
 
+## Dependencies
+
+Ubuntu/Debian:
+
+```sh
+sudo apt update
+sudo apt-get install build-essential texinfo libx11-dev libxpm-dev \
+    libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev \
+    libncurses-dev libxpm-dev automake autoconf libgnutls28-dev \
+    libjansson-dev libgccjit-11-dev
+```
+
+NixOS:
+
+```sh
+nix-env -i \
+   --extra-experimental-features nix-command \
+   libgccjit libpng libjpeg giflib libtiff librsvg libwebp \
+   gconf pkg-config texinfo gettext acl harfbuzz sqlite \
+   gsettings-desktop-schemas jansson
+
+nix-env -iA nixos.gtk3-x11
+```
+
 ## Installing
 
-1. Install building dependencies
-
-   ```sh
-   sudo apt update
-   sudo apt-get install build-essential texinfo libx11-dev libxpm-dev \
-       libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev \
-       libncurses-dev libxpm-dev automake autoconf libgnutls28-dev \
-       libjansson-dev libgccjit-11-dev
-   ```
-
-2. Download and unpack
+1. Download and unpack
 
    ```sh
    cd ~
@@ -20,33 +34,33 @@
    cd emacs
    ```
 
-3. Configure with native JSON and GCC JIT support
+2. Configure with native JSON and GCC JIT support
 
    ```sh
    ./autogen.sh
    ./configure --with-json --with-native-compilation
    ```
 
-4. Build
+3. Build
 
    ```sh
    make
    ```
 
-5. Install Emacs
+4. Install Emacs
 
    ```sh
    sudo make install
    ```
 
-6. Install Doom
+5. Install Doom
 
    ```sh
    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
    ~/.emacs.d/bin/doom install
    ```
 
-7. Setup configs
+6. Setup configs
 
    ```sh
    cd ~/dotfiles
@@ -54,13 +68,13 @@
    ln -vfs `pwd`/doom ~/.doom.d
    ```
 
-8. Sync configs
+7. Sync configs
 
    ```sh
    ~/.emacs.d/bin/doom sync
    ```
 
-9. Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
+8. Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
    reading.
 
 ## go-mode

@@ -61,36 +61,8 @@ git clone git://github.com/samg/timetrap_formatters ~/.local/share/timetrap/time
 mkdir -pv ~/.config/picom
 ln -vfs `pwd`/picom/picom.conf ~/.config/picom/picom.conf
 
-# Zifro laptop
 ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
 
 ln -vfs `pwd`/qutebrowser/zifro_config.py $QUTEBROWSER_CONF/config.py
-
-# Iver laptop
-ln -vfs `pwd`/zsh/iver.zprofile ~/.zprofile
-ln -vfs `pwd`/nvim/iver_init.vim ~/.config/nvim/local.vim
-
-ln -vfs `pwd`/git/iver.gitconfig ~/.gitconfig
-
-ln -vfs `pwd`/qutebrowser/iver_config.py $QUTEBROWSER_CONF/config.py # flatpak
-cp -v `pwd`/qutebrowser/iver_config.py $QUTEBROWSER_CONF/config.py # flatpak
 ```
 
-## Make links to dotfiles, Windows
-
-```powershell
-# Run as administrator
-New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\alacritty\alacritty.yml" -Target ".\alacritty\alacritty-iver.yml"
-New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\bug.n\Config.ini" -Target ".\bug.n\Config.ini"
-New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\qutebrowser\config\config.py" -Target ".\qutebrowser\config.py"
-New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\qutebrowser\config\base_config.py" -Target ".\qutebrowser\config.py"
-
-$wt = Get-Item "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_*"
-New-Item  -Force -ItemType SymbolicLink -Path "$wt\LocalState\settings.json" -Target ".\wt\settings.json"
-
-# Zifro laptop
-New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\qutebrowser\config\config.py" -Target ".\qutebrowser\zifro_config.py"
-
-# Iver laptop
-New-Item  -Force -ItemType SymbolicLink -Path "$env:AppData\qutebrowser\config\config.py" -Target ".\qutebrowser\iver_config.py"
-```
