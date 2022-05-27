@@ -74,3 +74,8 @@ export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 # Kubeconfig
 export KUBECONFIG=$HOME/.kube/config
 if [ -e /home/kalle/.nix-profile/etc/profile.d/nix.sh ]; then . /home/kalle/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# NixOS language bug fix
+# https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-251287741
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

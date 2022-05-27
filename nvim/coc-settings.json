@@ -1,9 +1,26 @@
 {
-	"yaml.schemas": {
-		"https://iver-wharf.github.io/_static/wharf-ci-schema.json": [
-		//"/home/kalle/dev/wharf/iver-wharf.github.io/docs/_static/wharf-ci-schema.json": [
-			".wharf-ci.yml"
-		]
-	},
-	"diagnostic.displayByAle": true
+  "yaml.schemas": {
+    "https://iver-wharf.github.io/_static/wharf-ci-schema.json": [
+      //"/home/kalle/dev/wharf/iver-wharf.github.io/docs/_static/wharf-ci-schema.json": [
+        ".wharf-ci.yml"
+      ]
+  },
+  //"diagnostic.displayByAle": true,
+  "Lua.workspace.library": [
+    "/home/kalle/Documents/CC-Tweaked-EmmyLua"
+  ],
+  "Lua.workspace.maxPreload": 2000,
+  "Lua.workspace.preloadFileSize": 1000,
+  "Lua.runtime.version": "Lua 5.1",
+  "Lua.runtime.builtin": {
+    "os": "disable",
+    "io": "disable"
+  },
+  "Lua.diagnostics.enable": true,
+  "Lua.diagnostics.globals": [],
+  "Lua.diagnostics.disable": [
+    "lowercase-global"
+  ],
+  "Lua.completion.keywordSnippet": "Disable",
+  "Lua.telemetry.enable": true
 }

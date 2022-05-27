@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CACHE_DIR="$HOME/.cache/namnsdag"
 CACHE_NAME_FILE="$CACHE_DIR/latest_name.txt"
