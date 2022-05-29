@@ -3,7 +3,7 @@
 set nocompatible              " be iMproved, required
 "filetype off                  " required
 
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 " Coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -16,15 +16,13 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Utility
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-pathogen'
 Plug 'tpope/vim-repeat'
-"Plug 'tpope/vim-sleuth' " Included in sheerun/vim-polyglot
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'yggdroot/indentline'
+Plug 'ervandew/supertab'
 
 " Spelling
 Plug 'kamykn/spelunker.vim'
@@ -32,11 +30,10 @@ Plug 'kamykn/spelunker.vim'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 
-if !empty(glob('~/.config/nvim/local.vim'))
-  source $HOME/.config/nvim/local.vim
-else
-  call plug#end()
-endif
+call plug#end()
+
+" Tab from top instead of from bottom
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let mapleader = ','
 let g:mapleader = ','
