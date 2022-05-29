@@ -22,15 +22,9 @@ fi
 
 unset agent_env
 
-# Mimic Windows environment variables
-hash -d progd=/c/ProgramData # %PROGRAMDATA%
-hash -d progf='/c/Program Files' # %PROGRAMFILES%
-hash -d progfx='/c/Program Files (x86)' # %PROGRAMFILES(X86)%
-hash -d windir='/c/Windows' # %WINDIR%
-
 # Directories inside Linux
 hash -d certs=/usr/local/share/ca-certificates
-hash -d ssh=~/.ssh
+hash -d c=~/code
 
 # Global aliases
 alias -g '%%=| grep'
@@ -75,11 +69,13 @@ alias start='cmd.exe /c'
 if command -v helm3 &> /dev/null; then
   alias helm=helm3
 fi
-alias ur=dinkur
-alias '?=dinkur ls'
-alias ury='dinkur ls -r yesterday'
-alias urd='dinkur ls -r today'
-alias urt='dinkur ls -r all'
+if command -v dinkur &> /dev/null; then
+  alias ur=dinkur
+  alias '?=dinkur ls'
+  alias ury='dinkur ls -r yesterday'
+  alias urd='dinkur ls -r today'
+  alias ura='dinkur ls -r all'
+fi
 alias e='emacsclient -c -a "emacs"'
 alias xo=xdg-open
 alias sudo='sudo env PATH=$PATH'
@@ -103,14 +99,7 @@ if command -v exa &> /dev/null; then
 fi
 
 alias p=podman
-alias pc=podman-compose
 
-if command -v docker &> /dev/null; then
-  alias d=docker
-elif command -v podman &> /dev/null; then
-  alias docker=podman
-  alias d=podman
-fi
 if command -v docker-compose &> /dev/null; then
   alias dc=docker-compose
 elif command -v podman-compose &> /dev/null; then
@@ -118,36 +107,14 @@ elif command -v podman-compose &> /dev/null; then
   alias docker-compose=podman-compose
 fi
 
-if command -v gocopy.exe &> /dev/null; then
-  alias clip=gocopy.exe
-elif command -v clip.exe &> /dev/null; then
-  alias clip=clip.exe
-elif command -v xclip &> /dev/null; then
-  alias clip='xclip -selection clipboard'
-fi
-
-if command -v bat &> /dev/null; then
-  alias cat='bat --decorations never'
-
-  function _todo_task_pretty() {
-    todo task "$@" >/dev/null
-    todo task "$1" | bat --language md --theme DarkNeon --decorations never
-  }
-
-  alias '?#'=_todo_task_pretty
-
-  function _todo_done_pretty() {
-    todo done "$@"
-    todo task "$1" | bat --language md --theme DarkNeon --decorations never
-  }
-
-  alias '?!'=_todo_done_pretty
-fi
-
 if ! command -v fd &> /dev/null \
   && command -v fdfind &> /dev/null
 then
   alias fd=fdfind
+fi
+
+if command -v bat &> /dev/null; then
+  alias cat='bat --decorations never'
 fi
 
 # Missing aliases from kubectl OMZ plugin
