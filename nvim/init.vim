@@ -40,6 +40,8 @@ let g:mapleader = ','
 let g:vim_markdown_conceal=0
 
 "" CoC
+let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-go', 'coc-spell-checker']
+
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
