@@ -7,7 +7,7 @@
 ## Make links to dotfiles, Linux
 
 ```sh
-ln -vfs `pwd`/zsh/.zprofile ~/.zprofile_base.zsh
+ln -vfs `pwd`/zsh/.zprofile ~/.zprofile
 ln -vfs `pwd`/zsh/.zshenv ~/.zshenv
 ln -vfs `pwd`/zi/.zshrc ~/.zshrc
 ln -vfs `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
@@ -44,9 +44,6 @@ ln -vfs `pwd`/X11/.xinitrc ~/.xinitrc
 mkdir -pv ~/dev
 ln -vfs `pwd`/scripts ~/dev/scripts
 
-mv -f ~/.doom.d ~/.doom.d.old
-ln -vfs `pwd`/doom ~/.doom.d
-
 QUTEBROWSER_CONF=~/.config # default
 QUTEBROWSER_CONF=~/.var/app/org.qutebrowser.qutebrowser/config/qutebrowser # flatpak
 
@@ -57,11 +54,6 @@ cp -v `pwd`/qutebrowser/config.py $QUTEBROWSER_CONF/base_config.py # flatpak
 mkdir -pv ~/.local/share/timetrap
 ln -vfs `pwd`/timetrap/.timetrap.yml ~/.timetrap.yml
 git clone git://github.com/samg/timetrap_formatters ~/.local/share/timetrap/timetrap_formatters
-
-mkdir -pv ~/.config/picom
-ln -vfs `pwd`/picom/picom.conf ~/.config/picom/picom.conf
-
-ln -vfs `pwd`/zsh/zifro.zprofile ~/.zprofile
 
 ln -vfs `pwd`/qutebrowser/zifro_config.py $QUTEBROWSER_CONF/config.py
 ```
