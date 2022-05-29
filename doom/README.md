@@ -12,6 +12,16 @@ sudo apt-get install build-essential texinfo libx11-dev libxpm-dev \
     libjansson-dev libgccjit-11-dev
 ```
 
+Fedora:
+
+```sh
+sudo dnf install gcc gcc-c++ texinfo \
+    gtk+-devel gtk4-devel gnutls-devel \
+    libjpeg-devel libpng-devel giflib-devel libtiff-devel libXpm-devel \
+    ncurses-devel libX11-devel libXaw-devel make automake autoconf \
+    jansson-devel libgccjit-devel
+```
+
 NixOS:
 
 ```sh
@@ -56,25 +66,14 @@ nix-env -iA nixos.gtk3-x11
 5. Install Doom
 
    ```sh
+   cd ~/dotfiles
+   ln -vfs `pwd`/doom ~/.doom.d
+
    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
    ~/.emacs.d/bin/doom install
    ```
 
-6. Setup configs
-
-   ```sh
-   cd ~/dotfiles
-   mv -f ~/.doom.d ~/.doom.d.old
-   ln -vfs `pwd`/doom ~/.doom.d
-   ```
-
-7. Sync configs
-
-   ```sh
-   ~/.emacs.d/bin/doom sync
-   ```
-
-8. Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
+6. Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
    reading.
 
 ## go-mode
@@ -94,7 +93,7 @@ go install golang.org/x/tools/cmd/goimports@latest # Formatting imports
 
 # golangci-lint is not installed from source as they find it unreliable
 # More info: https://golangci-lint.run/usage/install/#install-from-source
-curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.35.0
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.46.2
 ```
 
 ### Enable format on save

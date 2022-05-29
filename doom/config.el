@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Kalle Fagerberg"
-      user-mail-address "kalle.fagerberg@iver.se")
+      user-mail-address "kalle.f8@proton.me")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -71,6 +71,15 @@
   (add-hook 'go-mode-hook
             (lambda ()
               (add-hook 'after-save-hook 'gofmt nil 'make-it-local))))
+
+;; Workaround for centaur-tabs not working inside .git folders
+;; https://github.com/ema2159/centaur-tabs/issues/181
+;; https://github.com/doomemacs/doomemacs/issues/6280
+;(after! centaur-tabs
+;  (setq centaur-tabs-set-icons nil
+;	centaur-tabs-gray-out-icons nil)
+;  (centaur-tabs-group-by-projectile-project)
+;)
 
 (custom-set-variables
  '(markdown-toc-header-toc-title "## Table of contents")
