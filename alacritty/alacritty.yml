@@ -17,7 +17,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.95
+  opacity: 0.8
 
   # Window dimensions (changes require restart)
   #
@@ -105,7 +105,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: FuraCode Nerd Font
+    family: FuraCode Nerd Font Modified
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -144,7 +144,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 8.0
+  #size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -168,20 +168,53 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night)
-colors:
-  # Default colors
-  primary:
-    background: '#282A36'
-    foreground: '#F8F8F2'
+      
+schemes:
+  ### Doom One ###
+  DoomOne: &DoomOne
+    primary:
+      background: '#282c34'
+      foreground: '#bbc2cf'
+    cursor:
+      text: CellBackground
+      cursor: '#528bff'
+    selection:
+      text: CellForeground
+      background: '#3e4451'
+    normal:
+      black:   '#1c1f24'
+      red:     '#ff6c6b'
+      green:   '#98be65'
+      yellow:  '#da8548'
+      blue:    '#51afef'
+      magenta: '#c678dd'
+      cyan:    '#5699af'
+      white:   '#c8ced8'   # This is 202328 in Doom Emacs but I lightened it.
+    bright:
+      black:   '#5b6268'
+      red:     '#da8548'
+      green:   '#4db5bd'
+      yellow:  '#ecbe7b'
+      blue:    '#3071db'   # This is 2257a0 in Doom Emacs but I lightened it.
+      magenta: '#a9a1e1'
+      cyan:    '#46d9ff'
+      white:   '#dfdfdf'
 
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #dim_foreground: '#828482'
-    #bright_foreground: '#eaeaea'
+
+# Colors (Tomorrow Night)
+colors: *DoomOne
+  # Default colors
+  #primary:
+  #  background: '#282A36'
+  #  foreground: '#F8F8F2'
+
+  #  # Bright and dim foreground colors
+  #  #
+  #  # The dimmed foreground color is calculated automatically if it is not present.
+  #  # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+  #  # is `false`, the normal foreground color will be used.
+  #  #dim_foreground: '#828482'
+  #  #bright_foreground: '#eaeaea'
 
   # Cursor colors
   #
@@ -227,27 +260,27 @@ colors:
     #  background: '#c5c8c6'
     #  foreground: '#1d1f21'
 
-  # Normal colors
-  normal:
-    black: '#37384A'
-    blue: '#BD93F9'
-    cyan: '#8BE9FD'
-    green: '#50FA7B'
-    magenta: '#FF79C6'
-    red: '#FF5555'
-    white: '#F8F8F2'
-    yellow: '#F1FA8C'
+  ## Normal colors
+  #normal:
+  #  black: '#37384A'
+  #  blue: '#BD93F9'
+  #  cyan: '#8BE9FD'
+  #  green: '#50FA7B'
+  #  magenta: '#FF79C6'
+  #  red: '#FF5555'
+  #  white: '#F8F8F2'
+  #  yellow: '#F1FA8C'
 
-  # Bright colors
-  bright:
-    black: '#6272A4'
-    blue: '#D6ACFF'
-    cyan: '#A4FFFF'
-    green: '#69FF94'
-    magenta: '#FF92DF'
-    red: '#FF6E6E'
-    white: '#FFFFFF'
-    yellow: '#FFFFA5'
+  ## Bright colors
+  #bright:
+  #  black: '#6272A4'
+  #  blue: '#D6ACFF'
+  #  cyan: '#A4FFFF'
+  #  green: '#69FF94'
+  #  magenta: '#FF92DF'
+  #  red: '#FF6E6E'
+  #  white: '#FFFFFF'
+  #  yellow: '#FFFFA5'
 
 
   # Dim colors
@@ -360,7 +393,6 @@ cursor:
 #   - (Windows) powershell
 shell:
   program: zsh
-#  program: wsl.exe
   args:
     - --login
 
