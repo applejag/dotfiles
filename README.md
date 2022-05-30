@@ -10,7 +10,6 @@
 ln -vfs `pwd`/zsh/.zprofile ~/.zprofile
 ln -vfs `pwd`/zsh/.zshenv ~/.zshenv
 ln -vfs `pwd`/zi/.zshrc ~/.zshrc
-ln -vfs `pwd`/zsh/.p10k.zsh ~/.p10k.zsh
 
 mkdir -pv ~/.config/gh
 ln -vfs `pwd`/gh/config.yml ~/.config/gh/config.yml
