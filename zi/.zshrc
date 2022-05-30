@@ -1,97 +1,55 @@
-#if command -v tmux &> /dev/null \
-#  && [ -n "$PS1" ] \
-#  && [[ ! "$TERM" =~ screen ]] \
-#  && [[ ! "$TERM" =~ tmux ]] \
-#  && [ -z "$TMUX" ]; then # https://unix.stackexchange.com/a/529049/428922
-#  tmux attach -t $(,tmux-first-unattached-session) 2> /dev/null \
-#    || tmux new-session
-#  exit
-#fi
-
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Load Zi
-zi_home="${HOME}/.zi"
-source "${zi_home}/bin/zi.zsh"
-# Zi autocompletions
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=2000
-SAVEHIST=2000
-setopt appendhistory autocd beep extendedglob nomatch notify
-bindkey -v
-# End of lines configured by zsh-newuser-install
+HISTSIZE=3000
+SAVEHIST=5000
+setopt autocd extendedglob nomatch notify
+unsetopt beep
+bindkey -e
 
-# Oh-My-Zsh conf
-export ZSH="/home/kalle/.oh-my-zsh"
+if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
+  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
+  command mkdir -p "$HOME/.zi" && command chmod g-rwX "$HOME/.zi"
+  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "$HOME/.zi/bin" && \
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+    print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
-# OMZ libraries. Should be loaded before any OMZ plugins
-zi svn multisrc'*.zsh' blockf is-snippet for OMZ::lib
+source "$HOME/.zi/bin/zi.zsh"
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
+zicompinit
 
-# Zi annexes: https://z.digitalclouds.dev/ecosystem/annexes/meta-plugins#the-list-of-available-meta-plugins
-zi light-mode for z-shell/z-a-meta-plugins @annexes \
-    @zsh-users+fast \
-    @romkatv
+zi light-mode for \
+  z-shell/z-a-meta-plugins \
+  @annexes \
+  @zsh-users+fast
 
-# Snippets
-zi is-snippet for \
-    has'git' OMZP::git \
-    OMZP::colored-man-pages \
-    OMZP::command-not-found
+# Sets F-Sy-H theme
+fast-theme -q default
 
-zi is-snippet for \
-    OMZP::vi-mode
+# Oh-my-zsh library files
+zi is-snippet svn pick"completion.zsh" src"git.zsh" for OMZ::lib
 
-# Programs
+# Oh-my-zsh plugins
 zi for \
-    has'git' as'program' pick'diff-so-fancy' so-fancy/diff-so-fancy \
-    has'git' depth=1 wfxr/forgit
+  OMZP::git \
+  OMZP::vi-mode
 
-zi from'gh-r' as'program' for \
-    id-as'kubectx' bpick'kubectx*' ahmetb/kubectx \
-    id-as'kubens' bpick'kubens*' ahmetb/kubectx \
 
-# Completions
-zi for \
-    has'docker' as'completion' OMZP::docker/_docker \
-    has'docker-compose' as'completion' OMZP::docker-compose/_docker-compose \
-    has'fd' as'completion' OMZP::fd/_fd \
-    has'pass' as'completion' OMZP::pass/_pass \
-    has'ipfs' as'completion' OMZP::ipfs/_ipfs \
-    has'exa' as'completion' https://github.com/ogham/exa/blob/master/completions/zsh/_exa \
-    has'podman' as'completion' https://github.com/containers/podman/blob/main/completions/zsh/_podman \
-    has'kubectl' OMZP::kubectl \
-    has'dotnet' OMZP::dotnet \
-    has'npm' OMZP::npm \
-    has'node' OMZP::node \
-    has'gopass' as'completion' atclone'mv zsh.completion _gopass' https://raw.githubusercontent.com/gopasspw/gopass/master/zsh.completion
+# Other
+zi pack"bgn+keys" for fzf
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+zi wait lucid for \
+  wfxr/forgit
 
-autoload -Uz compinit
-compinit
-zi cdreplay -q
+zicompinit
 
+# Namnsdag scripts
+# https://github.com/jilleJr/namnsdag
 if command -v namnsdag &> /dev/null; then
   namnsdag
-elif [ -x ~/dotfiles/scripts/namnsdag.sh ]; then
-  ~/dotfiles/scripts/namnsdag.sh
 fi
 
-if command -v todo &> /dev/null; then
-  TASK_COUNT=$(todo --flat | wc -l)
-  if [ $TASK_COUNT = 0 ]; then
-    echo -e "\e[90m=== Nothing on your todo list\e[0m"
-  else
-    echo -e "\e[90m=== \e[33mTodo: 📝 $TASK_COUNT tasks \e[90m\e[0m"
-    todo --flat
-  fi
-fi
+# Starship loaded last
+eval "$(starship init zsh)"
+
