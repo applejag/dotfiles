@@ -36,7 +36,9 @@ mkdir -pv ~/.config/awesome
 ln -vfs `pwd`/awesomewm/autorun.sh ~/.config/awesome/autorun.sh
 ln -vfs `pwd`/awesomewm/rc.lua ~/.config/awesome/rc.lua
 
-ln -vfs `pwd`/alacritty/alacritty-zifro.yml ~/.config/alacritty/alacritty.yml
+ln -vfs `pwd`/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+
+ln -vfs `pwd`/picom/picom.conf ~/.config/picom.conf
 
 ln -vfs `pwd`/X11/.Xmodmap ~/.Xmodmap
 ln -vfs `pwd`/X11/.xinitrc ~/.xinitrc
