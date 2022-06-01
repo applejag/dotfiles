@@ -182,7 +182,7 @@ awful.util.tasklist_buttons = mytable.join(
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 
-beautiful.wallpaper = "/home/kalle/Pictures/Wallpaper/1561845449-201900764-abstraction-nevseoboi.com.ua.jpg"
+beautiful.wallpaper = string.format("%s/Pictures/Wallpaper/1561845449-201900764-abstraction-nevseoboi.com.ua.jpg", os.getenv("HOME"))
 beautiful.useless_gap = 4
 
 -- }}}
