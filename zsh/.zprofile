@@ -70,11 +70,11 @@ if command -v helm3 &> /dev/null; then
   alias helm=helm3
 fi
 if command -v dinkur &> /dev/null; then
-  alias ur=dinkur
+  alias u=dinkur
   alias '?=dinkur ls'
-  alias ury='dinkur ls -r yesterday'
-  alias urd='dinkur ls -r today'
-  alias ura='dinkur ls -r all'
+  alias uy='dinkur ls -r yesterday'
+  alias ud='dinkur ls -r today'
+  alias ua='dinkur ls -r all'
 fi
 alias e='emacsclient -c -a "emacs"'
 alias xo=xdg-open
