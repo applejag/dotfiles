@@ -21,13 +21,6 @@ ln -vfs `pwd`/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 mkdir -pv ~/.config/bat
 ln -vfs `pwd`/bat/config ~/.config/bat/config
 
-ln -vfs `pwd`/tmux/.tmux.conf ~/.tmux.conf
-mkdir -pv ~/.tmux/plugins
-ln -vfs `pwd`/tmux/tpm ~/.tmux/plugins/tpm
-ln -vfs `pwd`/tmux/todo.sh ~/.tmux/todo.sh
-ln -vfs `pwd`/tmux/kubeconfig.sh ~/.tmux/kubeconfig.sh
-sudo ln -vfs `pwd`/tmux/tmux-first-unattached-session /usr/local/bin/,tmux-first-unattached-session
-
 mkdir -pv ~/.config
 git clone --recurse-submodules --remote-submodules --depth 1 -j 2 https://github.com/lcpz/awesome-copycats.git ~/.config/awesome
 ln -vfs `pwd`/awesome/rc.lua ~/.config/awesome/rc.lua
