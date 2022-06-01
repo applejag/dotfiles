@@ -14,9 +14,6 @@ ln -vfs `pwd`/zi/.zshrc ~/.zshrc
 mkdir -pv ~/.config/gh
 ln -vfs `pwd`/gh/config.yml ~/.config/gh/config.yml
 
-sudo ln -vfs `pwd`/wsl/git /usr/local/bin/git
-sudo ln -vfs `pwd`/wsl/wsl.conf /etc/wsl.conf
-
 mkdir -pv ~/.config/nvim
 ln -vfs `pwd`/nvim/init.vim ~/.config/nvim/init.vim
 ln -vfs `pwd`/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
