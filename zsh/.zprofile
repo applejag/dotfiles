@@ -148,3 +148,5 @@ alias kdcj='kubectl describe cronjob'
 alias kecj='kubectl edit cronjob'
 alias kgcj='kubectl get cronjob'
 alias kgcja='kubectl get cronjob --all-namespaces'
+
+fpath+="$HOME/.cache/zi/completions"
