@@ -33,8 +33,9 @@ zi is-snippet svn pick"completion.zsh" src"git.zsh" for OMZ::lib
 # Oh-my-zsh plugins
 zi for \
   OMZP::git \
-  OMZP::vi-mode
-
+  OMZP::vi-mode \
+  has'kubectl' OMZP::kubectl \
+  has'helm' OMZP::helm
 
 # Other
 zi pack"bgn+keys" for fzf
