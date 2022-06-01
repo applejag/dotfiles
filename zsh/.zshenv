@@ -19,3 +19,4 @@ fi
 # Forgit custom pager
 export FORGIT_PAGER=bat
 
+. "$HOME/.cargo/env"
