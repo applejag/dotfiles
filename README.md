@@ -34,18 +34,5 @@ ln -vfs `pwd`/X11/.xinitrc ~/.xinitrc
 
 mkdir -pv ~/dev
 ln -vfs `pwd`/scripts ~/dev/scripts
-
-QUTEBROWSER_CONF=~/.config # default
-QUTEBROWSER_CONF=~/.var/app/org.qutebrowser.qutebrowser/config/qutebrowser # flatpak
-
-mkdir -pv $QUTEBROWSER_CONF
-ln -vfs `pwd`/qutebrowser/config.py $QUTEBROWSER_CONF/base_config.py # default
-cp -v `pwd`/qutebrowser/config.py $QUTEBROWSER_CONF/base_config.py # flatpak
-
-mkdir -pv ~/.local/share/timetrap
-ln -vfs `pwd`/timetrap/.timetrap.yml ~/.timetrap.yml
-git clone git://github.com/samg/timetrap_formatters ~/.local/share/timetrap/timetrap_formatters
-
-ln -vfs `pwd`/qutebrowser/zifro_config.py $QUTEBROWSER_CONF/config.py
 ```
 
