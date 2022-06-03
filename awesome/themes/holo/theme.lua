@@ -107,6 +107,9 @@ local clock_icon = wibox.widget.imagebox(theme.clock)
 local clockbg = wibox.container.background(mytextclock, theme.bg_focus, gears.shape.rectangle)
 local clockwidget = wibox.container.margin(clockbg, dpi(0), dpi(3), dpi(5), dpi(5))
 
+-- Keyboard
+local kb_layout = awful.widget.keyboardlayout()
+
 -- Calendar
 local mytextcalendar = wibox.widget.textclock(markup.fontfg(theme.font, "#FFFFFF", space3 .. "%d %b " .. markup.font("Roboto 5", " ")))
 local calendar_icon = wibox.widget.imagebox(theme.calendar)
@@ -201,7 +204,10 @@ function ()
 end)))
 
 -- Battery
-local bat = lain.widget.bat({
+-- https://github.com/deficient/battery-widget
+local bat_widget = require("deficient.battery-widget") {}
+--[[
+local bat_widget = lain.widget.bat({
     settings = function()
         bat_header = " Bat "
         bat_p      = bat_now.perc .. " "
@@ -210,7 +216,8 @@ local bat = lain.widget.bat({
         end
         widget:set_markup(markup.font(theme.font, markup(blue, bat_header) .. bat_p))
     end
-})
+}).widget
+--]]
 
 -- / fs
 --[[ commented because it needs Gio/Glib >= 2.54
@@ -342,7 +349,8 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             --theme.mail.widget,
-            --bat.widget,
+            bat_widget,
+            kb_layout,
             spr_right,
             musicwidget,
             bar,
