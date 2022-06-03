@@ -96,6 +96,10 @@ theme.titlebar_maximized_button_focus_active    = theme.default_dir.."/titlebar/
 
 theme.musicplr = string.format("%s -e ncmpcpp", awful.util.terminal)
 
+theme.notification_width = 280
+theme.notification_height = 80
+theme.notification_font = "Comfortaa"
+
 local markup = lain.util.markup
 local blue   = "#80CCE6"
 local space3 = markup.font("Roboto 3", " ")
