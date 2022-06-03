@@ -151,3 +151,23 @@ alias kgcj='kubectl get cronjob'
 alias kgcja='kubectl get cronjob --all-namespaces'
 
 fpath+="$HOME/.cache/zi/completions"
+
+if command -v ansible &> /dev/null
+then
+  # Support bash completions
+  # https://kislyuk.github.io/argcomplete/#zsh-support
+  autoload -U bashcompinit
+  bashcompinit
+
+  # Ansible completions
+  # https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#configuring-argcomplete
+  eval $(register-python-argcomplete ansible)
+  eval $(register-python-argcomplete ansible-config)
+  eval $(register-python-argcomplete ansible-console)
+  eval $(register-python-argcomplete ansible-doc)
+  eval $(register-python-argcomplete ansible-galaxy)
+  eval $(register-python-argcomplete ansible-inventory)
+  eval $(register-python-argcomplete ansible-playbook)
+  eval $(register-python-argcomplete ansible-pull)
+  eval $(register-python-argcomplete ansible-vault)
+fi
