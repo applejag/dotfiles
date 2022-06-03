@@ -33,14 +33,20 @@ zi is-snippet svn pick"completion.zsh" src"git.zsh" for OMZ::lib
 # Oh-my-zsh plugins
 zi for \
   OMZP::git \
-  OMZP::vi-mode
-
+  OMZP::vi-mode \
+  has'kubectl' OMZP::kubectl \
+  has'helm' OMZP::helm
 
 # Other
 zi pack"bgn+keys" for fzf
 
 zi wait lucid for \
-  wfxr/forgit
+  wfxr/forgit \
+  has'kubectl' bpick"kubectx;kubens" from"gh-r" sbin"kubectx;kubens" ahmetb/kubectx
+
+zi as'completion' blockf for \
+  has'kubectx' mv'_kubectx.zsh -> _kubectx' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubectx.zsh \
+  has'kubens' mv'_kubens.zsh -> _kubens' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubens.zsh
 
 zicompinit
 

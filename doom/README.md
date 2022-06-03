@@ -39,9 +39,8 @@ nix-env -iA nixos.gtk3-x11
 1. Download and unpack
 
    ```sh
-   cd ~
-   git clone git://git.savannah.gnu.org/emacs.git
-   cd emacs
+   git clone git://git.savannah.gnu.org/emacs.git ~/emacs
+   cd ~/emacs
    ```
 
 2. Configure with native JSON and GCC JIT support

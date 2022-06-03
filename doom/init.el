@@ -104,7 +104,7 @@
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
-       neuron            ; https://github.com/felko/neuron-mode
+       ;;neuron            ; https://github.com/felko/neuron-mode
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
@@ -116,8 +116,8 @@
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
-       crystal           ; ruby at the speed of c
-       (csharp +unity)            ; unity, .NET, and mono shenanigans
+       ;;crystal           ; ruby at the speed of c
+       ;;(csharp +unity)            ; unity, .NET, and mono shenanigans
        ;;data              ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
        ;;elixir            ; erlang done right
@@ -126,7 +126,7 @@
        ;;erlang            ; an elegant language for a more civilized age
        ;;ess               ; emacs speaks statistics
        ;;faust             ; dsp, but you get to keep your soul
-       (fsharp +lsp)            ; ML stands for Microsoft's Language
+       ;;(fsharp +lsp)            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        (go +lsp)         ; the hipster dialect
@@ -142,7 +142,7 @@
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
-       (lua +lsp +moonscript)               ; one-based indices? one-based indices
+       ;;(lua +lsp +moonscript)               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"

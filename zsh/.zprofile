@@ -25,6 +25,7 @@ unset agent_env
 # Directories inside Linux
 hash -d certs=/usr/local/share/ca-certificates
 hash -d c=~/code
+hash -d ri=~/code/risk.ident
 
 # Global aliases
 alias -g '%%=| grep'
@@ -70,11 +71,11 @@ if command -v helm3 &> /dev/null; then
   alias helm=helm3
 fi
 if command -v dinkur &> /dev/null; then
-  alias ur=dinkur
+  alias u=dinkur
   alias '?=dinkur ls'
-  alias ury='dinkur ls -r yesterday'
-  alias urd='dinkur ls -r today'
-  alias ura='dinkur ls -r all'
+  alias uy='dinkur ls -r yesterday'
+  alias ud='dinkur ls -r today'
+  alias ua='dinkur ls -r all'
 fi
 alias e='emacsclient -c -a "emacs"'
 alias xo=xdg-open
@@ -148,3 +149,25 @@ alias kdcj='kubectl describe cronjob'
 alias kecj='kubectl edit cronjob'
 alias kgcj='kubectl get cronjob'
 alias kgcja='kubectl get cronjob --all-namespaces'
+
+fpath+="$HOME/.cache/zi/completions"
+
+if command -v ansible &> /dev/null
+then
+  # Support bash completions
+  # https://kislyuk.github.io/argcomplete/#zsh-support
+  autoload -U bashcompinit
+  bashcompinit
+
+  # Ansible completions
+  # https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#configuring-argcomplete
+  eval $(register-python-argcomplete ansible)
+  eval $(register-python-argcomplete ansible-config)
+  eval $(register-python-argcomplete ansible-console)
+  eval $(register-python-argcomplete ansible-doc)
+  eval $(register-python-argcomplete ansible-galaxy)
+  eval $(register-python-argcomplete ansible-inventory)
+  eval $(register-python-argcomplete ansible-playbook)
+  eval $(register-python-argcomplete ansible-pull)
+  eval $(register-python-argcomplete ansible-vault)
+fi
