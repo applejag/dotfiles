@@ -25,6 +25,7 @@ unset agent_env
 # Directories inside Linux
 hash -d certs=/usr/local/share/ca-certificates
 hash -d c=~/code
+hash -d ri=~/code/risk.ident
 
 # Global aliases
 alias -g '%%=| grep'
