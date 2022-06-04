@@ -1,9 +1,5 @@
 # Dotfiles of jilleJr
 
-> ⚠️ Remember to make backups of your existing dotfiles!
->
-> These scripts overrides your existing dotfiles
-
 ## Make links to dotfiles, Linux
 
 ```sh
