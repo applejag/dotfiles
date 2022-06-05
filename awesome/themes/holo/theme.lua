@@ -96,14 +96,10 @@ theme.titlebar_maximized_button_focus_active    = theme.default_dir.."/titlebar/
 
 theme.musicplr = string.format("%s -e ncmpcpp", awful.util.terminal)
 
-theme.notification_width = 280
-theme.notification_height = 80
-theme.notification_font = "Comfortaa"
-theme.notification_shape = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, 4)
+local noti_theme = require("themes.holo.notification")
+for key, value in pairs(noti_theme) do
+    theme[key] = value
 end
-theme.notification_border_width = theme.border_width
-theme.notification_border_color = theme.border_focus
 
 local markup = lain.util.markup
 local blue   = "#80CCE6"
