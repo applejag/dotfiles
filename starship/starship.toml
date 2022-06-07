@@ -1,0 +1,8 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[kubernetes]
+disabled = false
+format = '[$symbol$context/$namespace]($style) in '
+
+[kubernetes.context_aliases]
+"prod-.*" = "\u001B[31m🚨🚨🚨$0"

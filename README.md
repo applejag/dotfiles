@@ -19,9 +19,12 @@ ln -vfs `pwd`/bat/config ~/.config/bat/config
 
 ln -vfs `pwd`/awesome ~/.config/awesome
 
+mkdir -pv ~/.config/alacritty
 ln -vfs `pwd`/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 ln -vfs `pwd`/picom/picom.conf ~/.config/picom.conf
+
+ln -vfs `pwd`/starship/starship.toml ~/.config/starship.toml
 
 ln -vfs `pwd`/X11/.Xmodmap ~/.Xmodmap
 ln -vfs `pwd`/X11/.xinitrc ~/.xinitrc
