@@ -10,6 +10,7 @@ git clone https://github.com/awesomeWM/awesome ~/code/awesome
 sudo dnf install \
   lua \
 	lua-devel \
+	ImageMagick \
 	dbus-devel \
 	libxkbcommon-x11-devel \
 	libxdg-basedir-devel \
