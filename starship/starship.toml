@@ -5,4 +5,4 @@ disabled = false
 format = '[$symbol$context/$namespace]($style) in '
 
 [kubernetes.context_aliases]
-"prod-.*" = "\u001B[31;4m🚨🚨🚨$0🚨🚨🚨"
+"prod-.*" = "\u001B[31;4m🚨🚨🚨 $0 🚨🚨🚨"
