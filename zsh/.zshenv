@@ -2,6 +2,8 @@
 # Skip the not really helping global compinit
 skip_global_compinit=1
 
+export PAGER="less --raw-control-chars --quit-if-one-screen"
+
 # Editor
 export EDITOR=nvim
 
