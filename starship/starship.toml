@@ -1,5 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+[status]
+disabled = false
+
 [kubernetes]
 disabled = false
 format = '[$symbol$context/$namespace]($style) in '
