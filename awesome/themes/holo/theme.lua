@@ -351,7 +351,7 @@ function theme.at_screen_connect(s)
             spr_small,
             s.mypromptbox,
             {
-                widget = awful.widget.watch(ENV_HOME.."/go/bin/dinkur status", 10, function(widget, stdout)
+                widget = awful.widget.watch(ENV_HOME.."/go/bin/dinkur status", 1, function(widget, stdout)
                     local last_line = "dinkur: NO OUTPUT"
                     for line in stdout:gmatch("[^\r\n]+") do
                         last_line = line
