@@ -14,10 +14,12 @@ local dpi   = require("beautiful.xresources").apply_dpi
 local string, os = string, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
+local ENV_HOME = os.getenv("HOME")
+
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
-theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/holo/icons"
-theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/holo/wall.png"
+theme.icon_dir                                  = ENV_HOME .. "/.config/awesome/themes/holo/icons"
+theme.wallpaper                                 = ENV_HOME .. "/.config/awesome/themes/holo/wall.png"
 theme.font                                      = "Roboto Bold 10"
 theme.taglist_font                              = "Roboto Condensed Regular 8"
 theme.fg_normal                                 = "#FFFFFF"
@@ -348,6 +350,15 @@ function theme.at_screen_connect(s)
             s.mylayoutbox,
             spr_small,
             s.mypromptbox,
+            {
+                widget = awful.widget.watch(ENV_HOME.."/go/bin/dinkur status", 10, function(widget, stdout)
+                    local last_line = "dinkur: NO OUTPUT"
+                    for line in stdout:gmatch("[^\r\n]+") do
+                        last_line = line
+                    end
+                    widget:set_text(" "..last_line)
+                end),
+            },
         },
         nil, -- Middle widget
         { -- Right widgets
