@@ -52,6 +52,7 @@ alias -g "%otlscrt=-o json | jq '.data[\"tls.crt\"]' -r | base64 -d | openssl x5
 
 # Easy history navigation
 setopt autopushd
+alias -- -='cd -'
 alias 0='dirs -v | head -10'
 alias 1='cd -'
 alias 2='cd -2'
@@ -64,9 +65,11 @@ alias 8='cd -8'
 alias 9='cd -9'
 
 # Commands
+if command -v crystal &> /dev/null; then
+  alias c=crystal
+fi
 alias kns=kubens
 alias kctx=kubectx
-alias start='cmd.exe /c'
 if command -v helm3 &> /dev/null; then
   alias helm=helm3
 fi
