@@ -50,6 +50,11 @@ alias -g '%x509= | openssl x509 -noout -text'
 alias -g "%ocacrt=-o json | jq '.data[\"ca.crt\"]' -r | base64 -d | openssl x509 -noout -text"
 alias -g "%otlscrt=-o json | jq '.data[\"tls.crt\"]' -r | base64 -d | openssl x509 -noout -text"
 
+alias -g '...=../..'
+alias -g '....=../../..'
+alias -g '.....=../../../..'
+alias -g '......=../../../../..'
+
 # Easy history navigation
 setopt autopushd
 alias -- -='cd -'
