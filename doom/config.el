@@ -64,6 +64,17 @@
 ;; omnisharp fix
 (setq omnisharp-server-executable-path "~/.doom.d/start-omnisharp.sh")
 
+;; Crystal language server
+;; https://github.com/elbywan/crystalline#emacs
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-language-id-configuration
+               '(crystal-mode . "crystal"))
+  (lsp-register-client
+  (make-lsp-client :new-connection (lsp-stdio-connection '("crystalline"))
+                   :activation-fn (lsp-activate-on "crystal")
+                   :priority '1
+                   :server-id 'crystalline)))
+
 ;; Workaround for gofmt-on-save bug
 ;; https://github.com/hlissner/doom-emacs/issues/4201#issuecomment-735222478
 (after! go-mode
