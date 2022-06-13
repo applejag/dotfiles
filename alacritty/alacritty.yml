@@ -182,7 +182,7 @@ schemes:
       text: CellForeground
       background: '#3e4451'
     normal:
-      black:   '#1c1f24'
+      black:   '#5d5f61'   # This is 1c1f24 in Doom Emacs but I lightened it.
       red:     '#ff6c6b'
       green:   '#98be65'
       yellow:  '#da8548'
