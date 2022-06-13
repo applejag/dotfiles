@@ -1,11 +1,21 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format = "$directory$all"
+
+[directory]
+truncate_to_repo = false
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"~/code/risk.ident" = "~ri"
+"~/code" = "~c"
+
 [status]
 disabled = false
 
 [kubernetes]
 disabled = false
-format = '[$symbol$context/$namespace]($style) in '
+format = 'at k8s [$symbol$context/$namespace]($style) '
 
 [kubernetes.context_aliases]
 "prod-.*" = "\u001B[31;4m🚨🚨🚨 $0 🚨🚨🚨"
