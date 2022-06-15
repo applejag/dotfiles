@@ -45,7 +45,8 @@ zi wait lucid for \
 
 zi as'completion' blockf for \
   has'kubectx' mv'_kubectx.zsh -> _kubectx' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubectx.zsh \
-  has'kubens' mv'_kubens.zsh -> _kubens' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubens.zsh
+  has'kubens' mv'_kubens.zsh -> _kubens' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubens.zsh \
+  has'terraform' OMZP::terraform/_terraform
 
 # Namnsdag scripts
 # https://github.com/jilleJr/namnsdag
