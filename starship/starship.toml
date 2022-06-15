@@ -18,8 +18,8 @@ disabled = false
 
 [kubernetes]
 disabled = false
-style = "cyan"
-format = 'at k8s [$symbol[$context](bright-cyan bold)/$namespace]($style) '
+style = "dimmed green"
+format = 'at k8s [$symbol[$context](green bold)/$namespace]($style) '
 
 [kubernetes.context_aliases]
 "prod-.*" = "\u001B[31;1;4m🚨🚨🚨 $0 🚨🚨🚨"
