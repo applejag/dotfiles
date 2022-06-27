@@ -83,15 +83,6 @@
             (lambda ()
               (add-hook 'after-save-hook 'gofmt nil 'make-it-local))))
 
-;; Workaround for centaur-tabs not working inside .git folders
-;; https://github.com/ema2159/centaur-tabs/issues/181
-;; https://github.com/doomemacs/doomemacs/issues/6280
-;(after! centaur-tabs
-;  (setq centaur-tabs-set-icons nil
-;	centaur-tabs-gray-out-icons nil)
-;  (centaur-tabs-group-by-projectile-project)
-;)
-
 (custom-set-variables
  '(markdown-toc-header-toc-title "## Table of contents")
  '(markdown-toc-indentation-space 2))
