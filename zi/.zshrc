@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=3000
 SAVEHIST=5000
-setopt autocd extendedglob nomatch notify
+setopt autocd nomatch notify
 unsetopt beep
 bindkey -e
 
