@@ -120,6 +120,10 @@ colorscheme dracula
 hi Normal ctermbg=None
 hi Comment cterm=Italic
 
+" Color settings
+" :h coc-highlights
+hi CocFadeOut ctermfg=Grey cterm=italic guifg=Grey30
+
 " Mouse support
 set mouse=a
 " Copy/Paste (Yank/Paste) via system clipboard
