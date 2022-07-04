@@ -55,6 +55,16 @@ if command -v namnsdag &> /dev/null; then
   namnsdag
 fi
 
+if command -v aws &> /dev/null
+then
+  # Support bash completions
+  # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html#cli-command-completion-enable
+  autoload -U bashcompinit
+  bashcompinit
+
+  complete -C /usr/local/bin/aws_completer aws
+fi
+
 # Starship loaded last
 eval "$(starship init zsh)"
 
