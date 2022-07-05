@@ -46,12 +46,23 @@ zi wait lucid for \
 zi as'completion' blockf for \
   has'kubectx' mv'_kubectx.zsh -> _kubectx' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubectx.zsh \
   has'kubens' mv'_kubens.zsh -> _kubens' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubens.zsh \
-  has'terraform' OMZP::terraform/_terraform
+  has'terraform' OMZP::terraform/_terraform \
+  has'docker' OMZP::docker/_docker
 
 # Namnsdag scripts
 # https://github.com/jilleJr/namnsdag
 if command -v namnsdag &> /dev/null; then
   namnsdag
+fi
+
+if command -v aws &> /dev/null
+then
+  # Support bash completions
+  # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html#cli-command-completion-enable
+  autoload -U bashcompinit
+  bashcompinit
+
+  complete -C /usr/local/bin/aws_completer aws
 fi
 
 # Starship loaded last

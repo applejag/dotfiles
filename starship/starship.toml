@@ -17,6 +17,12 @@ repo_root_style = "bright-cyan bold"
 [status]
 disabled = false
 
+[aws]
+disabled = true
+
+[python]
+disabled = true
+
 [kubernetes]
 disabled = false
 style = "dimmed green"
