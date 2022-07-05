@@ -26,6 +26,9 @@ ln -vfs `pwd`/picom/picom.conf ~/.config/picom.conf
 
 ln -vfs `pwd`/starship/starship.toml ~/.config/starship.toml
 
+mkdir -pv ~/.config/mpd
+ln -vfs `pwd`/mpd/mpd.conf ~/.config/mpd/mpd.conf
+
 ln -vfs `pwd`/X11/.Xmodmap ~/.Xmodmap
 ln -vfs `pwd`/X11/.xinitrc ~/.xinitrc
 
