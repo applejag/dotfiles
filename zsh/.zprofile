@@ -26,6 +26,7 @@ unset agent_env
 hash -d certs=/usr/local/share/ca-certificates
 hash -d c=~/code
 hash -d w=~/code/wharf
+hash -d j=~/code/jillejr
 hash -d ri=~/code/risk.ident
 hash -d rip=~/code/risk.ident/platform
 
