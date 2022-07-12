@@ -12,6 +12,7 @@ repo_root_style = "bright-cyan bold"
 "~/code/risk.ident/platform" = "~rip"
 "~/code/risk.ident" = "~ri"
 "~/code/wharf" = "~w"
+"~/code/jillejr" = "~j"
 "~/code" = "~c"
 
 [status]
