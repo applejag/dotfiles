@@ -160,6 +160,12 @@ alias kecj='kubectl edit cronjob'
 alias kgcj='kubectl get cronjob'
 alias kgcja='kubectl get cronjob --all-namespaces'
 
+alias kdelc='kubectl delete certificate'
+alias kdc='kubectl describe certificate'
+alias kec='kubectl edit certificate'
+alias kgc='kubectl get certificate'
+alias kgca='kubectl get certificate --all-namespaces'
+
 fpath+="$HOME/.cache/zi/completions"
 
 if command -v ansible &> /dev/null
