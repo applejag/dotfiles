@@ -351,7 +351,9 @@ function theme.at_screen_connect(s)
             spr_small,
             s.mypromptbox,
             {
-                widget = awful.widget.watch(ENV_HOME.."/go/bin/dinkur-statusline --color none", 1),
+                widget = awful.widget.watch(ENV_HOME.."/go/bin/dinkur-statusline --color pango", 1, function(widget, stdout)
+                    widget:set_markup(stdout)
+                end),
             },
         },
         nil, -- Middle widget
