@@ -8,7 +8,8 @@
  '(neuron-default-tags '("stub") t)
  '(neuron-default-zettelkasten-directory "/home/kalle/zettelkasten" t)
  '(neuron-tag-specific-title-faces '(("stub" neuron-stub-face)) t)
- '(package-selected-packages '(emmet-mode)))
+ '(package-selected-packages '(emmet-mode))
+ '(warning-suppress-log-types '((lsp-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
