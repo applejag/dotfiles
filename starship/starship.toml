@@ -30,4 +30,5 @@ style = "dimmed green"
 format = 'at k8s [$symbol[$context](green bold)/$namespace]($style) '
 
 [kubernetes.context_aliases]
-"prod-.*" = "\u001B[31;1;4m🚨🚨🚨 $0 🚨🚨🚨"
+".*-prod" = "\u001B[1;4;38;5;197m🚨🚨🚨 $0 🚨🚨🚨"
+".*-demo" = "\u001B[33;4m🚨 $0 🚨"
