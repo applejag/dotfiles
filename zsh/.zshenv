@@ -14,11 +14,16 @@ export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 export PATH="$PATH:$HOME/.emacs.d/bin"
 
 # Local binaries
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Forgit custom pager
 export FORGIT_PAGER=bat
+
+# JQ custom color palette
+# null:false:true:numbers:strings:arrays:objects
+# Can't set key color though: https://github.com/stedolan/jq/pull/1791
+export JQ_COLORS="1;30:0;95:0;95:0;95:0;32:0:0"
 
 . "$HOME/.cargo/env"
