@@ -1,10 +1,13 @@
+source ~/dotfiles/zsh/zsh-binding-fixes.zsh
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=3000
 SAVEHIST=5000
-setopt autocd extendedglob nomatch notify
+setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
-bindkey -e
+bindkey -v
+# End of lines configured by zsh-newuser-install
 
 if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
   print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
