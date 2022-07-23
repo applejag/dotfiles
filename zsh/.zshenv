@@ -22,3 +22,5 @@ fi
 export FORGIT_PAGER=bat
 
 . "$HOME/.cargo/env"
+
+if [ -e /home/kalle/.nix-profile/etc/profile.d/nix.sh ]; then . /home/kalle/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
