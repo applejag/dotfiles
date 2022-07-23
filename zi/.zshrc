@@ -4,7 +4,7 @@ source ~/dotfiles/zsh/zsh-binding-fixes.zsh
 HISTFILE=~/.histfile
 HISTSIZE=3000
 SAVEHIST=5000
-setopt appendhistory autocd nomatch notify
+setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
