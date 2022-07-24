@@ -23,10 +23,15 @@ fi
 unset agent_env
 
 # Directories inside Linux
-hash -d certs=/usr/local/share/ca-certificates
+if grep -q '^ID=fedora$' /etc/os-release; then
+  hash -d certs=/etc/pki/ca-trust/source/anchors
+else
+  hash -d certs=/usr/local/share/ca-certificates
+fi
 hash -d c=~/code
 hash -d w=~/code/wharf
 hash -d j=~/code/jillejr
+hash -d n=~/Documents/notes
 hash -d ri=~/code/risk.ident
 hash -d rip=~/code/risk.ident/platform
 
