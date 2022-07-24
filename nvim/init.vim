@@ -24,6 +24,10 @@ Plug 'tpope/vim-surround'
 Plug 'yggdroot/indentline'
 Plug 'ervandew/supertab'
 
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'mickael-menu/zk-nvim'
+
 " Spelling
 Plug 'kamykn/spelunker.vim'
 
@@ -31,6 +35,18 @@ Plug 'kamykn/spelunker.vim'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
+
+" ZK options
+lua << EOF
+require("zk").setup({
+  picker = "fzf",
+  lsp = {
+    auto_attach = {
+      enabled = false,
+    },
+  },
+})
+EOF
 
 " Tab from top instead of from bottom
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -135,3 +151,5 @@ set guifont=FuraCode\ Nerd\ Font:h14
 " Escape '-- TERMINAL --' mode with ESC
 tnoremap <Esc> <C-\><C-n>
 
+" Fix for Emanote
+set backupcopy=yes

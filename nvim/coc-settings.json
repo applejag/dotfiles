@@ -5,6 +5,14 @@
         ".wharf-ci.yml"
       ]
   },
+  "languageserver": {
+    "zk": {
+      "command": "zk",
+      "args": ["lsp"],
+      "trace.server": "messages",
+      "filetypes": ["markdown"]
+    }
+  },
   //"diagnostic.displayByAle": true,
   "Lua.workspace.library": [
     "/home/kalle/Documents/CC-Tweaked-EmmyLua"
