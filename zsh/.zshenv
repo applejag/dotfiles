@@ -28,4 +28,4 @@ export JQ_COLORS="1;30:0;95:0;95:0;95:0;32:0:0"
 
 . "$HOME/.cargo/env"
 
-if [ -e /home/kalle/.nix-profile/etc/profile.d/nix.sh ]; then . /home/kalle/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
