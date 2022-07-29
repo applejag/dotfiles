@@ -46,23 +46,18 @@ nix-env -iA nixos.gtk3-x11
 2. Configure with native JSON and GCC JIT support
 
    ```sh
-   ./autogen.sh
-   ./configure --with-json --with-native-compilation
+   ./autogen.sh && \
+   ./configure --with-json --with-native-compilation && \
+   make -j$(nproc)
    ```
 
-3. Build
-
-   ```sh
-   make
-   ```
-
-4. Install Emacs
+3. Install Emacs
 
    ```sh
    sudo make install
    ```
 
-5. Install Doom
+4. Install Doom
 
    ```sh
    cd ~/dotfiles
@@ -72,7 +67,7 @@ nix-env -iA nixos.gtk3-x11
    ~/.emacs.d/bin/doom install
    ```
 
-6. Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
+5. Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
    reading.
 
 ## go-mode
