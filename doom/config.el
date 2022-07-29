@@ -53,27 +53,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq inferior-fsharp-program "dotnet fsi --readline-")
-
 (setq lsp-yaml-schemas '(https://iver-wharf.github.io/_static/wharf-ci-schema.json ".wharf-ci.yml"))
-;;(setq lsp-yaml-schemas '(/home/kalle/dev/wharf/iver-wharf.github.io/docs/_static/wharf-ci-schema.json ".wharf-ci.yml"))
-
-(setq lsp-clients-emmy-lua-java-path "/usr/bin/java")
-(setq lsp-clients-emmy-lua-jar-path (expand-file-name "EmmyLua-LS-all.jar" user-emacs-directory))
-
-;; omnisharp fix
-(setq omnisharp-server-executable-path "~/.doom.d/start-omnisharp.sh")
-
-;; Crystal language server
-;; https://github.com/elbywan/crystalline#emacs
-(with-eval-after-load 'lsp-mode
-  (add-to-list 'lsp-language-id-configuration
-               '(crystal-mode . "crystal"))
-  (lsp-register-client
-  (make-lsp-client :new-connection (lsp-stdio-connection '("crystalline"))
-                   :activation-fn (lsp-activate-on "crystal")
-                   :priority '1
-                   :server-id 'crystalline)))
 
 ;; Workaround for gofmt-on-save bug
 ;; https://github.com/hlissner/doom-emacs/issues/4201#issuecomment-735222478
@@ -83,17 +63,14 @@
             (lambda ()
               (add-hook 'after-save-hook 'gofmt nil 'make-it-local))))
 
+;; Markdown settings
 (custom-set-variables
  '(markdown-toc-header-toc-title "## Table of contents")
  '(markdown-toc-indentation-space 2))
 
+;; Ruler at col 80
 (setq-default display-fill-column-indicator-column 80)
 (global-display-fill-column-indicator-mode 1)
-
-(set-frame-parameter nil 'undecorated t)
-
-;; If I only want it for markdown-mode
-;; (add-hook 'markdown-mode-hook 'display-fill-column-indicator-mode)
 
 ;; Whitespace display
 ;(setq whitespace-style (default-value 'whitespace-style))
