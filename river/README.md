@@ -17,6 +17,15 @@ sudo dnf install \
 	zig
 ```
 
+## Tools
+
+Fedora:
+
+```sh
+sudo dnf install \
+	swaybg
+```
+
 ## Building
 
 ```sh
@@ -27,5 +36,5 @@ cd ~/code/river
 sudo zig build -Drelease-safe -Dxwayland --prefix /usr/local install
 
 mkdir -pv ~/.config/river
-ln -vfs ~/dotfiles/wayland/river/init ~/.config/river/init
+ln -vfs ~/dotfiles/river ~/.config/river
 ```
