@@ -62,9 +62,12 @@
         "format": "{}% "
     },
     "backlight": {
-        // "device": "acpi_video1",
+        "device": "intel_backlight",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "ybacklight -inc 5",
+        "on-scroll-down": "ybacklight -dec 5",
+        "smooth-scrolling-threshold": 0.9,
     },
     "battery": {
         "states": {
