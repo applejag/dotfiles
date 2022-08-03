@@ -32,7 +32,9 @@ ln -vfs `pwd`/mpd/mpd.conf ~/.config/mpd/mpd.conf
 ln -vfs `pwd`/X11/.Xmodmap ~/.Xmodmap
 ln -vfs `pwd`/X11/.xinitrc ~/.xinitrc
 
+mkdir -pv ~/.config/waybar
+ln -vfs `pwd`/waybar/config ~/.config/waybar/config
+
 mkdir -pv ~/dev
 ln -vfs `pwd`/scripts ~/dev/scripts
 ```
-

@@ -23,7 +23,8 @@ Fedora:
 
 ```sh
 sudo dnf install \
-	swaybg
+	swaybg \
+	waybar
 ```
 
 ## Building
