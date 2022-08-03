@@ -124,8 +124,8 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
     # Control screen backlight brightness with light (https://github.com/haikarainen/light)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'light -A 5'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'ybacklight -inc 10'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'ybacklight -dec 10'
 done
 
 # Set keyboard repeat rate
