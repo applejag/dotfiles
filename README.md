@@ -32,8 +32,7 @@ ln -vfs ~/dotfiles/mpd/mpd.conf ~/.config/mpd/mpd.conf
 ln -vfs ~/dotfiles/X11/.Xmodmap ~/.Xmodmap
 ln -vfs ~/dotfiles/X11/.xinitrc ~/.xinitrc
 
-mkdir -pv ~/.config/waybar
-ln -vfs ~/dotfiles/waybar/config ~/.config/waybar/config
+ln -vfs ~/dotfiles/waybar ~/.config/waybar
 
 mkdir -pv ~/dev
 ln -vfs ~/dotfiles/scripts ~/dev/scripts
