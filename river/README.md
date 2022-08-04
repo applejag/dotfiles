@@ -19,12 +19,28 @@ sudo dnf install \
 
 ## Tools
 
-Fedora:
+### Fedora
 
 ```sh
 sudo dnf install \
 	swaybg \
-	waybar
+	swaylock \
+	waybar \
+	playerctl
+```
+
+### ybacklight
+
+```sh
+sudo curl -o /usr/local/bin/ybacklight "https://github.com/yath/ybacklight/raw/ac3067350618bd9f95bb8fac678e6bdfff74a7e0/ybacklight"
+sudo chmod +x /usr/local/bin/ybacklight
+
+sudo groupadd backlighters
+sudo usermod --append --groups backlighters $(whoami)
+for attr in brightness max_brightness; do
+	sudo chgrp -R backlighters /sys/class/backlight/*/$attr
+	sudo chmod g+w /sys/class/backlight/*/$attr
+done
 ```
 
 ## Building
