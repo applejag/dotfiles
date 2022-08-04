@@ -34,6 +34,8 @@ ln -vfs ~/dotfiles/X11/.xinitrc ~/.xinitrc
 
 ln -vfs ~/dotfiles/waybar ~/.config/waybar
 
+ln -vfs ~/dotfiles/swaylock ~/.config/swaylock
+
 mkdir -pv ~/dev
 ln -vfs ~/dotfiles/scripts ~/dev/scripts
 ```

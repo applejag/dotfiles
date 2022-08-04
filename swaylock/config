@@ -1,0 +1,25 @@
+ignore-empty-password
+indicator-caps-lock
+show-failed-attempts
+show-keyboard-layout
+
+# Color palette taken from the "Dark dimmed" GitHub theme
+color=22272e
+inside-clear-color=22272e
+inside-color=22272e
+inside-ver-color=22272e
+inside-wrong-color=22272e
+layout-bg-color=22272e
+layout-text-color=adbac7
+ring-clear-color=444c56
+ring-color=57ab5a
+ring-ver-color=539bf5
+ring-wrong-color=e5534b
+text-clear-color=adbac7
+text-color=adbac7
+text-ver-color=539bf5
+text-wrong-color=e5534b
+
+indicator-radius=120
+indicator-thickness=16
+font-size=30
