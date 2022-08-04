@@ -27,6 +27,7 @@ sudo dnf install \
 	swayidle \
 	swaylock \
 	waybar \
+	wl-clipboard \
 	playerctl
 ```
 
