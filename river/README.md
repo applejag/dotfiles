@@ -23,6 +23,7 @@ sudo dnf install \
 
 ```sh
 sudo dnf install \
+	slurp \
 	swaybg \
 	swayidle \
 	swaylock \
@@ -32,6 +33,9 @@ sudo dnf install \
 ```
 
 ### ybacklight
+
+Lightweight Perl script to change screen backlight.
+<https://github.com/yath/ybacklight>
 
 ```sh
 sudo curl -o /usr/local/bin/ybacklight "https://github.com/yath/ybacklight/raw/ac3067350618bd9f95bb8fac678e6bdfff74a7e0/ybacklight"
@@ -49,6 +53,7 @@ done
 
 Controls zwlr-output-power-management-v1 Wayland protocol. Allows turning
 on/off monitors (DPMS, Display Power Management Signaling).
+<https://sr.ht/~leon_plickat/wlopm>
 
 ```sh
 git clone https://git.sr.ht/~leon_plickat/wlopm ~/code/wlopm
@@ -56,6 +61,24 @@ git clone https://git.sr.ht/~leon_plickat/wlopm ~/code/wlopm
 cd wlopm
 
 make
+sudo make install
+```
+
+### wayshot
+
+Screenshotting tool. <https://github.com/waycrate/wayshot>
+My usage requires `slurp`: <https://github.com/emersion/slurp>
+
+```sh
+git clone https://github.com/waycrate/wayshot ~/code/wayshot
+cd ~/code/wayshot
+make setup
+make
+sed -i '
+	s|^TARGET_DIR := .*|TARGET_DIR := /usr/local/bin|
+	s|^MAN\([0-9]\)_DIR := .*|MAN\1_DIR := /usr/local/share/man/man\1|
+	s|^install:.*|install:|
+' Makefile
 sudo make install
 ```
 

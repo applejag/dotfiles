@@ -6,6 +6,15 @@ riverctl map normal Super P spawn wofi
 
 riverctl map normal Super Return spawn alacritty
 
+# Screenshot region, saves at ~/Pictures/Screenshots/wayshot_YYYY-mm-dd_HH-MM-SS.png
+# and copies to clipboard
+riverctl map normal None Print spawn "wayshot -s \"\$(slurp -f '%x %y %w %h')\" --stdout | tee ~/Pictures/Screenshots/\$(date +wayshot_%F_%H.%M.%S.png) | wl-copy"
+# Screenshot full screen, saves at ~/Pictures/Screenshots/wayshot_YYYY-mm-dd_HH-MM-SS.png
+# and copies to clipboard
+riverctl map normal Super Print spawn "wayshot --stdout | tee ~/Pictures/Screenshots/\$(date +wayshot_%F_%H.%M.%S.png) | wl-copy"
+# Color-pick a pixel on screen and copy to clipboard, format #RRGGBB
+riverctl map normal Super+Control C spawn "wayshot -s \"\$(slurp -p -f '%x %y %w %h')\" --stdout | convert - -format '%[pixel:p{0,0}]' txt:-|egrep \"#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})\" -o|tr -d '\\n'|wl-copy"
+
 # Super+Q & Super+Shift+C to close the focused view
 riverctl map normal Super Q close
 riverctl map normal Super+Shift C close
