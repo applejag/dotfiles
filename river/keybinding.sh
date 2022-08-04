@@ -85,8 +85,8 @@ riverctl map normal Super+Shift 0 set-view-tags $all_tags
 # Super+Space to toggle float
 riverctl map normal Super Space toggle-float
 
-# Super+F to toggle fullscreen
-riverctl map normal Super F toggle-fullscreen
+# Super+M to toggle maximize
+riverctl map normal Super M toggle-fullscreen
 
 # Super+{Up,Right,Down,Left} to change layout orientation
 riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
