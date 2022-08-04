@@ -12,8 +12,8 @@ exec_once swaybg --image ~/Pictures/Wallpaper/1561845449-201900764-abstraction-n
 
 exec_once swayidle -w \
     timeout 300 'swaylock -f' \
-    timeout 300 'wlopm --off="*"' \
-    resume 'wlopm --on="*"' \
+    timeout 300 'wlopm --off "*"' \
+    resume 'wlopm --on "*"' \
     before-sleep 'swaylock -f'
 
 exec_once waybar
