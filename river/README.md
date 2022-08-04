@@ -24,6 +24,7 @@ sudo dnf install \
 ```sh
 sudo dnf install \
 	swaybg \
+	swayidle \
 	swaylock \
 	waybar \
 	playerctl
@@ -41,6 +42,20 @@ for attr in brightness max_brightness; do
 	sudo chgrp -R backlighters /sys/class/backlight/*/$attr
 	sudo chmod g+w /sys/class/backlight/*/$attr
 done
+```
+
+### wlopm
+
+Controls zwlr-output-power-management-v1 Wayland protocol. Allows turning
+on/off monitors (DPMS, Display Power Management Signaling).
+
+```sh
+git clone https://git.sr.ht/~leon_plickat/wlopm ~/code/wlopm
+
+cd wlopm
+
+make
+sudo make install
 ```
 
 ## Building
