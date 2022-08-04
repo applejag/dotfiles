@@ -40,6 +40,8 @@ ln -vfs ~/dotfiles/wofi ~/.config/wofi
 
 ln -vfs ~/dotfiles/fnott ~/.config/fnott
 
+ln -vfs ~/dotfiles/mpDris2 ~/.config/mpDris2
+
 mkdir -pv ~/dev
 ln -vfs ~/dotfiles/scripts ~/dev/scripts
 ```

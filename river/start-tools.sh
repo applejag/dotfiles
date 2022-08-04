@@ -21,3 +21,5 @@ exec_once waybar
 exec_once playerctld
 
 exec_once fnott
+
+exec_once mpDris2

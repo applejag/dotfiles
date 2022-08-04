@@ -23,13 +23,14 @@ sudo dnf install \
 
 ```sh
 sudo dnf install \
+	mpdris2 \
+	playerctl \
 	slurp \
 	swaybg \
 	swayidle \
 	swaylock \
 	waybar \
-	wl-clipboard \
-	playerctl
+	wl-clipboard
 ```
 
 ### ybacklight
@@ -92,6 +93,15 @@ mkdir -pv bld/release && cd bld/release
 meson --buildtype=release ../..
 ninja
 sudo ninja install
+```
+
+### mpDris2
+
+```sh
+git clone https://github.com/eonpatapon/mpDris2.git ~/code/mpDris2
+cd ~/code/mpDris2
+./autogen.sh --sysconfdir=/etc
+sudo make install
 ```
 
 ## Building
