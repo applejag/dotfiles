@@ -72,12 +72,12 @@ local function run_once(cmd_arr)
 end
 
 run_once({
-  "urxvtd",
   "unclutter -root",
   "picom --experimental-backends",
   "ulauncher --hide-window",
   "emacs --daemon",
   "xss-lock -n /usr/libexec/xsecurelock/dimmer -l -- xsecurelock",
+  "nm-applet",
 })
 
 -- This function implements the XDG autostart specification
