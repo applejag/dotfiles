@@ -1,5 +1,7 @@
 #!/bin/sh
 
+riverctl map normal Control+Alt L spawn swaylock
+
 riverctl map normal Super Return spawn alacritty
 
 # Super+Q to close the focused view
@@ -24,9 +26,6 @@ riverctl map normal Super Comma focus-output previous
 # Super+Shift+{Period,Comma} to send the focused view to the next/previous output
 riverctl map normal Super+Shift Period send-to-output next
 riverctl map normal Super+Shift Comma send-to-output previous
-
-# Super+Return to bump the focused view to the top of the layout stack
-#riverctl map normal Super Return zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
 riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
