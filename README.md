@@ -36,6 +36,8 @@ ln -vfs ~/dotfiles/waybar ~/.config/waybar
 
 ln -vfs ~/dotfiles/swaylock ~/.config/swaylock
 
+ln -vfs ~/dotfiles/wofi ~/.config/wofi
+
 mkdir -pv ~/dev
 ln -vfs ~/dotfiles/scripts ~/dev/scripts
 ```

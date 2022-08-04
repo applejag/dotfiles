@@ -1,0 +1,16 @@
+# wofi(5)
+
+allow_images=true
+allow_markup=true
+gtk_dark=true
+insensitive=true
+parse_search=true
+prompt=Open application...
+show=drun
+term=alacritty
+dynamic_lines=true
+
+key_down=Alt_L-j
+key_expand=Tab
+key_forward=Alt_L-l
+key_up=Alt_L-k

@@ -2,10 +2,13 @@
 
 riverctl map normal Control+Alt L spawn swaylock
 
+riverctl map normal Super P spawn wofi
+
 riverctl map normal Super Return spawn alacritty
 
-# Super+Q to close the focused view
+# Super+Q & Super+Shift+C to close the focused view
 riverctl map normal Super Q close
+riverctl map normal Super+Shift C close
 
 # Super+Shift+E to exit river
 riverctl map normal Super+Shift E exit
