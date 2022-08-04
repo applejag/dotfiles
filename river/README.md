@@ -30,7 +30,8 @@ sudo dnf install \
 	swayidle \
 	swaylock \
 	waybar \
-	wl-clipboard
+	wl-clipboard \
+	xdg-desktop-portal-wlr
 ```
 
 ### ybacklight
