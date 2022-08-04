@@ -6,6 +6,9 @@ riverctl map normal Super P spawn wofi
 
 riverctl map normal Super Return spawn alacritty
 
+riverctl map normal Control Space spawn 'fnottctl dismiss'
+riverctl map normal Super BackSpace spawn 'fnottctl actions'
+
 # Screenshot region, saves at ~/Pictures/Screenshots/wayshot_YYYY-mm-dd_HH-MM-SS.png
 # and copies to clipboard
 riverctl map normal None Print spawn "wayshot -s \"\$(slurp -f '%x %y %w %h')\" --stdout | tee ~/Pictures/Screenshots/\$(date +wayshot_%F_%H.%M.%S.png) | wl-copy"

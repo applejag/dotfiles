@@ -19,3 +19,5 @@ exec_once swayidle -w \
 exec_once waybar
 
 exec_once playerctld
+
+exec_once fnott

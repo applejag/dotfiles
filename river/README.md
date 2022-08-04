@@ -82,6 +82,18 @@ sed -i '
 sudo make install
 ```
 
+### fnott
+
+```sh
+sudo dnf install tllist-devel meson ninja-build
+git clone https://codeberg.org/dnkl/fnott.git ~/code/fnott
+cd ~/code/fnott
+mkdir -pv bld/release && cd bld/release
+meson --buildtype=release ../..
+ninja
+sudo ninja install
+```
+
 ## Building
 
 ```sh

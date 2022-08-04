@@ -38,6 +38,8 @@ ln -vfs ~/dotfiles/swaylock ~/.config/swaylock
 
 ln -vfs ~/dotfiles/wofi ~/.config/wofi
 
+ln -vfs ~/dotfiles/fnott ~/.config/fnott
+
 mkdir -pv ~/dev
 ln -vfs ~/dotfiles/scripts ~/dev/scripts
 ```
