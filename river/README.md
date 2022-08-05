@@ -106,6 +106,16 @@ cd ~/code/mpDris2
 sudo make install
 ```
 
+### way-displays
+
+```sh
+sudo dnf install yaml-cpp-devel
+git clone git@github.com:alex-courtis/way-displays.git ~/code/way-displays
+cd ~/code/way-displays
+make
+sudo make install
+```
+
 ## Building
 
 ```sh
