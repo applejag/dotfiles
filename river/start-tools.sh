@@ -4,7 +4,6 @@ exec_once() {
     if ! pgrep -u "$USER" -x "$1" > /dev/null
     then
         exec "$@" &
-        bg
     fi
 }
 
@@ -25,3 +24,5 @@ exec_once fnott
 exec_once mpDris2
 
 exec_once ~/dotfiles/scripts/way-displays-river.sh
+
+exec_once nm-applet
