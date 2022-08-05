@@ -1,7 +1,6 @@
 ignore-empty-password
 indicator-caps-lock
 show-failed-attempts
-show-keyboard-layout
 
 # Color palette taken from the "Dark dimmed" GitHub theme
 color=22272e
