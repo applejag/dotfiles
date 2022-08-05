@@ -1,6 +1,6 @@
 #!/bin/sh
 
-riverctl map normal Control+Alt L spawn "swaylock -f; sleep 0.1s; killall -USR1 swayidle"
+riverctl map normal Control+Alt L spawn "swaylock -f; sleep 1s; killall -USR1 swayidle"
 
 riverctl map normal Super P spawn wofi
 
