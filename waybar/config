@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["river/tags", "river/window"],
+    "modules-left": ["river/tags", "custom/dinkur", "river/window"],
     "modules-center": [],
     "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "clock"],
     // Modules configuration
@@ -14,6 +14,10 @@
     },
     "river/window": {
         "max-length": 48,
+    },
+    "custom/dinkur": {
+        "exec": "~/go/bin/dinkur-statusline --color pango",
+        "interval": 1,
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {volume}% ",

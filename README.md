@@ -42,6 +42,8 @@ ln -vfs ~/dotfiles/fnott ~/.config/fnott
 
 ln -vfs ~/dotfiles/mpDris2 ~/.config/mpDris2
 
+ln -vfs ~/dotfiles/way-displays ~/.config/way-displays
+
 mkdir -pv ~/dev
 ln -vfs ~/dotfiles/scripts ~/dev/scripts
 ```

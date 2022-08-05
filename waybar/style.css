@@ -10,6 +10,10 @@
     border-bottom: 3px solid transparent;
 }
 
+#tags button:last-child {
+    margin-right: 0px;
+}
+
 #tags button.occupied {
     /* Occupied: there's an app running in this tab */
     font-weight: bolder;
@@ -30,6 +34,21 @@
 
 #tags button.urgent {
     /* Urgent: and app in this tab requests focus */
+}
+
+/* River window */
+
+#window {
+    padding: 0 12px;
+    background-color: #001a33;
+    color: #cce6ff;
+}
+
+/* Dinkur */
+#custom-dinkur {
+    background-color: #22272e;
+    padding: 0 12px;
+    color: #adbac7;
 }
 
 /* Other default styling taken from

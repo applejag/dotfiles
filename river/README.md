@@ -60,7 +60,7 @@ on/off monitors (DPMS, Display Power Management Signaling).
 ```sh
 git clone https://git.sr.ht/~leon_plickat/wlopm ~/code/wlopm
 
-cd wlopm
+cd ~/code/wlopm
 
 make
 sudo make install
@@ -99,9 +99,20 @@ sudo ninja install
 ### mpDris2
 
 ```sh
+sudo dnf install intltool
 git clone https://github.com/eonpatapon/mpDris2.git ~/code/mpDris2
 cd ~/code/mpDris2
 ./autogen.sh --sysconfdir=/etc
+sudo make install
+```
+
+### way-displays
+
+```sh
+sudo dnf install yaml-cpp-devel
+git clone git@github.com:alex-courtis/way-displays.git ~/code/way-displays
+cd ~/code/way-displays
+make
 sudo make install
 ```
 
