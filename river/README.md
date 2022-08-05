@@ -117,6 +117,6 @@ sudo zig build -Drelease-safe -Dxwayland --prefix /usr/local install
 mkdir -pv ~/.config/river
 ln -vfs ~/dotfiles/river ~/.config/river
 
-sudo mkdir /usr/local/share/wayland-sessions
-sudo cp ~/dotfiles/river/river.desktop /usr/local/share/wayland-sessions/river.desktop
+sudo mkdir -pv /usr/local/share/wayland-sessions
+sudo cp -v ~/dotfiles/river/river.desktop /usr/local/share/wayland-sessions/river.desktop
 ```
