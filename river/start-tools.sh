@@ -23,3 +23,5 @@ exec_once playerctld
 exec_once fnott
 
 exec_once mpDris2
+
+exec_once ~/dotfiles/scripts/way-displays-river.sh
