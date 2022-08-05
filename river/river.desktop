@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=River
 Comment=A dynamic tiling Wayland compositor
-Exec=env XKB_DEFAULT_LAYOUT="se(us),se,de" XKB_DEFAULT_OPTIONS="grp:alt_shift" river
+Exec=env XKB_DEFAULT_LAYOUT="se(us),se,de" XKB_DEFAULT_OPTIONS="grp:alt_shift_toggle" river
 Type=Application
