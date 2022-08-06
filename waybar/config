@@ -55,8 +55,11 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+        "today-format": "<span color='#ff6699'><b>{}</b></span>",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "locale": "",
+        "format": "{:%Y-%m-%d %H:%M}",
+        "format-alt": "{:%H:%M}",
     },
     "cpu": {
         "format": "{usage}% ",

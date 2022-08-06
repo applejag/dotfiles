@@ -15,7 +15,7 @@ exec_once swayidle -w \
     resume 'wlopm --on "*"' \
     before-sleep 'swaylock -f'
 
-exec_once waybar
+exec_once env LC_TIME=sv_SE.utf8 waybar
 
 exec_once playerctld
 
