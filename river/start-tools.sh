@@ -26,3 +26,5 @@ exec_once mpDris2
 exec_once ~/dotfiles/scripts/way-displays-river.sh
 
 exec_once nm-applet
+
+exec_once emacs --daemon
