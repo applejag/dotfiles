@@ -190,3 +190,12 @@ then
   eval $(register-python-argcomplete ansible-pull)
   eval $(register-python-argcomplete ansible-vault)
 fi
+
+if command -v glow &> /dev/null
+then
+  autoload -U add-zsh-hook
+  glow-readme-on-cd() {
+    ~/dotfiles/scripts/glow-readme-on-cd.zsh
+  }
+  add-zsh-hook chpwd glow-readme-on-cd
+fi
