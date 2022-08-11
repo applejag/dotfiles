@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 setopt extendedglob
+setopt +o nomatch
 for FILE in (#i)readme.(markdown|md)
 do
     if [[ -f "$FILE" || -r "$FILE" ]]; then
