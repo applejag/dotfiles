@@ -8,9 +8,6 @@ call plug#begin()
 " Coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" ALE
-Plug 'dense-analysis/ale'
-
 " Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
 
