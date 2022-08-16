@@ -21,11 +21,24 @@ fi
 # Forgit custom pager
 export FORGIT_PAGER=bat
 
+if command -v delta &> /dev/null
+then
+    export FORGIT_DIFF_PAGER='delta --line-numbers'
+    export FORGIT_SHOW_PAGER='delta --line-numbers'
+fi
+
 # JQ custom color palette
 # null:false:true:numbers:strings:arrays:objects
 # Can't set key color though: https://github.com/stedolan/jq/pull/1791
 export JQ_COLORS="1;30:0;95:0;95:0;95:0;32:0:0"
 
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo" ]; then
+    source "$HOME/.cargo/env"
+fi
+
+if [ -d "$HOME/.deno" ]; then
+    export DENO_INSTALL="$HOME/.deno"
+    export PATH="$DENO_INSTALL/bin:$PATH"
+fi
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
