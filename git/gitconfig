@@ -1,0 +1,37 @@
+[alias]
+	ss = status --short
+[user]
+	#email = foo@bar.com
+	name = Kalle Fagerberg
+	signingkey = C0DD6EBC34092609
+[commit]
+	gpgsign = true
+[tag]
+	forceSignAnnotated = true
+	gpgSign = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
+[core]
+	# https://github.com/dandavison/delta
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+[add.interactive]
+	useBuiltin = false # required for git 2.37.0
+
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	syntax-theme = TwoDark
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
