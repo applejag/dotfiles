@@ -8,43 +8,40 @@ ln -vfs ~/dotfiles/zsh/.zshenv ~/.zshenv
 ln -vfs ~/dotfiles/zi/.zshrc ~/.zshrc
 
 mkdir -pv ~/.config/gh
-ln -vfs ~/dotfiles/gh/config.yml ~/.config/gh/config.yml
+ln -vfs ~/{dotfiles,.config}/gh/config.yml
 
 mkdir -pv ~/.config/nvim
-ln -vfs ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-ln -vfs ~/dotfiles/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
+ln -vfs ~/{dotfiles,.config}/nvim/init.vim
+ln -vfs ~/{dotfiles,.config}/nvim/coc-settings.json
 
 mkdir -pv ~/.config/bat
-ln -vfs ~/dotfiles/bat/config ~/.config/bat/config
+ln -vfs ~/{dotfiles,.config}/bat/config
 
-ln -vfs ~/dotfiles/awesome ~/.config/awesome
+ln -vfs ~/{dotfiles,.config}/awesome
 
 mkdir -pv ~/.config/alacritty
-ln -vfs ~/dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -vfs ~/{dotfiles,.config}/alacritty/alacritty.yml
 
-ln -vfs ~/dotfiles/picom/picom.conf ~/.config/picom.conf
+ln -vfs ~/{dotfiles/picom,.config}/picom.conf
 
-ln -vfs ~/dotfiles/starship/starship.toml ~/.config/starship.toml
+ln -vfs ~/{dotfiles/starship,.config}/starship.toml
 
 mkdir -pv ~/.config/mpd
-ln -vfs ~/dotfiles/mpd/mpd.conf ~/.config/mpd/mpd.conf
+ln -vfs ~/{dotfiles,.config}/mpd/mpd.conf
 
 ln -vfs ~/dotfiles/X11/.Xmodmap ~/.Xmodmap
 ln -vfs ~/dotfiles/X11/.xinitrc ~/.xinitrc
 
-ln -vfs ~/dotfiles/waybar ~/.config/waybar
+ln -vfs ~/{dotfiles,.config}/waybar
 
-ln -vfs ~/dotfiles/swaylock ~/.config/swaylock
+ln -vfs ~/{dotfiles,.config}/swaylock
 
-ln -vfs ~/dotfiles/wofi ~/.config/wofi
+ln -vfs ~/{dotfiles,.config}/wofi
 
-ln -vfs ~/dotfiles/fnott ~/.config/fnott
+ln -vfs ~/{dotfiles,.config}/fnott
 
-ln -vfs ~/dotfiles/mpDris2 ~/.config/mpDris2
+ln -vfs ~/{dotfiles,.config}/mpDris2
 
-ln -vfs ~/dotfiles/way-displays ~/.config/way-displays
-
-mkdir -pv ~/dev
-ln -vfs ~/dotfiles/scripts ~/dev/scripts
+ln -vfs ~/{dotfiles,.config}/way-displays
 ```
 
