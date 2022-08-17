@@ -4,7 +4,6 @@
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
-riverctl float-filter-add title "popup title with spaces"
 
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
