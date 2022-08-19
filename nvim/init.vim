@@ -119,6 +119,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Custom filetypes
+autocmd BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile */.kube/config set filetype=yaml nowrap
+
 " Misc settings
 if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
