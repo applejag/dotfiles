@@ -7,6 +7,9 @@
 
     color: #004280;
     background-color: #001a33;
+    border-left: none;
+    border-right: none;
+    border-top: none;
     border-bottom: 3px solid transparent;
 }
 
@@ -47,6 +50,7 @@
 /* Dinkur */
 #custom-dinkur {
     background-color: #22272e;
+    border-bottom: 3px solid #171b1f;
     padding: 0 12px;
     color: #adbac7;
 }
@@ -61,8 +65,8 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: rgb(36, 47, 79);
+    border-bottom: 3px solid #001a33;
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -156,27 +160,32 @@ window#waybar.chromium {
 
 #clock {
     background-color: #64727D;
+    border-bottom: 3px solid #3c444b;
 }
 
 #battery {
     background-color: #ffffff;
+    border-bottom: 3px solid #7f7f7f;
     color: #000000;
 }
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
     background-color: #26A65B;
+    border-bottom: 3px solid #166336;
 }
 
 @keyframes blink {
     to {
         background-color: #ffffff;
+        border-bottom: 3px solid #7f7f7f;
         color: #000000;
     }
 }
 
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
+    border-bottom: 3px solid #932424;
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -191,11 +200,13 @@ label:focus {
 
 #cpu {
     background-color: #2ecc71;
+    border-bottom: 3px solid #1b7a43;
     color: #000000;
 }
 
 #memory {
     background-color: #9b59b6;
+    border-bottom: 3px solid #5d356d;
 }
 
 #disk {
@@ -204,23 +215,28 @@ label:focus {
 
 #backlight {
     background-color: #90b1b1;
+    border-bottom: 3px solid #566a6a;
 }
 
 #network {
     background-color: #2980b9;
+    border-bottom: 3px solid #184c6f;
 }
 
 #network.disconnected {
     background-color: #f53c3c;
+    border-color: #932424;
 }
 
 #pulseaudio {
     background-color: #f1c40f;
+    border-bottom: 3px solid #907509;
     color: #000000;
 }
 
 #pulseaudio.muted {
     background-color: #90b1b1;
+    border-color: #566a6a;
     color: #2a5c45;
 }
 
@@ -261,28 +277,34 @@ label:focus {
 
 #idle_inhibitor {
     background-color: #2d3436;
+    border-bottom: 3px solid #001a33;
 }
 
 #idle_inhibitor.activated {
     background-color: #ecf0f1;
+    border-bottom: 3px solid #8d9090;
     color: #2d3436;
 }
 
 #mpd {
     background-color: #66cc99;
+    border-bottom: 3px solid #2a5c45;
     color: #2a5c45;
 }
 
 #mpd.disconnected {
     background-color: #f53c3c;
+    border-color: #932424;
 }
 
 #mpd.stopped {
     background-color: #90b1b1;
+    border-color: #566a6a;
 }
 
 #mpd.paused {
     background-color: #51a37a;
+    border-color: #306149;
 }
 
 #language {
