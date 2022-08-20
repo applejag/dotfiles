@@ -116,6 +116,16 @@ make
 sudo make install
 ```
 
+### nwg-drawer
+
+```sh
+sudo dnf install gtk3-devel gtk-layer-shell-devel xdg-utils
+git clone git@github.com:nwg-piotr/nwg-drawer ~/code/nwg-drawer
+cd ~/code/nwg-drawer
+make build
+sudo make install
+```
+
 ## Building
 
 ```sh
