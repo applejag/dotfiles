@@ -4,6 +4,9 @@ skip_global_compinit=1
 
 export PAGER="less --raw-control-chars --quit-if-one-screen"
 
+# Kind: Kubernetes-in-Docker
+export KIND_EXPERIMENTAL_PROVIDER=podman
+
 # Editor
 export EDITOR=nvim
 

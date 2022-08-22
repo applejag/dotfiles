@@ -36,8 +36,6 @@ ln -vfs ~/{dotfiles,.config}/waybar
 
 ln -vfs ~/{dotfiles,.config}/swaylock
 
-ln -vfs ~/{dotfiles,.config}/wofi
-
 ln -vfs ~/{dotfiles,.config}/fnott
 
 ln -vfs ~/{dotfiles,.config}/mpDris2

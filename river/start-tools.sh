@@ -30,3 +30,5 @@ exec_once nm-applet
 exec_once emacs --daemon
 
 exec_once flatpak run com.onepassword.OnePassword --silent
+
+exec_once nwg-drawer -r
