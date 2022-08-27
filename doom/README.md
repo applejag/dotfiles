@@ -36,39 +36,29 @@ nix-env -iA nixos.gtk3-x11
 
 ## Installing
 
-1. Download and unpack
+```sh
+# Download and unpack
+git clone git://git.savannah.gnu.org/emacs.git ~/emacs
+cd ~/emacs
 
-   ```sh
-   git clone git://git.savannah.gnu.org/emacs.git ~/emacs
-   cd ~/emacs
-   ```
+# Configure with native JSON and GCC JIT support
+./autogen.sh && \
+./configure --with-json --with-native-compilation && \
+make -j$(nproc)
 
-2. Configure with native JSON and GCC JIT support
+# Install Emacs
+sudo make install
 
-   ```sh
-   ./autogen.sh && \
-   ./configure --with-json --with-native-compilation && \
-   make -j$(nproc)
-   ```
+# Install Doom
+cd ~/dotfiles
+ln -vfs `pwd`/doom ~/.doom.d
 
-3. Install Emacs
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+```
 
-   ```sh
-   sudo make install
-   ```
-
-4. Install Doom
-
-   ```sh
-   cd ~/dotfiles
-   ln -vfs `pwd`/doom ~/.doom.d
-
-   git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-   ~/.emacs.d/bin/doom install
-   ```
-
-5. Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
-   reading.
+Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
+reading.
 
 ## go-mode
 
