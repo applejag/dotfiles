@@ -5,4 +5,6 @@
 --map-syntax '[nN]u[gG]et.[cC]onfig:XML'
 --map-syntax '**/.kube/config:YAML'
 --map-syntax '.yamllint:YAML'
+--map-syntax 'templates/NOTES.txt:Jinja2'
+--map-syntax 'templates/_helpers.tpl:Jinja2'
 
