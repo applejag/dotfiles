@@ -64,15 +64,15 @@ source ~/dotfiles/zsh/zsh-expand-multiple-dots.zsh
 setopt autopushd
 alias -- -='cd -'
 alias 0='dirs -v | head -10'
-alias 1='cd -'
-alias 2='cd -2'
-alias 3='cd -3'
-alias 4='cd -4'
-alias 5='cd -5'
-alias 6='cd -6'
-alias 7='cd -7'
-alias 8='cd -8'
-alias 9='cd -9'
+alias 1='cd $(dirs -lp | head -2 | tail -1)'
+alias 2='cd $(dirs -lp | head -3 | tail -1)'
+alias 3='cd $(dirs -lp | head -4 | tail -1)'
+alias 4='cd $(dirs -lp | head -5 | tail -1)'
+alias 5='cd $(dirs -lp | head -6 | tail -1)'
+alias 6='cd $(dirs -lp | head -7 | tail -1)'
+alias 7='cd $(dirs -lp | head -8 | tail -1)'
+alias 8='cd $(dirs -lp | head -9 | tail -1)'
+alias 9='cd $(dirs -lp | head -10 | tail -1)'
 
 # Commands
 if command -v crystal &> /dev/null; then
@@ -168,6 +168,17 @@ alias kdc='kubectl describe certificate'
 alias kec='kubectl edit certificate'
 alias kgc='kubectl get certificate'
 alias kgca='kubectl get certificate --all-namespaces'
+
+if command -v kubectl-hns &> /dev/null; then
+  alias kh=kubectl-hns
+  alias kht='kubectl-hns tree'
+  alias khd='kubectl-hns describe'
+  if command -v hns-tree &> /dev/null; then
+    alias khta='hns-tree'
+  else
+    alias khta='kubectl-hns tree --all-namespaces'
+  fi
+fi
 
 fpath+="$HOME/.cache/zi/completions"
 
