@@ -169,6 +169,12 @@ alias kec='kubectl edit certificate'
 alias kgc='kubectl get certificate'
 alias kgca='kubectl get certificate --all-namespaces'
 
+alias kdelcsec='kubectl delete clustersecret'
+alias kdcsec='kubectl describe clustersecret'
+alias kecsec='kubectl edit clustersecret'
+alias kgcsec='kubectl get clustersecret'
+alias kgcseca='kubectl get clustersecret --all-namespaces'
+
 if command -v kubectl-hns &> /dev/null; then
   alias kh=kubectl-hns
   alias kht='kubectl-hns tree'
