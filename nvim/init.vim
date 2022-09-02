@@ -122,6 +122,8 @@ let g:syntastic_check_on_wq = 0
 " Custom filetypes
 autocmd BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile */roles/*/tasks/*.yml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile */roles/*/tasks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */.kube/config set filetype=yaml nowrap
 
 " Misc settings
