@@ -7,6 +7,9 @@ export PAGER="less --raw-control-chars --quit-if-one-screen"
 # Kind: Kubernetes-in-Docker
 export KIND_EXPERIMENTAL_PROVIDER=podman
 
+# Kubectl krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # Editor
 export EDITOR=nvim
 
