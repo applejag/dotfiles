@@ -4,7 +4,8 @@ riverctl map normal Control+Alt L spawn "swaylock -f; sleep 1s; killall -USR1 sw
 
 riverctl map normal Super P spawn "pkill -USR1 nwg-drawer"
 #riverctl map normal Super P spawn wofi
-riverctl map normal Super+Shift P spawn "flatpak run com.onepassword.OnePassword --toggle"
+riverctl map normal Super+Alt P spawn "1password --toggle"
+riverctl map normal Super+Shift P spawn "1password --quick-access"
 
 riverctl map normal Super+Shift Return spawn "alacritty --class float"
 riverctl map normal Super Return spawn alacritty
