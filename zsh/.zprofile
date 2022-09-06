@@ -100,8 +100,16 @@ else
   alias musicforprogramming='xdg-open "https://musicforprogramming.net/?$(rng 1 63 -f english | tr -d -)"'
 fi
 
-if command -v gopass &> /dev/null; then
+ORIG_GOPASS="$(command -v gopass)"
+if [[ $? == 0 ]]; then
   alias pass='gopass'
+  gopass() {
+    if [[ "$1" =~ / || "$1" == "show" ]]; then
+      "$ORIG_GOPASS" "$@" | bat --language yaml --decorations never
+    else
+      "$ORIG_GOPASS" "$@"
+    fi
+  }
 fi
 
 # Resetting weird Forgit aliases
