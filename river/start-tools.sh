@@ -3,6 +3,7 @@
 exec_once() {
     if ! pgrep -u "$USER" -x "$1" > /dev/null
     then
+        echo "$0: No '$1' found, starting it."
         exec "$@" &
     fi
 }
@@ -15,7 +16,7 @@ exec_once swayidle -w \
     resume 'wlopm --on "*"' \
     before-sleep 'swaylock -f'
 
-exec_once env LC_TIME=sv_SE.utf8 waybar
+LC_TIME=sv_SE.utf8 exec_once waybar
 
 exec_once playerctld
 
@@ -29,6 +30,6 @@ exec_once nm-applet
 
 exec_once emacs --daemon
 
-exec_once flatpak run com.onepassword.OnePassword --silent
+exec_once 1password --silent
 
 exec_once nwg-drawer -r
