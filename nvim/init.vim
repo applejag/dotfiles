@@ -125,8 +125,10 @@ autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */roles/*/tasks/*.yml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */roles/*/tasks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */.kube/config set filetype=yaml nowrap
+autocmd BufRead,BufNewFile /tmp/kubeconfigs/* set filetype=yaml nowrap
 autocmd BufRead,BufNewFile /dev/shm/gopass-edit*/secret set filetype=yaml nowrap
 autocmd BufRead,BufNewFile */ansible/hosts set filetype=dosini
+autocmd BufRead,BufNewFile */ri-secrets/values.yaml set nowrap
 
 " Misc settings
 if &listchars ==# 'eol:$'
