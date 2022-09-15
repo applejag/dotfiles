@@ -1,0 +1,9 @@
+# Add this to .gitattributes to allow git diffing on ansible-vault encrypted files.
+#
+# Also need to add the following config to ~/.gitconfig or .git/config:
+# 	[diff "ansible-vault"]
+# 		textconv = PAGER=cat ansible-vault view
+# 		cachetextconv = true
+#
+# Also exclude .gitattributes in .git/info/exclude
+vault_*.yml diff=ansible-vault merge=binary
