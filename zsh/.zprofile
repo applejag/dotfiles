@@ -91,6 +91,7 @@ if command -v dinkur &> /dev/null; then
   alias '?=dinkur ls'
   alias uy='dinkur ls -r yesterday'
   alias ud='dinkur ls -r today'
+  alias uw='dinkur ls -r week'
   alias ua='dinkur ls -r all'
 fi
 alias e='emacsclient -c -a "emacs"'
