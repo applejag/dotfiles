@@ -5,6 +5,7 @@
         ".wharf-ci.yml"
       ]
   },
+  "suggest.noselect": true,
   "languageserver": {
     "zk": {
       "command": "zk",
