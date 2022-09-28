@@ -19,6 +19,9 @@ export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 # Doom Emacs
 export PATH="$PATH:$HOME/.emacs.d/bin"
 
+# Linkerd2
+export PATH="$PATH:$HOME/.linkerd2/bin"
+
 # Ansible vaults
 export ANSIBLE_VAULT_IDENTITY_LIST="$HOME/dotfiles/scripts/ansible-vault-keyring-client.py,frida-ml@$HOME/dotfiles/scripts/ansible-vault-keyring-client.py"
 
