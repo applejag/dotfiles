@@ -118,6 +118,8 @@ if [[ $? == 0 ]]; then
   }
 fi
 
+# Additional git aliases
+alias gla='git pull --all --prune --jobs=10'
 # Resetting weird Forgit aliases
 export forgit_checkout_commit=gcoc
 alias gco='git checkout'
