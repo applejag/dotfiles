@@ -215,6 +215,7 @@ label:focus {
     background-color: transparent;
     border-bottom: 3px solid #2ecc71;
     color: #2ecc71;
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
 }
 
 #memory {
