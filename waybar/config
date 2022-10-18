@@ -1,3 +1,4 @@
+// vi: ft=jsonc
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
@@ -10,14 +11,14 @@
     "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "clock"],
     // Modules configuration
     "river/tags": {
-        "num-tags": 9,
+        "num-tags": 9
     },
     "river/window": {
-        "max-length": 48,
+        "max-length": 48
     },
     "custom/dinkur": {
         "exec": "~/go/bin/dinkur-statusline --color pango",
-        "interval": 1,
+        "interval": 1
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {volume}% ",
@@ -44,7 +45,7 @@
         },
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)",
-        "title-len": 32,
+        "title-len": 32
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -59,13 +60,17 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "locale": "",
         "format": "{:%Y-%m-%d %H:%M}",
-        "format-alt": "{:%H:%M}",
+        "format-alt": "{:%H:%M}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "interval": 2,
+        //"format": "{usage}% ",
+        "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "<span color=\"#e6e600\">▆</span>", "<span color=\"#f1c40f\">▇</span>", "<span color=\"#f53c3c\">█</span>"],
         "tooltip": false
     },
     "memory": {
+        "interval": 10,
         "format": "{}% "
     },
     "backlight": {
@@ -74,7 +79,7 @@
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-scroll-up": "ybacklight -inc 5",
         "on-scroll-down": "ybacklight -dec 5",
-        "smooth-scrolling-threshold": 0.9,
+        "smooth-scrolling-threshold": 0.9
     },
     "battery": {
         "states": {
@@ -117,6 +122,6 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
+    }
 }
 

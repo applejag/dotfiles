@@ -2,15 +2,15 @@
 
 #tags button {
     margin-right: 4px;
-    padding: 0 4px;
+    padding: 0;
     border-radius: 0;
 
     color: #004280;
-    background-color: #001a33;
+    background-color: transparent;
     border-left: none;
     border-right: none;
     border-top: none;
-    border-bottom: 3px solid transparent;
+    border-bottom: 3px solid alpha(#001a33, 0.3);
 }
 
 #tags button:last-child {
@@ -20,14 +20,14 @@
 #tags button.occupied {
     /* Occupied: there's an app running in this tab */
     font-weight: bolder;
-    background-color: #004280;
+    background-color: alpha(#004280, 0.5);
     color: #99ceff;
     border-bottom: 3px solid #0084ff;
 }
 
 #tags button.focused {
     /* Focused: current tab */
-    background-color: #0084ff;
+    background-color: alpha(#0084ff, 0.5);
     color: #cce6ff;
 }
 
@@ -43,13 +43,15 @@
 
 #window {
     padding: 0 12px;
-    background-color: #001a33;
+    /*background-color: #001a33;*/
+    background-color: transparent;
+    border-bottom: 3px solid #001a33;
     color: #cce6ff;
 }
 
 /* Dinkur */
 #custom-dinkur {
-    background-color: #22272e;
+    /*background-color: #22272e;*/
     border-bottom: 3px solid #171b1f;
     padding: 0 12px;
     color: #adbac7;
@@ -60,16 +62,27 @@
  */
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    /*font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
+    font-family: FontAwesome, Monocraft;
+    font-size: 11px;
 }
 
 window#waybar {
+    background-color: transparent;
+    background-image: -gtk-gradient(
+        linear,
+        center top, center bottom,
+        from (alpha(#001a33, 0.9)),
+        color-stop(0.5, alpha(#001a33, 0.65)),
+        to (alpha(#001a33, 0)));
+    border: none;
+    /*
     background-color: rgb(36, 47, 79);
-    border-bottom: 3px solid #001a33;
-    color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
+    border-bottom: 3px solid #001a33;
+    */
+    color: #ffffff;
 }
 
 window#waybar.hidden {
@@ -159,14 +172,14 @@ window#waybar.chromium {
 }
 
 #clock {
-    background-color: #64727D;
-    border-bottom: 3px solid #3c444b;
+    background-color: transparent;
+    border-bottom: 3px solid #fff;
 }
 
 #battery {
-    background-color: #ffffff;
+    background-color: transparent;
     border-bottom: 3px solid #7f7f7f;
-    color: #000000;
+    color: #fff;
 }
 
 #battery.charging, #battery.plugged {
@@ -199,14 +212,15 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
-    border-bottom: 3px solid #1b7a43;
-    color: #000000;
+    background-color: transparent;
+    border-bottom: 3px solid #2ecc71;
+    color: #2ecc71;
 }
 
 #memory {
-    background-color: #9b59b6;
-    border-bottom: 3px solid #5d356d;
+    background-color: transparent;
+    border-bottom: 3px solid #9b59b6;
+    color: #9b59b6;
 }
 
 #disk {
@@ -214,30 +228,31 @@ label:focus {
 }
 
 #backlight {
-    background-color: #90b1b1;
-    border-bottom: 3px solid #566a6a;
+    background-color: transparent;
+    border-bottom: 3px solid #e6e600;
+    color: #e6e600;
 }
 
 #network {
-    background-color: #2980b9;
-    border-bottom: 3px solid #184c6f;
+    background-color: transparent;
+    border-bottom: 3px solid #56a5d9;
+    color: #56a5d9;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
-    border-color: #932424;
+    border-color: #f53c3c;
+    color: #f53c3c;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    border-bottom: 3px solid #907509;
-    color: #000000;
+    background-color: transparent;
+    border-bottom: 3px solid #f1c40f;
+    color: #f1c40f;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    border-color: #566a6a;
-    color: #2a5c45;
+    border-color: #f53c3c;
+    color: #f53c3c;
 }
 
 #custom-media {
@@ -276,35 +291,35 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
-    border-bottom: 3px solid #001a33;
+    background-color: transparent;
+    border-bottom: 3px solid #2d3436;
+    color: #ecf0f1;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    border-bottom: 3px solid #8d9090;
-    color: #2d3436;
+    border-bottom: 3px solid #fd9015;
+    color: #fff;
 }
 
 #mpd {
-    background-color: #66cc99;
-    border-bottom: 3px solid #2a5c45;
-    color: #2a5c45;
+    background-color: transparent;
+    border-bottom: 3px solid #66cc99;
+    color: #66cc99;
 }
 
 #mpd.disconnected {
-    background-color: #f53c3c;
-    border-color: #932424;
+    color: #f53c3c;
+    border-color: #f53c3c;
 }
 
 #mpd.stopped {
-    background-color: #90b1b1;
-    border-color: #566a6a;
+    color: #90b1b1;
+    border-color: #90b1b1;
 }
 
 #mpd.paused {
-    background-color: #51a37a;
-    border-color: #306149;
+    color: #51a37a;
+    border-color: #51a37a;
 }
 
 #language {
