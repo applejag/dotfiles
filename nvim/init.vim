@@ -164,6 +164,7 @@ autocmd BufRead,BufNewFile */ansible/hosts set filetype=dosini
 autocmd BufRead,BufNewFile */ri-secrets/values-secret.yaml set nowrap
 autocmd BufRead,BufNewFile */ri-clustersecret/values-secret.yaml set nowrap
 autocmd BufRead,BufNewFile JenkinsFile set filetype=Jenkinsfile
+autocmd BufRead,BufNewFile */templates/NOTES.txt set filetype=gotexttmpl
 
 " Misc settings
 if &listchars ==# 'eol:$'
