@@ -23,7 +23,7 @@ export PATH="$PATH:$HOME/.emacs.d/bin"
 export PATH="$PATH:$HOME/.linkerd2/bin"
 
 # Ansible vaults
-export ANSIBLE_VAULT_IDENTITY_LIST="$HOME/dotfiles/scripts/ansible-vault-keyring-client.py,frida-ml@$HOME/dotfiles/scripts/ansible-vault-keyring-client.py"
+export ANSIBLE_VAULT_IDENTITY_LIST="$HOME/dotfiles/scripts/ansible-vault-keyring-client.py"
 
 # Local binaries
 if [ -d "$HOME/.local/bin" ]; then
