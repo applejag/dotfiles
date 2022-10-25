@@ -135,7 +135,6 @@ cd ~/code/river
 
 sudo zig build -Drelease-safe -Dxwayland --prefix /usr/local install
 
-mkdir -pv ~/.config/river
 ln -vfs ~/dotfiles/river ~/.config/river
 
 sudo mkdir -pv /usr/local/share/wayland-sessions
