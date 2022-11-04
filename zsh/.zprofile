@@ -153,6 +153,9 @@ alias kg='kubectl get'
 alias ke='kubectl edit'
 alias kv='kubectl version --short'
 
+alias kdg='kubectl debug'
+alias kdgti='kubectl debug -it'
+
 alias kesec='kubectl edit secret'
 
 alias kdelir='kubectl delete ingressroute'
