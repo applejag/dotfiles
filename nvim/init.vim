@@ -167,6 +167,7 @@ autocmd BufRead,BufNewFile */ri-secrets/values-secret.yaml set nowrap
 autocmd BufRead,BufNewFile */ri-clustersecret/values-secret.yaml set nowrap
 autocmd BufRead,BufNewFile JenkinsFile set filetype=Jenkinsfile
 autocmd BufRead,BufNewFile */templates/NOTES.txt set filetype=gotexttmpl
+autocmd BufRead,BufNewFile PROJECT set filetype=yaml
 
 " Misc settings
 if &listchars ==# 'eol:$'
