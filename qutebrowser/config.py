@@ -55,12 +55,6 @@ config.set(
             '.button',
             '.btn',
 
-            # spark
-            '[role="treeitem"]',
-            '[role="tab"]',
-            '.expand-container-btn',
-            '.open-drawer-btn',
-
             # azure devops
             '.vc-sparse-files-tree',
             '.v-scroll-auto',
