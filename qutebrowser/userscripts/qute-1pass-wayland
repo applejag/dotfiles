@@ -70,6 +70,11 @@ TITLE_JQ_EXPR='.title + " (in vault \"" + .vault.name + "\")"'
 dmenu-prompt() {
     local PROMPT="$1"
 
+    if [[ -n "$QUTE_1PASS_DMENU_PROMPT" ]]; then
+        exec $QUTE_1PASS_DMENU_PROMPT "$PROMPT"
+        return
+    fi
+
     if [[ -n "$WAYLAND_DISPLAY" ]] && command -v wofi >/dev/null; then
         wofi --dmenu --insensitive --prompt "$PROMPT"
         return
@@ -81,6 +86,11 @@ dmenu-prompt() {
 dmenu-prompt-pass() {
     local PROMPT="$1"
 
+    if [[ -n "$QUTE_1PASS_DMENU_PASS_PROMPT" ]]; then
+        exec $QUTE_1PASS_DMENU_PASS_PROMPT "$PROMPT"
+        return
+    fi
+
     if [[ -n "$WAYLAND_DISPLAY" ]] && command -v wofi >/dev/null; then
         wofi --lines 1 --dmenu --password --prompt "$PROMPT"
         return
@@ -90,10 +100,16 @@ dmenu-prompt-pass() {
 }
 
 clipboard-copy() {
-    if [[ -n "$WAYLAND_DISPLAY" ]]; then
+    if [[ -n "$QUTE_1PASS_CLIPBOARD" ]]; then
+        exec $QUTE_1PASS_CLIPBOARD
+        return
+    fi
+
+    if [[ -n "$WAYLAND_DISPLAY" ]] && command -v wl-copy >/dev/null; then
         wl-copy --trim-newline
         return
     fi
+
     xclip -in -selection clipboard
 }
 
