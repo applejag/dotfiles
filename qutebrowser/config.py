@@ -55,6 +55,9 @@ config.set(
             '.button',
             '.btn',
 
+            # Labels
+            'label[for]',
+
             # azure devops
             '.vc-sparse-files-tree',
             '.v-scroll-auto',

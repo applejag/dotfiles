@@ -65,47 +65,77 @@ EOF
 URL=$(echo "$QUTE_URL" | awk -F/ '{print $3}' | sed 's/www.//g')
 TOKEN_TMPDIR="${TMPDIR:-/tmp}"
 TOKEN_CACHE="$TOKEN_TMPDIR/1pass.token"
+TITLE_JQ_EXPR='.title + " (in vault \"" + .vault.name + "\")"'
 
 dmenu-prompt() {
     local PROMPT="$1"
 
-    #rofi -dmenu -i -p "$PROMPT"
-    wofi --gtk-dark --dmenu --insensitive --prompt "$PROMPT"
+    if [[ -n "$WAYLAND_DISPLAY" ]] && command -v wofi >/dev/null; then
+        wofi --dmenu --insensitive --prompt "$PROMPT"
+        return
+    fi
+
+    rofi -dmenu -i -p "$PROMPT"
 }
 
 dmenu-prompt-pass() {
     local PROMPT="$1"
 
-    #rofi -dmenu -password -p "$PROMPT"
-    wofi --gtk-dark --lines 1 --dmenu --password --prompt "$PROMPT"
+    if [[ -n "$WAYLAND_DISPLAY" ]] && command -v wofi >/dev/null; then
+        wofi --lines 1 --dmenu --password --prompt "$PROMPT"
+        return
+    fi
+
+    rofi -dmenu -password -p "$PROMPT"
 }
 
 clipboard-copy() {
-    # xclip -in -selection clipboard
-    wl-copy --trim-newline
+    if [[ -n "$WAYLAND_DISPLAY" ]]; then
+        wl-copy --trim-newline
+        return
+    fi
+    xclip -in -selection clipboard
+}
+
+op-major-version() {
+    op --version | grep --only-matching '^[0-9]'
 }
 
 op-signin() {
-    #op signin --output=raw "$@"
+    if [[ "$OP_MAJOR_VERSION" == 1 ]]; then
+        op signin --output=raw "$@"
+        return
+    fi
     op signin --raw "$@"
 }
 
 op-list() {
-    #op list items --cache --session="$TOKEN"
+    if [[ "$OP_MAJOR_VERSION" == 1 ]]; then
+        op list items --cache --session="$TOKEN"
+        return
+    fi
     op item list --cache --session="$TOKEN" --format=json
 }
 
 op-get() {
-    #op get item --cache --session="$TOKEN" "$@"
+    if [[ "$OP_MAJOR_VERSION" == 1 ]]; then
+        op get item --cache --session="$TOKEN" "$@"
+        return
+    fi
     op item get --cache --session="$TOKEN" --format=json "$@"
 }
 
 op-totp() {
-    #op get totp --cache --session="$TOKEN"
+    if [[ "$OP_MAJOR_VERSION" == 1 ]]; then
+        op get totp --cache --session="$TOKEN"
+        return
+    fi
     op item get --cache --session="$TOKEN" --otp "$@"
 }
 
 echo "message-info 'Looking for password for $URL...'" >> "$QUTE_FIFO"
+
+OP_MAJOR_VERSION="$(op-major-version)"
 
 if [ -f "$TOKEN_CACHE" ]; then
     TOKEN="$(cat "$TOKEN_CACHE")"
@@ -114,7 +144,7 @@ if [ -f "$TOKEN_CACHE" ]; then
         echo "$TOKEN" > "$TOKEN_CACHE"
     fi
 else
-    TOKEN=$(dmenu-prompt-pass "1password: "| op signin) || TOKEN=""
+    TOKEN=$(dmenu-prompt-pass "1password: "| op-signin) || TOKEN=""
     install -m 600 /dev/null "$TOKEN_CACHE"
     echo "$TOKEN" > "$TOKEN_CACHE"
 fi
@@ -131,33 +161,47 @@ if [[ $? != 0 ]]; then
     exit 0
 fi
 
-UUID="$(echo "$LIST_ITEM_OUT" | jq --arg url "$URL" -r '[.[] | select((.urls//[])[].href | test("github.2rioffice.com")).id] | first // ""')" || UUID="" 
+MATCHING_ITEMS="$(echo "$LIST_ITEM_OUT" | jq --arg url "$URL" '[.[] | select((.urls//[])[].href | test($url))]')"
+MATCHING_COUNT="$(echo "$MATCHING_ITEMS" | jq -r 'length')"
 
-if [[ -z "$UUID" ]];then
-    echo "message-error 'No entry found for $URL'" >> "$QUTE_FIFO"
-    TITLE="$(echo "$LIST_ITEM_OUT" | jq -r '.[].title' | dmenu-prompt)" || TITLE=""
+UUID=""
+if [[ "$MATCHING_COUNT" == 1 ]]; then
+    UUID="$(echo "$MATCHING_ITEMS" | jq -r '.[0].id')"
+    TITLE="$(echo "$MATCHING_ITEMS" | jq -r '.[0] | '"$TITLE_JQ_EXPR")"
+    echo "message-info 'Found 1 entry for $URL: $TITLE'" >> "$QUTE_FIFO"
+elif [[ "$MATCHING_COUNT" > 1 ]]; then
+    echo "message-info 'Found $MATCHING_COUNT entries for $URL'" >> "$QUTE_FIFO"
+    TITLE="$(echo "$MATCHING_ITEMS" | jq -r '.[] | '"$TITLE_JQ_EXPR" | dmenu-prompt)" || TITLE=""
     if [ -n "$TITLE" ]; then
-        UUID=$(echo "$LIST_ITEM_OUT" | jq --arg title "$TITLE" -r '[.[] | select(.title | test("github.2rioffice.com")).id] | first // ""') || UUID=""
+        UUID=$(echo "$MATCHING_ITEMS" | jq --arg title "$TITLE" -r '[.[] | select('"$TITLE_JQ_EXPR"' | test($title)).id] | first // ""') || UUID=""
+    else
+        UUID=""
+    fi
+else
+    echo "message-error 'No entry found for $URL'" >> "$QUTE_FIFO"
+    TITLE="$(echo "$LIST_ITEM_OUT" | jq -r '.[] | '"$TITLE_JQ_EXPR" | dmenu-prompt)" || TITLE=""
+    if [ -n "$TITLE" ]; then
+        UUID=$(echo "$LIST_ITEM_OUT" | jq --arg title "$TITLE" -r '[.[] | select('"$TITLE_JQ_EXPR"' | test($title)).id] | first // ""') || UUID=""
     else
         UUID=""
     fi
 fi
 
 if [[ -z "$UUID" ]];then
-    echo "message-error 'Entry not found for $UUID'" >> "$QUTE_FIFO"
+    echo "message-error 'No item picked.'" >> "$QUTE_FIFO"
     exit 0
 fi
 
 ITEM="$(op-get "$UUID")"
 
+TITLE="$(echo "$ITEM" | jq -r "$TITLE_JQ_EXPR")"
 PASSWORD="$(echo "$ITEM" | jq -r '[.fields[] | select(.purpose=="PASSWORD") | .value] | first // ""')"
 
 if [ -z "$PASSWORD" ]; then
-    echo "message-error 'No password found for $URL'" >> "$QUTE_FIFO"
+    echo "message-error 'No password found in $TITLE'" >> "$QUTE_FIFO"
     exit 0
 fi
 
-TITLE="$(echo "$ITEM" | jq -r '.title')"
 USERNAME="$(echo "$ITEM" | jq -r '[.fields[] | select(.purpose=="USERNAME") | .value] | first // ""')"
 
 printjs() {
