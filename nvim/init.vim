@@ -30,6 +30,7 @@ Plug 'kamykn/spelunker.vim'
 
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
+Plug 'earthly/earthly.vim', { 'branch': 'main' }
 
 call plug#end()
 
