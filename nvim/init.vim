@@ -30,6 +30,7 @@ Plug 'kamykn/spelunker.vim'
 
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
+Plug 'earthly/earthly.vim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -159,12 +160,15 @@ autocmd BufRead,BufNewFile */roles/*/tasks/*.yml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */roles/*/tasks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */.kube/config set filetype=yaml nowrap
 autocmd BufRead,BufNewFile /tmp/kubeconfigs/* set filetype=yaml nowrap
+autocmd BufRead,BufNewFile *.yaml.off set filetype=yaml
+autocmd BufRead,BufNewFile *.yml.off set filetype=yaml
 autocmd BufRead,BufNewFile /dev/shm/gopass-edit*/secret set filetype=yaml nowrap
 autocmd BufRead,BufNewFile */ansible/hosts set filetype=dosini
 autocmd BufRead,BufNewFile */ri-secrets/values-secret.yaml set nowrap
 autocmd BufRead,BufNewFile */ri-clustersecret/values-secret.yaml set nowrap
 autocmd BufRead,BufNewFile JenkinsFile set filetype=Jenkinsfile
 autocmd BufRead,BufNewFile */templates/NOTES.txt set filetype=gotexttmpl
+autocmd BufRead,BufNewFile PROJECT set filetype=yaml
 
 " Misc settings
 if &listchars ==# 'eol:$'
