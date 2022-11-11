@@ -44,7 +44,7 @@ fi
 # Can't set key color though: https://github.com/stedolan/jq/pull/1791
 export JQ_COLORS="1;30:0;95:0;95:0;95:0;32:0:0"
 
-if [ -d "$HOME/.cargo" ]; then
+if [ -f "$HOME/.cargo/env" ]; then
     source "$HOME/.cargo/env"
 fi
 
