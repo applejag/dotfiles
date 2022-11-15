@@ -39,6 +39,9 @@ then
     export FORGIT_SHOW_PAGER='delta --line-numbers'
 fi
 
+# Fix for Zi x OMZ
+ZSH_CACHE_DIR="$HOME/.cache/zi"
+
 # JQ custom color palette
 # null:false:true:numbers:strings:arrays:objects
 # Can't set key color though: https://github.com/stedolan/jq/pull/1791
