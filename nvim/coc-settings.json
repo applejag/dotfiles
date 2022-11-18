@@ -12,6 +12,16 @@
       "args": ["lsp"],
       "trace.server": "messages",
       "filetypes": ["markdown"]
+    },
+    "terraform": {
+			"command": "terraform-ls",
+			"args": ["serve"],
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
     }
   },
   //"diagnostic.displayByAle": true,
