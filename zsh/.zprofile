@@ -208,7 +208,7 @@ fi
 # Colored kubectl output
 if command -v kubecolor &> /dev/null; then
   alias kubectl=kubecolor
-  export KUBECOLOR_OBJ_FRESH='2h'
+  export KUBECOLOR_OBJ_FRESH='20h'
 fi
 
 fpath+="$HOME/.cache/zi/completions"
