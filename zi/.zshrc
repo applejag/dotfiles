@@ -68,6 +68,11 @@ then
   complete -C /usr/local/bin/aws_completer aws
 fi
 
+if command -v kubecolor &> /dev/null; then
+  autoload -Uz compinit; compinit
+  compdef kubecolor=kubectl
+fi
+
 # Starship loaded last
 eval "$(starship init zsh)"
 

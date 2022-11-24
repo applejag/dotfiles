@@ -205,6 +205,12 @@ if command -v kubectl-hns &> /dev/null; then
   fi
 fi
 
+# Colored kubectl output
+if command -v kubecolor &> /dev/null; then
+  alias kubectl=kubecolor
+  export KUBECOLOR_OBJ_FRESH='2h'
+fi
+
 fpath+="$HOME/.cache/zi/completions"
 
 if command -v ansible &> /dev/null
