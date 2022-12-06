@@ -4,7 +4,7 @@ Find latest release: <https://github.com/hyprwm/Hyprland/releases>
 
 ```sh
 rm -rfv ~/code/hyprland
-VERSION=v0.18.0beta
+VERSION=v0.19.0beta
 wget -O- https://github.com/hyprwm/Hyprland/releases/download/$VERSION/$VERSION.tar.gz | tar -xzC ~/code
 
 cd ~/code/hyprland
