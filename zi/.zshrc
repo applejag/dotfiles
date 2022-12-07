@@ -37,7 +37,8 @@ zi for \
   OMZP::git \
   OMZP::vi-mode \
   has'kubectl' OMZP::kubectl \
-  has'helm' OMZP::helm
+  has'helm' OMZP::helm \
+  has'terraform' OMZP::terraform
 
 # Other
 zi pack"bgn+keys" for fzf
