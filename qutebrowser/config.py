@@ -19,6 +19,7 @@ config.set('url.searchengines', {
     "def": "https://www.merriam-webster.com/dictionary/{}",
     "syn": "https://www.merriam-webster.com/thesaurus/{}",
     "go": "https://pkg.go.dev/search?q={}",
+    "jira": "https://jira.2rioffice.com/browse/{}",
 })
 
 # themes
