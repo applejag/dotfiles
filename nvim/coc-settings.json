@@ -7,12 +7,6 @@
   },
   "suggest.noselect": true,
   "languageserver": {
-    "zk": {
-      "command": "zk",
-      "args": ["lsp"],
-      "trace.server": "messages",
-      "filetypes": ["markdown"]
-    },
     "terraform": {
 			"command": "terraform-ls",
 			"args": ["serve"],
