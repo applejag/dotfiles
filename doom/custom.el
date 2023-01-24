@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(markdown-toc-header-toc-title "## Table of contents")
  '(markdown-toc-indentation-space 2)
- '(package-selected-packages '(emmet-mode))
+ '(package-selected-packages '(earthfile-mode @ emmet-mode))
  '(warning-suppress-log-types '((lsp-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
