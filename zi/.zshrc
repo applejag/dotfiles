@@ -47,6 +47,9 @@ zi wait lucid for \
   wfxr/forgit \
   has'kubectl' bpick"kubectx;kubens" from"gh-r" sbin"kubectx;kubens" ahmetb/kubectx
 
+zi ice lucid wait as'completion' blockf
+zi light zchee/zsh-completions
+
 zi as'completion' blockf for \
   has'kubectx' mv'_kubectx.zsh -> _kubectx' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubectx.zsh \
   has'kubens' mv'_kubens.zsh -> _kubens' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubens.zsh \
