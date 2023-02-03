@@ -17,7 +17,8 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export EDITOR=nvim
 
 # Go
-export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
+# Add it first to have higher prio than OS-package version
+export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
 
 # Doom Emacs
 export PATH="$PATH:$HOME/.emacs.d/bin"
