@@ -45,7 +45,7 @@ then
 fi
 
 # Fix for Zi x OMZ
-ZSH_CACHE_DIR="$HOME/.cache/zi"
+ZSH_CACHE_DIR="$HOME/.zi"
 
 # JQ custom color palette
 # null:false:true:numbers:strings:arrays:objects
