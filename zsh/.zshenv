@@ -10,6 +10,9 @@ export SHELL=/bin/zsh
 # Kind: Kubernetes-in-Docker
 export KIND_EXPERIMENTAL_PROVIDER=podman
 
+# goss/dgoss
+export CONTAINER_RUNTIME=podman
+
 # Kubectl krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
