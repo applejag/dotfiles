@@ -20,6 +20,11 @@ export EDITOR=nvim
 # Add it first to have higher prio than OS-package version
 export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
 
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
 # Doom Emacs
 export PATH="$PATH:$HOME/.emacs.d/bin"
 
