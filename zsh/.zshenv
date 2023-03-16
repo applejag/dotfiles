@@ -10,6 +10,9 @@ export SHELL=/bin/zsh
 # Kind: Kubernetes-in-Docker
 export KIND_EXPERIMENTAL_PROVIDER=podman
 
+# goss/dgoss
+export CONTAINER_RUNTIME=podman
+
 # Kubectl krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
@@ -19,6 +22,11 @@ export EDITOR=nvim
 # Go
 # Add it first to have higher prio than OS-package version
 export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
 
 # Doom Emacs
 export PATH="$PATH:$HOME/.emacs.d/bin"

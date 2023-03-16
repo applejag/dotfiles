@@ -78,4 +78,3 @@ fi
 
 # Starship loaded last
 eval "$(starship init zsh)"
-
