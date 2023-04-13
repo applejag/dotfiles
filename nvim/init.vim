@@ -159,6 +159,7 @@ autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */roles/*/tasks/*.yml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */roles/*/tasks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */.kube/config set filetype=yaml nowrap
+autocmd BufRead,BufNewFile kubeconfig* set filetype=yaml nowrap
 autocmd BufRead,BufNewFile /tmp/kubeconfigs/* set filetype=yaml nowrap
 autocmd BufRead,BufNewFile *.yaml.off set filetype=yaml
 autocmd BufRead,BufNewFile *.yml.off set filetype=yaml
