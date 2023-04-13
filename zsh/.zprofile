@@ -147,52 +147,44 @@ if command -v bat &> /dev/null; then
   alias cat='bat --decorations never'
 fi
 
+kubectl_aliases() {
+  local MONIKER="$1"
+  local RESOURCE="$2"
+  alias "kdel${MONIKER}"="kubectl delete $RESOURCE"
+  alias "kd${MONIKER}"="kubectl describe $RESOURCE"
+  alias "ke${MONIKER}"="kubectl edit $RESOURCE"
+  alias "kw${MONIKER}"="kubectl get --watch --output-watch-events $RESOURCE"
+  alias "kw${MONIKER}a"="kubectl get --watch --output-watch-events $RESOURCE --all-namespaces"
+  alias "kg${MONIKER}"="kubectl get $RESOURCE"
+  alias "kg${MONIKER}a"="kubectl get $RESOURCE --all-namespaces"
+}
+
+kubectl_aliases ns 'namespace'
+kubectl_aliases pvc 'pvc'
+kubectl_aliases pv 'pv'
+kubectl_aliases p 'pod'
+kubectl_aliases d 'deployment'
+kubectl_aliases ss 'statefulset'
+kubectl_aliases ds 'daemonset'
+kubectl_aliases cm 'configmap'
+kubectl_aliases sec 'secret'
+kubectl_aliases csec 'clustersecret'
+kubectl_aliases i 'ingress'
+kubectl_aliases ir 'ingressroute'
+kubectl_aliases sa 'serviceaccount'
+kubectl_aliases j 'job'
+kubectl_aliases cj 'cronjob'
+kubectl_aliases c 'certificate'
+
 # Missing aliases from kubectl OMZ plugin
 alias kd='kubectl describe'
 alias kg='kubectl get'
+alias kw='kubectl get --watch --output-watch-events'
 alias ke='kubectl edit'
 alias kv='kubectl version --short'
 
 alias kdg='kubectl debug'
 alias kdgti='kubectl debug -it'
-
-alias kesec='kubectl edit secret'
-
-alias kdelir='kubectl delete ingressroute'
-alias kdir='kubectl describe ingressroute'
-alias keir='kubectl edit ingressroute'
-alias kgir='kubectl get ingressroute'
-alias kgira='kubectl get ingressroute --all-namespaces'
-
-alias kdelsa='kubectl delete serviceaccount'
-alias kdsa='kubectl describe serviceaccount'
-alias kesa='kubectl edit serviceaccount'
-alias kgsa='kubectl get serviceaccount'
-alias kgsaa='kubectl get serviceaccount --all-namespaces'
-
-alias kdelj='kubectl delete job'
-alias kdj='kubectl describe job'
-alias kej='kubectl edit job'
-alias kgj='kubectl get job'
-alias kgja='kubectl get job --all-namespaces'
-
-alias kdelcj='kubectl delete cronjob'
-alias kdcj='kubectl describe cronjob'
-alias kecj='kubectl edit cronjob'
-alias kgcj='kubectl get cronjob'
-alias kgcja='kubectl get cronjob --all-namespaces'
-
-alias kdelc='kubectl delete certificate'
-alias kdc='kubectl describe certificate'
-alias kec='kubectl edit certificate'
-alias kgc='kubectl get certificate'
-alias kgca='kubectl get certificate --all-namespaces'
-
-alias kdelcsec='kubectl delete clustersecret'
-alias kdcsec='kubectl describe clustersecret'
-alias kecsec='kubectl edit clustersecret'
-alias kgcsec='kubectl get clustersecret'
-alias kgcseca='kubectl get clustersecret --all-namespaces'
 
 if command -v kubectl-hns &> /dev/null; then
   alias kh=kubectl-hns
