@@ -153,13 +153,14 @@ kubectl_aliases() {
   alias "kdel${MONIKER}"="kubectl delete $RESOURCE"
   alias "kd${MONIKER}"="kubectl describe $RESOURCE"
   alias "ke${MONIKER}"="kubectl edit $RESOURCE"
-  alias "kw${MONIKER}"="kubectl get --watch --output-watch-events $RESOURCE"
-  alias "kw${MONIKER}a"="kubectl get --watch --output-watch-events $RESOURCE --all-namespaces"
+  alias "kw${MONIKER}"="kubectl klock $RESOURCE"
+  alias "kw${MONIKER}a"="kubectl klock $RESOURCE --all-namespaces"
   alias "kg${MONIKER}"="kubectl get $RESOURCE"
   alias "kg${MONIKER}a"="kubectl get $RESOURCE --all-namespaces"
 }
 
 kubectl_aliases ns 'namespace'
+kubectl_aliases n 'node'
 kubectl_aliases pvc 'pvc'
 kubectl_aliases pv 'pv'
 kubectl_aliases p 'pod'
@@ -179,7 +180,7 @@ kubectl_aliases c 'certificate'
 # Missing aliases from kubectl OMZ plugin
 alias kd='kubectl describe'
 alias kg='kubectl get'
-alias kw='kubectl get --watch --output-watch-events'
+alias kw='kubectl klock'
 alias ke='kubectl edit'
 alias kv='kubectl version --short'
 
