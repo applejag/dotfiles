@@ -78,5 +78,9 @@ if command -v kubecolor &> /dev/null; then
   compdef kubecolor=kubectl
 fi
 
+if command -v navi &> /dev/null; then
+  eval "$(navi widget zsh)"
+fi
+
 # Starship loaded last
 eval "$(starship init zsh)"
