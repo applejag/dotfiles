@@ -41,5 +41,13 @@ ln -vfs ~/{dotfiles,.config}/fnott
 ln -vfs ~/{dotfiles,.config}/mpDris2
 
 ln -vfs ~/{dotfiles,.config}/way-displays
+
+# tmux
+ln -vfs `pwd`/tmux/.tmux.conf ~/.tmux.conf
+mkdir -pv ~/.tmux/plugins
+ln -vfs `pwd`/tmux/tpm ~/.tmux/plugins/tpm
+ln -vfs `pwd`/tmux/todo.sh ~/.tmux/todo.sh
+ln -vfs `pwd`/tmux/kubeconfig.sh ~/.tmux/kubeconfig.sh
+sudo ln -vfs `pwd`/tmux/tmux-first-unattached-session /usr/local/bin/,tmux-first-unattached-session
 ```
 
