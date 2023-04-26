@@ -46,5 +46,6 @@ ln -vfs ~/{dotfiles,.config}/way-displays
 ln -vfs ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 mkdir -pv ~/.tmux/plugins
 ln -vfs ~/dotfiles/tmux/tpm ~/.tmux/plugins/tpm
+ln -vfs ~/dotfiles/tmux/kubeconfig.sh ~/.tmux/kubeconfig.sh
 ```
 
