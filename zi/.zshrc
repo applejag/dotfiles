@@ -1,5 +1,7 @@
 source ~/dotfiles/zsh/zsh-binding-fixes.zsh
 
+. ~/.zshenv
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=3000
