@@ -4,6 +4,10 @@ format = "$directory$all"
 
 [hostname]
 ssh_only = false
+style = "dimmed purple"
+
+[container]
+style = "bold dimmed purple"
 
 [directory]
 truncate_to_repo = false
@@ -30,7 +34,7 @@ disabled = true
 [kubernetes]
 disabled = false
 style = "dimmed green"
-format = 'at k8s [$symbol[$context](green bold)/$namespace]($style) '
+format = 'k8s [$symbol[$context](green bold)/$namespace]($style) '
 
 [kubernetes.context_aliases]
 ".*-prod|prod-.*" = "\u001B[1;4;38;5;197m🚨🚨🚨 $0 🚨🚨🚨"
