@@ -183,7 +183,7 @@ set showtabline=2
 set conceallevel=0
 colorscheme dracula
 hi Normal ctermbg=None
-hi Comment cterm=Italic ctermfg=darkcyan
+hi Comment cterm=Italic ctermfg=green
 
 " Color settings
 " :h coc-highlights
