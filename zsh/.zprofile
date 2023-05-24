@@ -176,6 +176,11 @@ kubectl_aliases sa 'serviceaccount'
 kubectl_aliases j 'job'
 kubectl_aliases cj 'cronjob'
 kubectl_aliases c 'certificate'
+kubectl_aliases r 'role'
+kubectl_aliases cr 'clusterrole'
+kubectl_aliases rb 'rolebinding'
+kubectl_aliases crb 'clusterrolebinding'
+kubectl_aliases sc 'storageclass'
 
 # Missing aliases from kubectl OMZ plugin
 alias kd='kubectl describe'
