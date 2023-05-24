@@ -1,5 +1,8 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+import:
+  - ~/.config/alacritty/themes/themes/smoooooth.yaml
+
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
@@ -205,7 +208,7 @@ schemes:
 
 
 # Colors (Tomorrow Night)
-colors: *DoomOne
+#colors: *DoomOne
   # Default colors
   #primary:
   #  background: '#282A36'
