@@ -19,8 +19,8 @@ ln -vfs ~/{dotfiles,.config}/bat/config
 
 ln -vfs ~/{dotfiles,.config}/awesome
 
-mkdir -pv ~/.config/alacritty
-ln -vfs ~/{dotfiles,.config}/alacritty/alacritty.yml
+mkdir -pv ~/.config
+ln -vfs ~/{dotfiles,.config}/alacritty
 
 ln -vfs ~/{dotfiles/picom,.config}/picom.conf
 
