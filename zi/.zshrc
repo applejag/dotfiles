@@ -57,10 +57,12 @@ zi as'completion' blockf for \
   has'kubens' mv'_kubens.zsh -> _kubens' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubens.zsh \
   has'docker' OMZP::docker/_docker
 
-# Namnsdag scripts
-# https://github.com/jilleJr/namnsdag
-if command -v namnsdag &> /dev/null; then
-  namnsdag
+if [[ -z "$TMUX" ]]; then
+  # Namnsdag scripts
+  # https://github.com/jilleJr/namnsdag
+  if command -v namnsdag &> /dev/null; then
+    namnsdag
+  fi
 fi
 
 if command -v aws &> /dev/null
