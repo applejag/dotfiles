@@ -1,5 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+#format = "$character"
 format = "$all$directory$git_status$character"
 
 [hostname]

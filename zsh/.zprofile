@@ -147,6 +147,19 @@ if command -v bat &> /dev/null; then
   alias cat='bat --decorations never'
 fi
 
+if command -v terragrunt &> /dev/null; then
+  alias tg='terragrunt'
+  alias tgr='terragrunt run-all'
+  alias tgri='terragrunt run-all init'
+  alias tgra='terragrunt run-all apply'
+  alias tgrd='terragrunt run-all destroy'
+  alias tgrp='terragrunt run-all plan'
+  alias tgi='terragrunt init'
+  alias tga='terragrunt apply'
+  alias tgd='terragrunt destroy'
+  alias tgp='terragrunt plan'
+fi
+
 kubectl_aliases() {
   local MONIKER="$1"
   local RESOURCE="$2"
@@ -229,6 +242,16 @@ then
   eval $(register-python-argcomplete ansible-playbook)
   eval $(register-python-argcomplete ansible-pull)
   eval $(register-python-argcomplete ansible-vault)
+
+  # Aliases
+  alias a=ansible
+  alias ap=ansible-playbook
+  alias ag=ansible-galaxy
+  alias ai=ansible-inventory
+  alias av=ansible-vault
+  alias ave='ansible-vault edit'
+  alias avv='ansible-vault view'
+  alias avc='ansible-vault create'
 fi
 
 if command -v glow &> /dev/null
