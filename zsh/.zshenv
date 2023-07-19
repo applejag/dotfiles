@@ -40,6 +40,11 @@ export PATH="$PATH:$HOME/.linkerd2/bin"
 export ANSIBLE_VAULT_IDENTITY_LIST="$HOME/dotfiles/scripts/ansible-vault-keyring-client.py"
 export ANSIBLE_RETRY_FILES_ENABLED=True
 
+# .NET
+if [ -d "$HOME/.dotnet" ]; then
+    PATH="$HOME/.dotnet:$PATH"
+fi
+
 # Local binaries
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
