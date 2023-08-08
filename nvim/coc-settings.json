@@ -22,6 +22,15 @@
       "filetypes": [
         "cue"
       ]
+    },
+    "omnisharp": {
+			"command": "/home/kalle/code/tmp/OmniSharp",
+      "args": ["-lsp"],
+			"filetypes": [
+				"cs"
+			],
+			"initializationOptions": {},
+			"settings": {}
     }
   },
   //"diagnostic.displayByAle": true,

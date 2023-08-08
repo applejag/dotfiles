@@ -26,10 +26,14 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Editor
 export EDITOR=nvim
 
+export ZK_NOTEBOOK_DIR="$HOME/code/jillejr/notes"
+
 # Go
 # Add it first to have higher prio than OS-package version
 export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
 
+# Node
+export PATH="$PATH:./node_modules/.bin"
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"

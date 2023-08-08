@@ -29,6 +29,7 @@ Plug 'mickael-menu/zk-nvim'
 Plug 'kamykn/spelunker.vim'
 
 " Syntax highlighting
+Plug 'jjo/vim-cue'
 Plug 'sheerun/vim-polyglot'
 Plug 'earthly/earthly.vim', { 'branch': 'main' }
 Plug 'jjo/vim-cue'

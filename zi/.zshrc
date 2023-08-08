@@ -6,7 +6,7 @@ source ~/dotfiles/zsh/zsh-binding-fixes.zsh
 HISTFILE=~/.histfile
 HISTSIZE=3000
 SAVEHIST=5000
-setopt appendhistory autocd extendedglob nomatch notify histignorealldups
+setopt appendhistory autocd extendedglob nomatch notify histignorealldups interactivecomments
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
@@ -54,8 +54,8 @@ zi light zchee/zsh-completions
 
 zi as'completion' blockf for \
   has'kubectx' mv'_kubectx.zsh -> _kubectx' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubectx.zsh \
-  has'kubens' mv'_kubens.zsh -> _kubens' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubens.zsh \
-  has'docker' OMZP::docker/_docker
+  has'kubens' mv'_kubens.zsh -> _kubens' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubens.zsh
+#  has'docker' OMZP::docker/_docker
 
 if [[ -z "$TMUX" ]]; then
   # Namnsdag scripts
