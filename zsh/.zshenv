@@ -10,6 +10,13 @@ export SHELL=/bin/zsh
 # Kind: Kubernetes-in-Docker
 export KIND_EXPERIMENTAL_PROVIDER=podman
 
+if [[ -r /run/user/$UID/podman/podman.sock ]]; then
+    export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
+fi
+
+# zk: https://github.com/mickael-menu/zk
+export ZK_NOTEBOOK_DIR="$HOME/code/jillejr/notes"
+
 # goss/dgoss
 export CONTAINER_RUNTIME=podman
 
