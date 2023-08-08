@@ -23,6 +23,11 @@ repo_root_style = "bright-cyan bold"
 "~/code/wharf" = "~w"
 "~/code/jillejr" = "~j"
 "~/code" = "~c"
+"/var/home/kallefagerberg/code/risk.ident/platform" = "~rip"
+"/var/home/kallefagerberg/code/risk.ident" = "~ri"
+"/var/home/kallefagerberg/code/wharf" = "~w"
+"/var/home/kallefagerberg/code/jillejr" = "~j"
+"/var/home/kallefagerberg/code" = "~c"
 
 [status]
 disabled = false
