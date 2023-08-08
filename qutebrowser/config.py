@@ -3,13 +3,17 @@ config.load_autoconfig()
 
 # home page
 
-config.set('url.default_page', 'https://www.dagensnamn.nu/')
-config.set('url.start_pages', 'https://www.dagensnamn.nu/')
+#home_page = 'https://www.dagensnamn.nu/'
+home_page = 'https://kagi.com/'
+config.set('url.default_page', home_page)
+config.set('url.start_pages', home_page)
 
 # search engines
 
 config.set('url.searchengines', {
-    "DEFAULT": "https://search.brave.com/search?q={}",
+    #"DEFAULT": "https://search.brave.com/search?q={}",
+    "DEFAULT": "https://kagi.com/search?q={}",
+    "k": "https://kagi.com/search?q={}",
     "b": "https://search.brave.com/search?q={}",
     "x": "https://searx.prvcy.eu/search?q={}&categories=general&language=en-US",
     "ddg": "https://duckduckgo.com/?q={}",
