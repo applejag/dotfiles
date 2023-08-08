@@ -84,5 +84,10 @@ if command -v navi &> /dev/null; then
   eval "$(navi widget zsh)"
 fi
 
+if command -v kubesess &> /dev/null; then
+  source ~/.kube/kubesess/scripts/sh/kubesess.sh
+  source ~/.kube/kubesess/scripts/sh/completion.sh
+fi
+
 # Starship loaded last
 eval "$(starship init zsh)"

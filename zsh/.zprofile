@@ -83,8 +83,17 @@ alias 9='cd $(dirs -lp | head -10 | tail -1)'
 if command -v crystal &> /dev/null; then
   alias c=crystal
 fi
-alias kns=kubens
-alias kctx=kubectx
+
+if ! command -v kubesess &> /dev/null; then
+  if command -v kubens &> /dev/null; then
+    alias kns=kubens
+  fi
+  if command -v kubectx &> /dev/null; then
+    alias kctx=kubectx
+    alias kx=kubectx
+  fi
+fi
+
 if command -v helm3 &> /dev/null; then
   alias helm=helm3
 fi
@@ -123,6 +132,7 @@ alias gla='git pull --all --prune --jobs=10'
 # Resetting weird Forgit aliases
 export forgit_checkout_commit=gcoc
 alias gco='git checkout'
+alias gro='cd $(git rev-parse --show-toplevel)'
 
 if command -v exa &> /dev/null; then
   alias ls='exa --color=always --group-directories-first -al --icons --git'
@@ -261,4 +271,9 @@ then
     ~/dotfiles/scripts/glow-readme-on-cd.zsh
   }
   add-zsh-hook chpwd glow-readme-on-cd
+fi
+
+if command -v direnv &> /dev/null
+then
+  eval "$(direnv hook zsh)"
 fi
