@@ -16,6 +16,12 @@
 			],
 			"initializationOptions": {},
 			"settings": {}
+    },
+    "cue": {
+      "command": "cuelsp",
+      "filetypes": [
+        "cue"
+      ]
     }
   },
   //"diagnostic.displayByAle": true,

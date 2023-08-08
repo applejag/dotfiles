@@ -31,6 +31,7 @@ Plug 'kamykn/spelunker.vim'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 Plug 'earthly/earthly.vim', { 'branch': 'main' }
+Plug 'jjo/vim-cue'
 
 call plug#end()
 
@@ -168,6 +169,8 @@ autocmd BufRead,BufNewFile *.yaml.gotmpl set filetype=helm
 autocmd BufRead,BufNewFile *.yml.gotmpl set filetype=helm
 autocmd BufRead,BufNewFile *.yaml.off set filetype=yaml
 autocmd BufRead,BufNewFile *.yml.off set filetype=yaml
+autocmd BufRead,BufNewFile .yamllint set filetype=yaml
+autocmd BufRead,BufNewFile /tmp/kubectl-edit-*.yaml set nowrap
 autocmd BufRead,BufNewFile /dev/shm/gopass-edit*/secret set filetype=yaml nowrap
 autocmd BufRead,BufNewFile */ansible/hosts set filetype=dosini
 autocmd BufRead,BufNewFile */ri-secrets/values-secret.yaml set nowrap
