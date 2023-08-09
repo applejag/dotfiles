@@ -264,16 +264,22 @@ then
   alias avc='ansible-vault create'
 fi
 
-if command -v glow &> /dev/null
-then
-  autoload -U add-zsh-hook
-  glow-readme-on-cd() {
-    ~/dotfiles/scripts/glow-readme-on-cd.zsh
-  }
-  add-zsh-hook chpwd glow-readme-on-cd
-fi
+#if command -v glow &> /dev/null
+#then
+#  autoload -U add-zsh-hook
+#  glow-readme-on-cd() {
+#    ~/dotfiles/scripts/glow-readme-on-cd.zsh
+#  }
+#  add-zsh-hook chpwd glow-readme-on-cd
+#fi
 
 if command -v direnv &> /dev/null
 then
   eval "$(direnv hook zsh)"
 fi
+
+autoload -U add-zsh-hook
+_direnv-cat-on-cd() {
+  ~/dotfiles/scripts/direnv-cat-on-cd.zsh
+}
+add-zsh-hook chpwd _direnv-cat-on-cd
