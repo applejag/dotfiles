@@ -89,5 +89,10 @@ if command -v kubesess &> /dev/null; then
   source ~/.kube/kubesess/scripts/sh/completion.sh
 fi
 
+if command -v tk &> /dev/null; then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -o nospace -C /var/home/kallefagerberg/go/bin/tk tk
+fi
+
 # Starship loaded last
 eval "$(starship init zsh)"
