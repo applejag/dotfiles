@@ -31,6 +31,14 @@
 			],
 			"initializationOptions": {},
 			"settings": {}
+    },
+    "jsonnet": {
+			"command": "/usr/local/bin/jsonnet-language-server",
+			"filetypes": [
+				"jsonnet"
+			],
+			"initializationOptions": {},
+			"settings": {}
     }
   },
   //"diagnostic.displayByAle": true,
