@@ -107,7 +107,7 @@ if command -v dinkur &> /dev/null; then
 fi
 alias e='emacsclient -c -a "emacs"'
 alias xo=xdg-open
-alias sudo='sudo env PATH=$PATH'
+#alias sudo='sudo env PATH=$PATH'
 
 if command -v brave-browser &> /dev/null; then
   alias musicforprogramming='brave-browser "ipns://mfp.jillejr.tech/?$(rng 1 63 -f english | tr -d -)" &> /dev/null &'
