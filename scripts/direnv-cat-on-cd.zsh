@@ -3,7 +3,7 @@
 if [[ -r .envrc ]]
 then
     if command -v bat &> /dev/null; then
-        bat .envrc --decorations always --style numbers,header --language bash
+        bat .envrc --decorations always --style numbers,header --language bash --paging never
     else
         cat .envrc
         echo -e "\e[2m(From file ./.envrc)" >&2
