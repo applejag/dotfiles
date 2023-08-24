@@ -180,6 +180,13 @@ autocmd BufRead,BufNewFile JenkinsFile set filetype=Jenkinsfile
 autocmd BufRead,BufNewFile */templates/NOTES.txt set filetype=gotexttmpl
 autocmd BufRead,BufNewFile PROJECT set filetype=yaml
 
+" YAML indent fix
+augroup filetype_yaml
+  autocmd!
+  autocmd BufEnter *.yaml,*.yml
+  \ setlocal indentkeys-=0#
+augroup END
+
 " Misc settings
 if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
