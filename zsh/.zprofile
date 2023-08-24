@@ -210,7 +210,7 @@ alias kd='kubectl describe'
 alias kg='kubectl get'
 alias kw='kubectl klock'
 alias ke='kubectl edit'
-alias kv='kubectl version --short'
+alias kv='kubectl version'
 
 alias kdg='kubectl debug'
 alias kdgti='kubectl debug -it'
