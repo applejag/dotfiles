@@ -4,8 +4,11 @@ skip_global_compinit=1
 
 export PAGER="less --raw-control-chars --quit-if-one-screen"
 
-# Shell
-export SHELL=/bin/zsh
+if command -v vivid &> /dev/null
+then
+    # Coloring of files
+    export LS_COLORS=$(vivid generate dracula)
+fi
 
 # Kind: Kubernetes-in-Docker
 export KIND_EXPERIMENTAL_PROVIDER=podman
@@ -47,7 +50,6 @@ export PATH="$PATH:$HOME/.linkerd2/bin"
 
 # Ansible
 #export ANSIBLE_VAULT_IDENTITY_LIST="$HOME/dotfiles/scripts/ansible-vault-keyring-client.py"
-export ANSIBLE_RETRY_FILES_ENABLED=True
 
 # .NET
 if [ -d "$HOME/.dotnet" ]; then

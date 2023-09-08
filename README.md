@@ -7,6 +7,9 @@ ln -vfs ~/dotfiles/zsh/.zprofile ~/.zprofile
 ln -vfs ~/dotfiles/zsh/.zshenv ~/.zshenv
 ln -vfs ~/dotfiles/zi/.zshrc ~/.zshrc
 
+mkdir -pv ~/.config/carapace
+ln -vfs ~/{dotfiles,.config}/carapace/specs
+
 mkdir -pv ~/.config/gh
 ln -vfs ~/{dotfiles,.config}/gh/config.yml
 

@@ -11,52 +11,35 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
-  command mkdir -p "$HOME/.zi" && command chmod g-rwX "$HOME/.zi"
-  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "$HOME/.zi/bin" && \
-    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-    print -P "%F{160}▓▒░ The clone has failed.%f%b"
+if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
+  source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
 fi
 
-source "$HOME/.zi/bin/zi.zsh"
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
+zi snippet OMZL::clipboard.zsh
+zi snippet OMZL::completion.zsh
+zi snippet OMZL::termsupport.zsh
+zi snippet OMZL::functions.zsh
+zi snippet OMZL::git.zsh
+zi snippet OMZL::key-bindings.zsh
+zi snippet OMZL::misc.zsh
 
-zi light-mode for \
-  z-shell/z-a-meta-plugins \
-  @annexes \
-  @zsh-users+fast
+zi snippet OMZP::git
+zi load wfxr/forgit
 
-# Sets F-Sy-H theme
-fast-theme -q default
+zi light zsh-users/zsh-autosuggestions
+zi light z-shell/F-Sy-H
 
-# Oh-my-zsh library files
-zi is-snippet svn pick"completion.zsh" src"git.zsh" for OMZ::lib
+if command -v carapace &> /dev/null; then
+  # Completion header
+  zstyle ':completion:*' format $'\e[2;37m[%d]\e[m'
+  # Grouping
+  zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+  # compdef
+  autoload -Uz compinit; compinit
+  source <(carapace _carapace)
+fi
 
-# Oh-my-zsh plugins
-zi for \
-  OMZP::git \
-  OMZP::vi-mode \
-  has'kubectl' OMZP::kubectl \
-  has'helm' OMZP::helm \
-  has'terraform' OMZP::terraform
-
-# Other
-zi pack"bgn+keys" for fzf
-
-zi wait lucid for \
-  wfxr/forgit \
-  has'kubectl' bpick"kubectx;kubens" from"gh-r" sbin"kubectx;kubens" ahmetb/kubectx
-
-zi ice lucid wait as'completion' blockf
-zi light zchee/zsh-completions
-
-zi as'completion' blockf for \
-  has'kubectx' mv'_kubectx.zsh -> _kubectx' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubectx.zsh \
-  has'kubens' mv'_kubens.zsh -> _kubens' https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/_kubens.zsh
-#  has'docker' OMZP::docker/_docker
-
+# My custom per-command stuff
 if [[ -z "$TMUX" ]]; then
   # Namnsdag scripts
   # https://github.com/jilleJr/namnsdag
@@ -65,34 +48,8 @@ if [[ -z "$TMUX" ]]; then
   fi
 fi
 
-if command -v aws &> /dev/null
-then
-  # Support bash completions
-  # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html#cli-command-completion-enable
-  autoload -U bashcompinit
-  bashcompinit
-
-  complete -C /usr/local/bin/aws_completer aws
-fi
-
-if command -v kubecolor &> /dev/null; then
-  autoload -Uz compinit; compinit
-  compdef kubecolor=kubectl
-fi
-
 if command -v navi &> /dev/null; then
   eval "$(navi widget zsh)"
-fi
-
-if command -v kubesess &> /dev/null; then
-  source ~/.kube/kubesess/scripts/sh/kubesess.sh
-  source ~/.kube/kubesess/scripts/sh/completion.sh
-  alias kn=knd
-fi
-
-if command -v tk &> /dev/null; then
-  autoload -U +X bashcompinit && bashcompinit
-  complete -o nospace -C /var/home/kallefagerberg/go/bin/tk tk
 fi
 
 # Starship loaded last

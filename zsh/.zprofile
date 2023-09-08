@@ -36,6 +36,7 @@ hash -d ri=~/code/risk.ident
 hash -d rip=~/code/risk.ident/platform
 
 # Global aliases
+alias grep='grep --color'
 alias -g '%%=| grep'
 alias -g '%y=| bat -l yaml'
 alias -g '%yq=| yq eval'
@@ -201,6 +202,7 @@ kubectl_aliases crb 'clusterrolebinding'
 kubectl_aliases sc 'storageclass'
 
 # Missing aliases from kubectl OMZ plugin
+alias k='kubectl'
 alias kd='kubectl describe'
 alias kg='kubectl get'
 alias kw='kubectl klock'
