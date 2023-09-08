@@ -46,7 +46,7 @@ export PATH="$PATH:$HOME/.emacs.d/bin"
 export PATH="$PATH:$HOME/.linkerd2/bin"
 
 # Ansible
-export ANSIBLE_VAULT_IDENTITY_LIST="$HOME/dotfiles/scripts/ansible-vault-keyring-client.py"
+#export ANSIBLE_VAULT_IDENTITY_LIST="$HOME/dotfiles/scripts/ansible-vault-keyring-client.py"
 export ANSIBLE_RETRY_FILES_ENABLED=True
 
 # .NET

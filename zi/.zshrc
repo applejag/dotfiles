@@ -87,6 +87,7 @@ fi
 if command -v kubesess &> /dev/null; then
   source ~/.kube/kubesess/scripts/sh/kubesess.sh
   source ~/.kube/kubesess/scripts/sh/completion.sh
+  alias kn=knd
 fi
 
 if command -v tk &> /dev/null; then

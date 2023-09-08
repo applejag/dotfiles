@@ -85,13 +85,8 @@ if command -v crystal &> /dev/null; then
 fi
 
 if ! command -v kubesess &> /dev/null; then
-  if command -v kubens &> /dev/null; then
-    alias kns=kubens
-  fi
-  if command -v kubectx &> /dev/null; then
-    alias kctx=kubectx
-    alias kx=kubectx
-  fi
+  alias kn=kubens
+  alias kc=kubectx
 fi
 
 if command -v helm3 &> /dev/null; then
