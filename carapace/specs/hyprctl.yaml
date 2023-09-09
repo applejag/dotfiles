@@ -1,0 +1,173 @@
+name: hyprctl
+description: Command-line to control the active Hyprland session.
+persistentflags:
+  -j: output in JSON
+  --batch=: execute abatch of commands, separated by ';'
+  -i, --instance=: use a specific instance. Can be either signature or index in hyprctl instances (0, 1, etc)
+commands:
+  - name: activewindow
+    group: info
+    description: gets the active window name and its properties
+
+  - name: activeworkspace
+    group: info
+    description: gets the active workspace and its properties
+
+  - name: animations
+    group: info
+    description: gets the current config'd info about animations and beziers
+
+  - name: binds
+    group: info
+    description: lists all registered binds
+
+  - name: clients
+    group: info
+    description: lists all windows with their properties
+
+  - name: cursorpos
+    group: info
+    description: gets the current cursor pos in global layout coordinates
+
+  - name: devices
+    group: info
+    description: lists all connected keyboards and mice
+
+  - name: dispatch
+    description: issue a dispatch to call a keybind dispatcher with an arg.
+
+  - name: getoption
+    group: info
+    description: gets the config option status (values)
+
+  - name: globalshortcuts
+    group: info
+    description: gives you a list of currently registered shortcuts with their description(s).
+
+  - name: hyprpaper
+    description: hyprpaper is a wallpaper utility from the Hypr Development team
+    commands:
+      - name: wallpaper
+        completion:
+          positional:
+            - ["$list(,)", "$(hyprctl monitors -j | jq '.[].name' -r)", "$files"]
+      - name: unload
+        completion:
+          positional:
+            - ["all\tunload all inactive wallpapers", "$files"]
+
+  - name: instances
+    group: info
+    description: lists all running instances of hyprland with their info
+
+  - name: keyword
+    description: issue a keyword to call a config keyword dynamically.
+
+  - name: kill
+    description: issue a kill to get into a kill mode, where you can kill an app by clicking on it. You can exit it with ESCAPE.
+
+  - name: layers
+    group: info
+    description: lists all the layers
+
+  - name: monitors
+    group: info
+    description: lists all the outputs with their properties
+
+  - name: notify
+    description: Sends a notification using the built-in Hyprland notification system.
+    completion:
+      positional:
+        - - "-1\tno icon"
+          - "0\tWARNING icon"
+          - "1\tINFO icon"
+          - "2\tHINT icon"
+          - "3\tERROR icon"
+          - "4\tCONFUSED icon"
+          - "5\tOK icon"
+
+  - name: output
+    description: Allows you to add and remove fake outputs to your preferred backend.
+    commands:
+      - name: create
+        completion:
+          positional:
+            - [wayland, x11, headless, auto]
+      - name: remove
+        completion:
+          positional:
+            - ["$(hyprctl monitors -j | jq '.[].name' -r)"]
+
+  - name: plugin
+    description: commands to manage plugins
+    commands:
+      - name: load
+        completion:
+          positional:
+            - ["$files"]
+
+      - name: unload
+        completion:
+          positional:
+            - ["$files"]
+
+      - name: list
+
+  - name: reload
+    description: issue a reload to force reload the config.
+
+  - name: setcursor
+    description: Sets the cursor theme and reloads the cursor manager. Will set the theme for everything except GTK, because GTK.
+
+  - name: seterror
+    description: Sets the hyprctl error string. Will reset when Hyprland’s config is reloaded.
+
+  - name: setprop
+    description: Sets a window prop.
+    completion:
+      positional:
+        - ["$(hyprctl clients -j | jq '.[] | \"address:\"+.address+\"\\t(\"+.class+\") \"+.title' -r)"]
+        - - "animationstyle\t(animationstyle) string, cannot be locked"
+          - "rounding\t(rounding) int, -1 means not overriden"
+          - "bordersize\t(bordersize) int, -1 means not overriden"
+          - "forcenoblur\t(forcenoblur) 0/1"
+          - "forceopaque\t(forceopaque) 0/1"
+          - "forceopaqueoverriden\t(forceopaqueoverriden) 0/1"
+          - "forceallowsinput\t(forceallowsinput) 0/1, forceinput rule"
+          - "forcenoanims\t(forcenoanims) 0/1"
+          - "forcenoborder\t(forcenoborder) 0/1"
+          - "forcenodim\t(forcenodim) 0/1"
+          - "forcenoshadow\t(forcenoshadow) 0/1"
+          - "windowdancecompat\t(windowdancecompat) 0/1"
+          - "nomaxsize\t(nomaxsize) 0/1"
+          - "dimaround\t(dimaround) 0/1"
+          - "keepaspectratio\t(keepaspectratio) 0/1"
+          - "alphaoverride\t(alphaoverride) 0/1, makes the next setting be override instead of multiply"
+          - "alpha\t(alpha) float 0.0 - 1.0"
+          - "alphainactiveoverride\t(alphainactiveoverride) 0/1, makes the next setting be override instead of multiply"
+          - "alphainactive\t(alphainactive) float 0.0 - 1.0"
+          - "activebordercolor\t(activebordercolor) color, -1 means not set"
+          - "inactivebordercolor\t(inactivebordercolor) color, -1 means not set"
+        - []
+        - [lock]
+
+  - name: splash
+    group: info
+    description: prints the current random splash
+
+  - name: switchxkblayout
+    description: Sets the xkb layout index for a keyboard.
+    completion:
+      positional:
+        - ["$(hyprctl devices -j | jq '.keyboards[] | .name + \"\\tAddress: \" + .address' -r)"]
+        - [next, prev]
+
+  - name: version
+    group: info
+    description: prints the hyprland version, meaning flags, commit and branch of build.
+
+
+  - name: workspaces
+    group: info
+    description: lists all workspaces with their properties
+

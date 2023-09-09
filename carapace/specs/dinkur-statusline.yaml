@@ -1,0 +1,16 @@
+name: dinkur-statusline
+description: Shows the status of your local Dinkur database (~/.local/share/dinkur/dinkur.db) printed on a single line.
+flags:
+  -c, --color=: Color format (defualt "auto")
+  -h, --help: Show help text
+  --work-hours=: Hours in a workday, used in percentage calc (default 8)
+completion:
+  flag:
+    color:
+      - "auto\tMeans \"ansi\" if interactive TTY, otherwise means \"none\""
+      - "ansi\tANSI color-codes, for coloring in the terminal"
+      - "none\tNo coloring is applied"
+      - "pango\tColoring via Pango markup"
+      - "raujonas-executor\tSame as \"pango\", but with added \"<executor.markup.true>\" prefix"
+
+
