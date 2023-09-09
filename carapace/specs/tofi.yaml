@@ -1,0 +1,17 @@
+name: tofi-drun
+flags:
+  -h, --help: Print help message and exit.
+  -c, --config=: Specify a config file.
+  --prompt-text=: Prompt text.
+  --width=: Width of the window.
+  --height=: Height of the window.
+  --output=: Name of output to display window on.
+  --anchor=: Location on screen to anchor window.
+  --horizontal=: List results horizontally.
+  --fuzzy-match=: Use fuzzy matching for searching.
+completion:
+  flag:
+    config: ["$files"]
+    horizontal: ["true", "false"]
+    fuzzy-match: ["true", "false"]
+

@@ -1,0 +1,3 @@
+name: tofi-drun
+completion:
+  positionalany: ["$_bridge.CarapaceBin([tofi])"]

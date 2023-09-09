@@ -1,6 +1,15 @@
+# vi: ft=conf
 ignore-empty-password
 indicator-caps-lock
 show-failed-attempts
+show-keyboard-layout
+
+fade-in=1
+screenshots
+effect-pixelate=7
+effect-vignette=0.7:0.7
+clock
+indicator
 
 # Color palette taken from the "Dark dimmed" GitHub theme
 color=22272e
@@ -22,3 +31,4 @@ text-wrong-color=e5534b
 indicator-radius=120
 indicator-thickness=16
 font-size=30
+font=Monocraft
