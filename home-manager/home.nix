@@ -81,9 +81,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = ''
-      # test test helloworld
-      '';
+    extraConfig = builtins.readFile ../hypr/hyprland.conf;
     systemdIntegration = true;
   };
 
