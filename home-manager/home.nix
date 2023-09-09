@@ -59,7 +59,6 @@
     swayidle # detects idle
     swaylock-effects # swaylock fork with better effects
     tofi # runner
-    waybar # taskbar
     wlopm # power management (turn off monitors)
 
     # Auth
@@ -83,6 +82,12 @@
     enable = true;
     extraConfig = builtins.readFile ../hypr/hyprland.conf;
     systemdIntegration = true;
+  };
+
+  programs.waybar = {
+    enable = true;
+    settings = import ../waybar/config.nix;
+    style = ../waybar/style.css;
   };
 
   # This value determines the Home Manager release that your
