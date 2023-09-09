@@ -6,9 +6,28 @@
     # width = 1280; # Waybar width
     spacing = 4; # Gaps between modules (4px)
     # Choose the order of the modules
-    modules-left = ["hyprland/workspaces" "custom/dinkur" "hyprland/window"];
+    modules-left = [
+      "image#nix-snowflake"
+      "hyprland/workspaces"
+      "custom/dinkur"
+      "hyprland/window"
+    ];
     modules-center = [];
-    modules-right = ["tray" "idle_inhibitor" "pulseaudio" "network" "cpu" "backlight" "battery" "clock"];
+    modules-right = [
+      "tray"
+      "idle_inhibitor"
+      "pulseaudio"
+      "network"
+      "cpu"
+      "backlight"
+      "battery"
+      "clock"
+    ];
+    "image#nix-snowflake" = {
+      path = ../waybar/nix-snowflake.png;
+      on-click = "wlogout";
+      size = 24;
+    };
     # Modules configuration
     "hyprland/workspaces" = {
       #persistent_workspaces = {

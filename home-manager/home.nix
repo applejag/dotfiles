@@ -60,6 +60,7 @@
     swaylock-effects # swaylock fork with better effects
     tofi # runner
     wlopm # power management (turn off monitors)
+    wlogout # logout screen
 
     # Auth
     pinentry-qt
@@ -84,10 +85,60 @@
     systemdIntegration = true;
   };
 
+  home.file."hyprpaper.conf" = {
+    source = ../hypr/hyprpaper.conf;
+    target = ".config/hypr/hyprpaper.conf";
+  };
+
   programs.waybar = {
     enable = true;
     settings = import ../waybar/config.nix;
     style = ../waybar/style.css;
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Juno";
+      package = pkgs.juno-theme;
+    };
+
+    gtk3 = {
+      bookmarks = [
+        "file:///home/kallefagerberg/Downloads"
+        "file:///home/kallefagerberg/Documents"
+        "file:///home/kallefagerberg/code"
+        "file:///home/kallefagerberg/code/risk.ident"
+        "file:///home/kallefagerberg/code/risk.ident/platform"
+      ];
+
+      extraConfig = {
+        Settings = ''
+	  gtk-application-prefer-dark-theme=1
+	'';
+      };
+    };
+
+    gtk4 = {
+      extraConfig = {
+        Settings = ''
+          gtk-application-prefer-dark-theme=1
+        '';
+      };
+    };
+  };
+
+  home.sessionVariables.GTK_THEME = "Juno";
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
   };
 
   # This value determines the Home Manager release that your
