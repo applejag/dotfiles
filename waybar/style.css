@@ -1,59 +1,80 @@
-/* River tags */
 
-#tags button {
-    margin-right: 4px;
+/* Hyprland workspaces */
+
+#workspaces {
+    border: 1px solid #505055;
+    background-color: #404050;
+    padding: 0.2rem 0.2rem;
+    margin: 4px 4px;
+    border-radius: 500rem;
+}
+
+#workspaces button {
     padding: 0;
-    border-radius: 0;
-
-    color: #004280;
-    background-color: transparent;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    border-bottom: 3px solid alpha(#001a33, 0.3);
+    margin: 0;
+    color: #9090AA;
+    min-height: 1.5rem;
+    min-width: 1.5rem;
+    border-radius: 50%;
 }
 
-#tags button:last-child {
-    margin-right: 0px;
-}
-
-#tags button.occupied {
-    /* Occupied: there's an app running in this tab */
+#workspaces button label {
     font-weight: bolder;
-    background-color: alpha(#004280, 0.5);
-    color: #99ceff;
-    border-bottom: 3px solid #0084ff;
+    font-family: Ubuntu;
 }
 
-#tags button.focused {
-    /* Focused: current tab */
-    background-color: alpha(#0084ff, 0.5);
-    color: #cce6ff;
+#workspaces button.visible {
 }
 
-#tags button.focused.occupied {
-    border-bottom: 3px solid #e6f3ff;
+#workspaces button.active:hover,
+#workspaces button.active {
+    color: #ffffff;
+    background-color: mix(@theme_selected_bg_color, #C0C0C0, 0.25);
+    box-shadow: inset 0 -1px mix(@theme_selected_bg_color, #909090, 0.25);
 }
 
-#tags button.urgent {
-    /* Urgent: and app in this tab requests focus */
+#workspaces button.urgent {
+    background-color: @red;
 }
 
-/* River window */
+#workspaces button:hover {
+    background-color: mix(@theme_selected_bg_color, #C0C0C0, 0.1);
+}
+
+/* Hyprland window */
 
 #window {
-    padding: 0 12px;
-    /*background-color: #001a33;*/
-    background-color: transparent;
-    border-bottom: 3px solid #001a33;
-    color: #cce6ff;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 0;
+    font-family: Ubuntu;
+    font-size: 14px;
+}
+
+/* Waybar widgets */
+
+.modules-left > widget > label {
+    padding: 4px 12px;
+    border-right: 1px solid #505055;
+
+    border-radius: 500rem;
+    color: #ffffff;
+}
+
+.modules-left > widget:hover > label {
+    background-color: #282832;
+}
+
+.modules-right > widget > label {
+    padding: 4px 12px;
+    border-left: 1px solid #505055;
+
+    border-radius: 500rem;
+    color: #ffffff;
 }
 
 /* Dinkur */
 #custom-dinkur {
-    /*background-color: #22272e;*/
-    border-bottom: 3px solid #171b1f;
-    padding: 0 12px;
     color: #adbac7;
 }
 
@@ -69,135 +90,41 @@
 
 window#waybar {
     background-color: transparent;
-    background-image: -gtk-gradient(
-        linear,
-        center top, center bottom,
-        from (alpha(#001a33, 0.9)),
-        color-stop(0.5, alpha(#001a33, 0.65)),
-        to (alpha(#001a33, 0)));
-    border: none;
-    /*
-    background-color: rgb(36, 47, 79);
-    transition-property: background-color;
-    transition-duration: .5s;
-    border-bottom: 3px solid #001a33;
-    */
     color: #ffffff;
+    /* margin & padding don't work on "window" */
+}
+
+window#waybar > box.horizontal {
+    background-color: #252528;
+    border: 1px solid #505055;
+    margin: 4px 8px;
+    border-radius: 500px;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
-#workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: #ffffff;
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each workspace name */
-    border: none;
-    border-radius: 0;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
-}
-
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#mpd {
-    padding: 0 10px;
-    color: #ffffff;
-}
-
-#window,
-#workspaces {
-    margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
 #clock {
-    background-color: transparent;
-    border-bottom: 3px solid #fff;
 }
 
 #battery {
-    background-color: transparent;
-    border-bottom: 3px solid #7f7f7f;
     color: #fff;
 }
 
 #battery.charging, #battery.plugged {
     color: lightgreen;
-    border-bottom: 3px solid lightgreen;
 }
 
 @keyframes blink {
     to {
         background-color: #ffffff;
-        border-bottom: 3px solid #7f7f7f;
         color: #000000;
     }
 }
 
 #battery.critical:not(.charging) {
     color: #f53c3c;
-    border-bottom: 3px solid #f53c3c;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -210,31 +137,22 @@ label:focus {
 }
 
 #cpu {
-    background-color: transparent;
-    border-bottom: 3px solid #2ecc71;
     color: #2ecc71;
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
 }
 
 #memory {
-    background-color: transparent;
-    border-bottom: 3px solid #9b59b6;
     color: #9b59b6;
 }
 
 #disk {
-    background-color: #964B00;
 }
 
 #backlight {
-    background-color: transparent;
-    border-bottom: 3px solid #e6e600;
     color: #e6e600;
 }
 
 #network {
-    background-color: transparent;
-    border-bottom: 3px solid #56a5d9;
     color: #56a5d9;
 }
 
@@ -244,8 +162,6 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: transparent;
-    border-bottom: 3px solid #f1c40f;
     color: #f1c40f;
 }
 
@@ -290,19 +206,14 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: transparent;
-    border-bottom: 3px solid #2d3436;
     color: #ecf0f1;
 }
 
 #idle_inhibitor.activated {
-    border-bottom: 3px solid #fd9015;
     color: #fff;
 }
 
 #mpd {
-    background-color: transparent;
-    border-bottom: 3px solid #66cc99;
     color: #66cc99;
 }
 
