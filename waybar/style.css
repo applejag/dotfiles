@@ -70,6 +70,9 @@
 
     border-radius: 500rem;
     color: #ffffff;
+
+    min-width: 28px;
+    min-height: 28px;
 }
 
 .modules-left > widget > label {
@@ -219,8 +222,9 @@ label:focus {
     margin: 0px 4px;
     border: 1px solid transparent;
     border-radius: 50%;
-    min-height: 1.5rem;
-    min-width: 1.5rem;
+
+    min-width: 28px;
+    min-height: 28px;
 }
 
 #tray > .passive {
@@ -234,6 +238,10 @@ label:focus {
 
 #tray .popup {
     font-family: Ubuntu;
+}
+
+#custom-notification {
+    font-family: "FiraCode Nerd Font";
 }
 
 #idle_inhibitor {

@@ -22,6 +22,7 @@
     jq
     neovim
     ripgrep
+    libnotify # notify-send
 
     age
     direnv
@@ -61,6 +62,7 @@
     tofi # runner
     wlopm # power management (turn off monitors)
     wlogout # logout screen
+    swaynotificationcenter
 
     # Auth
     pinentry-qt
