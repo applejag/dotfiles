@@ -1,0 +1,14 @@
+name: wlopm
+flags:
+  -j, --json: Use JSON format.
+  -h, --help: Print help text and exit.
+  -v, --version: Print version and exit.
+  --on=: Set the power mode of the specified output to on.
+  --off=: Set the power mode of the specified output to off.
+  --toggle=: Toggle the power mode of the specified output.
+completion:
+  flag:
+    on: ["$(hyprctl monitors -j | jq '.[].name' -r)"]
+    off: ["$(hyprctl monitors -j | jq '.[].name' -r)"]
+    toggle: ["$(hyprctl monitors -j | jq '.[].name' -r)"]
+

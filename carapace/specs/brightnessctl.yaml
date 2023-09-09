@@ -1,0 +1,30 @@
+name: brightnessctl
+description: read and control device brightness.
+
+flags:
+  -l, --list: list devices with available brightness controls.
+  -q, --quiet: suppress output.
+  -p, --pretend: do not perform write operations.
+  -m, --machine-readable: produce machine-readable output.
+  -n, --min-value?: set minimum brightness, defaults to 1.
+  -e, --exponent?: changes percentage curve to exponential.
+  -s, --save: save previous state in a temporary file.
+  -r, --restore: restore previous saved state.
+  -h, --help: print help.
+  -d, --device=: specify device name (can be a wildcard).
+  -c, --class=: specify device class.
+  -V, --version: print version and exit.
+
+completion:
+  flag:
+    device: ["$(brightnessctl -l | sed \"s/^Device '(.*)' of class.*/\\1/p\" -rn)"]
+    class: ["$(brightnessctl -l | sed \"s/^Device '.*' of class '(.*)':/\\1/p\" -rn)"]
+  positional:
+    - - "info\tget device info."
+      - "i\tget device info."
+      - "get\tget current brightness of the device."
+      - "g\tget current brightness of the device."
+      - "max\tget maximum brightness of the device."
+      - "m\tget maximum brightness of the device."
+      - "set\tset brightness of the device."
+      - "s\tset brightness of the device."

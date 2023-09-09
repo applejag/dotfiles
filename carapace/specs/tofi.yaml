@@ -9,9 +9,12 @@ flags:
   --anchor=: Location on screen to anchor window.
   --horizontal=: List results horizontally.
   --fuzzy-match=: Use fuzzy matching for searching.
+  --ascii-input=: Disable Unicode handling
+  --late-keyboard-init=: Draw first, init keyboard later
 completion:
   flag:
     config: ["$files"]
-    horizontal: ["true", "false"]
-    fuzzy-match: ["true", "false"]
-
+    horizontal: &bool ["true", "false"]
+    fuzzy-match: *bool
+    ascii-input: *bool
+    late-keyboard-init: *bool

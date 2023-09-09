@@ -53,12 +53,17 @@
 
 /* Waybar widgets */
 
-.modules-left > widget > label {
+.modules-left > widget > label,
+.modules-right > widget > label {
+    background-color: alpha(#252528, 0.75);
     padding: 4px 12px;
-    border-right: 1px solid #505055;
 
     border-radius: 500rem;
     color: #ffffff;
+}
+
+.modules-left > widget > label {
+    border-right: 1px solid #505055;
 }
 
 .modules-left > widget:hover > label {
@@ -66,11 +71,7 @@
 }
 
 .modules-right > widget > label {
-    padding: 4px 12px;
     border-left: 1px solid #505055;
-
-    border-radius: 500rem;
-    color: #ffffff;
 }
 
 /* Dinkur */
@@ -95,7 +96,7 @@ window#waybar {
 }
 
 window#waybar > box.horizontal {
-    background-color: #252528;
+    background-color: alpha(#252528, 0.75);
     border: 1px solid #505055;
     margin: 4px 8px;
     margin-bottom: 0;
