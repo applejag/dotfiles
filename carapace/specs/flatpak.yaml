@@ -1,0 +1,198 @@
+name: flatpak
+commands:
+
+  # Manage installed applications and runtimes
+  - name: install
+    group: Manage installed applications and runtimes
+    description: Install an application or runtime
+
+  - name: update
+    group: Manage installed applications and runtimes
+    description: Update an installed application or runtime
+
+  - name: uninstall
+    group: Manage installed applications and runtimes
+    description: Uninstall an installed application or runtime
+
+  - name: mask
+    group: Manage installed applications and runtimes
+    description: Mask out updates and automatic installation
+
+  - name: pin
+    group: Manage installed applications and runtimes
+    description: Pin a runtime to prevent automatic removal
+
+  - name: list
+    group: Manage installed applications and runtimes
+    description: List installed apps and/or runtimes
+
+  - name: info
+    group: Manage installed applications and runtimes
+    description: Show info for installed app or runtime
+
+  - name: history
+    group: Manage installed applications and runtimes
+    description: Show history
+
+  - name: config
+    group: Manage installed applications and runtimes
+    description: Configure flatpak
+
+  - name: repair
+    group: Manage installed applications and runtimes
+    description: Repair flatpak installation
+
+  - name: create-usb
+    group: Manage installed applications and runtimes
+    description: Put applications or runtimes onto removable media
+
+ 
+  # Find applications and runtimes
+  - name: search
+    group: Find applications and runtimes
+    description: Search for remote apps/runtimes
+
+  - name: run
+    group: Manage running applications
+    description: Run an application
+
+  - name: override
+    group: Manage running applications
+    description: Override permissions for an application
+
+  - name: make-current
+    group: Manage running applications
+    description: Specify default version to run
+
+  - name: enter
+    group: Manage running applications
+    description: Enter the namespace of a running application
+
+  - name: ps
+    group: Manage running applications
+    description: Enumerate running applications
+
+  - name: kill
+    group: Manage running applications
+    description: Stop a running application
+
+
+  # Manage file access
+  - name: documents
+    group: Manage file access
+    description: List exported files
+
+  - name: document-export
+    group: Manage file access
+    description: Grant an application access to a specific file
+
+  - name: document-unexport
+    group: Manage file access
+    description: Revoke access to a specific file
+
+  - name: document-info
+    group: Manage file access
+    description: Show information about a specific file
+
+
+  # Manage dynamic permissions
+  - name: permissions
+    group: Manage dynamic permissions
+    description: List permissions
+
+  - name: permission-remove
+    group: Manage dynamic permissions
+    description: Remove item from permission store
+
+  - name: permission-set
+    group: Manage dynamic permissions
+    description: Set permissions
+
+  - name: permission-show
+    group: Manage dynamic permissions
+    description: Show app permissions
+
+  - name: permission-reset
+    group: Manage dynamic permissions
+    description: Reset app permissions
+
+
+  # Manage remote repositories
+  - name: remotes
+    group: Manage remote repositories
+    description: List all configured remotes
+
+  - name: remote-add
+    group: Manage remote repositories
+    description: Add a new remote repository (by URL)
+
+  - name: remote-modify
+    group: Manage remote repositories
+    description: Modify properties of a configured remote
+
+  - name: remote-delete
+    group: Manage remote repositories
+    description: Delete a configured remote
+
+  - name: remote-ls
+    group: Manage remote repositories
+    description: List contents of a configured remote
+
+  - name: remote-info
+    group: Manage remote repositories
+    description: Show information about a remote app or runtime
+
+
+  # Build applications
+  - name: build-init
+    group: Build applications
+    description: Initialize a directory for building
+
+  - name: build
+    group: Build applications
+    description: Run a build command inside the build dir
+
+  - name: build-finish
+    group: Build applications
+    description: Finish a build dir for export
+
+  - name: build-export
+    group: Build applications
+    description: Export a build dir to a repository
+
+  - name: build-bundle
+    group: Build applications
+    description: Create a bundle file from a ref in a local repository
+
+  - name: build-import-bundle
+    group: Build applications
+    description: Import a bundle file
+
+  - name: build-sign
+    group: Build applications
+    description: Sign an application or runtime
+
+  - name: build-update-repo
+    group: Build applications
+    description: Update the summary file in a repository
+
+  - name: build-commit-from
+    group: Build applications
+    description: Create new commit based on existing ref
+
+  - name: repo
+    group: Build applications
+    description: Show information about a repo
+
+
+persistentflags:
+  -h, --help: Show help options
+  --version: Print version information and exit
+  --default-arch: Print default arch and exit
+  --supported-arches: Print supported arches and exit
+  --gl-drivers: Print active gl drivers and exit
+  --installations: Print paths for system installations and exit
+  --print-updated-env: Print the updated environment needed to run flatpaks
+  --print-system-only: Only include the system installation with --print-updated-env
+  -v, --verbose: Show debug information, -vv for more detail
+  --ostree-verbose: Show OSTree debug information
