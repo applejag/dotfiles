@@ -64,6 +64,11 @@
     wlogout # logout screen
     swaynotificationcenter
 
+    slurp # select region
+    grim # take screenshot
+    swappy # edit screenshot
+    wl-clipboard # paste to clipboard
+
     # Auth
     pinentry-qt
     libsForQt5.polkit-kde-agent
