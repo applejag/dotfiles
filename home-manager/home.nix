@@ -11,6 +11,8 @@
     alacritty
     _1password-gui
     slack
+    nextcloud-client
+    libsForQt5.elisa
 
     # CLI tools
     bat
@@ -59,10 +61,11 @@
     pwvucontrol # Pipewire volume control
     swayidle # detects idle
     swaylock-effects # swaylock fork with better effects
-    tofi # runner
+    rofi # runner
     wlopm # power management (turn off monitors)
     wlogout # logout screen
     swaynotificationcenter
+    libsForQt5.qtstyleplugin-kvantum
 
     slurp # select region
     grim # take screenshot
@@ -82,6 +85,8 @@
     "1password"
     "slack"
   ];
+
+  programs.bash.enable = true;
 
   # Hint electron apps to use Wayland
   home.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -145,7 +150,15 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    platformTheme = "kde";
+    style = {
+      name = "kvantum";
+      package = with pkgs; [
+        libsForQt5.qtstyleplugin-kvantum
+        qt6Packages.qtstyleplugin-kvantum
+        libsForQt5.breeze-icons
+      ];
+    };
   };
 
   # This value determines the Home Manager release that your
