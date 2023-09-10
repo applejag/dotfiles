@@ -153,6 +153,14 @@ if command -v bat &> /dev/null; then
   alias cat='bat --decorations never'
 fi
 
+if command -v terraform &> /dev/null; then
+  alias tf='terraform'
+  alias tfi='terraform init'
+  alias tfa='terraform apply'
+  alias tfd='terraform destroy'
+  alias tfp='terraform plan'
+fi
+
 if command -v terragrunt &> /dev/null; then
   alias tg='terragrunt'
   alias tgr='terragrunt run-all'

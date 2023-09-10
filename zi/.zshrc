@@ -31,6 +31,8 @@ zi snippet OMZL::misc.zsh
 zi snippet OMZP::git
 zi load wfxr/forgit
 
+zi pack"keys" for fzf
+
 zi light zsh-users/zsh-autosuggestions
 zi light z-shell/F-Sy-H
 
