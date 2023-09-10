@@ -1,6 +1,6 @@
 {
   mainBar = {
-    layer = "bottom"; # top | bottom
+    layer = "top"; # top | bottom
     # position = "bottom"; # Waybar position (top|bottom|left|right)
     height = 48; # Waybar height (to be removed for auto height)
     # width = 1280; # Waybar width
