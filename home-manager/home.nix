@@ -21,6 +21,7 @@
     fzf
     gh
     git
+    git-lfs
     jq
     neovim
     ripgrep
@@ -28,11 +29,28 @@
 
     age
     direnv
-    kubectl
-    kubectx
-    kubelogin-oidc
     sops
     terraform
+    nodejs_20
+
+    # Linters
+    shellcheck
+    shfmt
+    yamllint
+
+    # Kubernetes
+    helmfile
+    kubectl
+    kubectl-klock
+    kubectx
+    kubelogin-oidc
+    kubernetes-helm
+    kubernetes-helmPlugins.helm-diff
+    kubernetes-helmPlugins.helm-secrets
+
+    # Python
+    poetry
+    python39
 
     # Shell
     carapace
@@ -87,6 +105,54 @@
   ];
 
   programs.bash.enable = true;
+
+  programs.git = {
+    enable = true;
+
+    signing.key = "9874DEDD35925ED0";
+    signing.signByDefault = true;
+    lfs.enable = true;
+
+    userName = "Kalle Fagerberg";
+    userEmail = "kalle.fagerberg@riskident.com";
+
+    aliases = {
+      ss = "status --short";
+      root = "rev-parse --show-toplevel";
+    };
+
+    extraConfig = {
+      tag = {
+        forceSignAnnotated = true;
+      };
+      init = {
+        defaultBranch = "main";
+      };
+      core = {
+        # https://github.com/dandavison/delta
+        pager = "delta";
+      };
+      interactive = {
+        diffFilter = "delta --color-only";
+      };
+      delta = {
+        navigate = true; # use n and N to move between diff sections
+	light = false; # set to true when using terminal w/ light background color
+	syntax-theme = "TwoDark";
+      };
+      diff = {
+        "ansible-vault" = {
+	  textconv = "PAGER=cat ansible-vault view";
+	  cachetextconv = true;
+	};
+      };
+      url = {
+        "ssh://git@github.2rioffice.com/" = {
+	  insteadOf = "https://github.2rioffice.com";
+	};
+      };
+    };
+  };
 
   # Hint electron apps to use Wayland
   home.sessionVariables.NIXOS_OZONE_WL = "1";

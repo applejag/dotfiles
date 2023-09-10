@@ -18,16 +18,12 @@ style = "cyan"
 repo_root_style = "bright-cyan bold"
 
 [directory.substitutions]
-"~/code/risk.ident/platform" = "~rip"
-"~/code/risk.ident" = "~ri"
-"~/code/wharf" = "~w"
-"~/code/jillejr" = "~j"
+"~/code/github.2rioffice.com/frida" = "~rif"
+"~/code/github.2rioffice.com/platform" = "~rip"
+"~/code/github.2rioffice.com" = "~ri"
+"~/code/github.com/jillejr" = "~j"
+"~/code/github.com" = "~gh"
 "~/code" = "~c"
-"/var/home/kallefagerberg/code/risk.ident/platform" = "~rip"
-"/var/home/kallefagerberg/code/risk.ident" = "~ri"
-"/var/home/kallefagerberg/code/wharf" = "~w"
-"/var/home/kallefagerberg/code/jillejr" = "~j"
-"/var/home/kallefagerberg/code" = "~c"
 
 [status]
 disabled = false

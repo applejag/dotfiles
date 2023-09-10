@@ -29,11 +29,11 @@ else
   hash -d certs=/usr/local/share/ca-certificates
 fi
 hash -d c=~/code
-hash -d w=~/code/wharf
-hash -d j=~/code/jillejr
-hash -d n=~/Documents/notes
-hash -d ri=~/code/risk.ident
-hash -d rip=~/code/risk.ident/platform
+hash -d gh=~/code/github.com
+hash -d j=~/code/github.com/jillejr
+hash -d ri=~/code/github.2rioffice.com
+hash -d rif=~/code/github.2rioffice.com/frida
+hash -d rip=~/code/github.2rioffice.com/platform
 
 # Global aliases
 alias grep='grep --color'
