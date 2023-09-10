@@ -26,6 +26,7 @@
     neovim
     ripgrep
     libnotify # notify-send
+    podman-compose # podman is already installed via /etc/nixos/configuration.nix
 
     age
     direnv
