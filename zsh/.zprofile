@@ -29,7 +29,8 @@ else
   hash -d certs=/usr/local/share/ca-certificates
 fi
 hash -d c=~/code
-hash -d gh=~/code/github.com
+hash -d g=~/code/github.com
+hash -d gri=~/code/github.com/RiskIdent
 hash -d j=~/code/github.com/jillejr
 hash -d ri=~/code/github.2rioffice.com
 hash -d rif=~/code/github.2rioffice.com/frida

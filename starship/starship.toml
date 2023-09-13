@@ -22,7 +22,8 @@ repo_root_style = "bright-cyan bold"
 "~/code/github.2rioffice.com/platform" = "~rip"
 "~/code/github.2rioffice.com" = "~ri"
 "~/code/github.com/jillejr" = "~j"
-"~/code/github.com" = "~gh"
+"~/code/github.com/RiskIdent" = "~gri"
+"~/code/github.com" = "~g"
 "~/code" = "~c"
 
 [status]
