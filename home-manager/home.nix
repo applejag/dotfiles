@@ -63,13 +63,13 @@
     zsh-forgit
 
     # Go
-    go
+    go_1_21
     gopls # language server
     gore # REPL
     gocode # for code completion
     revive # linter
     golangci-lint # linter
-    govulncheck # SAST
+    (callPackage ./govulncheck.nix {}) # SAST
     
     # Dev tools
     gcc

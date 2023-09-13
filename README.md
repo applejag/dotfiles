@@ -12,8 +12,7 @@ ln -vfs ~/{dotfiles,.config}/carapace/specs
 
 ln -vfs ~/{dotfiles,.config}/hypr
 
-mkdir -pv ~/.config/home-manager
-ln -vfs ~/{dotfiles,.config}/home-manager/home.nix
+ln -vfs ~/{dotfiles,.config}/home-manager
 
 mkdir -pv ~/.config/gh
 ln -vfs ~/{dotfiles,.config}/gh/config.yml
