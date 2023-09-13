@@ -16,22 +16,23 @@
     spotify
 
     # CLI tools
-    bat
-    eza
-    fd
-    fzf
-    gh
+    bat # better cat
+    delta # git diff syntax highlight
+    eza # fork of exa, better ls
+    fd # better find
+    fzf # fuzzy find
+    gh # GitHub CLI
     git
-    git-lfs
     git-crypt
+    git-lfs
     jq
-    neovim
-    ripgrep
     libnotify # notify-send
+    neovim
     podman-compose # podman is already installed via /etc/nixos/configuration.nix
+    ripgrep
 
-    age
-    direnv
+    age # encryption
+    direnv # load .envrc files
     sops
     terraform
     terraform-ls
@@ -45,7 +46,7 @@
     # Kubernetes
     helmfile
     kubectl
-    kubectl-klock
+    kubectl-klock # :D
     kubectx
     kubelogin-oidc
     kubernetes-helm
@@ -53,14 +54,14 @@
     kubernetes-helmPlugins.helm-secrets
 
     # Python
-    poetry
+    poetry # dependency manager
     python39
 
     # Shell
-    carapace
-    starship
+    carapace # completions
+    starship # prompt
     zsh
-    zsh-forgit
+    zsh-forgit # git+fzf
 
     # Go
     go_1_21
