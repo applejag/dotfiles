@@ -13,6 +13,7 @@
     slack
     nextcloud-client
     libsForQt5.elisa
+    spotify
 
     # CLI tools
     bat
@@ -22,6 +23,7 @@
     gh
     git
     git-lfs
+    git-crypt
     jq
     neovim
     ripgrep
@@ -98,11 +100,13 @@
     # Core libs
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
+    xwayland
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "1password"
     "slack"
+    "spotify"
   ];
 
   programs.bash.enable = true;
@@ -152,6 +156,17 @@
 	  insteadOf = "https://github.2rioffice.com";
 	};
       };
+    };
+  };
+
+  systemd.user.services."dinkur" = {
+    Unit.Description = "Dinkur daemon";
+    Install.WantedBy = ["default.target"];
+    Service = {
+      Type = "simple";
+      Restart = "always";
+      RestartSec = 1;
+      ExecStart = "%h/go/bin/dinkur daemon -v";
     };
   };
 
