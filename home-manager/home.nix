@@ -17,7 +17,7 @@
 
     # CLI tools
     bat
-    exa
+    eza
     fd
     fzf
     gh
