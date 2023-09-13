@@ -131,6 +131,10 @@ export forgit_checkout_commit=gcoc
 alias gco='git checkout'
 alias gro='cd $(git rev-parse --show-toplevel)'
 
+if command -v eza &> /dev/null; then
+  alias exa=eza
+fi
+
 if command -v exa &> /dev/null; then
   alias ls='exa --color=always --group-directories-first -al --icons --git'
 fi
@@ -200,6 +204,7 @@ kubectl_aliases sec 'secret'
 kubectl_aliases csec 'clustersecret'
 kubectl_aliases i 'ingress'
 kubectl_aliases ir 'ingressroute'
+kubectl_aliases s 'service'
 kubectl_aliases sa 'serviceaccount'
 kubectl_aliases j 'job'
 kubectl_aliases cj 'cronjob'
