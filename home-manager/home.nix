@@ -205,6 +205,11 @@
       package = pkgs.juno-theme;
     };
 
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+    };
+
     gtk3 = {
       bookmarks = [
         "file:///home/kallefagerberg/Downloads"
