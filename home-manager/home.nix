@@ -69,6 +69,7 @@
     gocode # for code completion
     revive # linter
     golangci-lint # linter
+    govulncheck # SAST
     
     # Dev tools
     gcc
