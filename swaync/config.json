@@ -1,0 +1,9 @@
+{
+	"$schema": "https://github.com/ErikReider/SwayNotificationCenter/raw/main/src/configSchema.json",
+	"scripts": {
+		"example-script": {
+			"exec": "uptime",
+			"run-on": "action"
+		}
+	}
+}
