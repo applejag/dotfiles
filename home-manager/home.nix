@@ -34,6 +34,7 @@
     direnv
     sops
     terraform
+    terraform-ls
     nodejs_20
 
     # Linters
