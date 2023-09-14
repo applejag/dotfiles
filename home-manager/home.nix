@@ -30,6 +30,8 @@
     neovim
     podman-compose # podman is already installed via /etc/nixos/configuration.nix
     ripgrep
+    dig # network tool
+    tmux
 
     age # encryption
     direnv # load .envrc files
@@ -55,7 +57,7 @@
 
     # Python
     poetry # dependency manager
-    python39
+    python311
 
     # Shell
     carapace # completions
