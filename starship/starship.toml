@@ -20,6 +20,7 @@ repo_root_style = "bright-cyan bold"
 [directory.substitutions]
 "~/code/github.2rioffice.com/frida" = "~rif"
 "~/code/github.2rioffice.com/platform" = "~rip"
+"~/code/github.2rioffice.com/kalle-fagerberg" = "~rik"
 "~/code/github.2rioffice.com" = "~ri"
 "~/code/github.com/jillejr" = "~j"
 "~/code/github.com/RiskIdent" = "~gri"

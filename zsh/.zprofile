@@ -35,6 +35,7 @@ hash -d j=~/code/github.com/jillejr
 hash -d ri=~/code/github.2rioffice.com
 hash -d rif=~/code/github.2rioffice.com/frida
 hash -d rip=~/code/github.2rioffice.com/platform
+hash -d rik=~/code/github.2rioffice.com/kalle-fagerberg
 
 # Global aliases
 alias grep='grep --color'
@@ -215,13 +216,17 @@ kubectl_aliases rb 'rolebinding'
 kubectl_aliases crb 'clusterrolebinding'
 kubectl_aliases sc 'storageclass'
 
-# Missing aliases from kubectl OMZ plugin
 alias k='kubectl'
 alias kd='kubectl describe'
 alias kg='kubectl get'
 alias kw='kubectl klock'
 alias ke='kubectl edit'
+alias kdel='kubectl delete'
 alias kv='kubectl version'
+alias kl='kubectl logs'
+alias klf='kubectl logs -f'
+alias keti='kubectl exec -it'
+alias kpf='kubectl port-forward'
 
 alias kdg='kubectl debug'
 alias kdgti='kubectl debug -it'
