@@ -1,0 +1,3 @@
+name: rootless-personio
+completion:
+  positionalany: ["$_bridge.Cobra([rootless-personio])"]

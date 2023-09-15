@@ -13,7 +13,8 @@ clock
 indicator
 grace=5
 grace-no-mouse
-image=~/Pictures/Wallpaper/1561845449-201900764-abstraction-nevseoboi.com.ua.jpg
+#image=~/Pictures/Wallpaper/1561845449-201900764-abstraction-nevseoboi.com.ua.jpg
+image=~/Pictures/Wallpaper/simon-berger-twukN12EN7c-unsplash.jpg
 
 # Color palette taken from the "Dark dimmed" GitHub theme
 color=22272e

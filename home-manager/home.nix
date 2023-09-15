@@ -1,5 +1,16 @@
 { config, pkgs, lib, ... }:
 
+let
+  my-kubernetes-helm = with pkgs; wrapHelm kubernetes-helm {
+    plugins = with pkgs.kubernetes-helmPlugins; [
+      helm-diff
+      helm-secrets
+    ];
+  };
+  my-helmfile = with pkgs; helmfile-wrapped.override {
+    inherit (my-kubernetes-helm.passthru) pluginsDir;
+  };
+in
 {
   home.username = "kallefagerberg";
   home.homeDirectory = "/home/kallefagerberg";
@@ -9,7 +20,6 @@
     firefox
     thunderbird
     alacritty
-    _1password-gui
     slack
     nextcloud-client
     libsForQt5.elisa
@@ -32,6 +42,7 @@
     ripgrep
     dig # network tool
     tmux
+    navi
 
     age # encryption
     direnv # load .envrc files
@@ -46,14 +57,12 @@
     yamllint
 
     # Kubernetes
-    helmfile
     kubectl
     kubectl-klock # :D
     kubectx
     kubelogin-oidc
-    kubernetes-helm
-    kubernetes-helmPlugins.helm-diff
-    kubernetes-helmPlugins.helm-secrets
+    my-kubernetes-helm
+    my-helmfile
 
     # Python
     poetry # dependency manager
@@ -67,6 +76,7 @@
 
     # Go
     go_1_21
+    goimports # formatter
     gopls # language server
     gore # REPL
     gocode # for code completion
@@ -84,7 +94,8 @@
     alsa-utils # tools like amixer to control audio
     brightnessctl # screen brightness
     networkmanagerapplet # NetworkManager (nm-applet)
-    pwvucontrol # Pipewire volume control
+    #pwvucontrol # Pipewire volume control
+    pavucontrol # PulseAudio volume control
     swayidle # detects idle
     swaylock-effects # swaylock fork with better effects
     rofi # runner
@@ -109,12 +120,16 @@
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "1password"
     "slack"
     "spotify"
   ];
 
-  programs.bash.enable = true;
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''
+      eval "$(direnv hook bash)"
+    '';
+  };
 
   programs.git = {
     enable = true;

@@ -167,7 +167,8 @@
         car = "";
         default = ["" "" ""];
       };
-      on-click = "pwvucontrol";
+      #on-click = "pwvucontrol";
+      on-click = "pavucontrol";
     };
   };
 }
