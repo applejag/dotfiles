@@ -23,6 +23,8 @@ in
     slack
     nextcloud-client
     libsForQt5.elisa
+    libsForQt5.index # MAUI file manager
+    libsForQt5.clip # MAUI video player (using mpv)
     spotify
 
     # CLI tools
@@ -76,7 +78,7 @@ in
 
     # Go
     go_1_21
-    goimports # formatter
+    gotools # e.g goimports
     gopls # language server
     gore # REPL
     gocode # for code completion

@@ -1,0 +1,3 @@
+name: kubectl
+completion:
+  positionalany: ["$_bridge.Cobra([kubectl])"]
