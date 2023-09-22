@@ -165,6 +165,7 @@ in
       nvim-treesitter-parsers.lua
       nvim-treesitter-parsers.nix
       nvim-treesitter-parsers.go
+      nvim-treesitter-parsers.json
       nvim-treesitter-parsers.yaml
       nvim-treesitter-parsers.terraform
       (fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
@@ -174,6 +175,7 @@ in
       lua-language-server
       yaml-language-server
       terraform-ls
+      vscode-langservers-extracted
       nixd
     ];
   };

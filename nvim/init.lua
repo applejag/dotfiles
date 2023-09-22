@@ -57,6 +57,14 @@ lspconfig.nixd.setup {}
 lspconfig.yamlls.setup {}
 lspconfig.terraformls.setup {}
 
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.jsonls.setup {
+    capabilities = capabilities,
+}
+
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
@@ -217,11 +225,25 @@ vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#D8EEEB", bg = "#58B5
 require 'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true,
+        additional_vim_regex_highlighting = false,
     },
     indent = {
         enable = true,
     },
 }
+
+--[[--
+local treesitter_parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+treesitter_parser_config.templ = {
+  install_info = {
+    url = "https://github.com/vrischmann/tree-sitter-templ.git",
+    files = {"src/parser.c", "src/scanner.c"},
+    branch = "master",
+  },
+}
+--]]--
+
+vim.treesitter.language.register('templ', 'templ')
 
 require 'guess-indent'.setup {}
 
