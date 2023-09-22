@@ -1,0 +1,100 @@
+name: sops
+persistentflags:
+  -h, --help: show help
+flags:
+  -d, --decrypt: decrypt a file and output the result to stdout
+  -e, --encrypt: encrypt a file and output the result to stdout
+  -r, --rotate: generate a new data encryption key and reencrypt all values with the new key
+  -k, --kms=: comma separated list of KMS ARNs [$SOPS_KMS_ARN]
+  --aws-profile=: The AWS profile to use for requests to AWS
+  --gcp-kms=: comma separated list of GCP KMS resource IDs [$SOPS_GCP_KMS_IDS]
+  --azure-kv=: comma separated list of Azure Key Vault URLs [$SOPS_AZURE_KEYVAULT_URLS]
+  --hc-vault-transit=: comma separated list of vault's key URI (e.g. 'https://vault.example.org:8200/v1/transit/keys/dev') [$SOPS_VAULT_URIS]
+  -p, --pgp=: comma separated list of PGP fingerprints [$SOPS_PGP_FP]
+  -a, --age=: comma separated list of age recipients [$SOPS_AGE_RECIPIENTS]
+  -i, --in-place: write output back to the same file instead of stdout
+  --extract=: "extract a specific key or branch from the input document. Decrypt mode only. Example: --extract '[\"somekey\"][0]'"
+  --input-type=: currently json, yaml, dotenv and binary are supported. If not set, sops will use the file's extension to determine the type
+  --output-type=: currently json, yaml, dotenv and binary are supported. If not set, sops will use the input file's extension to determine the output format
+  -s, --show-master-keys: display master encryption keys in the file during editing
+  --add-gcp-kms=: add the provided comma-separated list of GCP KMS key resource IDs to the list of master keys on the given file
+  --rm-gcp-kms=: remove the provided comma-separated list of GCP KMS key resource IDs from the list of master keys on the given file
+  --add-azure-kv=: add the provided comma-separated list of Azure Key Vault key URLs to the list of master keys on the given file
+  --rm-azure-kv=: remove the provided comma-separated list of Azure Key Vault key URLs from the list of master keys on the given file
+  --add-kms=: add the provided comma-separated list of KMS ARNs to the list of master keys on the given file
+  --rm-kms=: remove the provided comma-separated list of KMS ARNs from the list of master keys on the given file
+  --add-hc-vault-transit=: add the provided comma-separated list of Vault's URI key to the list of master keys on the given file ( eg. https://vault.example.org:8200/v1/transit/keys/dev)
+  --rm-hc-vault-transit=: remove the provided comma-separated list of Vault's URI key from the list of master keys on the given file ( eg. https://vault.example.org:8200/v1/transit/keys/dev)
+  --add-age=: add the provided comma-separated list of age recipients fingerprints to the list of master keys on the given file
+  --rm-age=: remove the provided comma-separated list of age recipients from the list of master keys on the given file
+  --add-pgp=: add the provided comma-separated list of PGP fingerprints to the list of master keys on the given file
+  --rm-pgp=: remove the provided comma-separated list of PGP fingerprints from the list of master keys on the given file
+  --ignore-mac: ignore Message Authentication Code during decryption
+  --unencrypted-suffix=: override the unencrypted key suffix.
+  --encrypted-suffix=: override the encrypted key suffix. When empty, all keys will be encrypted, unless otherwise marked with unencrypted-suffix.
+  --unencrypted-regex=: set the unencrypted key suffix. When specified, only keys matching the regex will be left unencrypted.
+  --encrypted-regex=: set the encrypted key suffix. When specified, only keys matching the regex will be encrypted.
+  --config=: path to sops' config file. If set, sops will not search for the config file recursively.
+  --encryption-context=: comma separated list of KMS encryption context key:value pairs
+  --set=: set a specific key or branch in the input document. value must be a json encoded string. (edit mode only). eg. --set '["somekey"][0] {"somevalue":true}'
+  --shamir-secret-sharing-threshold=: "the number of master keys required to retrieve the data key with shamir (default: 0)"
+  --verbose: Enable verbose logging output
+  --output=: Save the output after encryption or decryption to the file specified
+  --enable-local-keyservice: use local key service
+  --keyservice=: "Specify the key services to use in addition to the local one. Can be specified more than once. Syntax: protocol://address. Example: tcp://myserver.com:5000"
+  -v, --version: print the version
+completion:
+  positional:
+    - ["$files"]
+commands:
+  - name: exec-env
+    description: execute a command with decrypted values inserted into the environment
+
+  - name: exec-file
+    description: execute a command with the decrypted contents as a temporary file
+
+  - name: publish
+    description: Publish sops file or directory to a configured destination
+
+  - name: keyservice
+    description: start a SOPS key service server
+
+  - name: groups
+    description: modify the groups on a SOPS file
+    commands:
+      - name: add
+        description: add a new group to a SOPS file
+        flags:
+          -f, --file=: the file to add the group to
+          --pgp=: the PGP fingerprints the new group should contain. Can be specified more than once
+          --kms=: the KMS ARNs the new group should contain. Can be specified more than once
+          --aws-profile=: The AWS profile to use for requests to AWS
+          --gcp-kms=: the GCP KMS Resource ID the new group should contain. Can be specified more than once
+          --azure-kv=: the Azure Key Vault key URL the new group should contain. Can be specified more than once
+          --hc-vault-transit=: the full vault path to the key used to encrypt/decrypt. Make you choose and configure a key with encrption/decryption enabled (e.g. 'https://vault.example.org:8200/v1/transit/keys/dev'). Can be specified more than once
+          --age=: the age recipient the new group should contain. Can be specified more than once
+          -i, --in-place: write output back to the same file instead of stdout
+          --shamir-secret-sharing-threshold=: "the number of master keys required to retrieve the data key with shamir (default: 0)"
+          --encryption-context=: comma separated list of KMS encryption context key:value pairs
+          --enable-local-keyservice: use local key service
+          --keyservice=: "Specify the key services to use in addition to the local one. Can be specified more than once. Syntax: protocol://address. Example: tcp://myserver.com:5000"
+
+      - name: delete
+        description: delete a key group from a SOPS file
+        flags:
+          -f, --file=: the file to add the group to
+          -i, --in-place: write output back to the same file instead of stdout
+          --shamir-secret-sharing-threshold=: "the number of master keys required to retrieve the data key with shamir (default: 0)"
+          --enable-local-keyservice: use local key service
+          --keyservice=: "Specify the key services to use in addition to the local one. Can be specified more than once. Syntax: protocol://address. Example: tcp://myserver.com:5000"
+
+  - name: updatekeys
+    description: update the keys of a SOPS file using the config file
+    flags:
+      -y, --yes: pre-approve all changes and run non-interactively
+      --enable-local-keyservice: use local key service
+      --keyservice=: "Specify the key services to use in addition to the local one. Can be specified more than once. Syntax: protocol://address. Example: tcp://myserver.com:5000"
+
+  - name: help
+    description: Shows a list of commands or help for one command
+    aliases: [h]
