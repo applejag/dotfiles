@@ -38,6 +38,7 @@ in
     git-crypt
     git-lfs
     jq
+    yq-go
     libnotify # notify-send
     neovim
     podman-compose # podman is already installed via /etc/nixos/configuration.nix
@@ -61,6 +62,7 @@ in
     # Kubernetes
     kubectl
     kubectl-klock # :D
+    kubectl-gadget # inspector-gadget
     kubectx
     kubelogin-oidc
     my-kubernetes-helm
