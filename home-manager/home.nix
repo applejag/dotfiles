@@ -168,7 +168,7 @@ in
       nvim-treesitter-parsers.json
       nvim-treesitter-parsers.yaml
       nvim-treesitter-parsers.terraform
-      (fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
+      #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
       (fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
     ];
     extraPackages = with pkgs; [
