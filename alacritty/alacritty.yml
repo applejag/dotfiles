@@ -161,54 +161,50 @@ font:
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
   # increasing `y` moves the glyph upward.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
+  glyph_offset:
+    x: 0
+    y: 1
 
-  # Thin stroke font rendering (macOS only)
+  # Use built-in font for box drawing characters.
   #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`.
-  #use_thin_strokes: true
+  # If `true`, Alacritty will use a custom built-in font for box drawing
+  # characters (Unicode points 2500 - 259f).
+  #
+  #builtin_box_drawing: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-      
-schemes:
-  ### Doom One ###
-  DoomOne: &DoomOne
-    primary:
-      background: '#282c34'
-      foreground: '#bbc2cf'
-    cursor:
-      text: CellBackground
-      cursor: '#528bff'
-    selection:
-      text: CellForeground
-      background: '#3e4451'
-    normal:
-      black:   '#5d5f61'   # This is 1c1f24 in Doom Emacs but I lightened it.
-      red:     '#ff6c6b'
-      green:   '#98be65'
-      yellow:  '#da8548'
-      blue:    '#51afef'
-      magenta: '#c678dd'
-      cyan:    '#5699af'
-      white:   '#c8ced8'   # This is 202328 in Doom Emacs but I lightened it.
-    bright:
-      black:   '#5b6268'
-      red:     '#da8548'
-      green:   '#4db5bd'
-      yellow:  '#ecbe7b'
-      blue:    '#3071db'   # This is 2257a0 in Doom Emacs but I lightened it.
-      magenta: '#a9a1e1'
-      cyan:    '#46d9ff'
-      white:   '#dfdfdf'
-
-
 # Colors (Tomorrow Night)
-colors: *DoomOne
+colors:
+  ### Doom One ###
+  primary:
+    background: '#282c34'
+    foreground: '#bbc2cf'
+  cursor:
+    text: CellBackground
+    cursor: '#528bff'
+  selection:
+    text: CellForeground
+    background: '#3e4451'
+  normal:
+    black:   '#5d5f61'   # This is 1c1f24 in Doom Emacs but I lightened it.
+    red:     '#ff6c6b'
+    green:   '#98be65'
+    yellow:  '#da8548'
+    blue:    '#51afef'
+    magenta: '#c678dd'
+    cyan:    '#5699af'
+    white:   '#c8ced8'   # This is 202328 in Doom Emacs but I lightened it.
+  bright:
+    black:   '#5b6268'
+    red:     '#da8548'
+    green:   '#4db5bd'
+    yellow:  '#ecbe7b'
+    blue:    '#3071db'   # This is 2257a0 in Doom Emacs but I lightened it.
+    magenta: '#a9a1e1'
+    cyan:    '#46d9ff'
+    white:   '#dfdfdf'
   # Default colors
   #primary:
   #  background: '#282A36'
@@ -312,6 +308,13 @@ colors: *DoomOne
   #   `- { index: 16, color: '#ff00ff' }`
   #
   #indexed_colors: []
+
+  # Transparent cell backgrounds
+  #
+  # Whether or not `window.opacity` applies to all cell backgrounds or only to
+  # the default background. When set to `true` all cells will be transparent
+  # regardless of their background color.
+  transparent_background_colors: true
 
 # Bell
 #

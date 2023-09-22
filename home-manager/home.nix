@@ -10,6 +10,14 @@ let
   my-helmfile = with pkgs; helmfile-wrapped.override {
     inherit (my-kubernetes-helm.passthru) pluginsDir;
   };
+  fromGitHub = ref: repo: pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "${lib.strings.sanitizeDerivationName repo}";
+    version = ref;
+    src = builtins.fetchGit {
+      url = "https://github.com/${repo}.git";
+      ref = ref;
+    };
+  };
 in
 {
   home.username = "kallefagerberg";
@@ -40,7 +48,6 @@ in
     jq
     yq-go
     libnotify # notify-send
-    neovim
     podman-compose # podman is already installed via /etc/nixos/configuration.nix
     ripgrep
     dig # network tool
@@ -51,7 +58,6 @@ in
     direnv # load .envrc files
     sops
     terraform
-    terraform-ls
     nodejs_20
 
     # Linters
@@ -133,6 +139,48 @@ in
     bashrcExtra = ''
       eval "$(direnv hook bash)"
     '';
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+
+    plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+
+      nvim-cmp
+      cmp-nvim-lsp # completion from language server
+      cmp-nvim-lsp-signature-help # completion for functions
+      cmp-buffer # completion for words from buffers
+      cmp-path # completion for paths
+      cmp-git # completion for commits, PRs, user mentions
+      nvim-snippy # snippets plugin
+      cmp-snippy # completion for snippets (provided by e.g LSP)
+      lspkind-nvim # VS Code-like icons
+
+      nvim-surround
+      guess-indent-nvim
+      dracula-nvim
+      nvim-treesitter
+      nvim-treesitter-parsers.lua
+      nvim-treesitter-parsers.nix
+      nvim-treesitter-parsers.go
+      nvim-treesitter-parsers.yaml
+      nvim-treesitter-parsers.terraform
+      (fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
+      (fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
+    ];
+    extraPackages = with pkgs; [
+      lua-language-server
+      yaml-language-server
+      terraform-ls
+      nixd
+    ];
+  };
+
+  home.file."init.lua" = {
+    source = ../nvim/init.lua;
+    target = ".config/nvim/init.lua";
   };
 
   programs.git = {
