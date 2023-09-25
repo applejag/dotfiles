@@ -146,9 +146,9 @@ in
     defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
+      nvim-lspconfig # configs for common LSP servers
 
-      nvim-cmp
+      nvim-cmp # completion engine
       cmp-nvim-lsp # completion from language server
       cmp-nvim-lsp-signature-help # completion for functions
       cmp-buffer # completion for words from buffers
@@ -160,14 +160,22 @@ in
 
       nvim-surround
       guess-indent-nvim
-      dracula-nvim
+      dracula-nvim # theme
+      plenary-nvim # utility Lua functions used by other plugins
+      vim-helm # gotmpl
       nvim-treesitter
-      nvim-treesitter-parsers.lua
-      nvim-treesitter-parsers.nix
+      nvim-treesitter-parsers.bash
       nvim-treesitter-parsers.go
+      nvim-treesitter-parsers.javascript
       nvim-treesitter-parsers.json
-      nvim-treesitter-parsers.yaml
+      nvim-treesitter-parsers.lua
+      nvim-treesitter-parsers.markdown
+      nvim-treesitter-parsers.markdown_inline
+      nvim-treesitter-parsers.nix
+      nvim-treesitter-parsers.scala
       nvim-treesitter-parsers.terraform
+      nvim-treesitter-parsers.typescript
+      nvim-treesitter-parsers.yaml
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
       (fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
     ];
@@ -175,6 +183,7 @@ in
       lua-language-server
       yaml-language-server
       terraform-ls
+      helm-ls
       vscode-langservers-extracted
       nixd
     ];

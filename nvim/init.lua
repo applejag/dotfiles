@@ -57,6 +57,26 @@ lspconfig.nixd.setup {}
 lspconfig.yamlls.setup {}
 lspconfig.terraformls.setup {}
 
+local configs = require('lspconfig.configs')
+local util = require('lspconfig.util')
+
+if not configs.helm_ls then
+  configs.helm_ls = {
+    default_config = {
+      cmd = {"helm_ls", "serve"},
+      filetypes = {'helm'},
+      root_dir = function(fname)
+        return util.root_pattern('Chart.yaml')(fname)
+      end,
+    },
+  }
+end
+
+lspconfig.helm_ls.setup {
+  filetypes = {"helm"},
+  cmd = {"helm_ls", "serve"},
+}
+
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -174,11 +194,24 @@ cmp.setup {
 }
 
 cmp.setup.filetype('gitcommit', {
-    sources = {
+    sources = cmp.config.sources({
         -- git commits, PRs, user mentions: https://github.com/petertriho/cmp-git
-        { name = 'nvim_lsp' },
-    }
+        { name = 'git' },
+        -- snippets expansion: https://github.com/dcampos/cmp-snippy
+        { name = 'snippy' },
+        -- paths: https://github.com/hrsh7th/cmp-path/
+        { name = 'path' },
+    }, {
+        -- words in buffer: https://github.com/hrsh7th/cmp-buffer/
+        { name = 'buffer' },
+    }),
 })
+
+require'cmp_git'.setup {
+    github = {
+        hosts = { "github.2rioffice.com" },
+    },
+}
 
 -- Customization for Pmenu
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
@@ -254,6 +287,42 @@ require 'indent_blankline'.setup {
     show_current_context = true,
     show_current_context_start = true,
 }
+
+-- Special file associations
+vim.cmd[[
+    autocmd BufRead,BufNewFile */.kube/config set filetype=yaml nowrap
+    autocmd BufRead,BufNewFile *kubeconfig set filetype=yaml nowrap
+    autocmd BufRead,BufNewFile *kubeconfig.yml set filetype=yaml nowrap
+    autocmd BufRead,BufNewFile *kubeconfig.yaml set filetype=yaml nowrap
+    autocmd BufRead,BufNewFile /tmp/kubeconfigs/* set filetype=yaml nowrap
+    autocmd BufRead,BufNewFile .remarkrc set filetype=json
+    autocmd BufRead,BufNewFile *.gotmpl set filetype=gotexttmpl
+    autocmd BufRead,BufNewFile *.tmpl set filetype=gotexttmpl
+    autocmd BufRead,BufNewFile *.yaml.gotmpl set filetype=helm
+    autocmd BufRead,BufNewFile *.yml.gotmpl set filetype=helm
+    autocmd BufRead,BufNewFile templates/*.yml set filetype=helm
+    autocmd BufRead,BufNewFile templates/*.yaml set filetype=helm
+    autocmd BufRead,BufNewFile *.yaml.off set filetype=yaml
+    autocmd BufRead,BufNewFile *.yml.off set filetype=yaml
+    autocmd BufRead,BufNewFile .yamllint set filetype=yaml
+    autocmd BufRead,BufNewFile /tmp/kubectl-edit-*.yaml set nowrap
+    autocmd BufRead,BufNewFile /dev/shm/gopass-edit*/secret set filetype=yaml nowrap
+    autocmd BufRead,BufNewFile */ansible/hosts set filetype=dosini
+    autocmd BufRead,BufNewFile */ri-secrets/values-secret.yaml set nowrap
+    autocmd BufRead,BufNewFile */ri-clustersecret/values-secret.yaml set nowrap
+    autocmd BufRead,BufNewFile JenkinsFile set filetype=Jenkinsfile
+    autocmd BufRead,BufNewFile */templates/NOTES.txt set filetype=gotexttmpl
+    autocmd BufRead,BufNewFile PROJECT set filetype=yaml
+]]
+
+-- YAML indent fix
+vim.cmd[[
+    augroup filetype_yaml
+        autocmd!
+        autocmd BufEnter *.yaml,*.yml
+            \ setlocal indentkeys-=0#
+    augroup END
+]]
 
 -- Options
 
