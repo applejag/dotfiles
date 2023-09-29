@@ -132,7 +132,35 @@ in
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "slack"
     "spotify"
+    "vscode"
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    # Find names of applications installed by Nix in ~/.nix-profile/share/applications
+    # Flatpak apps are visible at /var/lib/flatpak/exports/share/applications
+    defaultApplications = {
+      # Firefox
+      "application/pdf" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      # Thunderbird
+      "application/x-extension-ics" = "thunderbird.desktop";
+      "message/rfc822" = "thunderbird.desktop";
+      "text/calendar" = "thunderbird.desktop";
+      "x-scheme-handler/mailto" = "thunderbird.desktop";
+      "x-scheme-handler/mid" = "thunderbird.desktop";
+      "x-scheme-handler/webcal" = "thunderbird.desktop";
+      "x-scheme-handler/webcals" = "thunderbird.desktop";
+    };
+    associations.added = {
+      # Thunderbird
+      "x-scheme-handler/mailto" = "thunderbird.desktop";
+      "x-scheme-handler/mid" = "thunderbird.desktop";
+      "x-scheme-handler/webcal" = "thunderbird.desktop";
+      "x-scheme-handler/webcals" = "thunderbird.desktop";
+    };
+  };
 
   programs.bash = {
     enable = true;
@@ -164,6 +192,7 @@ in
       plenary-nvim # utility Lua functions used by other plugins
       vim-helm # gotmpl
       nvim-treesitter
+      nvim-treesitter-parsers.astro
       nvim-treesitter-parsers.bash
       nvim-treesitter-parsers.go
       nvim-treesitter-parsers.javascript
@@ -180,12 +209,35 @@ in
       (fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
     ];
     extraPackages = with pkgs; [
-      lua-language-server
-      yaml-language-server
-      terraform-ls
       helm-ls
-      vscode-langservers-extracted
+      lua-language-server
       nixd
+      nodePackages.typescript-language-server
+      nodePackages.bash-language-server
+      shellcheck
+      terraform-ls
+      vscode-langservers-extracted
+      yaml-language-server
+    ];
+  };
+
+  programs.vscode = {
+    enable = true;
+    userSettings = {
+      # Crashes on launch in Hyprland without this.
+      # https://github.com/microsoft/vscode/issues/181533#issuecomment-1597187136
+      "window.titleBarStyle" = "custom";
+    };
+    extensions = with pkgs.vscode-extensions; [
+      bierner.markdown-mermaid
+      christian-kohler.path-intellisense
+      davidanson.vscode-markdownlint
+      dbaeumer.vscode-eslint
+      dracula-theme.theme-dracula
+      editorconfig.editorconfig
+      redhat.vscode-yaml
+      streetsidesoftware.code-spell-checker
+      vscodevim.vim
     ];
   };
 
