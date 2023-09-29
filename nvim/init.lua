@@ -56,25 +56,28 @@ lspconfig.lua_ls.setup {
 lspconfig.nixd.setup {}
 lspconfig.yamlls.setup {}
 lspconfig.terraformls.setup {}
+lspconfig.astro.setup {}
+lspconfig.bashls.setup {}
+lspconfig.tsserver.setup {}
 
 local configs = require('lspconfig.configs')
 local util = require('lspconfig.util')
 
 if not configs.helm_ls then
-  configs.helm_ls = {
-    default_config = {
-      cmd = {"helm_ls", "serve"},
-      filetypes = {'helm'},
-      root_dir = function(fname)
-        return util.root_pattern('Chart.yaml')(fname)
-      end,
-    },
-  }
+    configs.helm_ls = {
+        default_config = {
+            cmd = { "helm_ls", "serve" },
+            filetypes = { 'helm' },
+            root_dir = function(fname)
+                return util.root_pattern('Chart.yaml')(fname)
+            end,
+        },
+    }
 end
 
 lspconfig.helm_ls.setup {
-  filetypes = {"helm"},
-  cmd = {"helm_ls", "serve"},
+    filetypes = { "helm" },
+    cmd = { "helm_ls", "serve" },
 }
 
 --Enable (broadcasting) snippet capability for completion
@@ -146,11 +149,21 @@ cmp.setup {
         { name = 'nvim_lsp' },
         -- snippets expansion: https://github.com/dcampos/cmp-snippy
         { name = 'snippy' },
+        -- git commits, PRs, user mentions: https://github.com/petertriho/cmp-git
+        { name = 'git' },
         -- paths: https://github.com/hrsh7th/cmp-path/
         { name = 'path' },
     }, {
         -- words in buffer: https://github.com/hrsh7th/cmp-buffer/
-        { name = 'buffer' },
+        {
+            name = 'buffer',
+            options = {
+                get_bufnrs = function()
+                    -- Use all buffers
+                    return vim.api.nvim_list_bufs()
+                end,
+            }
+        },
     }),
 
     mapping = cmp.mapping.preset.insert {
@@ -193,21 +206,12 @@ cmp.setup {
     },
 }
 
-cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-        -- git commits, PRs, user mentions: https://github.com/petertriho/cmp-git
-        { name = 'git' },
-        -- snippets expansion: https://github.com/dcampos/cmp-snippy
-        { name = 'snippy' },
-        -- paths: https://github.com/hrsh7th/cmp-path/
-        { name = 'path' },
-    }, {
-        -- words in buffer: https://github.com/hrsh7th/cmp-buffer/
-        { name = 'buffer' },
-    }),
-})
-
-require'cmp_git'.setup {
+require 'cmp_git'.setup {
+    filetypes = {
+        "gitcommit",
+        "octo",
+        "markdown",
+    },
     github = {
         hosts = { "github.2rioffice.com" },
     },
@@ -274,7 +278,8 @@ treesitter_parser_config.templ = {
     branch = "master",
   },
 }
---]]--
+--]]
+     --
 
 vim.treesitter.language.register('templ', 'templ')
 
@@ -282,14 +287,10 @@ require 'guess-indent'.setup {}
 
 require 'nvim-surround'.setup {}
 
-require 'indent_blankline'.setup {
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
-}
+require 'ibl'.setup()
 
 -- Special file associations
-vim.cmd[[
+vim.cmd [[
     autocmd BufRead,BufNewFile */.kube/config set filetype=yaml nowrap
     autocmd BufRead,BufNewFile *kubeconfig set filetype=yaml nowrap
     autocmd BufRead,BufNewFile *kubeconfig.yml set filetype=yaml nowrap
@@ -316,7 +317,7 @@ vim.cmd[[
 ]]
 
 -- YAML indent fix
-vim.cmd[[
+vim.cmd [[
     augroup filetype_yaml
         autocmd!
         autocmd BufEnter *.yaml,*.yml
