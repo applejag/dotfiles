@@ -54,11 +54,53 @@ lspconfig.lua_ls.setup {
     end
 }
 lspconfig.nixd.setup {}
-lspconfig.yamlls.setup {}
 lspconfig.terraformls.setup {}
 lspconfig.astro.setup {}
 lspconfig.bashls.setup {}
 lspconfig.tsserver.setup {}
+
+lspconfig.yamlls.setup {
+    settings = {
+        yaml = {
+            customTags = {
+                --[[ jetporch tags ]]--
+                -- Access control
+                "!group mapping",
+                "!user mapping",
+
+                -- Commands
+                "!script mapping",
+                "!shell mapping",
+
+                -- Control flow
+                "!assert mapping",
+                "!debug mapping",
+                "!echo mapping",
+                "!fail mapping",
+                "!facts mapping",
+                "!set mapping",
+
+                -- External
+                "!external mapping",
+
+                -- Files
+                "!copy mapping",
+                "!directory mapping",
+                "!file mapping",
+                "!git mapping",
+                "!template mapping",
+
+                -- Package managers
+                "!apt mapping",
+                "!dnf mapping",
+                "!yum mapping",
+
+                -- Services
+                "!sd_service mapping",
+            },
+        },
+    },
+}
 
 local configs = require('lspconfig.configs')
 local util = require('lspconfig.util')
