@@ -1,0 +1,57 @@
+name: jetp
+commands:
+  - name: show-inventory
+    group: utility
+    description: displays inventory, specify --show-groups group1:group2 or --show-hosts host1:host2
+    flags:
+      -i, --inventory!=: specifies which systems to manage
+
+  - name: local
+    group: local machine management
+    description: manages only the local machine
+    flags: &flags
+      # Basics
+      -p, --playbook!=: specifies automation content
+      -i, --inventory*=: specifies which systems to manage
+      -r, --roles*=: adds additional role search paths. Also uses $JET_ROLES_PATH
+
+      # SSH options
+      --ask-login-password: prompt for the login password on standard input
+      --batch-size=: fully configure this many hosts before moving to the next batch
+      --forward-agent: "enables SSH agent forwarding but only on specific tasks (ex: git)"
+      --limit-groups=: further limits scope for playbook runs
+      --limit-hosts=: further limits scope for playbook runs
+      --port=: use this default port instead of $JET_SSH_PORT or 22
+      -t, --threads=: how many parallel threads to use. Alternatively set $JET_THREADS
+      -u, --user=: use this default username instead of $JET_SSH_USER or $USER
+
+      # Misc options
+      --allow-localhost-delegation: signs off on variable sourcing risks and enables localhost actions with delegate_to
+      -e, --extra-vars=: injects extra variables into the playbook runtime context from a YAML file, or quoted JSON
+      --sudo=: sudo to this user by default for all tasks
+      --tags=: only run tasks or roles with one of these tags
+      -v*: ever increasing verbosity
+
+    completion: &completion
+      flag:
+        playbook: ["$files([.yml,.yaml])"]
+        inventory: ["$list(:)", "$files(['.py'])", "$directories"]
+        roles: ["$list(:)", "$directories"]
+
+  - name: check-local
+    group: local machine management
+    description: looks for configuration differences on the local machine
+    flags: *flags
+    completion: *completion
+
+  - name: ssh
+    group: remote machine management
+    description: manages multiple machines over SSH
+    flags: *flags
+    completion: *completion
+
+  - name: check-ssh
+    group: remote machine management
+    description: looks for configuration differences over SSH
+    flags: *flags
+    completion: *completion

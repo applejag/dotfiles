@@ -132,7 +132,35 @@ in
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "slack"
     "spotify"
+    "vscode"
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    # Find names of applications installed by Nix in ~/.nix-profile/share/applications
+    # Flatpak apps are visible at /var/lib/flatpak/exports/share/applications
+    defaultApplications = {
+      # Firefox
+      "application/pdf" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      # Thunderbird
+      "application/x-extension-ics" = "thunderbird.desktop";
+      "message/rfc822" = "thunderbird.desktop";
+      "text/calendar" = "thunderbird.desktop";
+      "x-scheme-handler/mailto" = "thunderbird.desktop";
+      "x-scheme-handler/mid" = "thunderbird.desktop";
+      "x-scheme-handler/webcal" = "thunderbird.desktop";
+      "x-scheme-handler/webcals" = "thunderbird.desktop";
+    };
+    associations.added = {
+      # Thunderbird
+      "x-scheme-handler/mailto" = "thunderbird.desktop";
+      "x-scheme-handler/mid" = "thunderbird.desktop";
+      "x-scheme-handler/webcal" = "thunderbird.desktop";
+      "x-scheme-handler/webcals" = "thunderbird.desktop";
+    };
+  };
 
   programs.bash = {
     enable = true;
@@ -146,9 +174,9 @@ in
     defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
+      nvim-lspconfig # configs for common LSP servers
 
-      nvim-cmp
+      nvim-cmp # completion engine
       cmp-nvim-lsp # completion from language server
       cmp-nvim-lsp-signature-help # completion for functions
       cmp-buffer # completion for words from buffers
@@ -160,23 +188,86 @@ in
 
       nvim-surround
       guess-indent-nvim
-      dracula-nvim
+      dracula-nvim # theme
+      plenary-nvim # utility Lua functions used by other plugins
+      vim-helm # gotmpl
       nvim-treesitter
-      nvim-treesitter-parsers.lua
-      nvim-treesitter-parsers.nix
+      nvim-treesitter-parsers.astro
+      nvim-treesitter-parsers.bash
       nvim-treesitter-parsers.go
+      nvim-treesitter-parsers.javascript
       nvim-treesitter-parsers.json
-      nvim-treesitter-parsers.yaml
+      nvim-treesitter-parsers.lua
+      nvim-treesitter-parsers.markdown
+      nvim-treesitter-parsers.markdown_inline
+      nvim-treesitter-parsers.nix
+      nvim-treesitter-parsers.scala
       nvim-treesitter-parsers.terraform
+      nvim-treesitter-parsers.typescript
+      nvim-treesitter-parsers.yaml
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
       (fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
     ];
     extraPackages = with pkgs; [
+      helm-ls
       lua-language-server
-      yaml-language-server
+      nixd
+      nodePackages.typescript-language-server
+      nodePackages.bash-language-server
+      shellcheck
       terraform-ls
       vscode-langservers-extracted
-      nixd
+      yaml-language-server
+    ];
+  };
+
+  programs.vscode = {
+    enable = true;
+    userSettings = {
+      # Crashes on launch in Hyprland without this.
+      # https://github.com/microsoft/vscode/issues/181533#issuecomment-1597187136
+      "window.titleBarStyle" = "custom";
+      "yaml.customTags" = [
+        # [ jetporch tags ]
+        # Access control
+        "!group mapping"
+        "!user mapping"
+        # Commands
+        "!script mapping"
+        "!shell mapping"
+        # Control flow
+        "!assert mapping"
+        "!debug mapping"
+        "!echo mapping"
+        "!fail mapping"
+        "!facts mapping"
+        "!set mapping"
+        # External
+        "!external mapping"
+        # Files
+        "!copy mapping"
+        "!directory mapping"
+        "!file mapping"
+        "!git mapping"
+        "!template mapping"
+        # Package managers
+        "!apt mapping"
+        "!dnf mapping"
+        "!yum mapping"
+        # Services
+        "!sd_service mapping"
+      ];
+    };
+    extensions = with pkgs.vscode-extensions; [
+      bierner.markdown-mermaid
+      christian-kohler.path-intellisense
+      davidanson.vscode-markdownlint
+      dbaeumer.vscode-eslint
+      dracula-theme.theme-dracula
+      editorconfig.editorconfig
+      redhat.vscode-yaml
+      streetsidesoftware.code-spell-checker
+      vscodevim.vim
     ];
   };
 

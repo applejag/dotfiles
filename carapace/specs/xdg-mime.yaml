@@ -1,0 +1,40 @@
+name: xdg-mime
+persistentflags:
+  --help: Show command synopsis.
+  --manual: Show this manual page.
+  --version: Show the xdg-utils version information.
+commands:
+  - name: query
+    description: Returns information related to file types.
+    commands:
+      - name: filetype
+        description: Returns the file type of FILE in the form of a MIME type.
+        completion:
+          positional:
+            - ["$files"]
+
+      - name: default
+        description: Returns the default application that the desktop environment uses for opening files of type mimetype.
+        completion:
+          positional:
+            - ['$((echo -n "$XDG_DATA_DIRS" | while IFS= read -rd: dir || [ -n "$dir" ]; do if [[ -r "$dir/mime/types" ]]; then cat "$dir/mime/types"; fi; done) | sort -u)']
+
+  - name: default
+    description: Ask the desktop environment to make application the default application for opening files of type mimetype.
+
+  - name: install
+    description: Adds the file type descriptions provided in mimetypes-file to the desktop environment.
+    flags:
+      --mode=: Install for user or system wide
+      --novendor: Skip ensuring that the mimetypes-file is installed with the proper vendor prefix.
+    completion:
+      flag:
+        mode: [user, system]
+
+  - name: uninstall
+    description: Removes the file type descriptions provided in mimetypes-file and previously added with xdg-mime install from the desktop environment.
+    flags:
+      --mode=: Remove for user or system wide
+    completion:
+      flag:
+        mode: [user, system]

@@ -271,16 +271,17 @@ then
   eval $(register-python-argcomplete ansible-pull)
   eval $(register-python-argcomplete ansible-vault)
 
-  # Aliases
-  alias a=ansible
-  alias ap=ansible-playbook
-  alias ag=ansible-galaxy
-  alias ai=ansible-inventory
-  alias av=ansible-vault
-  alias ave='ansible-vault edit'
-  alias avv='ansible-vault view'
-  alias avc='ansible-vault create'
 fi
+
+# Ansible aliases
+alias a=ansible
+alias ap=ansible-playbook
+alias ag=ansible-galaxy
+alias ai=ansible-inventory
+alias av=ansible-vault
+alias ave='ansible-vault edit'
+alias avv='ansible-vault view'
+alias avc='ansible-vault create'
 
 #if command -v glow &> /dev/null
 #then
