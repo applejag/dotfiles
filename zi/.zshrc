@@ -18,6 +18,8 @@ fi
 
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
   source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
+  # if not installed, run:
+  # $ sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
 fi
 
 zi snippet OMZL::clipboard.zsh
