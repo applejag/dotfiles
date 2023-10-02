@@ -10,7 +10,7 @@ let
   my-helmfile = with pkgs; helmfile-wrapped.override {
     inherit (my-kubernetes-helm.passthru) pluginsDir;
   };
-  fromGitHub = ref: repo: pkgs.vimUtils.buildVimPluginFrom2Nix {
+  fromGitHub = ref: repo: pkgs.vimUtils.buildVimPlugin {
     pname = "${lib.strings.sanitizeDerivationName repo}";
     version = ref;
     src = builtins.fetchGit {
@@ -190,6 +190,7 @@ in
       guess-indent-nvim
       dracula-nvim # theme
       plenary-nvim # utility Lua functions used by other plugins
+      vim-mustache-handlebars # {{ templates }}
       vim-helm # gotmpl
       nvim-treesitter
       nvim-treesitter-parsers.astro
