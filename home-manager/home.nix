@@ -306,21 +306,25 @@ in
       interactive = {
         diffFilter = "delta --color-only";
       };
+      pull = {
+        # Default to merge when doing pull
+        rebase = false;
+      };
       delta = {
         navigate = true; # use n and N to move between diff sections
-	light = false; # set to true when using terminal w/ light background color
-	syntax-theme = "TwoDark";
+        light = false; # set to true when using terminal w/ light background color
+        syntax-theme = "TwoDark";
       };
       diff = {
         "ansible-vault" = {
-	  textconv = "PAGER=cat ansible-vault view";
-	  cachetextconv = true;
-	};
+          textconv = "PAGER=cat ansible-vault view";
+          cachetextconv = true;
+        };
       };
       url = {
         "ssh://git@github.2rioffice.com/" = {
-	  insteadOf = "https://github.2rioffice.com";
-	};
+          insteadOf = "https://github.2rioffice.com";
+        };
       };
     };
   };
