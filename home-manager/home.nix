@@ -74,6 +74,11 @@ in
     shfmt
     yamllint
 
+    # Language servers
+    nodePackages.bash-language-server
+    vscode-langservers-extracted
+    yaml-language-server
+
     # Kubernetes
     kubectl
     kubectl-klock # :D
@@ -237,11 +242,7 @@ in
       lua-language-server
       nixd
       nodePackages.typescript-language-server
-      nodePackages.bash-language-server
-      shellcheck
       terraform-ls
-      vscode-langservers-extracted
-      yaml-language-server
     ];
   };
 
