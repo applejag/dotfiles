@@ -159,7 +159,14 @@ if command -v bat &> /dev/null; then
   alias cat='bat --decorations never'
 fi
 
-if command -v terraform &> /dev/null; then
+if command -v tofu &> /dev/null; then
+  alias terraform='tofu'
+  alias tf='tofu'
+  alias tfi='tofu init'
+  alias tfa='tofu apply'
+  alias tfd='tofu destroy'
+  alias tfp='tofu plan'
+elif command -v terraform &> /dev/null; then
   alias tf='terraform'
   alias tfi='terraform init'
   alias tfa='terraform apply'

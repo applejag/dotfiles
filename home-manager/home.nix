@@ -58,7 +58,7 @@ in
     age # encryption
     direnv # load .envrc files
     sops
-    terraform
+    opentofu # terraform alternative
     nodejs_20
 
     # Linters
