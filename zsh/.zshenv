@@ -43,7 +43,7 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 # Doom Emacs
-export PATH="$PATH:$HOME/.emacs.d/bin"
+export PATH="$PATH:$HOME/.config/emacs/bin"
 
 # Linkerd2
 export PATH="$PATH:$HOME/.linkerd2/bin"

@@ -22,18 +22,6 @@ sudo dnf install gcc gcc-c++ texinfo \
     jansson-devel libgccjit-devel
 ```
 
-NixOS:
-
-```sh
-nix-env -i \
-   --extra-experimental-features nix-command \
-   libgccjit libpng libjpeg giflib libtiff librsvg libwebp \
-   gconf pkg-config texinfo gettext acl harfbuzz sqlite \
-   gsettings-desktop-schemas jansson
-
-nix-env -iA nixos.gtk3-x11
-```
-
 ## Installing
 
 ```sh
@@ -50,11 +38,10 @@ make -j$(nproc)
 sudo make install
 
 # Install Doom
-cd ~/dotfiles
-ln -vfs `pwd`/doom ~/.doom.d
+ln -vfs ~/{dotfiles,.config}/doom
 
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
 ```
 
 Done! Check out the "Install" section in `~/.emacs.d/README.md` for further
