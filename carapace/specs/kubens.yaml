@@ -1,0 +1,9 @@
+name: kubens
+flags:
+  -c, --current: show the current namespace
+  -h,--help: show this message
+  -V,--version: show version
+completion:
+  positional:
+    - - "$(kubens)"
+      - "-\tswitch to the previous namespace in this context"

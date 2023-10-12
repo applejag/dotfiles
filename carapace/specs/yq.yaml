@@ -1,0 +1,4 @@
+name: yq
+completion:
+  positionalany: ["$_bridge.Cobra([yq])"]
+

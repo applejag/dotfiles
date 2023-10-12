@@ -1,0 +1,5 @@
+name: op
+description: 1Password CLI brings 1Password to your terminal.
+completion:
+  positionalany: ["$_bridge.Cobra([op])"]
+
