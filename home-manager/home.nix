@@ -132,7 +132,6 @@ in
     libsForQt5.polkit-kde-agent
 
     # Core libs
-    clang # needed for Doom Emacs
     coreutils # needed for Doom Emacs
     ffmpeg-full
     libsForQt5.qt5.qtwayland
@@ -367,7 +366,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = builtins.readFile ../hypr/hyprland.conf;
-    systemdIntegration = true;
+    systemd.enable = true;
   };
 
   home.file."hyprpaper.conf" = {
