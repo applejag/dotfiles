@@ -23,6 +23,12 @@ in
   home.username = "kallefagerberg";
   home.homeDirectory = "/home/kallefagerberg";
 
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
+  ];
+
   home.packages = with pkgs; [
     # GUI apps
     thunderbird
@@ -34,6 +40,7 @@ in
     libsForQt5.index # MAUI file manager
     libsForQt5.clip # MAUI video player (using mpv)
     spotify
+    emacs-git # Emacs 28+, for Doom Emacs
 
     # CLI tools
     bat # better cat
@@ -125,10 +132,12 @@ in
     libsForQt5.polkit-kde-agent
 
     # Core libs
+    clang # needed for Doom Emacs
+    coreutils # needed for Doom Emacs
+    ffmpeg-full
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
     xwayland
-    ffmpeg-full
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
