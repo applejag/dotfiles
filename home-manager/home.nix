@@ -101,10 +101,12 @@ in
     gocode # for code completion
     revive # linter
     golangci-lint # linter
+    gomodifytags # manipulate struct tags (e.g in Emacs)
     (callPackage ./govulncheck.nix {}) # SAST
     
     # Dev tools
     gcc
+    editorconfig-core-c
 
     # Desktop environment
     xdg-desktop-portal-hyprland # screen share
