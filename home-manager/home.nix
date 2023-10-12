@@ -25,8 +25,8 @@ in
 
   home.packages = with pkgs; [
     # GUI apps
-    firefox
     thunderbird
+    birdtray # tray icon for Thunderbird
     alacritty
     slack
     nextcloud-client
@@ -52,7 +52,8 @@ in
     ripgrep
     dig # network tool
     tmux
-    navi
+    navi # alias/shortcut utility
+    slides # presentation tool
 
     age # encryption
     direnv # load .envrc files
@@ -127,6 +128,7 @@ in
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
     xwayland
+    ffmpeg-full
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -159,6 +161,16 @@ in
       "x-scheme-handler/mid" = "thunderbird.desktop";
       "x-scheme-handler/webcal" = "thunderbird.desktop";
       "x-scheme-handler/webcals" = "thunderbird.desktop";
+    };
+  };
+  
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox.override {
+      cfg = {
+        ffmpegSupport = true;
+        pipewireSupport = true;
+      };
     };
   };
 
