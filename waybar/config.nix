@@ -16,7 +16,7 @@
     modules-right = [
       "tray"
       "custom/notification"
-      #"idle_inhibitor"
+      "idle_inhibitor"
       "pulseaudio"
       #"network"
       "cpu"
