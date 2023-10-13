@@ -11,7 +11,14 @@
       <nixos-hardware/lenovo/thinkpad/t14>
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      # https://github.com/jonascarpay/declarative-cachix
+      (import (builtins.fetchTarball "https://github.com/jonascarpay/declarative-cachix/archive/abe4d70e5d9a225a7ecf98086b089cc04202f2e3.tar.gz"))
     ];
+
+  cachix = [
+    "nix-community"
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
