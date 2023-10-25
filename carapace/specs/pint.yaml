@@ -1,0 +1,66 @@
+name: pint
+description: Prometheus rule linter
+flags:
+  -c, --config=: 'Configuration file to use (default: ".pint.hcl")'
+  -w, --workers=: 'Number of worker threads for running checks (default: 10)'
+  -l, --log-level=: 'Log level (default: "info")'
+  -n, --no-color: 'Disable output colouring (default: false)'
+  -d, --disabled=*: 'List of checks to disable (example: promql/cost)'
+  -o, --offline: 'Disable all check that send live queries to Prometheus servers (default: false)'
+
+persistentflags:
+  -h, --help: 'show help'
+
+commands:
+  - name: version
+    description: Print version and exit
+
+  - name: lint
+    description: Lint specified files
+    flags:
+      -r, --require-owner: 'Require all rules to have an owner set via comment (default: false)'
+      -n, --min-severity=: 'Set minimum severity for reported problems (default: "warning")'
+      -w, --fail-on=: 'Exit with non-zero code if there are problems with given severity (or higher) detected (default: "bug")'
+    completion:
+      flag:
+        min-severity: &severity
+          - "info\tInformation doesn't count as a problem, it's a comment"
+          - "warning\tWarning is not consider an error"
+          - "bug\tBug is an error that should be corrected"
+          - "fatal\tFatal is a problem with linting content"
+        fail-on: *severity
+      positional:
+        - ["$files", "$directories"]
+
+  - name: ci
+    description: Lint CI changes
+    flags:
+      -r, --require-owner: 'Require all rules to have an owner set via comment (default: false)'
+      -b, --base-branch=: 'Set base branch to use for PR checks (main, master, ...)'
+      -n, --dev: 'Use experimental change detection (default: false)'
+      -w, --fail-on=: 'Exit with non-zero code if there are problems with given severity (or higher) detected (default: "bug")'
+    completion:
+      flag:
+        fail-on: *severity
+
+  - name: watch
+    description: Continuously lint specified files
+    flags:
+      -i, --interval=: 'How often to run all checks (default: 10m0s)'
+      -s, --listen=: 'Listen address for HTTP web server exposing metrics (default: ":8080")'
+      -p, --pidfile=: 'Write pid file to this path'
+      -m, --max-problems=: 'Maximum number of problems to report on metrics, 0 - no limit (default: 0)'
+      -n, --min-severity=: 'Set minimum severity for problems reported via metrics (default: "bug")'
+    completion:
+      flag:
+        min-severity: *severity
+
+  - name: config
+    description: Parse and print used config
+
+  - name: parse
+    description: Parse a query and print AST, use for debugging or understanding query details
+
+  - name: help
+    aliases: [h]
+    description: Shows a list of commands or help for one command
