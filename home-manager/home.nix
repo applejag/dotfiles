@@ -62,6 +62,8 @@ in
     tmux
     navi # alias/shortcut utility
     slides # presentation tool
+    openssl
+    reuse # license linter
 
     age # encryption
     direnv # load .envrc files
@@ -162,6 +164,7 @@ in
       "application/pdf" = "firefox.desktop";
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";
+      "text/html" = "firefox.desktop";
       # Thunderbird
       "application/x-extension-ics" = "thunderbird.desktop";
       "message/rfc822" = "thunderbird.desktop";
@@ -197,6 +200,19 @@ in
     '';
   };
 
+  programs.awscli = {
+    enable = true;
+    credentials = {
+      "frida-prod" = {
+      };
+      "frida-dev" = {
+        "credential_process" = "sh -c \"op item get --format=json --fields=label=AccessKeyId,label=SecretAccessKey vib37uxuuj4tryrbqairhhc7yy | jq '{Version: 1, AccessKeyId: (.[] | select(.label == \\\"access key id\\\")).value, SecretAccessKey: (.[] | select(.label == \\\"secret access key\\\")).value}'\"";
+      };
+      "platform-playground" = {
+      };
+    };
+  };
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -223,14 +239,40 @@ in
       nvim-treesitter
       nvim-treesitter-parsers.astro
       nvim-treesitter-parsers.bash
+      nvim-treesitter-parsers.css
+      nvim-treesitter-parsers.dockerfile
+      nvim-treesitter-parsers.git_config
+      nvim-treesitter-parsers.git_rebase
+      nvim-treesitter-parsers.gitattributes
+      nvim-treesitter-parsers.gitcommit
+      nvim-treesitter-parsers.gitignore
       nvim-treesitter-parsers.go
+      nvim-treesitter-parsers.gomod
+      nvim-treesitter-parsers.gosum
+      nvim-treesitter-parsers.gowork
+      nvim-treesitter-parsers.hcl
+      nvim-treesitter-parsers.html
+      nvim-treesitter-parsers.ini
       nvim-treesitter-parsers.javascript
+      nvim-treesitter-parsers.jq
       nvim-treesitter-parsers.json
+      nvim-treesitter-parsers.json5
+      nvim-treesitter-parsers.jsonc
       nvim-treesitter-parsers.lua
+      nvim-treesitter-parsers.make
       nvim-treesitter-parsers.markdown
       nvim-treesitter-parsers.markdown_inline
+      nvim-treesitter-parsers.mermaid
       nvim-treesitter-parsers.nix
+      nvim-treesitter-parsers.org
+      nvim-treesitter-parsers.passwd
+      nvim-treesitter-parsers.python
+      nvim-treesitter-parsers.regex
+      nvim-treesitter-parsers.requirements
+      nvim-treesitter-parsers.rst
       nvim-treesitter-parsers.scala
+      nvim-treesitter-parsers.sql
+      nvim-treesitter-parsers.ssh_config
       nvim-treesitter-parsers.terraform
       nvim-treesitter-parsers.typescript
       nvim-treesitter-parsers.yaml
@@ -282,6 +324,7 @@ in
         # Services
         "!sd_service mapping"
       ];
+      "diffEditor.ignoreTrimWhitespace" = false;
     };
     extensions = with pkgs.vscode-extensions; [
       bierner.markdown-mermaid
