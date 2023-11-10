@@ -31,10 +31,6 @@
     };
     # Modules configuration
     "hyprland/workspaces" = {
-      #persistent_workspaces = {
-      #  "* = 7
-      #};
-      active-only = true;
       format = "{icon} {windows}";
       window-rewrite-default = "";
       # Map window classes to icons
