@@ -34,7 +34,24 @@
       #persistent_workspaces = {
       #  "* = 7
       #};
-  	active-only = true;
+      active-only = true;
+      format = "{icon} {windows}";
+      window-rewrite-default = "";
+      # Map window classes to icons
+      # Find icons here: https://www.nerdfonts.com/cheat-sheet
+      window-rewrite = {
+        firefox = "";
+        alacritty = "";
+        code = "󰨞";
+        slack = "󰒱";
+        thunderbird = "";
+        "1Password" = "";
+        rofi = "";
+        Chromium-browser = "";
+        Spotify = "󰓇";
+        "org.kde.elisa" = "󰧔";
+        emacs = "";
+      };
     };
     "river/tags" = {
       num-tags = 9;
