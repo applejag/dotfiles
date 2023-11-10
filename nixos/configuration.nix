@@ -117,10 +117,15 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kallefagerberg = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel" # Enable ‘sudo’ for the user.
+      "libvirtd" # Run VMs without needing sudo
+    ];
   };
 
   fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-emoji
     monocraft
     ubuntu_font_family
     font-awesome
@@ -153,6 +158,10 @@
     enable = true;
     dockerCompat = true;
   };
+  # For virt-manager
+  # https://nixos.wiki/wiki/Virt-manager
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
