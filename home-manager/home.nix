@@ -25,7 +25,7 @@ in
 
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+      url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
     }))
   ];
   services.emacs.package = pkgs.emacs-unstable;
@@ -42,6 +42,7 @@ in
     libsForQt5.clip # MAUI video player (using mpv)
     spotify
     emacs-git # Emacs 28+, for Doom Emacs
+    virt-manager
 
     # CLI tools
     bat # better cat
@@ -110,6 +111,10 @@ in
     golangci-lint # linter
     gomodifytags # manipulate struct tags (e.g in Emacs)
     (callPackage ./govulncheck.nix {}) # SAST
+
+    # Zig
+    zig
+    zls # Zig language server
     
     # Dev tools
     gcc
@@ -276,6 +281,7 @@ in
       nvim-treesitter-parsers.terraform
       nvim-treesitter-parsers.typescript
       nvim-treesitter-parsers.yaml
+      nvim-treesitter-parsers.zig
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
       (fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
     ];
@@ -430,6 +436,11 @@ in
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+    };
+    # https://nixos.wiki/wiki/Virt-manager
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
     };
   };
 

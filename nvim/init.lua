@@ -58,6 +58,7 @@ lspconfig.terraformls.setup {}
 lspconfig.astro.setup {}
 lspconfig.bashls.setup {}
 lspconfig.tsserver.setup {}
+lspconfig.zls.setup{}
 
 lspconfig.yamlls.setup {
     settings = {
