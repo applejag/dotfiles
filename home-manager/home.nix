@@ -331,6 +331,15 @@ in
         "!sd_service mapping"
       ];
       "diffEditor.ignoreTrimWhitespace" = false;
+      "files.watcherExclude" = {
+        "**/.bloop" = true;
+        "**/.metals" = true;
+        "**/.ammonite" = true;
+      };
+      "cSpell.userWords" = [
+        "sasl" # Simple Authentication Security Layer
+        "jaas" # Java Authentication and Authorization Service
+      ];
     };
     extensions = with pkgs.vscode-extensions; [
       bierner.markdown-mermaid
