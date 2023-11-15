@@ -82,3 +82,11 @@
 ;; Ruler at col 80
 (setq-default display-fill-column-indicator-column 80)
 (global-display-fill-column-indicator-mode 1)
+
+;; Use goimports instead of gofmt
+;; https://github.com/doomemacs/doomemacs/issues/4201#issuecomment-735222478
+(after! go-mode
+  (setq gofmt-command "goimports")
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (add-hook 'after-save-hook 'gofmt nil 'make-it-local))))
