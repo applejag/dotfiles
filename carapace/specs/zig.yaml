@@ -331,6 +331,7 @@ commands:
       --debug-incremental: "Enable experimental feature: incremental compilation"
 
     completion: &build-completion
+      positionalany: ['$files([.zig])', $filterargs]
       flag:
         # General options
         color: [auto, off, on]
