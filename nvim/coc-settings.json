@@ -5,6 +5,43 @@
         ".wharf-ci.yml"
       ]
   },
+  "yaml.customTags": [
+    // [ jetporch tags ]
+    // Access control
+    "!group mapping",
+    "!user mapping",
+
+    // Commands
+    "!script mapping",
+    "!shell mapping",
+
+    // Control flow
+    "!assert mapping",
+    "!debug mapping",
+    "!echo mapping",
+    "!fail mapping",
+    "!facts mapping",
+    "!set mapping",
+
+    // External
+    "!external mapping",
+
+    // Files
+    "!copy mapping",
+    "!directory mapping",
+    "!file mapping",
+    "!git mapping",
+    "!stat mapping",
+    "!template mapping",
+
+    // Package managers
+    "!apt mapping",
+    "!dnf mapping",
+    "!yum mapping",
+
+    // Services
+    "!sd_service mapping"
+  ],
   "suggest.noselect": true,
   "languageserver": {
     "terraform": {

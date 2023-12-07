@@ -1,0 +1,543 @@
+name: zig
+commands:
+  # Base commands
+  - name: build
+    group: Base commands
+    description: Build project from build.zig
+    persistentflags:
+      -p, --prefix=: "Override default install prefix"
+      --prefix-lib-dir=: "Override default library directory path"
+      --prefix-exe-dir=: "Override default executable directory path"
+      --prefix-include-dir=: "Override default include directory path"
+
+      --sysroot=: "Set the system root directory (usually /)"
+      --search-prefix=: "Add a path to look for binaries, libraries, headers"
+      --libc=: "Provide a file which specifies libc paths"
+
+      -fdarling: &fdarling "Integration with system-installed Darling to execute macOS programs on Linux hosts (default: no)"
+      -fno-darling: *fdarling
+      -fqemu: &fqemu "Integration with system-installed QEMU to execute foreign-architecture programs on Linux hosts (default: no)"
+      -fno-qemu: *fqemu
+      --glibc-runtimes=: "Enhances QEMU integration by providing glibc built for multiple foreign architectures, allowing execution of non-native programs that link with glibc."
+      -frosetta: &frosetta "Rely on Rosetta to execute x86_64 programs on ARM64 macOS hosts. (default: no)"
+      -fno-rosetta: *frosetta
+      -fwasmtime: &fwasmtime "Integration with system-installed wasmtime to execute WASI binaries. (default: no)"
+      -fno-wasmtime: *fwasmtime
+      -fwine: &fwine "Integration with system-installed Wine to execute Windows programs on Linux hosts. (default: no)"
+      -fno-wine: *fwine
+      -l, --list-steps: Print available steps
+      --verbose: Print commands before executing them
+      --color=: Enable or disable colored error messages
+      --summary=: Control the printing of the build summary
+      -j=: Limit concurrent jobs (default is to use all CPU cores)
+      --maxrss=: Limit memory usage (default is to use available memory)
+      --skip-oom-steps: Instead of failing, skip steps that would exceed --maxrss
+      --fetch: Exit after fetching dependency tree
+
+      -Dtarget=: The CPU architecture, OS, and ABI to build for
+      -Dcpu=: Target CPU features to add or subtract
+      -Doptimize=: Prioritize performance, safety, or binary size (-O flag)
+
+      -freference-trace=: How many lines of reference trace should be shown per compile error
+      -fno-reference-trace: Disable reference trace
+      --build-file=: Override path to build.zig
+      --cache-dir=: Override path to local Zig cache directory
+      --global-cache-dir=: Override path to global Zig cache directory
+      --zig-lib-dir=: Override path to Zig lib directory
+      --build-runner=: Override path to build runner
+      --seed=: "For shuffling dependency traversal order (default: random)"
+      --debug-log=: Enable debugging the compiler
+      --debug-pkg-config: Fail if unknown pkg-config flags encountered
+      --verbose-link: Enable compiler debug output for linking
+      --verbose-air: Enable compiler debug output for Zig AIR
+      --verbose-llvm-ir=: Enable compiler debug output for LLVM IR
+      --verbose-llvm-bc=: Enable compiler debug output for LLVM BC
+      --verbose-cimport: Enable compiler debug output for C imports
+      --verbose-cc: Enable compiler debug output for C compilation
+      --verbose-llvm-cpu-features: Enable compiler debug output for LLVM CPU features
+
+    completion:
+      positional:
+        - - >-
+            $(zig build --list-steps | sed 's/^  //; s/ (default)\(.*\)/\1 (default)/; s/^\(\S*\)\s*/\1\t/')
+      flag:
+        prefix:
+          - '$directories'
+          - '/'
+          - '/usr'
+          - '/usr/local'
+          - '~/.local'
+        prefix-lib-dir:
+          - '$directories'
+          - '/lib'
+          - '/lib/zig'
+          - '/usr/lib'
+          - '/usr/lib/zig'
+          - '/usr/local/lib'
+          - '/usr/local/lib/zig'
+          - '~/.local/lib'
+          - '~/.local/lib/zig'
+        prefix-exe-dir:
+          - '$directories'
+          - '/bin'
+          - '/usr/bin'
+          - '/usr/local/bin'
+          - '~/.local/bin'
+        sysroot: ['$directories', '/']
+        search-prefix: ['$directories']
+        libc: ['$directories']
+        glibc-runtimes: ['$directories']
+        color:
+          - auto
+          - off
+          - on
+        summary:
+          - "all\tPrint the build summary in its entirety"
+          - "failures\t(Default) Only print failed steps"
+          - "none\tDo not print the build summary"
+        Dtarget: []
+        Dcpu: []
+        Doptimize: &Doptimize-completion
+          - "Debug\t(default) Optimizations off, safety on"
+          - "ReleaseSafe\tOptimize for performance, safety on"
+          - "ReleaseFast\tOptimize for performance, safety off"
+          - "ReleaseSmall\tOptimize for small binary, safety off"
+
+        build-file: ['$files([.zig])']
+        cache-dir: ['$directories']
+        global-cache-dir: ['$directories']
+        zig-lib-dir: ['$directories']
+        build-runner: ['$files']
+        debug-log: []
+        verbose-llvm-ir: ['$files']
+        verbose-llvm-bc: ['$files']
+
+  - name: fetch
+    group: Base commands
+    description: Copy a package into global cache and print its hash
+    flags:
+      --global-cache-dir=: Override path to global Zig cache directory
+      --debug-hash: Print verbose hash information to stdout
+      --save=?: Add the fetched package to build.zig.zon (with optional name override)
+    completion:
+      flag:
+        global-cache-dir: ['$directories']
+        save: []
+
+  - name: init
+    group: Base commands
+    description: Initialize a Zig package in the current directory
+
+  # File-specific commands
+  - name: ast-check
+    group: File-specific commands
+    description: Look for simple compile errors in any set of files
+    flags:
+      --color=: Enable or disable colored error messages
+      -t: (debug option) Output ZIR in text form to stdout
+    completion:
+      flag:
+        color: [auto, off, on]
+
+  - name: build-exe
+    group: File-specific commands
+    description: Create executable from source or object files
+    flags: &build-flags
+      # General options
+      --color=: Enable or disable colored error messages
+      -femit-bin=?: (default) Output machine code
+      -fno-emit-bin: Do not output machine code
+      -femit-asm=?: Output .s (assembly code)
+      -fno-emit-asm: (default) Do not output .s (assembly code)
+      -femit-llvm-ir=?: Produce a .ll file with optimized LLVM IR (requires LLVM extensions)
+      -fno-emit-llvm-ir: (default) Do not produce a .ll file with optimized LLVM IR
+      -femit-llvm-bc=?: Produce an optimized LLVM module as a .bc file (requires LLVM extensions)
+      -fno-emit-llvm-bc: (default) Do not produce an optimized LLVM module as a .bc file
+      -femit-h=?: Generate a C header file (.h)
+      -fno-emit-h: (default) Do not generate a C header file (.h)
+      -femit-docs=?: Create a docs/ dir with html documentation
+      -fno-emit-docs: (default) Do not produce docs/ dir with html documentation
+      -femit-implib=?: (default) Produce an import .lib when building a Windows DLL
+      -fno-emit-implib: Do not produce an import .lib when building a Windows DLL
+      --show-builtin: 'Output the source of @import("builtin") then exit'
+      --cache-dir=: Override the local cache directory
+      --global-cache-dir=: Override the global cache directory
+      --zig-lib-dir=: Override path to Zig installation lib directory
+
+      # Compile options
+      -target=: <arch><sub>-<os>-<abi> see the targets command
+      -mcpu=: Specify target CPU and feature set
+      -mcmodel=: Limit range of code and data virtual addresses
+      -x=: Treat subsequent input files as having type <language>
+      -mred-zone: Force-enable the "red-zone"
+      -mno-red-zone: Force-disable the "red-zone"
+      -fomit-frame-pointer: Omit the stack frame pointer
+      -fno-omit-frame-pointer: Store the stack frame pointer
+      -mexec-model=: (WASI) Execution model
+      --name=: Override root name (not a file path)
+      -O=: Choose what to optimize for
+      --mod=: Make a module available for dependency under the given name
+      --deps=: Set dependency names for the root package
+      --main-mod-path: Set the directory of the root module
+      --error-limit=: Set the maximum amount of distinct error values
+      -fPIC: Force-enable Position Independent Code
+      -fno-PIC: Force-disable Position Independent Code
+      -fPIE: Force-enable Position Independent Executable
+      -fno-PIE: Force-disable Position Independent Executable
+      -flto: Force-enable Link Time Optimization (requires LLVM extensions)
+      -fno-lto: Force-disable Link Time Optimization
+      -fstack-check: Enable stack probing in unsafe builds
+      -fno-stack-check: Disable stack probing in safe builds
+      -fstack-protector: Enable stack protection in unsafe builds
+      -fno-stack-protector: Disable stack protection in safe builds
+      -fsanitize-c: Enable C undefined behavior detection in unsafe builds
+      -fno-sanitize-c: Disable C undefined behavior detection in safe builds
+      -fvalgrind: Include valgrind client requests in release builds
+      -fno-valgrind: Omit valgrind client requests in debug builds
+      -fsanitize-thread: Enable Thread Sanitizer
+      -fno-sanitize-thread: Disable Thread Sanitizer
+      -fdll-export-fns: Mark exported functions as DLL exports (Windows)
+      -fno-dll-export-fns: Force-disable marking exported functions as DLL exports
+      -funwind-tables: Always produce unwind table entries for all functions
+      -fno-unwind-tables: Never produce unwind table entries
+      -fllvm: Force using LLVM as the codegen backend
+      -fno-llvm: Prevent using LLVM as the codegen backend
+      -flibllvm: Force using the LLVM API in the codegen backend
+      -fno-libllvm: Prevent using the LLVM API in the codegen backend
+      -fclang: Force using Clang as the C/C++ compilation backend
+      -fno-clang: Prevent using Clang as the C/C++ compilation backend
+      -freference-trace=?: How many lines of reference trace should be shown per compile error
+      -fno-reference-trace: Disable reference trace
+      -ferror-tracing: Enable error tracing in ReleaseFast mode
+      -fno-error-tracing: Disable error tracing in Debug and ReleaseSafe mode
+      -fsingle-threaded: Code assumes there is only one thread
+      -fno-single-threaded: Code may not assume there is only one thread
+      -fbuiltin: Enable implicit builtin knowledge of functions
+      -fno-builtin: Disable implicit builtin knowledge of functions
+      -ffunction-sections: Places each function in a separate section
+      -fno-function-sections: All functions go into same section
+      -fdata-sections: Places each data in a separate section
+      -fno-data-sections: All data go into same section
+      -fstrip: Omit debug symbols
+      -fno-strip: Keep debug symbols
+      -fformatted-panics: Enable formatted safety panics
+      -fno-formatted-panics: Disable formatted safety panics
+      -ofmt=: Override target object format
+      -idirafter=: Add directory to AFTER include search path
+      -isystem=: Add directory to SYSTEM include search path
+      -I=: Add directory to include search path
+      -D=: Define C [macro] to [value] (1 if [value] omitted)
+      --libc=: Provide a file which specifies libc paths
+      -cflags=: Set extra flags for the next positional C source files
+      -rcflags=: Set extra flags for the next positional .rc source files
+      -rcincludes=: Set the type of includes to use when compiling .rc source files
+      -fstructured-cfg: (SPIR-V) force SPIR-V kernels to use structured control flow
+      -fno-structured-cfg: (SPIR-V) force SPIR-V kernels to not use structured control flow
+
+      # Link options
+      -l, --library=: Link against system library (only if actually used)
+      -needed-l, --needed-library=: Link against system library (even if unused)
+      -weak-l=: link against system library marking it and all
+      -weak_library=: referenced symbols as weak
+      -L, --library-directory=: Add a directory to the library search path
+      -search_paths_first: For each library search path, check for dynamic lib then static lib before proceeding to next path.
+      -search_paths_first_static: For each library search path, check for static lib then dynamic lib before proceeding to next path.
+      -search_dylibs_first: Search for dynamic libs in all library search paths, then static libs.
+      -search_static_first: Search for static libs in all library search paths, then dynamic libs.
+      -search_dylibs_only: Only search for dynamic libs.
+      -search_static_only: Only search for static libs.
+      -T, --script=: Use a custom linker script
+      --version-script=: Provide a version .map file
+      --dynamic-linker=: Set the dynamic interpreter path (usually ld.so)
+      --sysroot=: Set the system root directory (usually /)
+      --version=: Dynamic library semver
+      -fentry=?: Enable entry point with default symbol name
+      -fno-entry: Do not output any entry point
+      --force_undefined=: Specify the symbol must be defined for the link to succeed
+      -fsoname=?: Override the default SONAME value
+      -fno-soname: Disable emitting a SONAME
+      -flld: Force using LLD as the linker
+      -fno-lld: Prevent using LLD as the linker
+      -fcompiler-rt: Always include compiler-rt symbols in output
+      -fno-compiler-rt: Prevent including compiler-rt symbols in output
+      -rdynamic: Add all symbols to the dynamic symbol table
+      -rpath=: Add directory to the runtime library search path
+      -feach-lib-rpath: Ensure adding rpath for each used dynamic library
+      -fno-each-lib-rpath: Prevent adding rpath for each used dynamic library
+      -fallow-shlib-undefined: Allows undefined symbols in shared libraries
+      -fno-allow-shlib-undefined: Disallows undefined symbols in shared libraries
+      --build-id=?: At a minor link-time expense, coordinates stripped binaries
+      --eh-frame-hdr: Enable C++ exception handling by passing --eh-frame-hdr to linker
+      --emit-relocs: Enable output of relocation sections for post build tools
+      -z=: Set linker extension flags
+      -dynamic: Force output to be dynamically linked
+      -static: Force output to be statically linked
+      -Bsymbolic: Bind global references locally
+      --compress-debug-sections=: Debug section compression settings
+      --gc-sections: Force removal of functions and data that are unreachable by the entry point or exported symbols
+      --no-gc-sections: Don't force removal of unreachable functions and data
+      --sort-section=: Sort wildcard section patterns by 'name' or 'alignment'
+      --subsystem=: (Windows) /SUBSYSTEM:<subsystem> to the linker
+      --stack=: Override default stack size
+      --image-base=: Set base address for executable image
+      -framework=: (Darwin) link against framework
+      -needed_framework=: (Darwin) link against framework (even if unused)
+      -needed_library=: link against system library (even if unused)
+      -weak_framework=: (Darwin) link against framework and mark it and all referenced symbols as weak
+      -F=: (Darwin) add search path for frameworks
+      -install_name=: (Darwin) add dylib's install name
+      --entitlements=: (Darwin) add path to entitlements file for embedding in code signature
+      -pagezero_size=: (Darwin) size of the __PAGEZERO segment in hexadecimal notation
+      -headerpad=: (Darwin) set minimum space for future expansion of the load commands in hexadecimal notation
+      -headerpad_max_install_names: (Darwin) set enough space as if all paths were MAXPATHLEN
+      -dead_strip: (Darwin) remove functions and data that are unreachable by the entry point or exported symbols
+      -dead_strip_dylibs: (Darwin) remove dylibs that are unreachable by the entry point or exported symbols
+      --import-memory: (WebAssembly) import memory from the environment
+      --export-memory: (WebAssembly) export memory to the host (Default unless --import-memory used)
+      --import-symbols: (WebAssembly) import missing symbols from the host environment
+      --import-table: (WebAssembly) import function table from the host environment
+      --export-table: (WebAssembly) export function table to the host environment
+      --initial-memory=: (WebAssembly) initial size of the linear memory
+      --max-memory=: (WebAssembly) maximum size of the linear memory
+      --shared-memory: (WebAssembly) use shared linear memory
+      --global-base=: (WebAssembly) where to start to place global data
+      --export=: (WebAssembly) Force a symbol to be exported
+
+      # Test options
+      --test-filter=: Skip tests that do not match filter
+      --test-name-prefix=: Add prefix to all tests
+      --test-cmd=: Specify test execution command one arg at a time
+      --test-cmd-bin: Appends test binary path to test cmd args
+      --test-evented-io: Runs the test in evented I/O mode
+      --test-no-exec: Compiles test binary without running it
+      --test-runner=: Specify a custom test runner
+
+      # Debug options
+      -fopt-bisect-limit=?: Only run [limit] first LLVM optimization passes
+      -ftime-report: Print timing diagnostics
+      -fstack-report: Print stack size diagnostics
+      --verbose-link: Display linker invocations
+      --verbose-cc: Display C compiler invocations
+      --verbose-air: Enable compiler debug output for Zig AIR
+      --verbose-intern-pool: Enable compiler debug output for InternPool
+      --verbose-generic-instances: Enable compiler debug output for generic instance generation
+      --verbose-llvm-ir=: Enable compiler debug output for unoptimized LLVM IR
+      --verbose-llvm-bc=: Enable compiler debug output for unoptimized LLVM BC
+      --verbose-cimport: Enable compiler debug output for C imports
+      --verbose-llvm-cpu-features: Enable compiler debug output for LLVM CPU features
+      --debug-log=: Enable printing debug/info log messages for scope
+      --debug-compile-errors: Crash with helpful diagnostics at the first compile error
+      --debug-link-snapshot: Enable dumping of the linker's state in JSON format
+      --debug-incremental: "Enable experimental feature: incremental compilation"
+
+    completion: &build-completion
+      positionalany: ['$files([.zig])', $filterargs]
+      flag:
+        # General options
+        color: [auto, off, on]
+        femit-bin: ['$directories']
+        femit-asm: ['$directories']
+        femit-llvm-ir: ['$directories']
+        femit-llvm-bc: ['$directories']
+        femit-h: ['$directories']
+        femit-docs: ['$directories']
+        femit-implib: ['$directories']
+        cache-dir: ['$directories']
+        global-cache-dir: ['$directories']
+        zig-lib-dir: ['$directories']
+
+        # Compile options
+        target: []
+        mcpu: []
+        mcmodel: [default, tiny, small, kernel, medium, large]
+        x: [] # language
+        mexec-model: []
+        name: []
+        O: *Doptimize-completion
+        mod: []
+        error-limit: []
+        freference-trace: []
+        ofmt:
+          - "elf\tExecutable and Linking Format"
+          - "c\tC source code"
+          - "wasm\tWebAssembly"
+          - "coff\tCommon Object File Format (Windows)"
+          - "macho\tmacOS relocatables"
+          - "spirv\tStandard, Portable Intermediate Representation V (SPIR-V)"
+          - "plan9\tPlan 9 from Bell Labs object format"
+          - "hex\t(planned feature)  Intel IHEX"
+          - "raw\t(planned feature)  Dump machine code directly"
+        idirafter: ['$directories']
+        isystem: ['$directories']
+        I: ['$directories']
+        D: []
+        libc: ['$files']
+        cflags: []
+        rcflags: []
+        rcincludes:
+          - "any\t(default) Use msvc if available, fall back to gnu"
+          - "msvc\tUse msvc include paths (must be present on the system)"
+          - "gnu\tUse mingw include paths (distributed with Zig)"
+          - "none\tDo not use any autodetected include paths"
+
+        # Linker options
+        library: [$directories]
+        needed-library: [$directories]
+        weak-l: [$directories]
+        weak_library: [$directories]
+        library-directory: [$directories]
+        script: [$executables]
+        version-script: [$files]
+        dynamic-linker: [$files]
+        sysroot: [$directories]
+        version: []
+        fentry: []
+        force_undefined: []
+        fsoname: []
+        rpath: [$directories]
+        build-id:
+          - "fast\twith debug symbols via a '.note.gnu.build-id' section"
+          - "uuid\twith debug symbols via a '.note.gnu.build-id' section"
+          - "sha1\twith debug symbols via a '.note.gnu.build-id' section"
+          - "md5\twith debug symbols via a '.note.gnu.build-id' section"
+          - "0x1234\tMaximum 32 bytes"
+          - "none\t(default) Disable build-id"
+        z:
+          - "nodelete\tIndicate that the object cannot be deleted from a process"
+          - "notext\tPermit read-only relocations in read-only segments"
+          - "defs\tForce a fatal error if any undefined symbols remain"
+          - "undefs\tReverse of -z defs"
+          - "origin\tIndicate that the object must have its origin processed"
+          - "nocopyreloc\tDisable the creation of copy relocations"
+          - "now\t(default) Force all relocations to be processed on load"
+          - "lazy\tDon't force all relocations to be processed on load"
+          - "relro\t(default) Force all relocations to be read-only after processing"
+          - "norelro\tDon't force all relocations to be read-only after processing"
+          - "common-page-size=\tSet the common page size for ELF binaries"
+          - "max-page-size=\tSet the max page size for ELF binaries"
+        compress-debug-sections:
+          - "none\tNo compression"
+          - "zlib\tCompression with deflate/inflate"
+          - "zstd\tCompression with zstandard"
+        sort-section: []
+        subsystem: []
+        stack: []
+        image-base: []
+        framework: []
+        needed_framework: []
+        needed_library: []
+        weak_framework: []
+        F: [$directories]
+        install_name: []
+        entitlements: [$directories]
+        pagezero_size: []
+        headerpad: []
+        initial-memory: []
+        max-memory: []
+        global-base: []
+        export: []
+
+        # Test options
+        test-filter: []
+        test-name-prefix: []
+        test-cmd: []
+        test-runner: [$executables]
+
+        # Debug options
+        fopt-bisect-limit: []
+        verbose-llvm-ir: [$directories]
+        verbose-llvm-bc: [$directories]
+        debug-log: []
+
+  - name: build-lib
+    group: File-specific commands
+    description: Create library from source or object files
+    flags: *build-flags
+    completion: *build-completion
+
+  - name: build-obj
+    group: File-specific commands
+    description: Create object from source or object files
+    flags: *build-flags
+    completion: *build-completion
+
+  - name: fmt
+    group: File-specific commands
+    description: Reformat Zig source into canonical form
+    flags:
+      --color=: Enable or disable colored error messages
+      --stdin: Format code from stdin; output to stdout
+      --check: List non-conforming files and exit with an error if the list is non-empty
+      --ast-check: Run zig ast-check on every file
+      --exclude=: Exclude file or directory from formatting
+    completion:
+      flag:
+        color: [auto, off, on]
+        exclude: [$files]
+
+  - name: run
+    group: File-specific commands
+    description: Create executable and run immediately
+    flags: *build-flags
+    completion: *build-completion
+
+  - name: test
+    group: File-specific commands
+    description: Create and run a test build
+    flags: *build-flags
+    completion: *build-completion
+
+  - name: translate-c
+    group: File-specific commands
+    description: Convert C code to Zig code
+    flags: *build-flags
+    completion: *build-completion
+
+  # Drop-in commands
+  - name: ar
+    group: Drop-in commands
+    description: Use Zig as a drop-in archiver
+  - name: cc
+    group: Drop-in commands
+    description: Use Zig as a drop-in C compiler
+  - name: c++
+    group: Drop-in commands
+    description: Use Zig as a drop-in C++ compiler
+  - name: dlltool
+    group: Drop-in commands
+    description: Use Zig as a drop-in dlltool.exe
+  - name: lib
+    group: Drop-in commands
+    description: Use Zig as a drop-in lib.exe
+  - name: ranlib
+    group: Drop-in commands
+    description: Use Zig as a drop-in ranlib
+  - name: objcopy
+    group: Drop-in commands
+    description: Use Zig as a drop-in objcopy
+  - name: rc
+    group: Drop-in commands
+    description: Use Zig as a drop-in rc.exe
+
+  # Info commands
+  - name: env
+    group: Info commands
+    description: Print lib path, std path, cache directory, and version
+  - name: help
+    group: Info commands
+    description: Print this help and exit
+  - name: libc
+    group: Info commands
+    description: Display native libc paths file or validate one
+  - name: targets
+    group: Info commands
+    description: List available compilation targets
+  - name: version
+    group: Info commands
+    description: Print version number and exit
+  - name: zen
+    group: Info commands
+    description: Print Zen of Zig and exit
+
+persistentflags:
+  -h, --help: Print command-specific usage
