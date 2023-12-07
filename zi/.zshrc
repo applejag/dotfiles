@@ -31,6 +31,7 @@ zi snippet OMZL::key-bindings.zsh
 zi snippet OMZL::misc.zsh
 
 zi snippet OMZP::git
+zi snippet OMZP::command-not-found
 zi load wfxr/forgit
 
 zi pack"keys" for fzf
