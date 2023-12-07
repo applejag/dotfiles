@@ -209,18 +209,18 @@ in
 
   # Seems to be bugged until https://github.com/NixOS/nixpkgs/pull/267878
   # can get merged into unstable
-  #programs.awscli = {
-  #  enable = true;
-  #  credentials = {
-  #    "frida-prod" = {
-  #    };
-  #    "frida-dev" = {
-  #      "credential_process" = "sh -c \"op item get --format=json --fields=label=AccessKeyId,label=SecretAccessKey vib37uxuuj4tryrbqairhhc7yy | jq '{Version: 1, AccessKeyId: (.[] | select(.label == \\\"access key id\\\")).value, SecretAccessKey: (.[] | select(.label == \\\"secret access key\\\")).value}'\"";
-  #    };
-  #    "platform-playground" = {
-  #    };
-  #  };
-  #};
+  programs.awscli = {
+    enable = true;
+    credentials = {
+      "frida-prod" = {
+      };
+      "frida-dev" = {
+        "credential_process" = "sh -c \"op item get --format=json --fields=label=AccessKeyId,label=SecretAccessKey vib37uxuuj4tryrbqairhhc7yy | jq '{Version: 1, AccessKeyId: (.[] | select(.label == \\\"access key id\\\")).value, SecretAccessKey: (.[] | select(.label == \\\"secret access key\\\")).value}'\"";
+      };
+      "platform-playground" = {
+      };
+    };
+  };
 
   programs.neovim = {
     enable = true;
