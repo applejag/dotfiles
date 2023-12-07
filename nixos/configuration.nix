@@ -30,6 +30,8 @@
   };
   boot.initrd.systemd.enable = true;
 
+  boot.tmp.cleanOnBoot = true;
+
   networking.hostName = "ri-t-0790"; # Define your hostname.
   # Pick only one of the below networking options.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -63,7 +65,17 @@
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      gutenprint
+    ];
+  };
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
 
   # Hardware-accelerated video encoding/decoding
   # https://nixos.wiki/wiki/Accelerated_Video_Playback
@@ -135,7 +147,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    curl
+    curlHTTP3
     file
     gnumake
     htop
