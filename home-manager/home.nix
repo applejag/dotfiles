@@ -67,6 +67,7 @@ in
     slides # presentation tool
     openssl
     reuse # license linter
+    risor # Go scripting language
 
     age # encryption
     direnv # load .envrc files
@@ -211,13 +212,15 @@ in
   # can get merged into unstable
   programs.awscli = {
     enable = true;
-    credentials = {
-      "frida-prod" = {
+    settings = {
+      "profile frida-prod" = {
+        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh 325jrwwckodnkxxpwchjojk35i";
       };
-      "frida-dev" = {
-        "credential_process" = "sh -c \"op item get --format=json --fields=label=AccessKeyId,label=SecretAccessKey vib37uxuuj4tryrbqairhhc7yy | jq '{Version: 1, AccessKeyId: (.[] | select(.label == \\\"access key id\\\")).value, SecretAccessKey: (.[] | select(.label == \\\"secret access key\\\")).value}'\"";
+      "profile frida-dev" = {
+        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh vib37uxuuj4tryrbqairhhc7yy";
       };
-      "platform-playground" = {
+      "profile platform-playground" = {
+        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh 6rfhu4wjjzgaivzuroixhxjacq";
       };
     };
   };
@@ -249,6 +252,7 @@ in
       nvim-treesitter-parsers.astro
       nvim-treesitter-parsers.bash
       nvim-treesitter-parsers.css
+      nvim-treesitter-parsers.cue
       nvim-treesitter-parsers.dockerfile
       nvim-treesitter-parsers.git_config
       nvim-treesitter-parsers.git_rebase
