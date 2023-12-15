@@ -257,6 +257,25 @@ require 'cmp_git'.setup {
     },
     github = {
         hosts = { "github.2rioffice.com" },
+        pull_requests = {
+            state = "all",
+        },
+    },
+    trigger_actions = {
+        {
+            debug_name = "github_issues_and_pr",
+            trigger_character = "#",
+            action = function(sources, trigger_char, callback, _, git_info)
+                return sources.github:get_issues_and_prs(callback, git_info, trigger_char)
+            end,
+        },
+        {
+            debug_name = "github_mentions",
+            trigger_character = "@",
+            action = function(sources, trigger_char, callback, _, git_info)
+                return sources.github:get_mentions(callback, git_info, trigger_char)
+            end,
+        },
     },
 }
 
