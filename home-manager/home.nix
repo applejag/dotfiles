@@ -18,6 +18,13 @@ let
       ref = ref;
     };
   };
+  fromLocal = path: pkgs.vimUtils.buildVimPlugin {
+    pname = "${lib.strings.sanitizeDerivationName (baseNameOf path)}";
+    version = "local";
+    src = builtins.fetchGit {
+      url = path;
+    };
+  };
 in
 {
   home.username = "kallefagerberg";
@@ -68,6 +75,7 @@ in
     openssl
     reuse # license linter
     risor # Go scripting language
+    tree-sitter # CLI for creating tree-sitter grammars
 
     age # encryption
     direnv # load .envrc files
@@ -249,8 +257,10 @@ in
       vim-mustache-handlebars # {{ templates }}
       vim-helm # gotmpl
       nvim-treesitter
+      nvim-treesitter-refactor
       nvim-treesitter-parsers.astro
       nvim-treesitter-parsers.bash
+      nvim-treesitter-parsers.comment
       nvim-treesitter-parsers.css
       nvim-treesitter-parsers.cue
       nvim-treesitter-parsers.dockerfile
@@ -291,7 +301,8 @@ in
       nvim-treesitter-parsers.yaml
       nvim-treesitter-parsers.zig
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
-      (fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
+      #(fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
+      (fromLocal /home/kallefagerberg/code/github.com/lukas-reineke/indent-blankline.nvim)
     ];
     extraPackages = with pkgs; [
       helm-ls
