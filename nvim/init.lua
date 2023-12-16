@@ -322,6 +322,7 @@ vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#D8EEEB", bg = "#58B5A8" })
 vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#D8EEEB", bg = "#58B5A8" })
 
 require 'nvim-treesitter.configs'.setup {
+    parser_install_dir = "~/.config/nvim",
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
@@ -329,21 +330,43 @@ require 'nvim-treesitter.configs'.setup {
     indent = {
         enable = true,
     },
+    -- https://github.com/nvim-treesitter/nvim-treesitter-refactor
+    refactor = {
+        highlight_definitions = {
+            enable = true,
+            clear_on_cursor_move = true,
+        },
+    },
 }
 
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+
 --[[--
-local treesitter_parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-treesitter_parser_config.templ = {
+parser_config.templ = {
   install_info = {
     url = "https://github.com/vrischmann/tree-sitter-templ.git",
     files = {"src/parser.c", "src/scanner.c"},
     branch = "master",
   },
 }
---]]
-     --
 
 vim.treesitter.language.register('templ', 'templ')
+--]]
+
+vim.filetype.add({
+    extension = {
+        risor = "risor",
+        rsr = "risor",
+    },
+})
+
+parser_config.risor = {
+    install_info = {
+        url = "~/code/github.com/jillejr/tree-sitter-risor",
+        files = {"src/parser.c"},
+    }
+}
+vim.treesitter.language.register('risor', 'risor')
 
 require 'guess-indent'.setup {}
 
@@ -413,3 +436,5 @@ o.clipboard = "unnamedplus" -- use system clipboard
 o.showtabline = 2           -- 2=always
 o.cursorline = true         -- highlight current line
 o.colorcolumn = { 80 }
+
+o.updatetime = 500
