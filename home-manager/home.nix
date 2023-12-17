@@ -303,7 +303,6 @@ in
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
       #(fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
       (fromLocal /home/kallefagerberg/code/github.com/lukas-reineke/indent-blankline.nvim)
-      (fromGitHub "HEAD" "ray-x/cmd-treesitter")
     ];
     extraPackages = with pkgs; [
       helm-ls
@@ -425,7 +424,7 @@ in
       };
       url = {
         "ssh://git@github.2rioffice.com/" = {
-          insteadOf = "https://github.2rioffice.com/";
+          insteadOf = "https://github.2rioffice.com";
         };
       };
     };

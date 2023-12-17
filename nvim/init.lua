@@ -190,8 +190,6 @@ cmp.setup {
         { name = 'nvim_lsp_signature_help' },
         -- neovim's LSP: https://github.com/hrsh7th/cmp-nvim-lsp/
         { name = 'nvim_lsp' },
-        -- neovim's tree-sitter: https://github.com/ray-x/cmp-treesitter
-        { name = 'treesitter' },
         -- snippets expansion: https://github.com/dcampos/cmp-snippy
         { name = 'snippy' },
         -- git commits, PRs, user mentions: https://github.com/petertriho/cmp-git
