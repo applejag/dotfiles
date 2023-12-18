@@ -19,3 +19,4 @@ aliases:
     iv: issue view
     prv: pr view
     ic: issue create
+version: "1"
