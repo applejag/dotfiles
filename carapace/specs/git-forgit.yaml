@@ -1,5 +1,5 @@
 name: git-forgit
 description: A utility tool powered by fzf for using git interactively
 completion:
-  positionalany: ["$_bridge.Zsh([git-forgit])"]
+  positionalany: ["$carapace.bridge.Zsh([git-forgit])"]
 

@@ -1,4 +1,4 @@
 name: dinkur
 description: Track how you spend time on your entries with Dinkur.
 completion:
-  positionalany: ["$_bridge.Cobra([dinkur])"]
+  positionalany: ["$carapace.bridge.Cobra([dinkur])"]

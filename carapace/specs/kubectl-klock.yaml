@@ -1,4 +1,4 @@
 name: kubectl-klock
 description: Watches Kubernetes resources in a live-updating table.
 completion:
-  positionalany: ["$_bridge.Cobra([kubectl-klock])"]
+  positionalany: ["$carapace.bridge.Cobra([kubectl-klock])"]

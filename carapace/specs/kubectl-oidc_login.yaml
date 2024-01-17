@@ -1,4 +1,4 @@
 name: kubectl-oidc_login
 description: Log in to the OpenID Connect provider.
 completion:
-  positionalany: ["$_bridge.Cobra([kubectl-oidc_login])"]
+  positionalany: ["$carapace.bridge.Cobra([kubectl-oidc_login])"]

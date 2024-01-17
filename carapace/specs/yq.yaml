@@ -1,4 +1,4 @@
 name: yq
 completion:
-  positionalany: ["$_bridge.Cobra([yq])"]
+  positionalany: ["$carapace.bridge.Cobra([yq])"]
 
