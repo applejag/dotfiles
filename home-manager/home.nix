@@ -169,6 +169,7 @@ in
     "slack"
     "spotify"
     "vscode"
+    "vault" # used by helm-secrets
   ];
 
   xdg.mimeApps = {
