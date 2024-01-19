@@ -30,12 +30,12 @@ in
   home.username = "kallefagerberg";
   home.homeDirectory = "/home/kallefagerberg";
 
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-    }))
-  ];
-  services.emacs.package = pkgs.emacs-unstable;
+  #nixpkgs.overlays = [
+  #  (import (builtins.fetchTarball {
+  #    url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+  #  }))
+  #];
+  #services.emacs.package = pkgs.emacs-unstable;
 
   home.packages = with pkgs; [
     # GUI apps
@@ -45,10 +45,11 @@ in
     slack
     nextcloud-client
     libsForQt5.elisa
-    libsForQt5.index # MAUI file manager
+    libsForQt5.dolphin # KDE file manager
     libsForQt5.clip # MAUI video player (using mpv)
     spotify
-    emacs-git # Emacs 28+, for Doom Emacs
+    #emacs-git # Emacs 28+, for Doom Emacs
+    emacs29-pgtk
     virt-manager
     godot_4
     hedgewars
@@ -190,6 +191,8 @@ in
       "x-scheme-handler/mid" = "thunderbird.desktop";
       "x-scheme-handler/webcal" = "thunderbird.desktop";
       "x-scheme-handler/webcals" = "thunderbird.desktop";
+      # Dolphin
+      "inode/directory" = "org.kde.dolphin.desktop";
     };
     associations.added = {
       # Thunderbird
