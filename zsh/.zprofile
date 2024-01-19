@@ -160,18 +160,19 @@ if command -v bat &> /dev/null; then
 fi
 
 if command -v tofu &> /dev/null; then
-  alias terraform='tofu'
   alias tf='tofu'
   alias tfi='tofu init'
   alias tfa='tofu apply'
   alias tfd='tofu destroy'
   alias tfp='tofu plan'
+  alias tfo='tofu output'
 elif command -v terraform &> /dev/null; then
   alias tf='terraform'
   alias tfi='terraform init'
   alias tfa='terraform apply'
   alias tfd='terraform destroy'
   alias tfp='terraform plan'
+  alias tfo='terraform output'
 fi
 
 if command -v terragrunt &> /dev/null; then
