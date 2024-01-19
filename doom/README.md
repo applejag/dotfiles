@@ -22,7 +22,7 @@ sudo dnf install gcc gcc-c++ texinfo \
     jansson-devel libgccjit-devel
 ```
 
-## Installing
+## Installing Emacs
 
 ```sh
 # Download and unpack
@@ -36,7 +36,11 @@ make -j$(nproc)
 
 # Install Emacs
 sudo make install
+```
 
+## Installing Doom
+
+```sh
 # Install Doom
 ln -vfs ~/{dotfiles,.config}/doom
 
