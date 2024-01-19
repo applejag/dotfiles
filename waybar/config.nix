@@ -44,6 +44,7 @@
         "1Password" = "";
         rofi = "";
         Chromium-browser = "";
+        "chrome-.*" = "";
         Spotify = "󰓇";
         "org.kde.elisa" = "󰧔";
         emacs = "";
