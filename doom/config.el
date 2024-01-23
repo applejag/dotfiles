@@ -90,3 +90,8 @@
   (add-hook 'go-mode-hook
             (lambda ()
               (add-hook 'after-save-hook 'gofmt nil 'make-it-local))))
+
+(after! lsp-mode
+  ;; lsp-terraform has a bug in it
+  ;; https://github.com/emacs-lsp/lsp-mode/issues/3577#issuecomment-1709232622
+  (delete 'lsp-terraform lsp-client-packages))
