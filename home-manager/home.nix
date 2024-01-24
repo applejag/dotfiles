@@ -256,7 +256,10 @@ in
 
       nvim-surround
       guess-indent-nvim
-      dracula-nvim # theme
+      # neovim recently changed their syntax highlighting selectors
+      # latest dracula-nvim in nixpkgs-unstable doesn't contain the fixes
+      #dracula-nvim # theme
+      (fromGitHub "HEAD" "Mofiqul/dracula.nvim")
       plenary-nvim # utility Lua functions used by other plugins
       vim-mustache-handlebars # {{ templates }}
       vim-helm # gotmpl
