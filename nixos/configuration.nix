@@ -77,6 +77,12 @@
     openFirewall = true;
   };
 
+  # Bees: btrfs de-duplication on the "nixos" drive
+  services.beesd.filesystems."nixos" = {
+    spec = "LABEL=nixos";
+    hashTableSizeMB = 128;
+  };
+
   # Hardware-accelerated video encoding/decoding
   # https://nixos.wiki/wiki/Accelerated_Video_Playback
   nixpkgs.config.packageOverrides = pkgs: {
