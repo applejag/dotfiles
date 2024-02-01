@@ -116,9 +116,9 @@ in
     # Go
     go_1_21
     gotools # e.g goimports
+    gofumpt # formatter
     gopls # language server
     gore # REPL
-    gocode # for code completion
     revive # linter
     golangci-lint # linter
     gomodifytags # manipulate struct tags (e.g in Emacs)
@@ -193,6 +193,7 @@ in
       "x-scheme-handler/webcals" = "thunderbird.desktop";
       # Dolphin
       "inode/directory" = "org.kde.dolphin.desktop";
+      "application/x-directory" = "org.kde.dolphin.desktop";
     };
     associations.added = {
       # Thunderbird
