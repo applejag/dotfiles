@@ -48,6 +48,7 @@ in
     libsForQt5.dolphin # KDE file manager
     libsForQt5.clip # MAUI video player (using mpv)
     spotify
+    onlyoffice-bin
     #emacs-git # Emacs 28+, for Doom Emacs
     emacs29-pgtk
     virt-manager
@@ -122,6 +123,7 @@ in
     revive # linter
     golangci-lint # linter
     gomodifytags # manipulate struct tags (e.g in Emacs)
+    gotestsum
     (callPackage ./govulncheck.nix {}) # SAST
 
     # Zig
