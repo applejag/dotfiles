@@ -1,0 +1,3 @@
+name: kubectl
+completion:
+  positionalany: ["$carapace.bridge.Cobra([szero])"]
