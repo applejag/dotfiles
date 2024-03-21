@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixos-hardware.url = "nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, ... }:
