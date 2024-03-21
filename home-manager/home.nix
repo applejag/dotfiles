@@ -1,15 +1,6 @@
 { config, pkgs, lib, ... }:
 
 let
-  my-kubernetes-helm = with pkgs; wrapHelm kubernetes-helm {
-    plugins = with pkgs.kubernetes-helmPlugins; [
-      helm-diff
-      helm-secrets
-    ];
-  };
-  my-helmfile = with pkgs; helmfile-wrapped.override {
-    inherit (my-kubernetes-helm.passthru) pluginsDir;
-  };
   fromGitHub = ref: repo: pkgs.vimUtils.buildVimPlugin {
     pname = "${lib.strings.sanitizeDerivationName repo}";
     version = ref;
@@ -30,139 +21,14 @@ in
   home.username = "kallefagerberg";
   home.homeDirectory = "/home/kallefagerberg";
 
-  #nixpkgs.overlays = [
-  #  (import (builtins.fetchTarball {
-  #    url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-  #  }))
-  #];
-  #services.emacs.package = pkgs.emacs-unstable;
-
   home.packages = with pkgs; [
-    # GUI apps
-    thunderbird
-    birdtray # tray icon for Thunderbird
-    alacritty
-    slack
-    nextcloud-client
-    libsForQt5.elisa
-    libsForQt5.dolphin # KDE file manager
-    libsForQt5.clip # MAUI video player (using mpv)
-    spotify
-    onlyoffice-bin
-    #emacs-git # Emacs 28+, for Doom Emacs
-    emacs29-pgtk
-    virt-manager
-    godot_4
-    hedgewars
-
-    # CLI tools
-    bat # better cat
-    delta # git diff syntax highlight
-    eza # fork of exa, better ls
-    fd # better find
-    fzf # fuzzy find
-    gh # GitHub CLI
-    git
-    git-crypt
-    git-lfs
-    jq
-    yq-go
-    libnotify # notify-send
-    podman-compose # podman is already installed via /etc/nixos/configuration.nix
-    ripgrep
-    dig # network tool
-    tmux
-    navi # alias/shortcut utility
-    slides # presentation tool
-    openssl
-    reuse # license linter
-    risor # Go scripting language
-    tree-sitter # CLI for creating tree-sitter grammars
-
-    age # encryption
-    direnv # load .envrc files
-    sops
-    opentofu # terraform alternative
-    nodejs_20
-
-    # Linters
-    shellcheck
-    shfmt
-    yamllint
-
-    # Language servers
-    nodePackages.bash-language-server
-    vscode-langservers-extracted
-    yaml-language-server
-
-    # Kubernetes
-    kubectl
-    kubectl-klock # :D
-    kubectl-gadget # inspector-gadget
-    kubectx
-    kubelogin-oidc
-    my-kubernetes-helm
-    my-helmfile
-
-    # Python
-    poetry # dependency manager
-    python311
-
-    # Shell
-    carapace # completions
-    starship # prompt
-    zsh
-    zsh-forgit # git+fzf
-
-    # Go
-    go_1_21
-    gotools # e.g goimports
-    gofumpt # formatter
-    gopls # language server
-    gore # REPL
-    revive # linter
-    golangci-lint # linter
-    gomodifytags # manipulate struct tags (e.g in Emacs)
-    gotestsum
-    (callPackage ./govulncheck.nix {}) # SAST
-
-    # Zig
-    zig
-    zls # Zig language server
-    
-    # Dev tools
-    gcc
-    editorconfig-core-c
-
-    # Desktop environment
-    xdg-desktop-portal-hyprland # screen share
-    hyprpaper # wallpaper
-
-    alsa-utils # tools like amixer to control audio
-    brightnessctl # screen brightness
     networkmanagerapplet # NetworkManager (nm-applet)
-    #pwvucontrol # Pipewire volume control
-    pavucontrol # PulseAudio volume control
-    swayidle # detects idle
-    swaylock-effects # swaylock fork with better effects
-    rofi # runner
-    wlopm # power management (turn off monitors)
-    wlogout # logout screen
-    swaynotificationcenter
-    libsForQt5.qtstyleplugin-kvantum
-
-    slurp # select region
-    grim # take screenshot
-    swappy # edit screenshot
-    wl-clipboard # paste to clipboard
 
     # Auth
     pinentry-qt
     libsForQt5.polkit-kde-agent
 
     # Core libs
-    coreutils # needed for Doom Emacs
-    ffmpeg-full
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
     xwayland

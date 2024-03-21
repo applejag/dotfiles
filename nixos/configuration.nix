@@ -9,6 +9,8 @@
   imports = [ 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./hyprland.nix
+    ./flatpak.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -49,7 +51,6 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-  
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -106,17 +107,12 @@
   services.blueman.enable = true;
 
   services.greetd = {
-    enable = true;
     # https://man.sr.ht/~kennylevinsen/greetd/
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --asterisks --remember --remember-session --time --cmd Hyprland";
-        user = "greeter";
-      };
-    };
+    enable = true;
   };
   environment.etc."greetd/environments".text = ''
     zsh
+    plasma
     Hyprland
   '';
 
@@ -129,6 +125,120 @@
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
       "libvirtd" # Run VMs without needing sudo
+    ];
+    packages =
+    let
+      my-kubernetes-helm = with pkgs; wrapHelm kubernetes-helm {
+        plugins = with pkgs.kubernetes-helmPlugins; [
+          helm-diff
+          helm-secrets
+        ];
+      };
+      my-helmfile = with pkgs; helmfile-wrapped.override {
+        inherit (my-kubernetes-helm.passthru) pluginsDir;
+      };
+    in
+    with pkgs; [
+      # GUI apps
+      thunderbird
+      birdtray # tray icon for Thunderbird
+      alacritty
+      slack
+      nextcloud-client
+      libsForQt5.elisa
+      libsForQt5.dolphin # KDE file manager
+      libsForQt5.clip # MAUI video player (using mpv)
+      spotify
+      onlyoffice-bin
+      #emacs-git # Emacs 28+, for Doom Emacs
+      emacs29-pgtk
+      virt-manager
+      godot_4
+      #hedgewars # TODO: reenable, but for now it fails to build
+
+      # CLI tools
+      bat # better cat
+      delta # git diff syntax highlight
+      eza # fork of exa, better ls
+      fd # better find
+      fzf # fuzzy find
+      gh # GitHub CLI
+      git
+      git-crypt
+      git-lfs
+      jq
+      yq-go
+      libnotify # notify-send
+      podman-compose # podman is already installed via /etc/nixos/configuration.nix
+      ripgrep
+      dig # network tool
+      tmux
+      navi # alias/shortcut utility
+      slides # presentation tool
+      openssl
+      reuse # license linter
+      risor # Go scripting language
+      tree-sitter # CLI for creating tree-sitter grammars
+
+      age # encryption
+      direnv # load .envrc files
+      sops
+      opentofu # terraform alternative
+      nodejs_20
+
+      # Kubernetes
+      kubectl
+      kubectl-klock # :D
+      kubectl-gadget # inspector-gadget
+      kubectx
+      kubelogin-oidc
+      my-kubernetes-helm
+      my-helmfile
+
+
+      # Linters
+      shellcheck
+      shfmt
+      yamllint
+
+      # Language servers
+      nodePackages.bash-language-server
+      vscode-langservers-extracted
+      yaml-language-server
+      # Go
+      go_1_21
+      gotools # e.g goimports
+      gofumpt # formatter
+      gopls # language server
+      gore # REPL
+      revive # linter
+      golangci-lint # linter
+      gomodifytags # manipulate struct tags (e.g in Emacs)
+      gotestsum
+      govulncheck # SAST
+
+      # Zig
+      zig
+      zls # Zig language server
+      
+      # Dev tools
+      gcc
+      editorconfig-core-c
+
+
+      # Python
+      poetry # dependency manager
+      python311
+
+      # Shell
+      carapace # completions
+      starship # prompt
+      zsh
+      zsh-forgit # git+fzf
+
+      # Core libs
+      coreutils # needed for Doom Emacs
+      ffmpeg-full
     ];
   };
 
@@ -146,9 +256,11 @@
   environment.systemPackages = with pkgs; [
     curlHTTP3
     file
+    git
     gnumake
     htop
     killall
+    neovim
     wget
     xdg-utils
   ];
@@ -157,6 +269,10 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "1password"
     "1password-cli"
+    "slack"
+    "spotify"
+    "vscode"
+    "vault" # used by helm-secrets
   ];
 
   programs._1password.enable = true;
@@ -179,14 +295,6 @@
     enable = true;
     #enableSSHSupport = true;
   };
-
-  programs.hyprland.enable = true;
-  # Hint electron apps to use Wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  security.pam.services.swaylock.text = ''
-    auth include login
-  '';
 
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
@@ -216,30 +324,6 @@
   services.auto-cpufreq.enable = true;
 
   services.fwupd.enable = true;
-
-  services.flatpak.enable = true;
-  # XDG desktop portals for Flatpak
-  xdg.portal.enable = true;
-
-  # Share themes and icons with Flatpak apps
-  # https://github.com/NixOS/nixpkgs/issues/119433#issuecomment-1326957279
-  system.fsPackages = [ pkgs.bindfs ];
-  fileSystems = let
-    mkRoSymBind = path: {
-      device = path;
-      fsType = "fuse.bindfs";
-      options = [ "ro" "resolve-symlinks" "x-gvfs-hide" ];
-    };
-    aggregatedFonts = pkgs.buildEnv {
-      name = "system-fonts";
-      paths = config.fonts.packages;
-      pathsToLink = [ "/share/fonts" ];
-    };
-  in {
-    # Create an FHS mount to support flatpak host icons/fonts
-    "/usr/share/icons" = mkRoSymBind (config.system.path + "/share/icons");
-    "/usr/share/fonts" = mkRoSymBind (aggregatedFonts + "/share/fonts");
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
