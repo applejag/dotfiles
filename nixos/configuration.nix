@@ -187,7 +187,6 @@
   programs.gnupg.agent = {
     enable = true;
     #enableSSHSupport = true;
-    pinentryFlavor = "qt";
   };
 
   programs.hyprland.enable = true;
@@ -242,7 +241,7 @@
     };
     aggregatedFonts = pkgs.buildEnv {
       name = "system-fonts";
-      paths = config.fonts.fonts;
+      paths = config.fonts.packages;
       pathsToLink = [ "/share/fonts" ];
     };
   in {
@@ -269,4 +268,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
