@@ -25,6 +25,8 @@
       xdg-desktop-portal-hyprland # screen share
       hyprpaper # wallpaper
 
+      networkmanagerapplet # NetworkManager (nm-applet)
+
       alsa-utils # tools like amixer to control audio
       brightnessctl # screen brightness
       #pwvucontrol # Pipewire volume control
@@ -41,6 +43,10 @@
       grim # take screenshot
       swappy # edit screenshot
       wl-clipboard # paste to clipboard
+
+      # Auth
+      pinentry-qt
+      libsForQt5.polkit-kde-agent
 
       # Core libs
       libsForQt5.qt5.qtwayland

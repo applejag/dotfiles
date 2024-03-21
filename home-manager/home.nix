@@ -21,24 +21,8 @@ in
   home.username = "kallefagerberg";
   home.homeDirectory = "/home/kallefagerberg";
 
-  home.packages = with pkgs; [
-    networkmanagerapplet # NetworkManager (nm-applet)
-
-    # Auth
-    pinentry-qt
-    libsForQt5.polkit-kde-agent
-
-    # Core libs
-    libsForQt5.qt5.qtwayland
-    qt6.qtwayland
-    xwayland
-  ];
-
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "slack"
-    "spotify"
     "vscode"
-    "vault" # used by helm-secrets
   ];
 
   xdg.mimeApps = {

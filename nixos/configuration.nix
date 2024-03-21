@@ -163,7 +163,6 @@
       fd # better find
       fzf # fuzzy find
       gh # GitHub CLI
-      git
       git-crypt
       git-lfs
       jq
@@ -194,7 +193,6 @@
       kubelogin-oidc
       my-kubernetes-helm
       my-helmfile
-
 
       # Linters
       shellcheck
@@ -271,7 +269,6 @@
     "1password-cli"
     "slack"
     "spotify"
-    "vscode"
     "vault" # used by helm-secrets
   ];
 
