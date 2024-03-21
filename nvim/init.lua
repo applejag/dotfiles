@@ -331,7 +331,8 @@ require 'guess-indent'.setup {}
 
 require 'nvim-surround'.setup {}
 
-require 'ibl'.setup()
+-- TODO: update to flake
+--require 'ibl'.setup()
 
 -- Special file associations
 vim.cmd [[
@@ -371,7 +372,8 @@ vim.cmd [[
 
 -- Options
 
-vim.cmd [[colorscheme dracula]]
+-- TODO: Update to flake
+--vim.cmd [[colorscheme dracula]]
 
 local o = vim.opt
 o.wrap = false -- disable word wrapping
