@@ -9,7 +9,6 @@
   imports = [ 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./hyprland.nix
     ./flatpak.nix
   ];
 
@@ -203,6 +202,7 @@
       nodePackages.bash-language-server
       vscode-langservers-extracted
       yaml-language-server
+
       # Go
       go_1_21
       gotools # e.g goimports
@@ -223,16 +223,15 @@
       gcc
       editorconfig-core-c
 
-
-      # Python
-      poetry # dependency manager
-      python311
-
       # Shell
       carapace # completions
       starship # prompt
       zsh
       zsh-forgit # git+fzf
+
+      # Python
+      poetry # dependency manager
+      python311
 
       # Core libs
       coreutils # needed for Doom Emacs

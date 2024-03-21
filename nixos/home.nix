@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixpkgs-main, ... }:
+{ config, pkgs, lib, username, ... }:
 
 let
   fromGitHub = ref: repo: pkgs.vimUtils.buildVimPlugin {
@@ -18,8 +18,12 @@ let
   };
 in
 {
-  home.username = "kallefagerberg";
-  home.homeDirectory = "/home/kallefagerberg";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "vscode"
+  ];
 
   xdg.mimeApps = {
     enable = true;
@@ -175,36 +179,6 @@ in
       # Crashes on launch in Hyprland without this.
       # https://github.com/microsoft/vscode/issues/181533#issuecomment-1597187136
       "window.titleBarStyle" = "custom";
-      "yaml.customTags" = [
-        # [ jetporch tags ]
-        # Access control
-        "!group mapping"
-        "!user mapping"
-        # Commands
-        "!script mapping"
-        "!shell mapping"
-        # Control flow
-        "!assert mapping"
-        "!debug mapping"
-        "!echo mapping"
-        "!fail mapping"
-        "!facts mapping"
-        "!set mapping"
-        # External
-        "!external mapping"
-        # Files
-        "!copy mapping"
-        "!directory mapping"
-        "!file mapping"
-        "!git mapping"
-        "!template mapping"
-        # Package managers
-        "!apt mapping"
-        "!dnf mapping"
-        "!yum mapping"
-        # Services
-        "!sd_service mapping"
-      ];
       "diffEditor.ignoreTrimWhitespace" = false;
       "files.watcherExclude" = {
         "**/.bloop" = true;
@@ -295,27 +269,6 @@ in
       RestartSec = 1;
       ExecStart = "%h/go/bin/dinkur daemon -v";
     };
-  };
-
-  # Hint electron apps to use Wayland
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = builtins.readFile ../hypr/hyprland.conf;
-    systemd.enable = true;
-  };
-
-  home.file."hyprpaper.conf" = {
-    source = ../hypr/hyprpaper.conf;
-    target = ".config/hypr/hyprpaper.conf";
-  };
-
-  programs.waybar = {
-    enable = true;
-    settings = import ../waybar/config.nix;
-    style = ../waybar/style.css;
-    package = nixpkgs-main.pkgs.waybar;
   };
 
   dconf.settings = {
