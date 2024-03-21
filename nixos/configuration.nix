@@ -6,18 +6,9 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ 
-      <nixos-hardware/lenovo/thinkpad/t14>
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-
-      # https://github.com/jonascarpay/declarative-cachix
-      (import (builtins.fetchTarball "https://github.com/jonascarpay/declarative-cachix/archive/abe4d70e5d9a225a7ecf98086b089cc04202f2e3.tar.gz"))
-    ];
-
-  cachix = [
-    "nix-community"
+  imports = [ 
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -259,7 +250,8 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  # Not supported when using flakes.
+  #system.copySystemConfiguration = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -6,14 +6,17 @@
     nixos-hardware.url = "nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, ... }:
+  outputs = { self, nixpkgs, nixos-hardware, ... }:
   let
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
       ri-t-0790 = lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./nixos/configuration.nix ];
+        modules = [
+          ./nixos/configuration.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14
+        ];
       };
     };
   };
