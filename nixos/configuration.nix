@@ -41,7 +41,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -144,9 +144,8 @@
       alacritty
       slack
       nextcloud-client
-      libsForQt5.elisa
-      libsForQt5.dolphin # KDE file manager
-      libsForQt5.clip # MAUI video player (using mpv)
+      kdePackages.elisa
+      kdePackages.dolphin # KDE file manager
       spotify
       onlyoffice-bin
       #emacs-git # Emacs 28+, for Doom Emacs
@@ -236,6 +235,7 @@
       # Core libs
       coreutils # needed for Doom Emacs
       ffmpeg-full
+      glibcLocales
     ];
   };
 
@@ -290,26 +290,6 @@
   programs.gnupg.agent = {
     enable = true;
     #enableSSHSupport = true;
-  };
-
-  services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true;
-
-  security.polkit.enable = true;
-
-  # KDE polkit
-  systemd.user.services.polkit-kde-authentication-agent-1 = {
-    description = "polkit-kde-authentication-agent-1";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
   };
 
   # List services that you want to enable:

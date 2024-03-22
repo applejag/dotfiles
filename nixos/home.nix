@@ -283,7 +283,7 @@ in
   };
 
   gtk = {
-    enable = true;
+    enable = false;
     theme = {
       name = "Juno";
       package = pkgs.juno-theme;
@@ -322,14 +322,14 @@ in
   home.sessionVariables.GTK_THEME = "Juno";
 
   qt = {
-    enable = true;
+    enable = false;
     platformTheme = "kde";
     style = {
       name = "kvantum";
       package = with pkgs; [
-        libsForQt5.qtstyleplugin-kvantum
-        qt6Packages.qtstyleplugin-kvantum
-        libsForQt5.breeze-icons
+        #libsForQt5.qtstyleplugin-kvantum
+        #qt6Packages.qtstyleplugin-kvantum
+        kdePackages.breeze-icons
       ];
     };
   };
