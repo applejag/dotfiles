@@ -411,7 +411,7 @@ args = ["--login"]
 
 [window]
 dynamic_padding = true
-opacity = 0.75
+opacity = 0.95
 
 [window.padding]
 x = 6
