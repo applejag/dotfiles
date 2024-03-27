@@ -228,6 +228,7 @@
       gomodifytags # manipulate struct tags (e.g in Emacs)
       gotestsum
       govulncheck # SAST
+      templ # HTML templating
 
       # Zig
       zig
