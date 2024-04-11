@@ -40,7 +40,7 @@
       wlopm # power management (turn off monitors)
       wlogout # logout screen
       swaynotificationcenter
-      kdePackages.qtstyleplugin-kvantum
+      libsForQt5.qtstyleplugin-kvantum
 
       slurp # select region
       grim # take screenshot
@@ -49,7 +49,8 @@
 
       # Auth
       pinentry-qt
-      kdePackages.polkit-kde-agent-1
+      libsForQt5.polkit-kde-agent
+      #kdePackages.polkit-kde-agent-1
 
       # Core libs
       libsForQt5.qt5.qtwayland
@@ -71,10 +72,12 @@
     after = [ "graphical-session.target" ];
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
+      ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
     };
   };
+
+  programs.gnupg.agent.pinentryPackage = pkgs.pinentry-qt;
 }
