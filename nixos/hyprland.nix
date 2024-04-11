@@ -36,7 +36,7 @@
       pavucontrol # PulseAudio volume control
       #swayidle # detects idle
       #swaylock-effects # swaylock fork with better effects
-      rofi # runner
+      rofi-wayland # runner
       wlopm # power management (turn off monitors)
       wlogout # logout screen
       swaynotificationcenter
