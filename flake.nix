@@ -7,10 +7,6 @@
     nixos-hardware.url = "nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    walker.url = "github:abenz1267/walker/v0.0.70";
-    # Don't follow because I want to use the cachix
-    #walker.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -19,7 +15,6 @@
     nixpkgs-main,
     nixos-hardware,
     home-manager,
-    walker,
     ... }:
   let
     system = "x86_64-linux";
@@ -55,7 +50,6 @@
           inherit username;
           inherit name;
           inherit pkgs-main;
-          inherit walker;
         };
       };
     };
