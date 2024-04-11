@@ -189,6 +189,9 @@ in
         "sasl" # Simple Authentication Security Layer
         "jaas" # Java Authentication and Authorization Service
       ];
+      "editor.rulers" = [
+        80
+      ];
     };
     extensions = with pkgs.vscode-extensions; [
       bierner.markdown-mermaid

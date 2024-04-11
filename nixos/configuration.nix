@@ -191,6 +191,7 @@
       reuse # license linter
       risor # Go scripting language
       tree-sitter # CLI for creating tree-sitter grammars
+      viddy # watch alternative
 
       age # encryption
       direnv # load .envrc files
