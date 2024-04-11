@@ -42,15 +42,27 @@
 
     # All options from the config.json can be used here.
     config = {
-      placeholder = "Example";
-      fullscreen = true;
+      #placeholder = "Example";
+      fullscreen = false;
       list = {
         height = 200;
       };
+      enable_typeahead = true;
+      hyprland = {
+        context_aware_history = true;
+      };
+      terminal = "${pkgs.alacritty}/bin/alacritty";
       modules = [
         {
-          name = "websearch";
-          prefix = "?";
+          name = "applications";
+        }
+        {
+          name = "finder";
+          switcher_exclusive = true;
+        }
+        {
+          name = "hyprland";
+          prefix = "-";
         }
         {
           name = "switcher";
@@ -58,12 +70,19 @@
         }
       ];
     };
+  };
 
-    # If this is not set the default styling is used.
-    style = ''
-      * {
-        color: #dcd7ba;
-      }
-    '';
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      substituters = [
+        "https://cache.nixos.org/"
+        "https://walker.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
+      ];
+    };
   };
 }

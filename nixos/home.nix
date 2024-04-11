@@ -25,37 +25,6 @@ in
     "vscode"
   ];
 
-  xdg.mimeApps = {
-    enable = true;
-    # Find names of applications installed by Nix in ~/.nix-profile/share/applications
-    # Flatpak apps are visible at /var/lib/flatpak/exports/share/applications
-    defaultApplications = {
-      # Firefox
-      "application/pdf" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "text/html" = "firefox.desktop";
-      # Thunderbird
-      "application/x-extension-ics" = "thunderbird.desktop";
-      "message/rfc822" = "thunderbird.desktop";
-      "text/calendar" = "thunderbird.desktop";
-      "x-scheme-handler/mailto" = "thunderbird.desktop";
-      "x-scheme-handler/mid" = "thunderbird.desktop";
-      "x-scheme-handler/webcal" = "thunderbird.desktop";
-      "x-scheme-handler/webcals" = "thunderbird.desktop";
-      # Dolphin
-      "inode/directory" = "org.kde.dolphin.desktop";
-      "application/x-directory" = "org.kde.dolphin.desktop";
-    };
-    associations.added = {
-      # Thunderbird
-      "x-scheme-handler/mailto" = "thunderbird.desktop";
-      "x-scheme-handler/mid" = "thunderbird.desktop";
-      "x-scheme-handler/webcal" = "thunderbird.desktop";
-      "x-scheme-handler/webcals" = "thunderbird.desktop";
-    };
-  };
-  
   programs.firefox = {
     enable = true;
     package = pkgs.firefox.override {
@@ -288,8 +257,13 @@ in
   gtk = {
     enable = true;
     theme = {
-      name = "Juno";
-      package = pkgs.juno-theme;
+      name = "Catppuccin-Macchiato-Compact-Teal-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "teal" ];
+        size = "compact";
+        tweaks = [ "rimless" "black" ];
+        variant = "macchiato";
+      };
     };
 
     cursorTheme = {
@@ -336,6 +310,43 @@ in
       ];
     };
   };
+
+  xdg.mimeApps = {
+    enable = true;
+    # Find names of applications installed by Nix in ~/.nix-profile/share/applications
+    # Flatpak apps are visible at /var/lib/flatpak/exports/share/applications
+    defaultApplications = {
+      # Firefox
+      "application/pdf" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "text/html" = "firefox.desktop";
+      # Thunderbird
+      "application/x-extension-ics" = "thunderbird.desktop";
+      "message/rfc822" = "thunderbird.desktop";
+      "text/calendar" = "thunderbird.desktop";
+      "x-scheme-handler/mailto" = "thunderbird.desktop";
+      "x-scheme-handler/mid" = "thunderbird.desktop";
+      "x-scheme-handler/webcal" = "thunderbird.desktop";
+      "x-scheme-handler/webcals" = "thunderbird.desktop";
+      # Dolphin
+      "inode/directory" = "org.kde.dolphin.desktop";
+      "application/x-directory" = "org.kde.dolphin.desktop";
+    };
+    associations.added = {
+      # Thunderbird
+      "x-scheme-handler/mailto" = "thunderbird.desktop";
+      "x-scheme-handler/mid" = "thunderbird.desktop";
+      "x-scheme-handler/webcal" = "thunderbird.desktop";
+      "x-scheme-handler/webcals" = "thunderbird.desktop";
+    };
+  };
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+  };
+  
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
