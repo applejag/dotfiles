@@ -7,9 +7,18 @@
     nixos-hardware.url = "nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    walker.url = "github:abenz1267/walker";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-main, nixos-hardware, home-manager, ... }:
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-main,
+    nixos-hardware,
+    home-manager,
+    walker,
+    ... }:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -44,6 +53,7 @@
           inherit username;
           inherit name;
           inherit pkgs-main;
+          inherit walker;
         };
       };
     };
