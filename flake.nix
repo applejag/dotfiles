@@ -23,8 +23,8 @@
         inherit system;
         modules = [
           ./nixos/configuration.nix
-          #./nixos/hyprland.nix
-          ./nixos/kde.nix
+          ./nixos/hyprland.nix
+          #./nixos/kde.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
         ];
         specialArgs = {
@@ -38,7 +38,7 @@
         inherit pkgs;
         modules = [
           ./nixos/home.nix
-          #./nixos/hyprland-home.nix
+          ./nixos/hyprland-home.nix
         ];
         extraSpecialArgs = {
           inherit username;
