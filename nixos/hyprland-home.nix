@@ -15,6 +15,16 @@
     target = ".config/hypr/hyprpaper.conf";
   };
 
+  home.file."hypridle.conf" = {
+    source = ../hypr/hypridle.conf;
+    target = ".config/hypr/hypridle.conf";
+  };
+
+  home.file."hyprlock.conf" = {
+    source = ../hypr/hyprlock.conf;
+    target = ".config/hypr/hyprlock.conf";
+  };
+
   programs.waybar = {
     enable = true;
     settings = import ../waybar/config.nix;

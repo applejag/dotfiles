@@ -6,9 +6,10 @@
   # Hint electron apps to use Wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  security.pam.services.swaylock.text = ''
-    auth include login
-  '';
+  #security.pam.services.swaylock.text = ''
+  #  auth include login
+  #'';
+  security.pam.services.hyprlock = {};
 
   services.greetd = {
     settings = {
@@ -24,6 +25,8 @@
       # Desktop environment
       xdg-desktop-portal-hyprland # screen share
       hyprpaper # wallpaper
+      hyprlock # screen lock
+      hypridle # detects idle
 
       networkmanagerapplet # NetworkManager (nm-applet)
 
@@ -31,8 +34,8 @@
       brightnessctl # screen brightness
       #pwvucontrol # Pipewire volume control
       pavucontrol # PulseAudio volume control
-      swayidle # detects idle
-      swaylock-effects # swaylock fork with better effects
+      #swayidle # detects idle
+      #swaylock-effects # swaylock fork with better effects
       rofi # runner
       wlopm # power management (turn off monitors)
       wlogout # logout screen
