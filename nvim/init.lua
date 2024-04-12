@@ -372,8 +372,7 @@ vim.cmd [[
 
 -- Options
 
--- TODO: Update to flake
---vim.cmd [[colorscheme dracula]]
+vim.cmd [[colorscheme dracula]]
 
 local o = vim.opt
 o.wrap = false -- disable word wrapping
