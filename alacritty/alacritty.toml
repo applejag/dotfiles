@@ -1,4 +1,4 @@
-import = [ "~/.config/alacritty/catppuccin-macchiato.toml" ]
+import = [ "~/.config/alacritty/themes/themes/dracula.toml" ]
 
 [colors]
 transparent_background_colors = true
