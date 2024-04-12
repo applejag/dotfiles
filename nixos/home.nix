@@ -127,8 +127,7 @@ in
       nvim-treesitter-parsers.yaml
       nvim-treesitter-parsers.zig
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
-      #(fromGitHub "HEAD" "lukas-reineke/indent-blankline.nvim")
-      #(fromLocal /home/kallefagerberg/code/github.com/lukas-reineke/indent-blankline.nvim) # TODO: update to flake
+      indent-blankline-nvim
     ];
     extraPackages = with pkgs; [
       helm-ls

@@ -331,8 +331,7 @@ require 'guess-indent'.setup {}
 
 require 'nvim-surround'.setup {}
 
--- TODO: update to flake
---require 'ibl'.setup()
+require 'ibl'.setup()
 
 -- Special file associations
 vim.cmd [[
