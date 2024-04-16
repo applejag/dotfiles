@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-main.url = "nixpkgs/master";
     nixos-hardware.url = "nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +11,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-main,
     nixos-hardware,
     home-manager,
     ... }:
@@ -20,7 +18,6 @@
     system = "x86_64-linux";
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-main = nixpkgs-main.legacyPackages.${system};
     username = "kallefagerberg";
     name = "Kalle";
   in {
@@ -49,7 +46,6 @@
         extraSpecialArgs = {
           inherit username;
           inherit name;
-          inherit pkgs-main;
         };
       };
     };

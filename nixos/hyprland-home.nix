@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-main, lib, username, ... }:
+{ config, pkgs, lib, username, ... }:
 
 {
   # Hint electron apps to use Wayland
@@ -29,7 +29,6 @@
     enable = true;
     settings = import ../waybar/config.nix;
     style = ../waybar/style.css;
-    package = pkgs-main.waybar;
   };
 
   nix = {
