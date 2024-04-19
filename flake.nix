@@ -7,7 +7,8 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    cue-src.url = "github:cue-lang/cue/v0.9.0-alpha.2";
+    #cue-src.url = "github:cue-lang/cue/v0.9.0-alpha.2";
+    cue-src.url = "github:cue-lang/cue/master";
     cue-src.flake = false;
   };
 
@@ -39,7 +40,7 @@
               (self: super: {
                 cue = super.cue.override {
                   buildGoModule = args: pkgs.buildGoModule ( args // rec {
-                    version = "v0.9.0-alpha.2";
+                    version = "v0.9.0-alpha.2+master";
                     src = cue-src;
                     vendorHash = "sha256-fC6T4d+XsSFnKrpatfSM/hMCx3YSEKMFDg2jEMqG2ug=";
                     ldflags = [ "-s" "-w" "-X cuelang.org/go/cmd/cue/cmd.version=${version}" ];

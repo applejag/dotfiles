@@ -3,16 +3,16 @@
     "cue-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1713443766,
-        "narHash": "sha256-+tK8iL39xz2nNOPJUfoKM8v1oQelwpazKfSoFSDSlUE=",
+        "lastModified": 1713537715,
+        "narHash": "sha256-iNOtZb7jnzoxyRTjq8eCx1LVRFvGbI9jOqQ7pjXBHBo=",
         "owner": "cue-lang",
         "repo": "cue",
-        "rev": "f8d0998c0ddac4a9071815a690ad75a237e44580",
+        "rev": "2d724773bb1344ef601b558b405f6fd6f8e716a7",
         "type": "github"
       },
       "original": {
         "owner": "cue-lang",
-        "ref": "v0.9.0-alpha.2",
+        "ref": "master",
         "repo": "cue",
         "type": "github"
       }
