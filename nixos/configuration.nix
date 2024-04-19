@@ -230,6 +230,7 @@
       gotestsum
       govulncheck # SAST
       templ # HTML templating
+      cue # config language
 
       # Zig
       zig

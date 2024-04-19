@@ -6,6 +6,9 @@
     nixos-hardware.url = "nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    cue-src.url = "github:cue-lang/cue/v0.9.0-alpha.2";
+    cue-src.flake = false;
   };
 
   outputs = {
@@ -13,6 +16,7 @@
     nixpkgs,
     nixos-hardware,
     home-manager,
+    cue-src,
     ... }:
   let
     system = "x86_64-linux";
@@ -29,6 +33,21 @@
           ./nixos/hyprland.nix
           #./nixos/kde.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
+
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [
+              (self: super: {
+                cue = super.cue.override {
+                  buildGoModule = args: pkgs.buildGoModule ( args // rec {
+                    version = "v0.9.0-alpha.2";
+                    src = cue-src;
+                    vendorHash = "sha256-fC6T4d+XsSFnKrpatfSM/hMCx3YSEKMFDg2jEMqG2ug=";
+                    ldflags = [ "-s" "-w" "-X cuelang.org/go/cmd/cue/cmd.version=${version}" ];
+                  });
+                };
+              })
+            ];
+          })
         ];
         specialArgs = {
           inherit username;

@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "cue-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713443766,
+        "narHash": "sha256-+tK8iL39xz2nNOPJUfoKM8v1oQelwpazKfSoFSDSlUE=",
+        "owner": "cue-lang",
+        "repo": "cue",
+        "rev": "f8d0998c0ddac4a9071815a690ad75a237e44580",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cue-lang",
+        "ref": "v0.9.0-alpha.2",
+        "repo": "cue",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -53,6 +70,7 @@
     },
     "root": {
       "inputs": {
+        "cue-src": "cue-src",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs"
