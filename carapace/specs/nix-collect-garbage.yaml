@@ -1,0 +1,38 @@
+name: nix-collect-garbage
+description: delete unreachable store objects
+
+flags:
+  -d, --delete-old: Delete all old generations of profiles.
+  --delete-older-than=: Delete all generations of profiles older than the specified amount.
+
+persistentflags:
+  --help: Prints out a summary of the command syntax and exits.
+  --version: Prints out the Nix version number on standard output and exits.
+  -v, --verbose*: Increases the level of verbosity of diagnostic messages printed on standard error.
+  --quiet: Decreases the level of verbosity of diagnostic messages printed on standard error.
+  --log-format: This option can be used to change the output of the log format.
+  -Q, --no-bould-output: Suppresses output written by builders.
+  -j, --max-jobs=: Sets the maximum number of build jobs that Nix will perform in parallel.
+  --cores: Sets the value of the NIX_BUILD_CORES environment variable in the invocation of builders
+  --max-silent-time: Sets the maximum number of seconds that a builder can go without producing any data
+  --timeout: Sets the maximum number of seconds that a builder can run.
+  -k, --keep-going: Keep going in case of failed builds
+  -K, --keep-failed: Keep temporary directory in case of failed builds
+  --fallback: Build failed packages from source.
+  --readonly-mode: No attempt is made to open the Nix database.
+  --arg=: Pass down build argument.
+  --argstr=: Pass down build string argument.
+  -A, --attr=: Select an attribute from the top-level Nix expression being evaluated
+  -E, --expr=: Interpret the command line arguments as a list of Nix expressions to be parsed and evaluated
+  -I=: Add an entry to the Nix expression search path.
+  --option=: Set the Nix configuration option name to value.
+  --repair: Fix corrupted or missing store paths by redownloading or rebuilding them.
+
+completion:
+  flag:
+    log-format:
+      - raw
+      - internal-json
+      - bar
+      - bar-with-logs
+
