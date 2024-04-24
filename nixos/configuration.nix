@@ -207,6 +207,8 @@
       kubelogin-oidc
       my-kubernetes-helm
       my-helmfile
+      stern # logs aggregator
+      kubebuilder # operator CLI tool
 
       # Linters
       shellcheck
