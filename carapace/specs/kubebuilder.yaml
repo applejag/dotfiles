@@ -1,0 +1,4 @@
+name: kubebuilder
+description: CLI tool for building Kubernetes extensions and tools.
+completion:
+  positionalany: ["$carapace.bridge.Cobra([kubebuilder])"]

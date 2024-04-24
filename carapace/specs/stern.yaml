@@ -1,0 +1,4 @@
+name: stern
+description: Tail multiple pods and containers from Kubernetes
+completion:
+  positionalany: ["$carapace.bridge.Cobra([stern])"]
