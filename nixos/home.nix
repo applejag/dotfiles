@@ -90,6 +90,7 @@ in
       nvim-treesitter-parsers.css
       nvim-treesitter-parsers.cue
       nvim-treesitter-parsers.dockerfile
+      nvim-treesitter-parsers.fish
       nvim-treesitter-parsers.git_config
       nvim-treesitter-parsers.git_rebase
       nvim-treesitter-parsers.gitattributes
