@@ -329,6 +329,13 @@ in
       # Dolphin
       "inode/directory" = "org.kde.dolphin.desktop";
       "application/x-directory" = "org.kde.dolphin.desktop";
+
+      # Text files
+      "application/json" = "nvim.desktop";
+      "application/yaml" = "nvim.desktop";
+      "text/markdown" = "nvim.desktop";
+      "text/x-csrc" = "nvim.desktop";
+      "text/plain" = "nvim.desktop";
     };
     associations.added = {
       # Thunderbird
