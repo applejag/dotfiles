@@ -203,6 +203,7 @@
       kubectl
       kubectl-klock # :D
       kubectl-gadget # inspector-gadget
+      kubectl-cnpg # CloudNativePG (Postgres operator)
       kubectx
       kubelogin-oidc
       kubecolor # kubectl wrapper that adds colors
