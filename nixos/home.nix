@@ -56,6 +56,9 @@ in
       "profile platform-playground" = {
         "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh 6rfhu4wjjzgaivzuroixhxjacq";
       };
+      "profile identiq-dev" = {
+        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh 2mftaukxoesjxf33q6j5dyukci";
+      };
     };
   };
 
