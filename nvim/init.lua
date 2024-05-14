@@ -2,6 +2,8 @@
 vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
 vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
+vim.g.mapleader = " "
+
 local border = {
     { "╭", "FloatBorder" },
     { "─", "FloatBorder" },
@@ -95,7 +97,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        local opts = { buffer = ev.buf }
         local function optsDesc(desc)
             return { buffer = ev.buf, desc = desc }
         end
@@ -104,11 +105,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, optsDesc("Show hover info"))
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, optsDesc("Go to implementation"))
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, optsDesc("Show signature"))
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, optsDesc("Go to type definition"))
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, optsDesc("Rename a symbol"))
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, optsDesc("Select a code action"))
+        vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, optsDesc("Go to type definition"))
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, optsDesc("Rename a symbol"))
+        vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, optsDesc("Select a code action"))
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, optsDesc("List all symbol references"))
-        vim.keymap.set('n', '<space>f', function()
+        vim.keymap.set('n', '<leader>f', function()
             vim.lsp.buf.format { async = true }
         end, optsDesc("Format current buffer"))
 
