@@ -85,6 +85,7 @@ in
       plenary-nvim # utility Lua functions used by other plugins
       vim-mustache-handlebars # {{ templates }}
       vim-helm # gotmpl
+      nvim-sops # SOPS integration
       nvim-treesitter
       nvim-treesitter-refactor
       nvim-treesitter-parsers.astro
