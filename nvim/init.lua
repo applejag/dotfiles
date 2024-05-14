@@ -105,7 +105,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, optsDesc("Go to implementation"))
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, optsDesc("Show signature"))
         vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, optsDesc("Go to type definition"))
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts, optsDesc("Rename a symbol"))
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, optsDesc("Rename a symbol"))
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, optsDesc("Select a code action"))
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, optsDesc("List all symbol references"))
         vim.keymap.set('n', '<space>f', function()
