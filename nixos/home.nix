@@ -86,6 +86,7 @@ in
       vim-mustache-handlebars # {{ templates }}
       vim-helm # gotmpl
       nvim-sops # SOPS integration
+      which-key-nvim # help popup on keybindings
       nvim-treesitter
       nvim-treesitter-refactor
       nvim-treesitter-parsers.astro
@@ -129,6 +130,7 @@ in
       nvim-treesitter-parsers.ssh_config
       nvim-treesitter-parsers.terraform
       nvim-treesitter-parsers.typescript
+      nvim-treesitter-parsers.vimdoc
       nvim-treesitter-parsers.yaml
       nvim-treesitter-parsers.zig
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")

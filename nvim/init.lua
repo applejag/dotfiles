@@ -58,7 +58,7 @@ lspconfig.terraformls.setup {}
 lspconfig.astro.setup {}
 lspconfig.bashls.setup {}
 lspconfig.tsserver.setup {}
-lspconfig.zls.setup{}
+lspconfig.zls.setup {}
 
 lspconfig.yamlls.setup {}
 
@@ -96,18 +96,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         local opts = { buffer = ev.buf }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        local function optsDesc(desc)
+            return { buffer = ev.buf, desc = desc }
+        end
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, optsDesc("Go to declaration"))
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, optsDesc("Go to definition"))
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, optsDesc("Show hover info"))
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, optsDesc("Go to implementation"))
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, optsDesc("Show signature"))
+        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, optsDesc("Go to type definition"))
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts, optsDesc("Rename a symbol"))
+        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, optsDesc("Select a code action"))
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, optsDesc("List all symbol references"))
         vim.keymap.set('n', '<space>f', function()
             vim.lsp.buf.format { async = true }
-        end, opts)
+        end, optsDesc("Format current buffer"))
 
         -- Diagnostic icons in sign column
         local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -238,6 +241,14 @@ require 'cmp_git'.setup {
     },
 }
 
+-- Customization for nvim-sops
+vim.keymap.set('n', '<leader>ef', vim.cmd.SopsEncrypt, { desc = '[E]ncrypt [F]ile' })
+vim.keymap.set('n', '<leader>df', vim.cmd.SopsDecrypt, { desc = '[D]ecrypt [F]ile' })
+
+-- Customization for which-key.nvim
+vim.o.timeoutlen = 300
+require("which-key").setup{}
+
 -- Customization for Pmenu
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
 vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
@@ -322,7 +333,7 @@ vim.filetype.add({
 parser_config.risor = {
     install_info = {
         url = "~/code/github.com/jillejr/tree-sitter-risor",
-        files = {"src/parser.c"},
+        files = { "src/parser.c" },
     }
 }
 vim.treesitter.language.register('risor', 'risor')
