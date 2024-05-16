@@ -1,0 +1,4 @@
+name: hof
+description: hof - the high code framework
+completion:
+  positionalany: ["$carapace.bridge.Cobra([hof])"]
