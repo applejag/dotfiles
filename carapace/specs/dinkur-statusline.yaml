@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
 name: dinkur-statusline
 description: Shows the status of your local Dinkur database (~/.local/share/dinkur/dinkur.db) printed on a single line.
 flags:

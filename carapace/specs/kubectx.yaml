@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
 name: kubectx
 flags:
   -d=*: delete context <NAME> ('.' for current-context) (this command won't delete the user/cluster entry referenced by the context entry)

@@ -40,6 +40,7 @@ zi light zsh-users/zsh-autosuggestions
 zi light z-shell/F-Sy-H
 
 if command -v carapace &> /dev/null; then
+  export CARAPACE_BRIDGES='zsh,bash'
   # Completion header
   zstyle ':completion:*' format $'\e[2;37m[%d]\e[m'
   # Grouping

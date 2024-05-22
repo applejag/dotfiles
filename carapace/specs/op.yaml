@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
 name: op
 description: 1Password CLI brings 1Password to your terminal.
 completion:

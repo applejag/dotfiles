@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
 name: tofi-run
 completion:
   positionalany: ["$carapace.bridge.CarapaceBin([tofi])"]
