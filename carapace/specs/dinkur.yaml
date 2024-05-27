@@ -1,5 +1,0 @@
-# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
-name: dinkur
-description: Track how you spend time on your entries with Dinkur.
-completion:
-  positionalany: ["$carapace.bridge.Cobra([dinkur])"]

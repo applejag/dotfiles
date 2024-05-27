@@ -9,6 +9,7 @@ ln -vfs ~/dotfiles/zi/.zshrc ~/.zshrc
 
 mkdir -pv ~/.config/carapace
 ln -vfs ~/{dotfiles,.config}/carapace/specs
+ln -vfs ~/{dotfiles,.config}/carapace/bridges.yaml
 
 ln -vfs ~/{dotfiles,.config}/hypr
 

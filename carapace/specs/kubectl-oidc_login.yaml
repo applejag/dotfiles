@@ -1,5 +1,0 @@
-# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
-name: kubectl-oidc_login
-description: Log in to the OpenID Connect provider.
-completion:
-  positionalany: ["$carapace.bridge.Cobra([kubectl-oidc_login])"]

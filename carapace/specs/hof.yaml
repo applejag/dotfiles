@@ -1,5 +1,0 @@
-# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
-name: hof
-description: hof - the high code framework
-completion:
-  positionalany: ["$carapace.bridge.Cobra([hof])"]

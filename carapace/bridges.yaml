@@ -1,0 +1,16 @@
+# https://carapace-sh.github.io/carapace-bin/bridges.html
+dinkur: cobra
+git-forgit: zsh
+helmfile: cobra
+hof: cobra
+kinf: cobra
+kubebuilder: cobra
+kubecolor: cobra
+kubectl-klock: cobra
+kubectl-oidc_login: cobra
+kubectl: cobra
+op: cobra
+rootless-personio: cobra
+stern: cobra
+szero: cobra
+yq: cobra

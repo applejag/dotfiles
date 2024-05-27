@@ -1,5 +1,0 @@
-# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
-name: kind
-description: kind creates and manages local Kubernetes clusters using Docker container 'nodes'
-completion:
-  positionalany: ["$carapace.bridge.Cobra([kind])"]

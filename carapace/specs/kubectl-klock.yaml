@@ -1,5 +1,0 @@
-# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
-name: kubectl-klock
-description: Watches Kubernetes resources in a live-updating table.
-completion:
-  positionalany: ["$carapace.bridge.Cobra([kubectl-klock])"]

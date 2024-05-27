@@ -1,5 +1,0 @@
-# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
-name: yq
-completion:
-  positionalany: ["$carapace.bridge.Cobra([yq])"]
-

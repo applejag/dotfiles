@@ -1,6 +1,0 @@
-# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
-name: git-forgit
-description: A utility tool powered by fzf for using git interactively
-completion:
-  positionalany: ["$carapace.bridge.Zsh([git-forgit])"]
-
