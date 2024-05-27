@@ -192,6 +192,7 @@
       risor # Go scripting language
       tree-sitter # CLI for creating tree-sitter grammars
       viddy # watch alternative
+      charm-freeze
 
       age # encryption
       direnv # load .envrc files
