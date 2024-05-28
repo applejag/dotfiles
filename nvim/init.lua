@@ -310,6 +310,12 @@ require 'nvim-treesitter.configs'.setup {
     },
 }
 
+local file = io.open((os.getenv("XDG_CONFIG_HOME") or (os.getenv("HOME").."/.config")).."/nvim/after/queries/yaml/injections.scm", "r")
+if file ~= nil then
+    vim.treesitter.query.set("yaml", "injections", file:read("a"))
+    file:close()
+end
+
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 
 --[[--

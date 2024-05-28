@@ -20,6 +20,7 @@ ln -vfs ~/{dotfiles,.config}/gh/config.yml
 
 mkdir -pv ~/.config/nvim
 ln -vfs ~/{dotfiles,.config}/nvim/init.vim
+ln -vfs ~/{dotfiles,.config}/nvim/after
 ln -vfs ~/{dotfiles,.config}/nvim/coc-settings.json
 
 mkdir -pv ~/.config/bat
