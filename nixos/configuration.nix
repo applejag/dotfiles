@@ -18,7 +18,10 @@
 
   boot.plymouth = {
     enable = true;
-    theme = "breeze";
+    theme = "catppuccin-macchiato";
+    themePackages = with pkgs; [
+      catppuccin-plymouth
+    ];
   };
   boot.initrd.systemd.enable = true;
 
