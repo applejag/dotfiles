@@ -187,7 +187,7 @@ in
   programs.git = {
     enable = true;
 
-    signing.key = "9874DEDD35925ED0";
+    signing.key = "748D7ADC975211B2";
     signing.signByDefault = true;
     lfs.enable = true;
 
