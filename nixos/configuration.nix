@@ -277,7 +277,8 @@
     monocraft
     ubuntu_font_family
     font-awesome
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    intel-one-mono
+    (nerdfonts.override { fonts = [ "FiraCode" "IntelOneMono" ]; })
   ];
 
   # List packages installed in system profile. To search, run:
