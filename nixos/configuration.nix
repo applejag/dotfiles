@@ -167,9 +167,10 @@
       spotify
       onlyoffice-bin
       #emacs-git # Emacs 28+, for Doom Emacs
-      emacs29-pgtk
+      #emacs29-pgtk
       virt-manager
       godot_4
+      zed-editor
       #hedgewars # TODO: reenable, but for now it fails to build
 
       # CLI tools
