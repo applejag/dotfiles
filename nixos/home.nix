@@ -95,6 +95,7 @@ in
       nvim-treesitter-parsers.css
       nvim-treesitter-parsers.cue
       nvim-treesitter-parsers.dockerfile
+      nvim-treesitter-parsers.elvish
       nvim-treesitter-parsers.fish
       nvim-treesitter-parsers.git_config
       nvim-treesitter-parsers.git_rebase
@@ -345,12 +346,12 @@ in
       "x-scheme-handler/webcals" = "thunderbird.desktop";
     };
   };
+
   xdg.configFile = {
     "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
-
 
   xdg.dataFile = let
     nodeVersion = "node-v18.15.0-linux-x64";
