@@ -357,7 +357,17 @@ in
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
+
   
+  xdg.dataFile = let
+    nodeVersion = "node-v18.15.0-linux-x64";
+    nodePackage = pkgs.nodejs_18;
+  in {
+    "zed/node/${nodeVersion}/bin".source = "${nodePackage}/bin";
+    "zed/node/${nodeVersion}/include".source = "${nodePackage}/include";
+    "zed/node/${nodeVersion}/lib".source = "${nodePackage}/lib";
+    "zed/node/${nodeVersion}/share".source = "${nodePackage}/share";
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
