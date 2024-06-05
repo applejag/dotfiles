@@ -6,7 +6,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ 
+  imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./flatpak.nix
@@ -223,9 +223,15 @@
       yamllint
 
       # Language servers
+      helm-ls
+      lua-language-server
+      nixd
       nodePackages.bash-language-server
+      nodePackages.typescript-language-server
+      terraform-ls
       vscode-langservers-extracted
       yaml-language-server
+      autocorrect
 
       # Go
       go_1_21
@@ -244,7 +250,7 @@
       # Zig
       zig
       zls # Zig language server
-      
+
       # Dev tools
       gcc
       editorconfig-core-c
@@ -289,7 +295,7 @@
     xdg-utils
   ];
 
-  
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "1password"
     "1password-cli"

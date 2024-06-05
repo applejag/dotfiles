@@ -137,13 +137,6 @@ in
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
       indent-blankline-nvim
     ];
-    extraPackages = with pkgs; [
-      helm-ls
-      lua-language-server
-      nixd
-      nodePackages.typescript-language-server
-      terraform-ls
-    ];
   };
 
   programs.vscode = {
@@ -358,7 +351,7 @@ in
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
 
-  
+
   xdg.dataFile = let
     nodeVersion = "node-v18.15.0-linux-x64";
     nodePackage = pkgs.nodejs_18;
