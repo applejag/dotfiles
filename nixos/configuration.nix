@@ -231,7 +231,6 @@
       terraform-ls
       vscode-langservers-extracted
       yaml-language-server
-      autocorrect
 
       # Go
       go_1_21
