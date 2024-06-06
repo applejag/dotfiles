@@ -123,6 +123,8 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  services.hardware.bolt.enable = true;
+
   services.greetd = {
     # https://man.sr.ht/~kennylevinsen/greetd/
     enable = true;
