@@ -256,7 +256,6 @@
 
       # Gleam
       gleam
-      glas # Gleam language server
 
       # Dev tools
       gcc
