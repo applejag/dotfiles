@@ -61,6 +61,7 @@ lspconfig.astro.setup {}
 lspconfig.bashls.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.zls.setup {}
+lspconfig.gleam.setup {}
 
 lspconfig.yamlls.setup {}
 
