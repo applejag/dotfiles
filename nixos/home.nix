@@ -89,6 +89,7 @@ in
       which-key-nvim # help popup on keybindings
       nvim-treesitter
       nvim-treesitter-refactor
+
       nvim-treesitter-parsers.astro
       nvim-treesitter-parsers.bash
       nvim-treesitter-parsers.comment
@@ -102,6 +103,7 @@ in
       nvim-treesitter-parsers.gitattributes
       nvim-treesitter-parsers.gitcommit
       nvim-treesitter-parsers.gitignore
+      nvim-treesitter-parsers.gleam
       nvim-treesitter-parsers.go
       nvim-treesitter-parsers.gomod
       nvim-treesitter-parsers.gosum
@@ -135,6 +137,7 @@ in
       nvim-treesitter-parsers.vimdoc
       nvim-treesitter-parsers.yaml
       nvim-treesitter-parsers.zig
+
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
       indent-blankline-nvim
     ];

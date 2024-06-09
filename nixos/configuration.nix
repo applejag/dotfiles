@@ -254,6 +254,10 @@
       zig
       zls # Zig language server
 
+      # Gleam
+      gleam
+      glas # Gleam language server
+
       # Dev tools
       gcc
       editorconfig-core-c
