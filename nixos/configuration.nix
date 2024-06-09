@@ -256,6 +256,7 @@
 
       # Gleam
       gleam
+      erlang_nox
 
       # Dev tools
       gcc
