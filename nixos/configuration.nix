@@ -178,6 +178,8 @@
       #hedgewars # TODO: reenable, but for now it fails to build
 
       # CLI tools
+      zip
+      unzip
       bat # better cat
       delta # git diff syntax highlight
       eza # fork of exa, better ls
