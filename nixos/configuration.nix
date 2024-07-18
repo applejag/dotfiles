@@ -146,6 +146,7 @@
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
       "libvirtd" # Run VMs without needing sudo
+      "dialout" # Talk through serial for IoT
     ];
     packages =
     let
