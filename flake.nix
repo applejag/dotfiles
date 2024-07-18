@@ -45,6 +45,14 @@
                     ldflags = [ "-s" "-w" "-X cuelang.org/go/cmd/cue/cmd.version=${version}" ];
                   });
                 };
+                zig = super.zig.overrideAttrs (final: prev: {
+                  src = pkgs.fetchFromGitHub {
+                    owner = "ziglang";
+                    repo = "zig";
+                    rev = "0.13.0";
+                    hash = "sha256-5qSiTq+UWGOwjDVZMIrAt2cDKHkyNPBSAEjpRQUByFM=";
+                  };
+                });
               })
             ];
           })
