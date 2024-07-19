@@ -48,6 +48,9 @@
         Spotify = "󰓇";
         "org.kde.elisa" = "󰧔";
         emacs = "";
+        steam = "󰓓";
+        "dev.zed.Zed" = "";
+        Godot_Engine = "";
       };
     };
     "river/tags" = {
