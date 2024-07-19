@@ -174,7 +174,6 @@
       #emacs-git # Emacs 28+, for Doom Emacs
       #emacs29-pgtk
       virt-manager
-      steam
       zed-editor
       #hedgewars # TODO: reenable, but for now it fails to build
 
@@ -315,11 +314,17 @@
     "vault" # used by helm-secrets
     "steam"
     "steam-original"
+    "steam-run"
   ];
 
   programs._1password.enable = true;
   programs._1password-gui.enable = true;
   programs._1password-gui.polkitPolicyOwners = [ "kallefagerberg" ];
+
+  programs.steam = {
+    enable = true;
+    package = with pkgs; steam.override { extraPkgs = pkgs: [ attr ]; };
+  };
 
   virtualisation.podman = {
     enable = true;
