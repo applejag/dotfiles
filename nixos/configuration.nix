@@ -174,7 +174,7 @@
       #emacs-git # Emacs 28+, for Doom Emacs
       #emacs29-pgtk
       virt-manager
-      godot_4
+      steam
       zed-editor
       #hedgewars # TODO: reenable, but for now it fails to build
 
@@ -313,6 +313,8 @@
     "slack"
     "spotify"
     "vault" # used by helm-secrets
+    "steam"
+    "steam-original"
   ];
 
   programs._1password.enable = true;
