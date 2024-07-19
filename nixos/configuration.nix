@@ -176,6 +176,7 @@
       virt-manager
       zed-editor
       #hedgewars # TODO: reenable, but for now it fails to build
+      inkscape
 
       # CLI tools
       zip
