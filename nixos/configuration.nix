@@ -169,6 +169,7 @@
       nextcloud-client
       kdePackages.elisa
       kdePackages.dolphin # KDE file manager
+      kdePackages.kdialog # KDE file picker
       spotify
       onlyoffice-bin
       #emacs-git # Emacs 28+, for Doom Emacs
