@@ -51,6 +51,8 @@
         steam = "󰓓";
         "dev.zed.Zed" = "";
         Godot_Engine = "";
+        audacity = "";
+        "org.kde.dolphin" = "";
       };
     };
     "river/tags" = {
