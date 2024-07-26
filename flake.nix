@@ -26,7 +26,7 @@
     name = "Kalle";
   in {
     nixosConfigurations = {
-      ri-t-0790 = lib.nixosSystem {
+      ri-t-0788 = lib.nixosSystem {
         inherit system;
         modules = [
           ./nixos/configuration.nix
