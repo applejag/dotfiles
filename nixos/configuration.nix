@@ -354,6 +354,13 @@
 
   services.fwupd.enable = true;
 
+  services.clamav = {
+    daemon.enable = true;
+    updater.enable = true;
+    scanner.enable = true;
+    fangfrisch.enable = true;
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
