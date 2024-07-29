@@ -32,8 +32,8 @@
 
       alsa-utils # tools like amixer to control audio
       brightnessctl # screen brightness
-      #pwvucontrol # Pipewire volume control
-      pavucontrol # PulseAudio volume control
+      pwvucontrol # Pipewire volume control
+      #pavucontrol # PulseAudio volume control
       #swayidle # detects idle
       #swaylock-effects # swaylock fork with better effects
       rofi-wayland # runner

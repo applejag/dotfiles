@@ -186,8 +186,8 @@
         car = "";
         default = ["" "" ""];
       };
-      #on-click = "pwvucontrol";
-      on-click = "pavucontrol";
+      on-click = "pwvucontrol";
+      #on-click = "pavucontrol";
     };
   };
 }
