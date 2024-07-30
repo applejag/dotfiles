@@ -386,4 +386,18 @@
     experimental-features = [ "nix-command" "flakes" ];
   };
 
+  nix.buildMachines = [{
+    hostName = "superburk";
+    system = "x86_64-linux";
+    protocol = "ssh-ng";
+    maxJobs = 3;
+    speedFactor = 2;
+    supportedFeatures = [ "big-parallel" ];
+    mandatoryFeatures = [ ];
+  }];
+  nix.distributedBuilds = true;
+  nix.extraOptions = ''
+    builders-use-substitutes = true
+  '';
+
 }
