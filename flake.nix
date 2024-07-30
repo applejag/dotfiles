@@ -49,8 +49,8 @@
           nixos-cosmic.nixosModules.default
 
           ./nixos/configuration.nix
-          #./nixos/hyprland.nix
-          ./nixos/cosmic.nix
+          ./nixos/hyprland.nix
+          #./nixos/cosmic.nix
           #./nixos/kde.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
 
