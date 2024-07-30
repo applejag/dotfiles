@@ -4,11 +4,21 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "nixos-hardware/master";
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    zig-src.url = "github:ziglang/zig/0.13.0";
-    zig-src.flake = false;
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zig-src = {
+      url = "github:ziglang/zig/0.13.0";
+      flake = false;
+    };
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -16,6 +26,7 @@
     nixos-hardware,
     home-manager,
     zig-src,
+    nixos-cosmic,
     ... }:
   let
     system = "x86_64-linux";
@@ -28,8 +39,18 @@
       ri-t-0788 = lib.nixosSystem {
         inherit system;
         modules = [
+          # https://github.com/lilyinstarlight/nixos-cosmic
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
+
           ./nixos/configuration.nix
-          ./nixos/hyprland.nix
+          #./nixos/hyprland.nix
+          ./nixos/cosmic.nix
           #./nixos/kde.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
 

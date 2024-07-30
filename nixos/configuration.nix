@@ -351,7 +351,7 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.enable = lib.mkDefault true;
 
   services.fwupd.enable = true;
 
@@ -391,8 +391,8 @@
     system = "x86_64-linux";
     protocol = "ssh-ng";
     maxJobs = 3;
-    speedFactor = 2;
-    supportedFeatures = [ "big-parallel" ];
+    speedFactor = 4;
+    supportedFeatures = [ ];
     mandatoryFeatures = [ ];
   }];
   nix.distributedBuilds = true;
