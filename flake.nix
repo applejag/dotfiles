@@ -7,16 +7,15 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    cue-src.url = "github:cue-lang/cue/v0.9.0-alpha.4";
-    #cue-src.url = "github:cue-lang/cue/master";
-    cue-src.flake = false;
+    zig-src.url = "github:ziglang/zig/0.13.0";
+    zig-src.flake = false;
   };
 
   outputs = {
     nixpkgs,
     nixos-hardware,
     home-manager,
-    cue-src,
+    zig-src,
     ... }:
   let
     system = "x86_64-linux";
@@ -34,24 +33,11 @@
           #./nixos/kde.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
 
-          ({ pkgs, ... }: {
+          ({ ... }: {
             nixpkgs.overlays = [
               (self: super: {
-                cue = super.cue.override {
-                  buildGoModule = args: pkgs.buildGoModule ( args // rec {
-                    version = "v0.9.0-alpha.4";
-                    src = cue-src;
-                    vendorHash = "sha256-fC6T4d+XsSFnKrpatfSM/hMCx3YSEKMFDg2jEMqG2ug=";
-                    ldflags = [ "-s" "-w" "-X cuelang.org/go/cmd/cue/cmd.version=${version}" ];
-                  });
-                };
                 zig = super.zig.overrideAttrs (final: prev: {
-                  src = pkgs.fetchFromGitHub {
-                    owner = "ziglang";
-                    repo = "zig";
-                    rev = "0.13.0";
-                    hash = "sha256-5qSiTq+UWGOwjDVZMIrAt2cDKHkyNPBSAEjpRQUByFM=";
-                  };
+                  src = zig-src;
                 });
               })
             ];
