@@ -16,7 +16,7 @@
     };
 
     nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
+      url = "github:lilyinstarlight/nixos-cosmic/update_cosmic_action";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
