@@ -20,6 +20,16 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    applejag-dinkur-src = {
+      url = "github:applejag/dinkur";
+      flake = false;
+    };
+
+    applejag-dinkur-statusline-src = {
+      url = "github:applejag/dinkur-statusline";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -28,6 +38,8 @@
     nixos-hardware,
     home-manager,
     zig-src,
+    applejag-dinkur-src,
+    applejag-dinkur-statusline-src,
     #nixos-cosmic,
     ... }:
   let
@@ -115,13 +127,16 @@
       kallefagerberg = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./nixos/home.nix
-          #./nixos/hyprland-home.nix
+          ./nixos/home/home.nix
+          #./nixos/home/hyprland.nix
+          ./nixos/home/dinkur.nix
         ];
         extraSpecialArgs = {
           inherit username;
           inherit name;
           inherit pkgs-unstable;
+          inherit applejag-dinkur-src;
+          inherit applejag-dinkur-statusline-src;
         };
       };
     };

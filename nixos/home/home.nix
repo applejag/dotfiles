@@ -159,7 +159,7 @@
   };
 
   home.file."init.lua" = {
-    source = ../nvim/init.lua;
+    source = ../../nvim/init.lua;
     target = ".config/nvim/init.lua";
   };
 
@@ -212,17 +212,6 @@
           insteadOf = "https://github.2rioffice.com";
         };
       };
-    };
-  };
-
-  systemd.user.services."dinkur" = {
-    Unit.Description = "Dinkur daemon";
-    Install.WantedBy = ["default.target"];
-    Service = {
-      Type = "simple";
-      Restart = "always";
-      RestartSec = 1;
-      ExecStart = "%h/go/bin/dinkur daemon -v";
     };
   };
 
