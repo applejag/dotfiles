@@ -46,7 +46,6 @@
 
   programs.neovim = {
     enable = true;
-    defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
       nvim-lspconfig # configs for common LSP servers
@@ -307,11 +306,11 @@
       "application/x-directory" = "org.kde.dolphin.desktop";
 
       # Text files
-      "application/json" = "nvim.desktop";
-      "application/yaml" = "nvim.desktop";
-      "text/markdown" = "nvim.desktop";
-      "text/x-csrc" = "nvim.desktop";
-      "text/plain" = "nvim.desktop";
+      "application/json" = "dev.zed.Zed.desktop";
+      "application/yaml" = "dev.zed.Zed.desktop";
+      "text/markdown" = "dev.zed.Zed.desktop";
+      "text/x-csrc" = "dev.zed.Zed.desktop";
+      "text/plain" = "dev.zed.Zed.desktop";
     };
     associations.added = {
       # Thunderbird
