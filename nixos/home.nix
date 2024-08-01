@@ -1,22 +1,4 @@
 { config, pkgs, lib, username, ... }:
-
-let
-  fromGitHub = ref: repo: pkgs.vimUtils.buildVimPlugin {
-    pname = "${lib.strings.sanitizeDerivationName repo}";
-    version = ref;
-    src = builtins.fetchGit {
-      url = "https://github.com/${repo}.git";
-      ref = ref;
-    };
-  };
-  fromLocal = path: pkgs.vimUtils.buildVimPlugin {
-    pname = "${lib.strings.sanitizeDerivationName (baseNameOf path)}";
-    version = "local";
-    src = builtins.fetchGit {
-      url = path;
-    };
-  };
-in
 {
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -277,8 +259,9 @@ in
         "file:///home/kallefagerberg/Downloads"
         "file:///home/kallefagerberg/Documents"
         "file:///home/kallefagerberg/code"
-        "file:///home/kallefagerberg/code/risk.ident"
-        "file:///home/kallefagerberg/code/risk.ident/platform"
+        "file:///home/kallefagerberg/code/ri"
+        "file:///home/kallefagerberg/code/ri/platform"
+        "file:///home/kallefagerberg/code/ri/platform/iac"
       ];
 
       extraConfig = {
@@ -297,10 +280,10 @@ in
     };
   };
 
-  home.sessionVariables.GTK_THEME = "Juno";
+  home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Compact-Teal-Dark";
 
   qt = {
-    enable = true;
+    enable = false;
     platformTheme.name = "kde";
     style = {
       name = "kvantum";
@@ -374,7 +357,7 @@ in
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "23.05";
+  home.stateVersion = "24.05";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

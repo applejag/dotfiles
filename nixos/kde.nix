@@ -12,14 +12,7 @@
     kate
   ];
 
-  services.greetd = {
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --asterisks --remember --remember-session --time --sessions ${pkgs.kdePackages.plasma-workspace.outPath}/share/wayland-sessions";
-        user = "greeter";
-      };
-    };
-  };
+  services.greetd.enable = false;
 
   users.users.kallefagerberg = {
     packages = with pkgs; [
