@@ -241,8 +241,6 @@
       kubectx
       kubelogin-oidc
       kubecolor # kubectl wrapper that adds colors
-      my-kubernetes-helm
-      my-helmfile
       stern # logs aggregator
       kubebuilder # operator CLI tool
 
