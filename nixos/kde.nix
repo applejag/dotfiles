@@ -25,9 +25,6 @@
     packages = with pkgs; [
       wl-clipboard # paste to clipboard
 
-      kdePackages.kscreen
-      kdePackages.libkscreen
-
       # Name is libsForQt5, but it works for KDE 6
       (libsForQt5.polonium.overrideAttrs {
         version = "v1.0rc";

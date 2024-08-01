@@ -7,8 +7,6 @@ ln -vfs ~/dotfiles/zsh/.zprofile ~/.zprofile
 ln -vfs ~/dotfiles/zsh/.zshenv ~/.zshenv
 ln -vfs ~/dotfiles/zi/.zshrc ~/.zshrc
 
-ln -vfs ~/{dotfiles,.config}/elvish
-
 mkdir -pv ~/.config/carapace
 ln -vfs ~/{dotfiles,.config}/carapace/specs
 ln -vfs ~/{dotfiles,.config}/carapace/bridges.yaml
@@ -27,8 +25,6 @@ ln -vfs ~/{dotfiles,.config}/nvim/coc-settings.json
 
 mkdir -pv ~/.config/bat
 ln -vfs ~/{dotfiles,.config}/bat/config
-
-ln -vfs ~/{dotfiles,.config}/awesome
 
 mkdir -pv ~/.config
 ln -vfs ~/{dotfiles,.config}/alacritty

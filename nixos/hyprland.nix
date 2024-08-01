@@ -27,6 +27,9 @@
       hyprpaper # wallpaper
       hyprlock # screen lock
       hypridle # detects idle
+      kdePackages.elisa
+      kdePackages.dolphin # KDE file manager
+      kdePackages.kdialog # KDE file picker
 
       networkmanagerapplet # NetworkManager (nm-applet)
 

@@ -132,6 +132,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "kallefagerberg";
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kallefagerberg = {
     isNormalUser = true;
@@ -141,27 +144,13 @@
       "dialout" # Talk through serial for IoT
     ];
     packages =
-    let
-      my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
-        plugins = with pkgs.kubernetes-helmPlugins; [
-          helm-diff
-          helm-secrets
-        ];
-      };
-      my-helmfile = with pkgs-unstable; helmfile-wrapped.override {
-        inherit (my-kubernetes-helm.passthru) pluginsDir;
-      };
-    in
-    with pkgs; [
+    (with pkgs; [
       # GUI apps
       thunderbird
       birdtray # tray icon for Thunderbird
       alacritty
       slack
       nextcloud-client
-      kdePackages.elisa
-      kdePackages.dolphin # KDE file manager
-      kdePackages.kdialog # KDE file picker
       spotify
       onlyoffice-bin
       #emacs-git # Emacs 28+, for Doom Emacs
@@ -233,7 +222,7 @@
       ffmpeg-full
       glibcLocales
 
-    ] ++ (with pkgs-unstable; [
+    ]) ++ (with pkgs-unstable; [
       #====== Unstable packages ======
 
       # GUI apps
@@ -281,6 +270,20 @@
       govulncheck # SAST
       templ # HTML templating
       cue # config language
+    ]) ++ (
+    let
+      my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
+        plugins = with kubernetes-helmPlugins; [
+          helm-diff
+          helm-secrets
+        ];
+      };
+      my-helmfile = pkgs-unstable.helmfile-wrapped.override {
+        inherit (my-kubernetes-helm.passthru) pluginsDir;
+      };
+    in [
+      my-kubernetes-helm
+      my-helmfile
     ]);
   };
 
