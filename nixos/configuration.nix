@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 
 
-{ config, pkgs, lib, ... }:
+{ pkgs, pkgs-unstable, lib, ... }:
 
 {
   imports = [
@@ -100,7 +100,7 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
-  hardware.graphics = {
+  hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
@@ -150,13 +150,13 @@
     ];
     packages =
     let
-      my-kubernetes-helm = with pkgs; wrapHelm kubernetes-helm {
+      my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
         plugins = with pkgs.kubernetes-helmPlugins; [
           helm-diff
           helm-secrets
         ];
       };
-      my-helmfile = with pkgs; helmfile-wrapped.override {
+      my-helmfile = with pkgs-unstable; helmfile-wrapped.override {
         inherit (my-kubernetes-helm.passthru) pluginsDir;
       };
     in
@@ -175,7 +175,6 @@
       #emacs-git # Emacs 28+, for Doom Emacs
       #emacs29-pgtk
       virt-manager
-      zed-editor
       #hedgewars # TODO: reenable, but for now it fails to build
       inkscape
 
@@ -201,30 +200,13 @@
       slides # presentation tool
       openssl
       reuse # license linter
-      risor # Go scripting language
       tree-sitter # CLI for creating tree-sitter grammars
       viddy # watch alternative
-      charm-freeze
       nh # nix helper CLI
 
       age # encryption
       direnv # load .envrc files
-      sops
-      opentofu # terraform alternative
       nodejs_20
-
-      # Kubernetes
-      kubectl
-      kubectl-klock # :D
-      kubectl-gadget # inspector-gadget
-      kubectl-cnpg # CloudNativePG (Postgres operator)
-      kubectx
-      kubelogin-oidc
-      kubecolor # kubectl wrapper that adds colors
-      my-kubernetes-helm
-      my-helmfile
-      stern # logs aggregator
-      kubebuilder # operator CLI tool
 
       # Linters
       shellcheck
@@ -241,34 +223,11 @@
       vscode-langservers-extracted
       yaml-language-server
 
-      # Go
-      go_1_21
-      gotools # e.g goimports
-      gofumpt # formatter
-      gopls # language server
-      gore # REPL
-      revive # linter
-      golangci-lint # linter
-      gomodifytags # manipulate struct tags (e.g in Emacs)
-      gotestsum
-      govulncheck # SAST
-      templ # HTML templating
-      cue # config language
-
-      # Zig
-      zig
-      zls # Zig language server
-
-      # Gleam
-      gleam
-      erlang_nox
-
       # Dev tools
       gcc
       editorconfig-core-c
 
       # Shell
-      carapace # completions
       starship # prompt
       zsh
       zsh-forgit # git+fzf
@@ -281,7 +240,56 @@
       coreutils # needed for Doom Emacs
       ffmpeg-full
       glibcLocales
-    ];
+
+    ] ++ (with pkgs-unstable; [
+      #====== Unstable packages ======
+
+      # GUI apps
+      zed-editor
+
+      # CLI tools
+      sops
+      opentofu # terraform alternative
+      risor # Go scripting language
+      charm-freeze
+
+      # Kubernetes
+      kubectl
+      kubectl-klock # :D
+      kubectl-cnpg # CloudNativePG (Postgres operator)
+      kubectx
+      kubelogin-oidc
+      kubecolor # kubectl wrapper that adds colors
+      my-kubernetes-helm
+      my-helmfile
+      stern # logs aggregator
+      kubebuilder # operator CLI tool
+
+      # Shell
+      carapace # completions
+
+      # Zig
+      zig
+      zls # Zig language server
+
+      # Gleam
+      gleam
+      erlang_nox
+
+      # Go
+      go_1_22
+      gotools # e.g goimports
+      gofumpt # formatter
+      gopls # language server
+      gore # REPL
+      revive # linter
+      golangci-lint # linter
+      gomodifytags # manipulate struct tags (e.g in Emacs)
+      gotestsum
+      govulncheck # SAST
+      templ # HTML templating
+      cue # config language
+    ]);
   };
 
   fonts.packages = with pkgs; [

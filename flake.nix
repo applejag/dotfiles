@@ -2,12 +2,13 @@
   description = "My NixOS flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "nixos-hardware/master";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     zig-src = {
@@ -16,22 +17,24 @@
     };
 
     nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic/update_cosmic_action";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
   outputs = {
     nixpkgs,
+    nixpkgs-unstable,
     nixos-hardware,
     home-manager,
     zig-src,
-    nixos-cosmic,
+    #nixos-cosmic,
     ... }:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     username = "kallefagerberg";
     name = "Kalle";
   in {
@@ -49,9 +52,9 @@
           #nixos-cosmic.nixosModules.default
 
           ./nixos/configuration.nix
-          ./nixos/hyprland.nix
+          #./nixos/hyprland.nix
           #./nixos/cosmic.nix
-          #./nixos/kde.nix
+          ./nixos/kde.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
 
           ({ ... }: {
@@ -67,6 +70,7 @@
         specialArgs = {
           inherit username;
           inherit name;
+          inherit pkgs-unstable;
         };
       };
     };
@@ -75,11 +79,12 @@
         inherit pkgs;
         modules = [
           ./nixos/home.nix
-          ./nixos/hyprland-home.nix
+          #./nixos/hyprland-home.nix
         ];
         extraSpecialArgs = {
           inherit username;
           inherit name;
+          inherit pkgs-unstable;
         };
       };
     };
