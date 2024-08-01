@@ -34,7 +34,7 @@ zi snippet OMZP::git
 zi snippet OMZP::command-not-found
 zi load wfxr/forgit
 
-zi pack"keys" for fzf
+zi pack"default+keys" for fzf
 
 zi light zsh-users/zsh-autosuggestions
 zi light z-shell/F-Sy-H

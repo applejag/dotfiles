@@ -51,11 +51,48 @@
           }
           #nixos-cosmic.nixosModules.default
 
+          ./nixos/ri-t-0788/configuration.nix
           ./nixos/configuration.nix
           #./nixos/hyprland.nix
           #./nixos/cosmic.nix
           ./nixos/kde.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
+
+          ({ ... }: {
+            nixpkgs.overlays = [
+              (self: super: {
+                zig = super.zig.overrideAttrs (final: prev: {
+                  src = zig-src;
+                });
+              })
+            ];
+          })
+        ];
+        specialArgs = {
+          inherit username;
+          inherit name;
+          inherit pkgs-unstable;
+        };
+      };
+
+      ri-t-1010 = lib.nixosSystem {
+        inherit system;
+        modules = [
+          # https://github.com/lilyinstarlight/nixos-cosmic
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          #nixos-cosmic.nixosModules.default
+
+          ./nixos/ri-t-1010/configuration.nix
+          ./nixos/configuration.nix
+          #./nixos/hyprland.nix
+          #./nixos/cosmic.nix
+          ./nixos/kde.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
 
           ({ ... }: {
             nixpkgs.overlays = [

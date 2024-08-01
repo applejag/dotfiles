@@ -8,7 +8,6 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     ./flatpak.nix
   ];
 
@@ -29,7 +28,6 @@
 
   boot.tmp.cleanOnBoot = true;
 
-  networking.hostName = "ri-t-0788"; # Define your hostname.
   # Pick only one of the below networking options.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -86,12 +84,6 @@
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
-  };
-
-  # Bees: btrfs de-duplication on the "nixos" drive
-  services.beesd.filesystems."nixos" = {
-    spec = "LABEL=nixos";
-    hashTableSizeMB = 128;
   };
 
   # Hardware-accelerated video encoding/decoding
