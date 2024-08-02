@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zig-src = {
       url = "github:ziglang/zig/0.13.0";
       flake = false;
@@ -40,6 +45,7 @@
   outputs = {
     nixpkgs,
     nixpkgs-unstable,
+    flake-programs-sqlite,
     nixos-hardware,
     home-manager,
     zig-src,
@@ -104,6 +110,8 @@
             };
           }
           #nixos-cosmic.nixosModules.default
+
+          flake-programs-sqlite.nixosModules.programs-sqlite
 
           ./nixos/ri-t-1010/configuration.nix
           ./nixos/configuration.nix

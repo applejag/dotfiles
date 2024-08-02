@@ -64,6 +64,27 @@
         "type": "github"
       }
     },
+    "flake-programs-sqlite": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1722597296,
+        "narHash": "sha256-jhu09nr3sqqMpFs/88PVFVqZ4hL3WingCH68qeHplmg=",
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "rev": "35a726f35b9d2fe5b65bc0fd9c1d3b53432f47f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -173,12 +194,28 @@
         "applejag-dinkur-src": "applejag-dinkur-src",
         "applejag-dinkur-statusline-src": "applejag-dinkur-statusline-src",
         "applejag-showksec-src": "applejag-showksec-src",
+        "flake-programs-sqlite": "flake-programs-sqlite",
         "home-manager": "home-manager",
         "nixos-cosmic": "nixos-cosmic",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "zig-src": "zig-src"
+      }
+    },
+    "utils": {
+      "locked": {
+        "lastModified": 1678901627,
+        "narHash": "sha256-U02riOqrKKzwjsxc/400XnElV+UtPUQWpANPlyazjH0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "93a2b84fc4b70d9e089d029deacc3583435c2ed6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
       }
     },
     "zig-src": {
