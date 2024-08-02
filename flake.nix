@@ -30,6 +30,11 @@
       url = "github:applejag/dinkur-statusline";
       flake = false;
     };
+
+    applejag-showksec-src = {
+      url = "github:applejag/showksec";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -40,6 +45,7 @@
     zig-src,
     applejag-dinkur-src,
     applejag-dinkur-statusline-src,
+    applejag-showksec-src,
     #nixos-cosmic,
     ... }:
   let
@@ -130,6 +136,7 @@
           ./nixos/home/home.nix
           #./nixos/home/hyprland.nix
           ./nixos/home/dinkur.nix
+          ./nixos/home/showksec.nix
         ];
         extraSpecialArgs = {
           inherit username;
@@ -137,6 +144,7 @@
           inherit pkgs-unstable;
           inherit applejag-dinkur-src;
           inherit applejag-dinkur-statusline-src;
+          inherit applejag-showksec-src;
         };
       };
     };
