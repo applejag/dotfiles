@@ -57,6 +57,7 @@
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
+    lib-unstable = nixpkgs-unstable.lib;
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     username = "kallefagerberg";
@@ -109,15 +110,17 @@
               trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
             };
           }
-          #nixos-cosmic.nixosModules.default
 
           flake-programs-sqlite.nixosModules.programs-sqlite
 
           ./nixos/ri-t-1010/configuration.nix
           ./nixos/configuration.nix
           #./nixos/hyprland.nix
-          #./nixos/cosmic.nix
           ./nixos/kde.nix
+
+          #nixos-cosmic.nixosModules.default
+          #./nixos/cosmic.nix
+
           nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
 
           ({ ... }: {
