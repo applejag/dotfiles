@@ -40,6 +40,11 @@
       url = "github:applejag/showksec";
       flake = false;
     };
+
+    applejag-rootless-personio-src = {
+      url = "github:applejag/rootless-personio";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -52,6 +57,7 @@
     applejag-dinkur-src,
     applejag-dinkur-statusline-src,
     applejag-showksec-src,
+    applejag-rootless-personio-src,
     #nixos-cosmic,
     ... }:
   let
@@ -148,6 +154,7 @@
           #./nixos/home/hyprland.nix
           ./nixos/home/dinkur.nix
           ./nixos/home/showksec.nix
+          ./nixos/home/rootless-personio.nix
         ];
         extraSpecialArgs = {
           inherit username;
@@ -156,6 +163,7 @@
           inherit applejag-dinkur-src;
           inherit applejag-dinkur-statusline-src;
           inherit applejag-showksec-src;
+          inherit applejag-rootless-personio-src;
         };
       };
     };

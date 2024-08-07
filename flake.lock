@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "applejag-rootless-personio-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720103739,
+        "narHash": "sha256-PnGqZAlRFppukbN6A5FyeQofRJ55b9t3weMC7wR9ut8=",
+        "owner": "applejag",
+        "repo": "rootless-personio",
+        "rev": "a59c5747ba9a72eb4fba2e1e500970146ac7ca73",
+        "type": "github"
+      },
+      "original": {
+        "owner": "applejag",
+        "repo": "rootless-personio",
+        "type": "github"
+      }
+    },
     "applejag-showksec-src": {
       "flake": false,
       "locked": {
@@ -193,6 +209,7 @@
       "inputs": {
         "applejag-dinkur-src": "applejag-dinkur-src",
         "applejag-dinkur-statusline-src": "applejag-dinkur-statusline-src",
+        "applejag-rootless-personio-src": "applejag-rootless-personio-src",
         "applejag-showksec-src": "applejag-showksec-src",
         "flake-programs-sqlite": "flake-programs-sqlite",
         "home-manager": "home-manager",
