@@ -322,6 +322,7 @@
   ];
 
   programs.wireshark.enable = true;
+  programs.wireshark.package = pkgs.wireshark;
 
   programs._1password.enable = true;
   programs._1password-gui.enable = true;
