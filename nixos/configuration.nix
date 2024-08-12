@@ -142,6 +142,7 @@
       "wheel" # Enable ‘sudo’ for the user.
       "libvirtd" # Run VMs without needing sudo
       "dialout" # Talk through serial for IoT
+      "wireshark" # capture network dumps
     ];
     packages =
     (with pkgs; [
