@@ -149,7 +149,6 @@
       # GUI apps
       thunderbird
       birdtray # tray icon for Thunderbird
-      alacritty
       slack
       nextcloud-client
       spotify
@@ -228,6 +227,7 @@
 
       # GUI apps
       zed-editor
+      alacritty
 
       # CLI tools
       sops
