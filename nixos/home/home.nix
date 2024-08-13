@@ -328,8 +328,8 @@
   };
 
   xdg.dataFile = let
-    nodeVersion = "node-v18.15.0-linux-x64";
-    nodePackage = pkgs.nodejs_18;
+    nodeVersion = "node-v22.5.1-linux-x64";
+    nodePackage = pkgs.nodejs_22;
   in {
     "zed/node/${nodeVersion}/bin".source = "${nodePackage}/bin";
     "zed/node/${nodeVersion}/include".source = "${nodePackage}/include";
