@@ -1,10 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 #format = "$character"
-format = "$all$directory$git_status$character"
+format = "$directory$git_branch$all$git_status$character"
 
 [hostname]
-ssh_only = false
+ssh_only = true
 style = "dimmed purple"
 
 [container]
@@ -38,13 +38,13 @@ disabled = true
 
 [kubernetes]
 disabled = false
-style = "dimmed green"
-format = 'k8s [$symbol[$context](green bold)/$namespace]($style) '
+style = "bright-blue"
+format = '\[[$symbol]($style)[$context](green bold):[$namespace]($style)\] '
 
 contexts = [
-  { context_pattern = ".*-prod|prod-.*", context_alias = "\u001B[1;4;38;5;197m🚨🚨🚨 $0 🚨🚨🚨" },
-  { context_pattern = ".*-demo|demo-.*", context_alias = "\u001B[33;4m🚨 $0 🚨" },
-  { context_pattern = ".*-staging|staging-.*", context_alias = "\u001B[33;4m🚨 $0 🚨" },
+  { context_pattern = ".*-prod|prod-.*", context_alias = "\u001B[1;4;38;5;197m🚨 $0" },
+  { context_pattern = ".*-demo|demo-.*", context_alias = "\u001B[33;4m⚠️ $0" },
+  { context_pattern = ".*-staging|staging-.*", context_alias = "\u001B[33;4m⚠️ $0" },
 ]
 
 [nodejs]
