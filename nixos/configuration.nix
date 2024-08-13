@@ -286,15 +286,17 @@
     ]);
   };
 
-  fonts.packages = with pkgs; [
+  fonts.packages = (with pkgs; [
     noto-fonts
     noto-fonts-emoji
-    monocraft
     ubuntu_font_family
     font-awesome
     intel-one-mono
     (nerdfonts.override { fonts = [ "FiraCode" "IntelOneMono" ]; })
-  ];
+  ]) ++ (with pkgs-unstable; [
+    monocraft
+    miracode # monocraft but vectorized
+  ]);
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

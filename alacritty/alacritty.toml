@@ -14,7 +14,7 @@ x = 0
 y = 1
 
 [font.normal]
-family = "Monocraft"
+family = "Miracode"
 
 [[keyboard.bindings]]
 action = "Paste"
