@@ -309,8 +309,8 @@ then
   eval "$(direnv hook zsh)"
 fi
 
-autoload -U add-zsh-hook
-_direnv-cat-on-cd() {
-  ~/dotfiles/scripts/direnv-cat-on-cd.zsh
-}
-add-zsh-hook chpwd _direnv-cat-on-cd
+#autoload -U add-zsh-hook
+#_direnv-cat-on-cd() {
+#  ~/dotfiles/scripts/direnv-cat-on-cd.zsh
+#}
+#add-zsh-hook chpwd _direnv-cat-on-cd
