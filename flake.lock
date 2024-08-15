@@ -175,6 +175,21 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1723725459,
+        "narHash": "sha256-SaUkVeU+kN6gNW0PAUAe658SBtKO/phK27OiX7eEldo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "bc4272b10c3715186c05c5fc2f33f575d123ec8a",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "master",
+        "type": "indirect"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1722987190,
@@ -217,6 +232,7 @@
         "nixos-cosmic": "nixos-cosmic",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "zig-src": "zig-src"
       }

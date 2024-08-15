@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "nixpkgs/master";
     nixos-hardware.url = "nixos-hardware/master";
 
     home-manager = {
@@ -50,6 +51,7 @@
   outputs = {
     nixpkgs,
     nixpkgs-unstable,
+    nixpkgs-master,
     flake-programs-sqlite,
     nixos-hardware,
     home-manager,
@@ -66,6 +68,7 @@
     lib-unstable = nixpkgs-unstable.lib;
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    pkgs-master = nixpkgs-master.legacyPackages.${system};
     username = "kallefagerberg";
     name = "Kalle";
   in {
@@ -103,6 +106,7 @@
           inherit username;
           inherit name;
           inherit pkgs-unstable;
+          inherit pkgs-master;
         };
       };
 
@@ -143,6 +147,7 @@
           inherit username;
           inherit name;
           inherit pkgs-unstable;
+          inherit pkgs-master;
         };
       };
     };
@@ -160,6 +165,7 @@
           inherit username;
           inherit name;
           inherit pkgs-unstable;
+          inherit pkgs-master;
           inherit applejag-dinkur-src;
           inherit applejag-dinkur-statusline-src;
           inherit applejag-showksec-src;

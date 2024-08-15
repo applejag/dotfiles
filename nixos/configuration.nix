@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 
 
-{ pkgs, pkgs-unstable, lib, ... }:
+{ pkgs, pkgs-unstable, pkgs-master, lib, ... }:
 
 {
   imports = [
@@ -257,7 +257,7 @@
       erlang_nox
 
       # Go
-      go_1_22
+      #go_1_23
       gotools # e.g goimports
       gofumpt # formatter
       gopls # language server
@@ -269,6 +269,8 @@
       govulncheck # SAST
       templ # HTML templating
       cue # config language
+    ]) ++ (with pkgs-master; [
+      go_1_23
     ]) ++ (
     let
       my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
