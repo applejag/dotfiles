@@ -20,7 +20,7 @@
 
       # Name is libsForQt5, but it works for KDE 6
       (libsForQt5.polonium.overrideAttrs {
-        version = "v1.0rc";
+        version = "47476380c587522cc1b2eb98aacd35a3c9e69241";
       })
 
       kde-rounded-corners # window borders theme
