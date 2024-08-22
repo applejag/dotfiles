@@ -263,6 +263,7 @@
       gopls # language server
       gore # REPL
       revive # linter
+      goreleaser # release tool
       golangci-lint # linter
       gomodifytags # manipulate struct tags (e.g in Emacs)
       gotestsum
