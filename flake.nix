@@ -81,11 +81,9 @@
             nix.settings = {
               trusted-substituters = [
                 "https://cosmic.cachix.org/"
-                "https://cache.flox.dev"
               ];
               trusted-public-keys = [
                 "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-                "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
               ];
             };
           }
