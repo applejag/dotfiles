@@ -454,7 +454,13 @@
     };
   };
 
-  home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Compact-Teal-Dark";
+  home.sessionVariables = {
+    GTK_THEME = "Catppuccin-Macchiato-Compact-Teal-Dark";
+  };
+
+  home.sessionPath = [
+      "$HOME/.krew/bin"
+  ];
 
   qt = {
     enable = false;

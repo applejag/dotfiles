@@ -4,11 +4,9 @@
   nixConfig = {
     extra-substituters = [
       "https://cosmic.cachix.org/" # https://github.com/lilyinstarlight/nixos-cosmic
-      "https://cache.flox.dev"     # https://flox.dev
     ];
     extra-trusted-public-keys = [
       "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-      "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
     ];
   };
 
@@ -57,8 +55,6 @@
       url = "github:applejag/rootless-personio";
       flake = false;
     };
-
-    flox.url = "github:flox/flox/v1.3.0";
   };
 
   outputs = {
@@ -74,7 +70,6 @@
     applejag-showksec-src,
     applejag-rootless-personio-src,
     #nixos-cosmic,
-    flox,
     ... }:
   let
     system = "x86_64-linux";
@@ -94,11 +89,9 @@
               experimental-features = [ "nix-command" "flakes" ];
               substituters = [
                 "https://cosmic.cachix.org/" # https://github.com/lilyinstarlight/nixos-cosmic
-                "https://cache.flox.dev"     # https://flox.dev
               ];
               trusted-public-keys = [
                 "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-                "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
               ];
             };
           }
@@ -114,12 +107,6 @@
           #./nixos/cosmic.nix
 
           nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
-
-          {
-            users.users.${username}.packages = [
-              flox.packages.${system}.default
-            ];
-          }
 
           ({ ... }: {
             nixpkgs.overlays = [
