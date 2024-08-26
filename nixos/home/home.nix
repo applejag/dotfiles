@@ -283,41 +283,64 @@
     };
   };
 
-  xdg.mimeApps = {
+  xdg.mimeApps = let
+    browser = "firefox.desktop";
+    email = "thunderbird.desktop";
+    editor = "dev.zed.Zed.desktop";
+    files = "org.kde.dolphin.desktop";
+  in {
     enable = true;
     # Find names of applications installed by Nix in ~/.nix-profile/share/applications
     # Flatpak apps are visible at /var/lib/flatpak/exports/share/applications
     defaultApplications = {
-      # Firefox
-      "application/pdf" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "text/html" = "firefox.desktop";
-      # Thunderbird
-      "application/x-extension-ics" = "thunderbird.desktop";
-      "message/rfc822" = "thunderbird.desktop";
-      "text/calendar" = "thunderbird.desktop";
-      "x-scheme-handler/mailto" = "thunderbird.desktop";
-      "x-scheme-handler/mid" = "thunderbird.desktop";
-      "x-scheme-handler/webcal" = "thunderbird.desktop";
-      "x-scheme-handler/webcals" = "thunderbird.desktop";
+      # Web browser
+      "application/pdf" = browser;
+      "x-scheme-handler/chrome" = browser;
+      "x-scheme-handler/http" = browser;
+      "x-scheme-handler/https" = browser;
+      "text/html" = browser;
+      "application/x-extension-htm" = browser;
+      "application/x-extension-html" = browser;
+      "application/x-extension-shtml" = browser;
+      "application/x-extension-xht" = browser;
+      "application/x-extension-xhtml" = browser;
+      "application/xhtml+xml" = browser;
+      # Email
+      "application/x-extension-ics" = email;
+      "message/rfc822" = email;
+      "text/calendar" = email;
+      "x-scheme-handler/mailto" = email;
+      "x-scheme-handler/mid" = email;
+      "x-scheme-handler/webcal" = email;
+      "x-scheme-handler/webcals" = email;
       # Dolphin
-      "inode/directory" = "org.kde.dolphin.desktop";
-      "application/x-directory" = "org.kde.dolphin.desktop";
+      "inode/directory" = files;
+      "application/x-directory" = files;
 
       # Text files
-      "application/json" = "dev.zed.Zed.desktop";
-      "application/yaml" = "dev.zed.Zed.desktop";
-      "text/markdown" = "dev.zed.Zed.desktop";
-      "text/x-csrc" = "dev.zed.Zed.desktop";
-      "text/plain" = "dev.zed.Zed.desktop";
+      "application/json" = editor;
+      "application/yaml" = editor;
+      "text/markdown" = editor;
+      "text/x-csrc" = editor;
+      "text/plain" = editor;
     };
     associations.added = {
-      # Thunderbird
-      "x-scheme-handler/mailto" = "thunderbird.desktop";
-      "x-scheme-handler/mid" = "thunderbird.desktop";
-      "x-scheme-handler/webcal" = "thunderbird.desktop";
-      "x-scheme-handler/webcals" = "thunderbird.desktop";
+      # Web browser
+      "application/x-extension-htm" = browser;
+      "application/x-extension-html" = browser;
+      "application/x-extension-shtml" = browser;
+      "application/x-extension-xht" = browser;
+      "application/x-extension-xhtml" = browser;
+      "application/xhtml+xml" = browser;
+      "text/html" = browser;
+      "x-scheme-handler/chrome" = browser;
+      "x-scheme-handler/http" = browser;
+      "x-scheme-handler/https" = browser;
+      # Email
+      "x-scheme-handler/mailto" = email;
+      "x-scheme-handler/mid" = email;
+      "x-scheme-handler/webcal" = email;
+      "x-scheme-handler/webcals" = email;
     };
   };
 
