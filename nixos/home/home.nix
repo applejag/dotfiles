@@ -1,4 +1,4 @@
-{ config, pkgs, lib, username, ... }:
+{ config, pkgs, pkgs-unstable, lib, username, ... }:
 {
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -22,6 +22,192 @@
     bashrcExtra = ''
       eval "$(direnv hook bash)"
     '';
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+    autocd = true;
+    initExtra = ''
+      compdef kubecolor=kubectl
+    '';
+    #autosuggestion.enable = true;
+    completionInit = "";
+
+    dirHashes = {
+      "." = "$HOME/dotfiles";
+      "c" = "$HOME/code";
+      "g" = "$HOME/code/gh";
+      "gri" = "$HOME/code/gh/RiskIdent";
+      "j" = "$HOME/code/gh/applejag";
+      "a" = "$HOME/code/gh/applejag";
+      "ri" = "$HOME/code/ri";
+      "rif" = "$HOME/code/ri/frida";
+      "rip" = "$HOME/code/ri/platform";
+      "rik" = "$HOME/code/ri/kalle-fagerberg";
+    };
+    shellAliases = let
+      kubectl-abbrs = moniker: resource: {
+        "kdel${moniker}" = "kubectl delete ${resource}";
+        "kd${moniker}" = "kubectl describe ${resource}";
+        "ke${moniker}" = "kubectl edit ${resource}";
+        "kw${moniker}" = "kubectl klock ${resource}";
+        "kw${moniker}A" = "kubectl klock ${resource} --all-namespaces";
+        "kg${moniker}" = "kubectl get ${resource}";
+        "kg${moniker}A" = "kubectl get ${resource} --all-namespaces";
+      };
+    in lib.mkMerge [{
+      grep = "grep --color";
+      cat = "bat --decorations never";
+      ls = "exa --color=always --group-directories-first -al --icons --git";
+
+      p = "podman";
+      docker = "podman";
+
+      u = "dinkur";
+      uy = "dinkur ls -r yesterday";
+      ud = "dinkur ls -r today";
+      uw = "dinkur ls -r week";
+      ulw = "dinkur ls -r lastweek";
+      ua = "dinkur ls -r all";
+
+      tf = "tofu";
+      tfi = "tofu init";
+      tfa = "tofu apply";
+      tfd = "tofu destroy";
+      tfp = "tofu plan";
+      tfo = "tofu output";
+
+      a = "ansible";
+      ag = "ansible-galaxy";
+      ai = "ansible-inventory";
+      ap = "ansible-playbook";
+      av = "ansible-vault";
+      avc = "ansible-vault create";
+      ave = "ansible-vault edit";
+      avv = "ansible-vault view";
+
+      # Additional git aliases
+      gla = "git pull --all --prune --jobs=10";
+      # Resetting weird Forgit aliases
+      gro = "cd $(git rev-parse --show-toplevel)";
+
+      kubectl = "kubecolor";
+      k = "kubectl";
+      kd = "kubectl describe";
+      kg = "kubectl get";
+      kw = "kubectl klock";
+      ke = "kubectl edit";
+      kdel = "kubectl delete";
+      kdelf = "kubectl delete -f";
+      kcf = "kubectl create -f";
+      krf = "kubectl replace -f";
+      krr = "kubectl rollout restart";
+      krrd = "kubectl rollout restart deployment";
+      krrss = "kubectl rollout restart statefulset";
+      kv = "kubectl version";
+      ka = "kubectl apply";
+      kaf = "kubectl apply -f";
+      kl = "kubectl logs";
+      klf = "kubectl logs -f";
+      keti = "kubectl exec -it";
+      kpf = "kubectl port-forward";
+
+      kdg = "kubectl debug";
+      kdgti = "kubectl debug -it";
+    }
+
+      (kubectl-abbrs "c" "certificate")
+      (kubectl-abbrs "cj" "cronjob")
+      (kubectl-abbrs "cm" "configmap")
+      (kubectl-abbrs "cr" "clusterrole")
+      (kubectl-abbrs "crb" "clusterrolebinding")
+      (kubectl-abbrs "csec" "clustersecret")
+      (kubectl-abbrs "d" "deployment")
+      (kubectl-abbrs "ds" "daemonset")
+      (kubectl-abbrs "i" "ingress")
+      (kubectl-abbrs "ir" "ingressroute")
+      (kubectl-abbrs "j" "job")
+      (kubectl-abbrs "n" "node")
+      (kubectl-abbrs "ns" "namespace")
+      (kubectl-abbrs "p" "pod")
+      (kubectl-abbrs "pv" "pv")
+      (kubectl-abbrs "pvc" "pvc")
+      (kubectl-abbrs "r" "role")
+      (kubectl-abbrs "rb" "rolebinding")
+      (kubectl-abbrs "s" "service")
+      (kubectl-abbrs "sa" "serviceaccount")
+      (kubectl-abbrs "sc" "storageclass")
+      (kubectl-abbrs "sec" "secret")
+      (kubectl-abbrs "ss" "statefulset")
+
+    ];
+
+    shellGlobalAliases = {
+      "%%" = "| grep";
+      "%y" = "| bat -l yaml";
+      "%yq" = "| yq eval";
+      "%j" = "| bat -l json";
+      "%jq" = "| jq";
+      "%xml" = "| xmlstarlet fo | bat --language xml";
+      "%x" = "| xmlstarlet fo | bat --language xml";
+      "%html" = ''| xmlstarlet fo -H | sed "s/\]\]>//g; s/<!\[CDATA\[//g" |  bat --language html'';
+      "%h" = "| xmlstarlet fo -H | bat --language html";
+      "%oy" = "-o yaml | bat -l yaml";
+      "%doy" = "--dry-run=client -o yaml | bat -l yaml";
+      "%oyq" = "-o yaml | yq eval";
+      "%oj" = "-o json | bat -l json";
+      "%doj" = "--dry-run=client -o json | bat -l json";
+      "%ojq" = "-o json | jq";
+      "%jwt" = " | jwt decode - | bat --language json";
+      "%osks" = " -o yaml | showksec | bat --language yaml";
+      "%sks" = " | showksec | bat --language yaml";
+      "%l" = " | relog";
+
+      "%b64d" = " | base64 -d";
+      "%b64" = " | base64";
+      "%b64dx509" = " | base64 -d | openssl x509 -noout -text";
+      "%x509" = " | openssl x509 -noout -text";
+      "%ocacrt" = ''-o json | jq '.data["ca.crt"]' -r | base64 -d | openssl x509 -noout -text'';
+      "%otlscrt" = ''-o json | jq '.data["tls.crt"]' -r | base64 -d | openssl x509 -noout -text'';
+    };
+
+    sessionVariables = {
+      KUBECOLOR_OBJ_FRESH = "20h";
+    };
+
+    antidote = {
+      enable = true;
+      plugins = [
+        "getantidote/use-omz"
+        "ohmyzsh/ohmyzsh path:plugins/git"
+        "wfxr/forgit kind:defer"
+      ];
+    };
+  };
+
+  programs.carapace = {
+    enable = true;
+    enableZshIntegration = true;
+    package = pkgs-unstable.carapace;
+  };
+
+  programs.starship.enable = true;
+  programs.starship.enableZshIntegration = true;
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  services.ssh-agent.enable = true;
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
   };
 
   # Seems to be bugged until https://github.com/NixOS/nixpkgs/pull/267878

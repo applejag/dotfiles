@@ -135,6 +135,22 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "kallefagerberg";
 
+  programs.zsh = {
+    enable = true;
+    autosuggestions = {
+      enable = true;
+      async = true;
+    };
+    syntaxHighlighting = {
+      enable = true;
+      highlighters = ["main" "brackets" "pattern" "regexp" "root" "line"];
+      # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/pattern.md
+      patterns = {
+        "rm -rf *" = "fg=white,bold,bg=red";
+      };
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kallefagerberg = {
     isNormalUser = true;
@@ -144,6 +160,7 @@
       "dialout" # Talk through serial for IoT
       "wireshark" # capture network dumps
     ];
+    shell = pkgs.zsh;
     packages =
     (with pkgs; [
       # GUI apps
@@ -209,8 +226,6 @@
       editorconfig-core-c
 
       # Shell
-      starship # prompt
-      zsh
       zsh-forgit # git+fzf
 
       # Python
@@ -244,9 +259,6 @@
       kubecolor # kubectl wrapper that adds colors
       stern # logs aggregator
       kubebuilder # operator CLI tool
-
-      # Shell
-      carapace # completions
 
       # Zig
       zig
