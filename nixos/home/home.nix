@@ -469,6 +469,7 @@
   home.sessionVariables = {
     GTK_THEME = "Catppuccin-Macchiato-Compact-Teal-Dark";
     PNPM_HOME = "$HOME/.local/share/pnpm";
+    EDITOR = "nvim";
   };
 
   home.sessionPath = [
