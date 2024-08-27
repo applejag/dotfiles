@@ -96,6 +96,9 @@
       # Resetting weird Forgit aliases
       gro = "cd $(git rev-parse --show-toplevel)";
 
+      kc = "kubectx";
+      kn = "kubens";
+
       kubectl = "kubecolor";
       k = "kubectl";
       kd = "kubectl describe";
