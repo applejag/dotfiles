@@ -34,6 +34,11 @@
     autocd = true;
     initExtra = ''
       compdef kubecolor=kubectl
+
+      autoload -Uz select-word-style
+      select-word-style normal
+      # default: '*?_-.[]~=/&;!#$%^(){}<>'
+      WORDCHARS='*?~#$%^'
     '';
     #autosuggestion.enable = true;
     completionInit = "";
