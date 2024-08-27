@@ -181,6 +181,15 @@
 
     sessionVariables = {
       KUBECOLOR_OBJ_FRESH = "20h";
+      PAGER = "less --raw-control-chars --quit-if-one-screen";
+      KIND_EXPERIMENTAL_PROVIDER = "podman";
+
+      # goss/dgoss
+      CONTAINER_RUNTIME = "podman";
+
+      FORGIT_PAGER = "bat";
+      FORGIT_DIFF_PAGER = "delta --line-numbers";
+      FORGIT_SHOW_PAGER = "delta --line-numbers";
     };
 
     antidote = {
@@ -459,10 +468,14 @@
 
   home.sessionVariables = {
     GTK_THEME = "Catppuccin-Macchiato-Compact-Teal-Dark";
+    PNPM_HOME = "$HOME/.local/share/pnpm";
   };
 
   home.sessionPath = [
-      "$HOME/.krew/bin"
+    "$HOME/.krew/bin"
+    "$HOME/go/bin"
+    "$HOME/.local/share/pnpm"
+    "$HOME/.local/bin"
   ];
 
   qt = {
