@@ -221,6 +221,11 @@
     enableZshIntegration = true;
   };
 
+  programs.navi = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   services.ssh-agent.enable = true;
   programs.ssh = {
     enable = true;
