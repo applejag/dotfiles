@@ -415,7 +415,7 @@
         };
       };
       url = {
-        "ssh://git@github.2rioffice.com/" = {
+        "ssh://git@github.2rioffice.com" = {
           insteadOf = "https://github.2rioffice.com";
         };
       };
