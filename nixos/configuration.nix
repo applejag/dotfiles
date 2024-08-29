@@ -201,6 +201,7 @@
       tree-sitter # CLI for creating tree-sitter grammars
       viddy # watch alternative
       nh # nix helper CLI
+      kind # Kubernetes in Docker
 
       age # encryption
       direnv # load .envrc files
