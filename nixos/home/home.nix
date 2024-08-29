@@ -480,6 +480,7 @@
     GTK_THEME = "Catppuccin-Macchiato-Compact-Teal-Dark";
     PNPM_HOME = "$HOME/.local/share/pnpm";
     EDITOR = "nvim";
+    GOPRIVATE = "github.2rioffice.com";
   };
 
   home.sessionPath = [
