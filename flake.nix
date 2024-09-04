@@ -38,6 +38,10 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    flox = {
+      url = "github:flox/flox";
+    };
+
     applejag-dinkur-src = {
       url = "github:applejag/dinkur";
       flake = false;
@@ -67,6 +71,7 @@
     nixos-hardware,
     home-manager,
     zig-src,
+    flox,
     applejag-dinkur-src,
     applejag-dinkur-statusline-src,
     applejag-showksec-src,
@@ -98,6 +103,10 @@
                 "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
               ];
             };
+
+            users.users.${username}.packages = [
+              flox.packages.${system}.default
+            ];
           }
 
           flake-programs-sqlite.nixosModules.programs-sqlite
