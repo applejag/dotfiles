@@ -226,11 +226,6 @@
     enableZshIntegration = true;
   };
 
-  programs.pyenv = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
   services.ssh-agent.enable = true;
   programs.ssh = {
     enable = true;

@@ -148,6 +148,7 @@
           ./nixos/home/dinkur.nix
           ./nixos/home/showksec.nix
           ./nixos/home/rootless-personio.nix
+          ./nixos/home/pyenv.nix
         ];
         extraSpecialArgs = {
           inherit username;
