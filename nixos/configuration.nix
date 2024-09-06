@@ -249,7 +249,7 @@
       sops
       opentofu # terraform alternative
       risor # Go scripting language
-      charm-freeze
+      #charm-freeze
 
       # Kubernetes
       kubectl

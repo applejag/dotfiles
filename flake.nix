@@ -75,7 +75,10 @@
     system = "x86_64-linux";
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system}.extend (final: prev: {
+      go = prev.go_1_23;
+      buildGoModule = prev.buildGo123Module;
+    });
     pkgs-master = nixpkgs-master.legacyPackages.${system};
     username = "kallefagerberg";
     name = "Kalle";
@@ -114,7 +117,6 @@
                 zig = super.zig.overrideAttrs (final: prev: {
                   src = zig-src;
                 });
-                go = super.go_1_23;
               })
             ];
           })
