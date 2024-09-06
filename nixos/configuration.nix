@@ -283,6 +283,7 @@
       govulncheck # SAST
       templ # HTML templating
       cue # config language
+      ko # builder
     ]) ++ (
     let
       my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
