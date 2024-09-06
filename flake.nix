@@ -127,6 +127,7 @@
                 zig = super.zig.overrideAttrs (final: prev: {
                   src = zig-src;
                 });
+                go = super.go_1_23;
               })
             ];
           })

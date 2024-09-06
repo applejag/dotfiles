@@ -270,7 +270,7 @@
       erlang_nox
 
       # Go
-      #go_1_23
+      go
       gotools # e.g goimports
       gofumpt # formatter
       gopls # language server
@@ -283,8 +283,6 @@
       govulncheck # SAST
       templ # HTML templating
       cue # config language
-    ]) ++ (with pkgs-master; [
-      go_1_23
     ]) ++ (
     let
       my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
