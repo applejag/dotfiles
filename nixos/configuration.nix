@@ -260,6 +260,7 @@
       #kubecolor # kubectl wrapper that adds colors
       stern # logs aggregator
       kubebuilder # operator CLI tool
+      vcluster # virtual cluster, i.e kubernetes in kubernetes
 
       # Zig
       zig
