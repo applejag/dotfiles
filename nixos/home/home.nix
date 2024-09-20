@@ -313,6 +313,7 @@
       nvim-treesitter-parsers.nix
       nvim-treesitter-parsers.org
       nvim-treesitter-parsers.passwd
+      nvim-treesitter-parsers.promql
       nvim-treesitter-parsers.python
       nvim-treesitter-parsers.regex
       nvim-treesitter-parsers.requirements
