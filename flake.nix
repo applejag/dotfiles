@@ -31,6 +31,11 @@
       flake = false;
     };
 
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -65,6 +70,7 @@
     nixos-hardware,
     home-manager,
     zig-src,
+    zen-browser,
     applejag-dinkur-src,
     applejag-dinkur-statusline-src,
     applejag-showksec-src,
@@ -96,6 +102,20 @@
               trusted-public-keys = [
                 "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
               ];
+            };
+
+            users.users.${username} = {
+              packages = [
+                zen-browser.packages."${system}".default
+              ];
+            };
+            environment.etc = {
+              "1password/custom_allowed_browsers" = {
+                text = ''
+                  .zen-wrapped
+                '';
+                mode = "0755";
+              };
             };
           }
 
