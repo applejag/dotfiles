@@ -251,6 +251,7 @@
       opentofu # terraform alternative
       risor # Go scripting language
       #charm-freeze
+      jwt-cli # jwt parser/encoder
 
       # Kubernetes
       kubectl
