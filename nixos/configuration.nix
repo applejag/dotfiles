@@ -254,6 +254,7 @@
       jwt-cli # jwt parser/encoder
 
       # Kubernetes
+      kubecolor
       kubectl
       kubectl-klock # :D
       kubectl-cnpg # CloudNativePG (Postgres operator)
