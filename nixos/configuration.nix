@@ -133,8 +133,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "kallefagerberg";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "kallefagerberg";
 
   programs.zsh = {
     enable = true;
