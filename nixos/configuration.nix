@@ -203,6 +203,7 @@
       viddy # watch alternative
       nh # nix helper CLI
       kind # Kubernetes in Docker
+      wrk # HTTP benchmark tool
 
       age # encryption
       direnv # load .envrc files
