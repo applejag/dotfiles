@@ -204,6 +204,7 @@
       nh # nix helper CLI
       kind # Kubernetes in Docker
       wrk # HTTP benchmark tool
+      graphviz-nox # Graph making tools, without X11
 
       age # encryption
       direnv # load .envrc files
