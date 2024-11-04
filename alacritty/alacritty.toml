@@ -1,3 +1,4 @@
+[general]
 import = [ "~/.config/alacritty/themes/themes/dracula.toml" ]
 
 [colors]
@@ -375,7 +376,7 @@ mods = "Alt"
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t¦┆┆%"
 
-[shell]
+[terminal.shell]
 program = "zsh"
 args = ["--login"]
 
