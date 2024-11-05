@@ -21,6 +21,10 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts.border = opts.border or border
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+vim.api.nvim_set_keymap('n', '<space>k', '<cmd>lua vim.diagnostic.open_float()<CR>', {
+    noremap=true,
+    silent=true
+})
 
 -- Setup language servers.
 local lspconfig = require 'lspconfig'
