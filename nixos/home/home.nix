@@ -249,6 +249,9 @@
       "profile identiq-dev" = {
         "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh 2mftaukxoesjxf33q6j5dyukci";
       };
+      "profile frida-dr" = {
+        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh bypg34vpnv2e5vdm6oo4ll5gia";
+      };
     };
   };
 
