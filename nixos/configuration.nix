@@ -173,7 +173,6 @@
       onlyoffice-bin
       #emacs-git # Emacs 28+, for Doom Emacs
       #emacs29-pgtk
-      virt-manager
       #hedgewars # TODO: reenable, but for now it fails to build
       inkscape
 
@@ -364,7 +363,7 @@
   # For virt-manager
   # https://nixos.wiki/wiki/Virt-manager
   virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true;
+  programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
