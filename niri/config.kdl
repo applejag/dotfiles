@@ -16,14 +16,14 @@ environment {
 // Laptop monitor (Samsung Display Corp.)
 output "eDP-1" {
     mode "2880x1800@60.001"
-	scale 1.0
+	scale 1.75
 	position x=0 y=0
 }
 
 // Home  (nlenovo Group Limited LEN P27h-10)
 output "DP-8" {
 	mode "2560x1440@59.951"
-	scale 2.0
+	scale 1.0
 	position x=2880 y=0
 }
 
