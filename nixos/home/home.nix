@@ -238,19 +238,35 @@
     enable = true;
     settings = {
       "profile frida-prod" = {
-        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh 325jrwwckodnkxxpwchjojk35i";
+        sso_session = "riskident";
+        sso_account_id = 450622064308;
+        sso_role_name = "PowerUserAccess";
       };
       "profile frida-dev" = {
-        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh vib37uxuuj4tryrbqairhhc7yy";
+        sso_session = "riskident";
+        sso_account_id = 887791524047;
+        sso_role_name = "PowerUserAccess";
       };
       "profile platform-playground" = {
-        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh 6rfhu4wjjzgaivzuroixhxjacq";
-      };
-      "profile identiq-dev" = {
-        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh 2mftaukxoesjxf33q6j5dyukci";
+        sso_session = "riskident";
+        sso_account_id = 128307692781;
+        sso_role_name = "PowerUserAccess";
       };
       "profile frida-dr" = {
-        "credential_process" = "/home/kallefagerberg/dotfiles/scripts/op-aws-cred.sh bypg34vpnv2e5vdm6oo4ll5gia";
+        sso_session = "riskident";
+        sso_account_id = 686255960303;
+        sso_role_name = "PowerUserAccess";
+      };
+      "profile shared-services" = {
+        sso_session = "riskident";
+        sso_account_id = 698864150901;
+        sso_role_name = "PowerUserAccess";
+      };
+
+      "sso-session riskident" = {
+        sso_region = "eu-central-1";
+        sso_start_url = "https://d-99676417af.awsapps.com/start/#";
+        sso_registration_scopes = "sso:account:access";
       };
     };
   };
