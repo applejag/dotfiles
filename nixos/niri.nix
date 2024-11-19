@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   programs.niri = {
@@ -23,33 +23,28 @@
   };
 
   users.users.kallefagerberg = {
-    packages = with pkgs; [
+    packages = (with pkgs; [
       # Desktop environment
       kdePackages.elisa
       #kdePackages.dolphin # KDE file manager
       #kdePackages.kdialog # KDE file picker
-
       networkmanagerapplet # NetworkManager (nm-applet)
 
+
+    ]) ++ (with pkgs-unstable; [
       alsa-utils # tools like amixer to control audio
       brightnessctl # screen brightness
       pwvucontrol # Pipewire volume control
       #pavucontrol # PulseAudio volume control
       swayidle # detects idle
       swaylock-effects # swaylock fork with better effects
-      rofi-wayland # runner
       wlopm # power management (turn off monitors)
       wlogout # logout screen
       swaynotificationcenter
-
-      #slurp # select region
-      #grim # take screenshot
-      #swappy # edit screenshot
+      fuzzel # runner
       wl-clipboard # paste to clipboard
-
-      # Core libs
-      xwayland
-    ];
+      xwayland-satellite # rootless xwayland
+    ]);
   };
 
   services.gnome.gnome-keyring.enable = true;

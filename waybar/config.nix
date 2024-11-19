@@ -8,9 +8,9 @@
     # Choose the order of the modules
     modules-left = [
       "image#nix-snowflake"
-      "hyprland/workspaces"
+      "niri/workspaces"
       "custom/dinkur"
-      "hyprland/window"
+      "niri/window"
     ];
     modules-center = [];
     modules-right = [
@@ -29,7 +29,20 @@
       on-click = "wlogout";
       size = 24;
     };
-    # Modules configuration
+    # Niri
+    "niri/workspaces" = {
+      format = "{icon} {name}";
+      format-icons = {
+        active = "";
+        default = "";
+      };
+    };
+    "niri/window" = {
+      format = "{title}";
+      separate-outputs = true;
+      icon = true;
+    };
+    # Hyprland
     "hyprland/workspaces" = {
       format = "{icon} {windows}";
       window-rewrite-default = "";
@@ -55,6 +68,7 @@
         "org.kde.dolphin" = "";
       };
     };
+    # River
     "river/tags" = {
       num-tags = 9;
     };
@@ -62,7 +76,7 @@
       max-length = 48;
     };
     "custom/dinkur" = {
-      exec = "~/go/bin/dinkur-statusline --color pango";
+      exec = "dinkur-statusline --color pango";
       interval = 1;
     };
     mpd = {

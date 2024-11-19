@@ -1,4 +1,4 @@
-{ config, pkgs, lib, username, ... }:
+{ config, pkgs, pkgs-unstable, lib, username, ... }:
 
 {
   # Hint electron apps to use Wayland
@@ -8,6 +8,7 @@
     enable = true;
     settings = import ../../waybar/config.nix;
     style = ../../waybar/style.css;
+    package = pkgs-unstable.waybar;
   };
 
   home.file.".config/niri/config.kdl" = {

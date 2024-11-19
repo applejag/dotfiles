@@ -3,6 +3,8 @@ spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "birdtray"
+spawn-at-startup "swaync"
+spawn-at-startup "xwayland-satellite"
 
 prefer-no-csd
 
@@ -10,21 +12,25 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 environment {
 	QT_QPA_PLATFORM "wayland"
-	DISPLAY null
+	DISPLAY ":0" // xwayland-satellite
 }
 
 // Laptop monitor (Samsung Display Corp.)
 output "eDP-1" {
-    mode "2880x1800@60.001"
+	mode "2880x1800@60.001"
 	scale 1.75
 	position x=0 y=0
 }
 
-// Home  (nlenovo Group Limited LEN P27h-10)
+// Home monitor (nlenovo Group Limited LEN P27h-10)
 output "DP-8" {
 	mode "2560x1440@59.951"
 	scale 1.0
-	position x=2880 y=0
+	// laptop monitor has size:
+	// "Logical size: 1645x1028"
+	// We want bottom to match
+	// 1028 - 1440 = -412
+	position x=1646 y=-412
 }
 
 layout {
@@ -46,10 +52,10 @@ binds {
 	Mod+Shift+Slash { show-hotkey-overlay; }
 
 	Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+	Ctrl+Alt+Delete { quit; }
 
 	Mod+Return repeat=false { spawn "alacritty"; }
-	Mod+P      repeat=false { spawn "sh" "-c" "pkill rofi || rofi -show drun -show-icons"; }
+	Mod+P      repeat=false { spawn "sh" "-c" "pkill fuzzel || fuzzel"; }
 
 	Mod+Shift+C { close-window; }
 
@@ -117,36 +123,51 @@ binds {
 
 	Mod+Tab { focus-workspace-previous; }
 
-    // The following binds move the focused window in and out of a column.
-    // If the window is alone, they will consume it into the nearby column to the side.
-    // IF the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+	// The following binds move the focused window in and out of a column.
+	// If the window is alone, they will consume it into the nearby column to the side.
+	// IF the window is already in a column, they will expel it out.
+	Mod+BracketLeft  { consume-or-expel-window-left; }
+	Mod+BracketRight { consume-or-expel-window-right; }
 
-    // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
-    // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
+	// Consume one window from the right to the bottom of the focused column.
+	Mod+Comma  { consume-window-into-column; }
+	// Expel the bottom window from the focused column to the right.
+	Mod+Period { expel-window-from-column; }
 
-    Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
-    Mod+C { center-column; }
+	Mod+R { switch-preset-column-width; }
+	Mod+Shift+R { switch-preset-window-height; }
+	Mod+Ctrl+R { reset-window-height; }
+	Mod+F { maximize-column; }
+	Mod+Shift+F { fullscreen-window; }
+	Mod+C { center-column; }
 
-    Mod+Space       { switch-layout "next"; }
-    Mod+Shift+Space { switch-layout "prev"; }
+	Mod+Space       { switch-layout "next"; }
+	Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
-    Mod+Ctrl+Alt+Shift+P { screenshot; }
+	Print { screenshot; }
+	Ctrl+Print { screenshot-screen; }
+	Alt+Print { screenshot-window; }
+	Mod+Ctrl+Alt+Shift+P { screenshot; }
 
-    Mod+Shift+P { power-off-monitors; }
+	Mod+Shift+P { power-off-monitors; }
 
 	// Volume Keybinds
 	XF86AudioRaiseVolume allow-when-locked=true { spawn "amixer" "set" "Master" "5%+"; }
 	XF86AudioLowerVolume allow-when-locked=true { spawn "amixer" "set" "Master" "5%-"; }
 	XF86AudioMute allow-when-locked=true { spawn "amixer" "set" "Master" "toggle"; }
+}
+
+window-rule {
+	open-maximized true
+	geometry-corner-radius 4
+	clip-to-geometry true
+}
+
+window-rule {
+	match app-id="Alacritty"
+	open-maximized false
+}
+
+window-rule {
+	match app-id="com.nextcloud.desktopclient.nextcloud"
 }
