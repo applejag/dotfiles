@@ -11,24 +11,24 @@
   };
 
   home.file."hyprpaper.conf" = {
-    source = ../hypr/hyprpaper.conf;
+    source = ../../hypr/hyprpaper.conf;
     target = ".config/hypr/hyprpaper.conf";
   };
 
   home.file."hypridle.conf" = {
-    source = ../hypr/hypridle.conf;
+    source = ../../hypr/hypridle.conf;
     target = ".config/hypr/hypridle.conf";
   };
 
   home.file."hyprlock.conf" = {
-    source = ../hypr/hyprlock.conf;
+    source = ../../hypr/hyprlock.conf;
     target = ".config/hypr/hyprlock.conf";
   };
 
   programs.waybar = {
     enable = true;
-    settings = import ../waybar/config.nix;
-    style = ../waybar/style.css;
+    settings = import ../../waybar/config.nix;
+    style = ../../waybar/style.css;
   };
 
   nix = {

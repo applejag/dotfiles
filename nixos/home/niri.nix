@@ -6,13 +6,12 @@
 
   programs.waybar = {
     enable = true;
-    settings = import ../waybar/config.nix;
-    style = ../waybar/style.css;
+    settings = import ../../waybar/config.nix;
+    style = ../../waybar/style.css;
   };
 
-  home.file."niri-config.kdl" = {
-    source = config.lib.file.mkOutOfStoreSymlink ../../niri;
-    target = ".config/niri";
+  home.file.".config/niri/config.kdl" = {
+    source = ../../niri/config.kdl;
   };
 
   nix = {
