@@ -128,6 +128,7 @@
     zsh
     plasma
     Hyprland
+    niri-session
   '';
 
   # Enable touchpad support (enabled default in most desktopManager).

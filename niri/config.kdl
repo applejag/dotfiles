@@ -1,0 +1,27 @@
+
+spawn-at-startup "waybar"
+spawn-at-startup "nm-applet"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "birdtray"
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+environment {
+	QT_QPA_PLATFORM "wayland"
+	DISPLAY null
+}
+
+binds {
+    Mod+Shift+E { quit; }
+
+    Mod+Return repeat=false { spawn "alacritty"; }
+
+	Mod+P repeat=false { spawn "sh" "-c" "pkill rofi || rofi -show drun -show-icons"; }
+
+	// Volume Keybinds
+	XF86AudioRaiseVolume allow-when-locked=true { spawn "amixer" "set" "Master" "5%+"; }
+	XF86AudioLowerVolume allow-when-locked=true { spawn "amixer" "set" "Master" "5%-"; }
+	XF86AudioMute allow-when-locked=true { spawn "amixer" "set" "Master" "toggle"; }
+}
