@@ -343,6 +343,7 @@
     "steam"
     "steam-original"
     "steam-run"
+    "steam-unwrapped"
   ];
 
   programs.wireshark.enable = true;
