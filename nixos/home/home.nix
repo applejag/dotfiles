@@ -324,6 +324,7 @@
       nvim-treesitter-parsers.json
       nvim-treesitter-parsers.json5
       nvim-treesitter-parsers.jsonc
+      nvim-treesitter-parsers.kdl
       nvim-treesitter-parsers.lua
       nvim-treesitter-parsers.make
       nvim-treesitter-parsers.markdown
