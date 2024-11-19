@@ -36,6 +36,7 @@
       brightnessctl # screen brightness
       pwvucontrol # Pipewire volume control
       #pavucontrol # PulseAudio volume control
+      swww # wallpaper
       swayidle # detects idle
       swaylock-effects # swaylock fork with better effects
       wlopm # power management (turn off monitors)
