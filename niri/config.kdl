@@ -159,7 +159,7 @@ binds {
 }
 
 window-rule {
-	open-maximized true
+	//open-maximized true
 	geometry-corner-radius 4
 	clip-to-geometry true
 }
@@ -170,5 +170,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id="com.nextcloud.desktopclient.nextcloud"
+	match app-id="Slack"
+	match app-id="thunderbird"
+	open-maximized true
 }
