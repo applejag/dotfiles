@@ -20,18 +20,23 @@ environment {
 output "eDP-1" {
 	mode "2880x1800@60.001"
 	scale 1.75
-	position x=0 y=0
+	// laptop monitor has size:
+	//   "Logical size: 1645x1028"
+	// desktop monitor has size:
+	//   "Logical size: 2560x1440"
+	// We want bottoms of screens to match, therefore:
+	// 1440 - 1028 = -412
+	//
+	// NOTE: Must not use negative numbers as that messes up XWayland:
+	// https://github.com/Supreeeme/xwayland-satellite/issues/58#issuecomment-2460688816
+	position x=0 y=412
 }
 
 // Home monitor (nlenovo Group Limited LEN P27h-10)
 output "DP-8" {
 	mode "2560x1440@59.951"
 	scale 1.0
-	// laptop monitor has size:
-	// "Logical size: 1645x1028"
-	// We want bottom to match
-	// 1028 - 1440 = -412
-	position x=1646 y=-412
+	position x=1646 y=0
 }
 
 layout {
