@@ -164,6 +164,11 @@ binds {
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 }
 
+cursor {
+	xcursor-theme "Bibata-Modern-Ice"
+	xcursor-size 24
+}
+
 window-rule {
 	//open-maximized true
 	geometry-corner-radius 4
