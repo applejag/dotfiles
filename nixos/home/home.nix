@@ -338,6 +338,7 @@
       nvim-treesitter-parsers.regex
       nvim-treesitter-parsers.requirements
       nvim-treesitter-parsers.rst
+      nvim-treesitter-parsers.ruby
       nvim-treesitter-parsers.scala
       nvim-treesitter-parsers.sql
       nvim-treesitter-parsers.ssh_config
