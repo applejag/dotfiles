@@ -119,3 +119,42 @@
           (block_scalar) @injection.content
           (#set! injection.language "promql")
           (#offset! @injection.content 0 1 0 0))))))
+
+; Elastic Filebeat hints
+(block_mapping_pair
+  key: (flow_node) @_hints_raw
+  (#match? @_hints_raw "^co\\.elastic\\.logs(\\.\\w+)?/raw$")
+  value: (flow_node
+    (plain_scalar
+      (string_scalar) @injection.content)
+    (#set! injection.language "json")))
+
+(block_mapping_pair
+  key: (flow_node) @_hints_raw
+  (#match? @_hints_raw "^co\\.elastic\\.logs(\\.\\w+)?/raw$")
+  value: (block_node
+    (block_scalar) @injection.content
+    (#set! injection.language "json")
+    (#offset! @injection.content 0 1 0 0)))
+
+(block_mapping_pair
+  key: (flow_node) @_hints_raw
+  (#match? @_hints_raw "^co\\.elastic\\.logs(\\.\\w+)?/raw$")
+  value: (block_node
+    (block_sequence
+      (block_sequence_item
+        (flow_node
+          (plain_scalar
+            (string_scalar) @injection.content))
+        (#set! injection.language "json")))))
+
+(block_mapping_pair
+  key: (flow_node) @_hints_raw
+  (#match? @_hints_raw "^co\\.elastic\\.logs(\\.\\w+)?/raw$")
+  value: (block_node
+    (block_sequence
+      (block_sequence_item
+        (block_node
+          (block_scalar) @injection.content
+          (#set! injection.language "json")
+          (#offset! @injection.content 0 1 0 0))))))
