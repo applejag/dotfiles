@@ -482,6 +482,7 @@
       bookmarks = [
         "file:///home/kallefagerberg/Downloads"
         "file:///home/kallefagerberg/Documents"
+        "file:///home/kallefagerberg/Nextcloud"
         "file:///home/kallefagerberg/code"
         "file:///home/kallefagerberg/code/ri"
         "file:///home/kallefagerberg/code/ri/platform"
@@ -489,17 +490,13 @@
       ];
 
       extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
+        gtk-application-prefer-dark-theme = 1;
       };
     };
 
     gtk4 = {
       extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
+        gtk-application-prefer-dark-theme = 1;
       };
     };
   };
