@@ -313,7 +313,8 @@
     ubuntu_font_family
     font-awesome
     intel-one-mono
-    (nerdfonts.override { fonts = [ "FiraCode" "IntelOneMono" ]; })
+    nerd-fonts.fira-code # FiraCode
+    nerd-fonts.intone-mono # IntoneMono (Intel One Mono)
   ]) ++ (with pkgs-unstable; [
     monocraft
     miracode # monocraft but vectorized
