@@ -336,6 +336,7 @@
       nvim-treesitter-parsers.markdown_inline
       nvim-treesitter-parsers.mermaid
       nvim-treesitter-parsers.nix
+      nvim-treesitter-parsers.ocaml
       nvim-treesitter-parsers.org
       nvim-treesitter-parsers.passwd
       nvim-treesitter-parsers.promql
