@@ -465,11 +465,10 @@
     enable = true;
     theme = {
       name = "Catppuccin-Macchiato-Compact-Teal-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "teal" ];
+      package = pkgs-unstable.magnetic-catppuccin-gtk.override {
+        accent = [ "teal" ];
         size = "compact";
-        tweaks = [ "rimless" "black" ];
-        variant = "macchiato";
+        tweaks = [ "macchiato" "black" ];
       };
     };
 
@@ -588,12 +587,6 @@
       "x-scheme-handler/webcal" = email;
       "x-scheme-handler/webcals" = email;
     };
-  };
-
-  xdg.configFile = {
-    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
 
   xdg.dataFile = let
