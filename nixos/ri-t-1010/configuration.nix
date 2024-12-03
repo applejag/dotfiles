@@ -16,5 +16,6 @@
   services.beesd.filesystems."nixos" = {
     spec = "LABEL=nixos";
     hashTableSizeMB = 128;
+    extraOptions = [ "--thread-count" "4" ];
   };
 }
