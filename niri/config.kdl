@@ -22,19 +22,27 @@ output "eDP-1" {
 	scale 1.75
 	// laptop monitor has size:
 	//   "Logical size: 1645x1028"
-	// desktop monitor has size:
-	//   "Logical size: 2560x1440"
+	// desktop monitor @ home: "Logical size: 2560x1440"
+	// desktop monitor @ work: "Logical size: 2752x1152"
 	// We want bottoms of screens to match, therefore:
-	// 1440 - 1028 = -412
+	// 1440 - 1028 = 412
 	//
 	// NOTE: Must not use negative numbers as that messes up XWayland:
 	// https://github.com/Supreeeme/xwayland-satellite/issues/58#issuecomment-2460688816
 	position x=0 y=412
 }
 
+// Work monitor
+output "Lenovo Group Limited P34w-20 VVC73994" {
+	mode "3440x1440@59.973"
+	scale 1.25 // "Logical size: 2752x1152"
+	// 1440 - 1152 = 288
+	position x=1646 y=288
+}
+
 // Home monitor (nlenovo Group Limited LEN P27h-10)
 output "DP-8" {
-	mode "2560x1440@59.951"
+	mode "2560x1440@59.951" // "Logical size: 2560x1440"
 	scale 1.0
 	position x=1646 y=0
 }
