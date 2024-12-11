@@ -48,9 +48,9 @@ output "Lenovo Group Limited P34w-20 VVC73994" {
 	position x=1646 y=288
 }
 
-// Home monitor (nlenovo Group Limited LEN P27h-10)
-output "DP-8" {
-	mode "2560x1440@59.951" // "Logical size: 2560x1440"
+// Home monitor
+output "Microstep MEG 342C OLED Unknown" {
+	mode "3440x1440@174.962" // "Logical size: 3440x1440"
 	scale 1.0
 	position x=1646 y=0
 }
