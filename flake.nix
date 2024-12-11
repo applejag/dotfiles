@@ -28,9 +28,7 @@
     };
 
     nixos-cosmic = {
-      # Using latest commit from https://github.com/lilyinstarlight/nixos-cosmic/pull/510
-      # to use Cosmic Alpha 4
-      url = "github:lilyinstarlight/nixos-cosmic/151dc6b68f745c6388f23017552fa12286073607";
+      url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
@@ -68,7 +66,7 @@
     applejag-dinkur-statusline-src,
     applejag-showksec-src,
     applejag-rootless-personio-src,
-    nixos-cosmic,
+    #nixos-cosmic,
     ... }:
   let
     system = "x86_64-linux";
@@ -123,7 +121,7 @@
           #./nixos/kde.nix
           ./nixos/niri.nix
 
-          nixos-cosmic.nixosModules.default
+          #nixos-cosmic.nixosModules.default
           #./nixos/cosmic.nix
 
           nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
