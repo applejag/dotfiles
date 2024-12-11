@@ -88,11 +88,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1733899591,
-        "narHash": "sha256-RoorulWjr3ZXb5Dyhir2Vi3RIJUL3fENqMvUt+Yqn/A=",
+        "lastModified": 1733911441,
+        "narHash": "sha256-i1AoCpy+Sjmzy7xbcxFB3iC+6M8yi+TYnbrY1/awom8=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "d42e72dbb2cf6f227a6b88d389a560114d9cd981",
+        "rev": "56ef6b73c679b3ddc422f132744f9ae7dc9af6f7",
         "type": "github"
       },
       "original": {
@@ -132,16 +132,17 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1733708804,
-        "narHash": "sha256-PiUrztTiR4aVRC2fMdNcOWYWF1ojvqbrSUYmhtp3970=",
+        "lastModified": 1733871914,
+        "narHash": "sha256-BGKP6XO5WL0wqGLeyYqCwLAbXLm9Ra2cvA1dCepKuQk=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "1531210f371ecf966ff67e87975f684553bdbbf7",
+        "rev": "151dc6b68f745c6388f23017552fa12286073607",
         "type": "github"
       },
       "original": {
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
+        "rev": "151dc6b68f745c6388f23017552fa12286073607",
         "type": "github"
       }
     },

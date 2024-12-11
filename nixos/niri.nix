@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, username, ... }:
 
 {
   programs.niri = {
@@ -22,7 +22,7 @@
     };
   };
 
-  users.users.kallefagerberg = {
+  users.users.${username} = {
     packages = (with pkgs; [
       # Desktop environment
       kdePackages.elisa
@@ -30,6 +30,18 @@
       #kdePackages.kdialog # KDE file picker
       networkmanagerapplet # NetworkManager (nm-applet)
 
+      # Some Cosmic apps to complement
+      cosmic-applets
+      cosmic-icons
+      cosmic-notifications
+      cosmic-panel
+      cosmic-settings
+      cosmic-settings-daemon
+      cosmic-wallpapers
+      hicolor-icon-theme
+      pop-icon-theme
+      pop-launcher
+      xdg-user-dirs
 
     ]) ++ (with pkgs-unstable; [
       alsa-utils # tools like amixer to control audio
@@ -51,8 +63,6 @@
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
 
-  security.polkit.enable = true;
-
   # KDE polkit
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
@@ -69,4 +79,20 @@
   };
 
   programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
+
+  # required dbus services by Cosmic DE (and basically good to have services)
+  programs.dconf.enable = true;
+  services.accounts-daemon.enable = true;
+  services.upower.enable = true;
+  security.polkit.enable = true;
+  security.rtkit.enable = true;
+
+  xdg.mime.enable = true;
+  xdg.icons.enable = true;
+  services.libinput.enable = true;
+
+  environment.pathsToLink = [
+    "/share/backgrounds"
+    "/share/cosmic"
+  ];
 }
