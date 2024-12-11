@@ -1,15 +1,6 @@
 {
   description = "My NixOS flake";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://cosmic.cachix.org/" # https://github.com/lilyinstarlight/nixos-cosmic
-    ];
-    extra-trusted-public-keys = [
-      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-    ];
-  };
-
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
