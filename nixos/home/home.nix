@@ -139,6 +139,7 @@
       (kubectl-abbrs "ds" "daemonset")
       (kubectl-abbrs "i" "ingress")
       (kubectl-abbrs "ir" "ingressroute")
+      (kubectl-abbrs "irt" "ingressroutetcp")
       (kubectl-abbrs "j" "job")
       (kubectl-abbrs "n" "node")
       (kubectl-abbrs "ns" "namespace")
@@ -152,6 +153,7 @@
       (kubectl-abbrs "sc" "storageclass")
       (kubectl-abbrs "sec" "secret")
       (kubectl-abbrs "ss" "statefulset")
+      (kubectl-abbrs "g" "gateway")
 
     ];
 
