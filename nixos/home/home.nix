@@ -125,8 +125,8 @@
       keti = "kubectl exec -it";
       kpf = "kubectl port-forward";
 
-      kdg = "kubectl debug";
-      kdgti = "kubectl debug -it";
+      #kdg = "kubectl debug";
+      #kdgti = "kubectl debug -it";
     }
 
       (kubectl-abbrs "c" "certificate")
