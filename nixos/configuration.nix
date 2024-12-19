@@ -109,9 +109,7 @@
   services.pipewire = {
     enable = true;
     alsa.enable = true;
-    # This should be supported, but I get error:
-    # "The option `services.pipewire.alsa.support32bit' does not exist."
-    #alsa.support32bit = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
   };
 
