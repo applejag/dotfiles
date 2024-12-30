@@ -232,7 +232,7 @@
 
       # Python
       poetry # dependency manager
-      python311
+      python3
 
       # Core libs
       coreutils # needed for Doom Emacs
