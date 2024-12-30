@@ -32,6 +32,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
+    };
+
     applejag-dinkur-src = {
       url = "github:applejag/dinkur";
       flake = false;
@@ -67,6 +72,7 @@
     applejag-showksec-src,
     applejag-rootless-personio-src,
     #nixos-cosmic,
+    ghostty,
     ... }:
   let
     system = "x86_64-linux";
@@ -101,8 +107,10 @@
             users.users.${username} = {
               packages = [
                 zen-browser.packages."${system}".default
+                ghostty.packages."${system}".default
               ];
             };
+
             environment.etc = {
               "1password/custom_allowed_browsers" = {
                 text = ''
