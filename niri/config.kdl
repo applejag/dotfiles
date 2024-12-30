@@ -76,7 +76,8 @@ binds {
 	Mod+Shift+E { quit; }
 	Ctrl+Alt+Delete { quit; }
 
-	Mod+Return repeat=false { spawn "alacritty"; }
+	//Mod+Return repeat=false { spawn "alacritty"; }
+	Mod+Return repeat=false { spawn "ghostty" "--gtk-single-instance=true"; }
 	Mod+P      repeat=false { spawn "sh" "-c" "pkill fuzzel || fuzzel"; }
 
 	Mod+Shift+C { close-window; }
