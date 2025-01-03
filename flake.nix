@@ -33,7 +33,7 @@
     };
 
     ghostty = {
-      url = "github:ghostty-org/ghostty";
+      url = "github:ghostty-org/ghostty/v1.0.1";
       inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
     };
 
