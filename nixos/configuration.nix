@@ -111,7 +111,7 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = false;
+    pulse.enable = true;
 
     extraConfig.pipewire."92-low-latency" = {
       "context.properties" = {
