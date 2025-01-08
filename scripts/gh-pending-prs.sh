@@ -3,9 +3,9 @@
 GH_USER="kalle-fagerberg"
 export GH_HOST="github.2rioffice.com"
 
-PRS_TO_REVIEW="$(gh search prs --review-requested "$GH_USER" --state open --review required --json id --template '{{len .}}')"
-PRS_TO_MERGE="$(gh search prs --author "$GH_USER" --state open --review approved --json id --template '{{len .}}')"
-PRS_TO_CHANGE="$(gh search prs --author "$GH_USER" --state open --review changes_requested --json id --template '{{len .}}')"
+PRS_TO_REVIEW="$(gh search prs --review-requested "$GH_USER" --state open --review required --archived=false --json id --template '{{len .}}')"
+PRS_TO_MERGE="$(gh search prs --author "$GH_USER" --state open --review approved --archived=false --json id --template '{{len .}}')"
+PRS_TO_CHANGE="$(gh search prs --author "$GH_USER" --state open --review changes_requested --archived=false --json id --template '{{len .}}')"
 
 echo -n "<b>[GitHub]</b> "
 
