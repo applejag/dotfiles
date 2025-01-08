@@ -14,6 +14,7 @@
     ];
     modules-center = [];
     modules-right = [
+      "custom/prs"
       "tray"
       "custom/notification"
       "idle_inhibitor"
@@ -78,6 +79,11 @@
     "custom/dinkur" = {
       exec = "dinkur-statusline --color pango";
       interval = 1;
+    };
+    "custom/prs" = {
+      exec = ../scripts/gh-pending-prs.sh;
+      interval = 300;
+      on-click = "xdg-open https://github.2rioffice.com/pulls";
     };
     mpd = {
       format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} {volume}% ";
