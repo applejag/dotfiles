@@ -249,25 +249,54 @@
         sso_account_id = 450622064308;
         sso_role_name = "PowerUserAccess";
       };
+      "profile frida-prod-admin" = {
+        sso_session = "riskident";
+        sso_account_id = 450622064308;
+        sso_role_name = "AdministratorAccess";
+      };
+
       "profile frida-dev" = {
         sso_session = "riskident";
         sso_account_id = 887791524047;
         sso_role_name = "PowerUserAccess";
       };
+      "profile frida-dev-admin" = {
+        sso_session = "riskident";
+        sso_account_id = 887791524047;
+        sso_role_name = "AdministratorAccess";
+      };
+
       "profile platform-playground" = {
         sso_session = "riskident";
         sso_account_id = 128307692781;
         sso_role_name = "PowerUserAccess";
       };
+      "profile platform-playground-admin" = {
+        sso_session = "riskident";
+        sso_account_id = 128307692781;
+        sso_role_name = "AdministratorAccess";
+      };
+
       "profile frida-dr" = {
         sso_session = "riskident";
         sso_account_id = 686255960303;
         sso_role_name = "PowerUserAccess";
       };
+      "profile frida-dr-admin" = {
+        sso_session = "riskident";
+        sso_account_id = 686255960303;
+        sso_role_name = "AdministratorAccess";
+      };
+
       "profile shared-services" = {
         sso_session = "riskident";
         sso_account_id = 698864150901;
         sso_role_name = "PowerUserAccess";
+      };
+      "profile shared-services-admin" = {
+        sso_session = "riskident";
+        sso_account_id = 698864150901;
+        sso_role_name = "AdministratorAccess";
       };
 
       "sso-session riskident" = {
