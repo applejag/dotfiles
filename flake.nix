@@ -23,7 +23,7 @@
     };
 
     zen-browser = {
-      url = "github:ch4og/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
