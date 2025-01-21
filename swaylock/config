@@ -7,14 +7,13 @@ show-keyboard-layout
 fade-in=1
 # Buggy: https://github.com/jirutka/swaylock-effects/issues/46
 #screenshots
-#effect-pixelate=7
-#effect-vignette=0.7:0.7
+effect-pixelate=7
+effect-vignette=0.7:0.7
 clock
 indicator
 grace=5
 grace-no-mouse
-#image=~/Pictures/Wallpaper/1561845449-201900764-abstraction-nevseoboi.com.ua.jpg
-image=~/Pictures/Wallpaper/simon-berger-twukN12EN7c-unsplash.jpg
+#image=~/Nextcloud/Photos/wallpaper/simonstalenhag/1.jpg
 
 # Color palette taken from the "Dark dimmed" GitHub theme
 color=22272e
@@ -36,4 +35,4 @@ text-wrong-color=e5534b
 indicator-radius=120
 indicator-thickness=16
 font-size=30
-font=Monocraft
+font=Miracode

@@ -38,7 +38,7 @@
       #pavucontrol # PulseAudio volume control
       swww # wallpaper
       swayidle # detects idle
-      swaylock-effects # swaylock fork with better effects
+      hyprlock # lock screen
       wlopm # power management (turn off monitors)
       wlogout # logout screen
       swaynotificationcenter

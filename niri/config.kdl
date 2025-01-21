@@ -6,6 +6,7 @@ spawn-at-startup "birdtray"
 spawn-at-startup "swaync"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "swayidle" "-w" "timeout" "300" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "timeout" "310" "hyprlock" "before-sleep" "hyprlock"
 
 prefer-no-csd
 
@@ -76,9 +77,10 @@ binds {
 	Mod+Shift+E { quit; }
 	Ctrl+Alt+Delete { quit; }
 
-	Mod+Return repeat=false { spawn "alacritty"; }
-	//Mod+Return repeat=false { spawn "ghostty" "--gtk-single-instance=true"; }
-	Mod+P      repeat=false { spawn "sh" "-c" "pkill fuzzel || fuzzel"; }
+	Mod+Return                repeat=false { spawn "alacritty"; }
+	//Mod+Return                repeat=false { spawn "ghostty" "--gtk-single-instance=true"; }
+	Mod+P                     repeat=false { spawn "sh" "-c" "pkill fuzzel || fuzzel"; }
+	Mod+Ctrl+Alt+Shift+L      repeat=false { spawn "sh" "-c" "hyprlock -c ~/dotfiles/hypr/hyprlock.conf"; }
 
 	Mod+Shift+C { close-window; }
 

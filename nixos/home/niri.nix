@@ -15,6 +15,11 @@
     source = ../../niri/config.kdl;
   };
 
+  home.file."hyprlock.conf" = {
+    source = ../../hypr/hyprlock.conf;
+    target = ".config/hypr/hyprlock.conf";
+  };
+
   nix = {
     package = pkgs.nix;
     settings = {
