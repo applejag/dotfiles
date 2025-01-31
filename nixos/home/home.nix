@@ -495,12 +495,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Macchiato-Compact-Teal-Dark";
-      package = pkgs-unstable.magnetic-catppuccin-gtk.override {
-        accent = [ "teal" ];
-        size = "compact";
-        tweaks = [ "macchiato" "black" ];
-      };
+      name = "Adwaita-dark";
+      package = pkgs-unstable.gnome-themes-extra;
     };
 
     cursorTheme = {
@@ -532,7 +528,7 @@
   };
 
   home.sessionVariables = {
-    GTK_THEME = "Catppuccin-Macchiato-Compact-Teal-Dark";
+    GTK_THEME = "Adwaita-dark";
     PNPM_HOME = "$HOME/.local/share/pnpm";
     EDITOR = "nvim";
     GOPRIVATE = "github.2rioffice.com";
@@ -546,12 +542,11 @@
   ];
 
   qt = {
-    enable = false;
+    enable = true;
     platformTheme.name = "kde";
     style = {
       name = "kvantum";
       package = with pkgs; [
-        libsForQt5.qtstyleplugin-kvantum
         kdePackages.qtstyleplugin-kvantum
         kdePackages.breeze-icons
       ];
