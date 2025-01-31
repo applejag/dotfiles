@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
-GH_USER="kalle-fagerberg"
 export GH_HOST="github.2rioffice.com"
+GH_USER="$(yq ".[\"$GH_HOST\"].user" ~/.config/gh/hosts.yml)"
+echo "Using user: $GH_USER" >&2
 
-PRS_TO_REVIEW="$(gh search prs --review-requested "$GH_USER" --state open --review required --archived=false --draft=false --json id --template '{{len .}}')"
+if ! PRS_TO_REVIEW="$(gh search prs --review-requested "$GH_USER" --state open --review required --archived=false --draft=false --json id --template '{{len .}}')"; then
+	echo -n "<b>[GitHub]</b> "
+	echo -n "<span foreground='red'>failed to load</span>"
+	exit 0
+fi
+
 PRS_TO_MERGE="$(gh search prs --author "$GH_USER" --state open --review approved --archived=false --draft=false --json id --template '{{len .}}')"
 PRS_TO_CHANGE="$(gh search prs --author "$GH_USER" --state open --review changes_requested --archived=false --draft=false --json id --template '{{len .}}')"
 
