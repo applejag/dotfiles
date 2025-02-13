@@ -285,10 +285,15 @@
       erlang_nox
 
       # Go
-      go
+      go_1_24
       gotools # e.g goimports
       gofumpt # formatter
-      gopls # language server
+      #gopls # language server
+      (extend (final: prev: {
+        go = prev.go_1_24;
+        buildGoModule = prev.buildGo124Module;
+      })).gopls
+
       gore # REPL
       revive # linter
       goreleaser # release tool
