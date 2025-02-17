@@ -615,15 +615,15 @@
     };
   };
 
-  xdg.dataFile = let
-    nodeVersion = "node-v22.5.1-linux-x64";
-    nodePackage = pkgs.nodejs_22;
-  in {
-    "zed/node/${nodeVersion}/bin".source = "${nodePackage}/bin";
-    "zed/node/${nodeVersion}/include".source = "${nodePackage}/include";
-    "zed/node/${nodeVersion}/lib".source = "${nodePackage}/lib";
-    "zed/node/${nodeVersion}/share".source = "${nodePackage}/share";
-  };
+  #xdg.dataFile = let
+  #  nodeVersion = "node-v22.5.1-linux-x64";
+  #  nodePackage = pkgs.nodejs_22;
+  #in {
+  #  "zed/node/${nodeVersion}/bin".source = "${nodePackage}/bin";
+  #  "zed/node/${nodeVersion}/include".source = "${nodePackage}/include";
+  #  "zed/node/${nodeVersion}/lib".source = "${nodePackage}/lib";
+  #  "zed/node/${nodeVersion}/share".source = "${nodePackage}/share";
+  #};
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
