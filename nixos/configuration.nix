@@ -271,10 +271,10 @@
       kubectl-cnpg # CloudNativePG (Postgres operator)
       kubectx
       kubelogin-oidc
-      #kubecolor # kubectl wrapper that adds colors
       stern # logs aggregator
       kubebuilder # operator CLI tool
       vcluster # virtual cluster, i.e kubernetes in kubernetes
+      chart-testing
 
       # Zig
       zig
