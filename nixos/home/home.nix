@@ -237,6 +237,7 @@
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
+    includes = [ "custom.conf" ];
   };
 
   # Seems to be bugged until https://github.com/NixOS/nixpkgs/pull/267878
