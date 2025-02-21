@@ -217,7 +217,8 @@
 
       age # encryption
       direnv # load .envrc files
-      nodejs_20
+      nodejs_22
+      deno # nodejs, but better
 
       # Linters
       shellcheck
