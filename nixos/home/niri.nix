@@ -31,4 +31,34 @@
       ];
     };
   };
+
+  systemd.user = {
+    services = {
+      swww-img = {
+        Unit = {
+          Description = "Change swww wallpaper";
+        };
+        Service = {
+          Type = "oneshot";
+          ExecStart = ../../scripts/swww-img.sh;
+        };
+        Install = {
+          WantedBy = ["default.target"];
+        };
+      };
+    };
+    timers = {
+      swww-img = {
+        Unit = {
+          Description = "Change swww wallpaper on an interval";
+        };
+        Timer = {
+          OnCalendar = "*:0,30";
+        };
+        Install = {
+          WantedBy = ["timers.target"];
+        };
+      };
+    };
+  };
 }
