@@ -14,7 +14,7 @@ echo "Using user: $GH_USER" >&2
 if ! PRS_TO_REVIEW="$(gh search prs --review-requested "$GH_USER" --state open --review required --archived=false --draft=false --json id --template '{{len .}}' "${extraArgs[@]}")"; then
 	echo -n "<b>$icon</b>  "
 	echo -n "<span foreground='red'>failed to load</span>"
-	return 0
+	exit 0
 fi
 
 PRS_TO_MERGE="$(gh search prs --author "$GH_USER" --state open --review approved --archived=false --draft=false --json id --template '{{len .}}' "${extraArgs[@]}")"
