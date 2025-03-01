@@ -3,7 +3,7 @@
 
 .nix-snowflake {
     border: 1px solid #505055;
-    background-color: #252528;
+    background-color: alpha(#252528, 0.45);
     padding: 0.2rem 0.6rem;
     margin: 0;
     border-radius: 500rem;
@@ -13,7 +13,7 @@
 
 #workspaces {
     border: 1px solid #505055;
-    background-color: #404050;
+    background-color: alpha(#404050, 0.45);
     padding: 0.2rem 0.2rem;
     margin: 4px 4px;
     border-radius: 500rem;
@@ -66,7 +66,7 @@
 
 .modules-left > widget > label,
 .modules-right > widget > label {
-    background-color: alpha(#252528, 0.75);
+    background-color: alpha(#252528, 0.45);
     padding: 4px 12px;
 
     border-radius: 500rem;
@@ -81,7 +81,7 @@
 }
 
 .modules-left > widget:hover > label {
-    background-color: #282832;
+    background-color: alpha(#282832, 0.45);
 }
 
 .modules-right > widget > label {
@@ -110,7 +110,7 @@ window#waybar {
 }
 
 window#waybar > box.horizontal {
-    background-color: alpha(#252528, 0.75);
+    background-color: alpha(#252528, 0.45);
     border: 1px solid #505055;
     margin: 4px 8px;
     margin-bottom: 0;
@@ -187,32 +187,32 @@ label:focus {
 }
 
 #custom-media {
-    background-color: #66cc99;
+    background-color: alpha(#66cc99, 0.45);
     color: #2a5c45;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    background-color: alpha(#66cc99, 0.45);
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    background-color: alpha(#ffa000, 0.45);
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color: alpha(#f0932b, 0.45);
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: alpha(#eb4d4b, 0.45);
 }
 
 #tray {
     color: #ffffff;
 
     border: 1px solid #505055;
-    background-color: #404050;
+    background-color: alpha(#404050, 0.45);
     padding: 0 0.2rem;
     margin: 4px 4px;
     border-radius: 500rem;
@@ -234,7 +234,7 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: alpha(#eb4d4b, 0.45);
 }
 
 #tray .popup {
@@ -273,7 +273,7 @@ label:focus {
 }
 
 #language {
-    background: #00b093;
+    background-color: alpha(#00b093, 0.45);
     color: #740864;
     padding: 0 5px;
     margin: 0 5px;
@@ -281,7 +281,7 @@ label:focus {
 }
 
 #keyboard-state {
-    background: #97e1ad;
+    background-color: alpha(#97e1ad, 0.45);
     color: #000000;
     padding: 0 0px;
     margin: 0 5px;
