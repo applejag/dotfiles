@@ -51,12 +51,15 @@
     background-color: mix(@theme_selected_bg_color, #C0C0C0, 0.1);
 }
 
-/* Hyprland window */
+/* Hyprland/Niri window */
 
 #window {
     padding: 4px 12px;
     border: none;
     border-radius: 0;
+}
+
+#window label {
     font-family: Ubuntu;
     font-size: 14px;
 }
