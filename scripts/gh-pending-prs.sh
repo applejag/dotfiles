@@ -6,6 +6,8 @@ icon="${2:?Missing required arg}"
 shift 2
 extraArgs=("$@")
 
+echo "<b>$icon</b> <span foreground='gray'><i>loading…</i></span>"
+
 export GH_HOST="$host"
 echo "Using host: $GH_HOST" >&2
 GH_USER="$(yq ".[\"$GH_HOST\"].user" ~/.config/gh/hosts.yml)"
@@ -13,7 +15,7 @@ echo "Using user: $GH_USER" >&2
 
 if ! PRS_TO_REVIEW="$(gh search prs --review-requested "$GH_USER" --state open --review required --archived=false --draft=false --json id --template '{{len .}}' "${extraArgs[@]}")"; then
 	echo -n "<b>$icon</b>  "
-	echo -n "<span foreground='red'>failed to load</span>"
+	echo "<span foreground='red'>failed to load</span>"
 	exit 0
 fi
 

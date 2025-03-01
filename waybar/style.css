@@ -21,7 +21,6 @@
 
 #workspaces button {
     padding: 0 12px;
-    margin: 0;
     color: #9090AA;
     min-height: 1.6rem;
     min-width: 1.6rem;
@@ -66,7 +65,6 @@
 
 .modules-left > widget > label,
 .modules-right > widget > label {
-    background-color: alpha(#252528, 0.45);
     padding: 4px 12px;
 
     border-radius: 500rem;
@@ -74,6 +72,9 @@
 
     min-width: 28px;
     min-height: 28px;
+
+    background-color: alpha(#404050, 0.45);
+    margin: 4px 4px;
 }
 
 .modules-left > widget > label {
@@ -90,8 +91,11 @@
 
 /* Dinkur */
 #custom-dinkur {
+    background-color: alpha(#404050, 0.45);
     color: #adbac7;
+    margin: 4px 4px;
 }
+
 
 /* Other default styling taken from
  * https://github.com/Alexays/Waybar/blob/0.9.13/resources/style.css
@@ -110,7 +114,8 @@ window#waybar {
 }
 
 window#waybar > box.horizontal {
-    background-color: alpha(#252528, 0.45);
+    /*background-color: alpha(#252528, 0.45);*/
+    background-image: linear-gradient(to bottom, alpha(#555555, 0.45), alpha(#252528, 0.45));
     border: 1px solid #505055;
     margin: 4px 8px;
     margin-bottom: 0;
@@ -122,10 +127,15 @@ window#waybar.hidden {
 }
 
 #clock {
+    background-color: alpha(#252528, 0.45);
+    margin: 0 0 0 8px;
 }
 
 #battery {
     color: #fff;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 #battery.charging, #battery.plugged {
@@ -155,6 +165,9 @@ label:focus {
 #cpu {
     color: #2ecc71;
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 #memory {
@@ -166,6 +179,9 @@ label:focus {
 
 #backlight {
     color: #e6e600;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 #network {
@@ -179,6 +195,9 @@ label:focus {
 
 #pulseaudio {
     color: #f1c40f;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 #pulseaudio.muted {
@@ -187,7 +206,8 @@ label:focus {
 }
 
 #custom-media {
-    background-color: alpha(#66cc99, 0.45);
+    background-color: transparent;
+    padding: 0;
     color: #2a5c45;
     min-width: 100px;
 }
@@ -243,10 +263,16 @@ label:focus {
 
 #custom-notification {
     font-family: "FiraCode Nerd Font";
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 #idle_inhibitor {
     color: #ecf0f1;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 #idle_inhibitor.activated {

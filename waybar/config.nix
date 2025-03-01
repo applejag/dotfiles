@@ -83,12 +83,12 @@
     };
     "custom/prs-internal" = {
       exec = "${../scripts/gh-pending-prs.sh} github.2rioffice.com 󰦝";
-      interval = 300;
+      restart-interval = 300;
       on-click = "xdg-open 'https://github.2rioffice.com/pulls'";
     };
     "custom/prs-github-com" = {
       exec = "${../scripts/gh-pending-prs.sh} github.com  --owner=RiskIdent";
-      interval = 300;
+      restart-interval = 300;
       on-click = "xdg-open 'https://github.com/pulls?q=is%3Aopen+is%3Apr+author%3Aapplejag+archived%3Afalse+owner%3ARiskIdent'";
     };
     mpd = {
