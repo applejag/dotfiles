@@ -9,7 +9,7 @@
     border-radius: 500rem;
 }
 
-/* Hyprland workspaces */
+/* Hyprland/Niri workspaces */
 
 #workspaces {
     border: 1px solid #505055;
@@ -49,6 +49,10 @@
 
 #workspaces button:hover {
     background-color: mix(@theme_selected_bg_color, #C0C0C0, 0.1);
+}
+
+#workspaces button.empty {
+    color: #953953;
 }
 
 /* Hyprland/Niri window */
