@@ -63,6 +63,7 @@ lspconfig.nixd.setup {}
 lspconfig.terraformls.setup {}
 lspconfig.astro.setup {}
 lspconfig.bashls.setup {}
+lspconfig.fish_lsp.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.zls.setup {}
 lspconfig.gleam.setup {}

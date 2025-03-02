@@ -17,7 +17,7 @@ shape = "Block"
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t¦┆┆%"
 
 [terminal.shell]
-program = "zsh"
+program = "fish"
 args = ["--login"]
 
 [window]

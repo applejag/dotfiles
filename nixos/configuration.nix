@@ -162,6 +162,10 @@
     };
   };
 
+  programs.fish = {
+    enable = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kallefagerberg = {
     isNormalUser = true;
@@ -171,7 +175,7 @@
       "dialout" # Talk through serial for IoT
       "wireshark" # capture network dumps
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     packages =
     (with pkgs; [
       # GUI apps
@@ -226,6 +230,7 @@
       yamllint
 
       # Language servers
+      fish-lsp
       helm-ls
       lua-language-server
       nixd

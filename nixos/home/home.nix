@@ -1,5 +1,183 @@
 { config, pkgs, pkgs-unstable, lib, username, ... }:
-{
+let
+  kubectl-abbrs = moniker: resource: {
+    "kdel${moniker}" = "kubectl delete ${resource}";
+    "kd${moniker}" = "kubectl describe ${resource}";
+    "ke${moniker}" = "kubectl edit ${resource}";
+    "kw${moniker}" = "kubectl klock ${resource}";
+    "kw${moniker}A" = "kubectl klock ${resource} --all-namespaces";
+    "kg${moniker}" = "kubectl get ${resource}";
+    "kg${moniker}A" = "kubectl get ${resource} --all-namespaces";
+  };
+  shellAliases = lib.mkMerge [{
+    grep = "grep --color";
+    cat = "bat --decorations never";
+    ls = "exa --color=always --group-directories-first -al --icons --git";
+
+    p = "podman";
+    docker = "podman";
+
+    u = "dinkur";
+    uy = "dinkur ls -r yesterday";
+    ud = "dinkur ls -r today";
+    uw = "dinkur ls -r week";
+    ulw = "dinkur ls -r lastweek";
+    ua = "dinkur ls -r all";
+
+    tf = "tofu";
+    tfi = "tofu init";
+    tfa = "tofu apply";
+    tfd = "tofu destroy";
+    tfp = "tofu plan";
+    tfo = "tofu output";
+
+    a = "ansible";
+    ag = "ansible-galaxy";
+    ai = "ansible-inventory";
+    ap = "ansible-playbook";
+    av = "ansible-vault";
+    avc = "ansible-vault create";
+    ave = "ansible-vault edit";
+    avv = "ansible-vault view";
+
+    gla = "git pull --all --prune --jobs=10";
+    # Resetting weird Forgit aliases
+    gro = "cd $(git rev-parse --show-toplevel)";
+
+    kc = "kubectx";
+    kn = "kubens";
+
+    kubectl = "kubecolor";
+    k = "kubectl";
+    kd = "kubectl describe";
+    kg = "kubectl get";
+    kw = "kubectl klock";
+    ke = "kubectl edit";
+    kdel = "kubectl delete";
+    kdelf = "kubectl delete -f";
+    kcf = "kubectl create -f";
+    krf = "kubectl replace -f";
+    krr = "kubectl rollout restart";
+    krrd = "kubectl rollout restart deployment";
+    krrss = "kubectl rollout restart statefulset";
+    kv = "kubectl version";
+    ka = "kubectl apply";
+    kaf = "kubectl apply -f";
+    kl = "kubectl logs";
+    klf = "kubectl logs -f";
+    keti = "kubectl exec -it";
+    kpf = "kubectl port-forward";
+
+    #kdg = "kubectl debug";
+    #kdgti = "kubectl debug -it";
+  }
+
+    (kubectl-abbrs "c" "certificate")
+    (kubectl-abbrs "cj" "cronjob")
+    (kubectl-abbrs "cm" "configmap")
+    (kubectl-abbrs "cr" "clusterrole")
+    (kubectl-abbrs "crb" "clusterrolebinding")
+    (kubectl-abbrs "csec" "clustersecret")
+    (kubectl-abbrs "d" "deployment")
+    (kubectl-abbrs "ds" "daemonset")
+    (kubectl-abbrs "i" "ingress")
+    (kubectl-abbrs "ir" "ingressroute")
+    (kubectl-abbrs "irt" "ingressroutetcp")
+    (kubectl-abbrs "j" "job")
+    (kubectl-abbrs "n" "node")
+    (kubectl-abbrs "ns" "namespace")
+    (kubectl-abbrs "p" "pod")
+    (kubectl-abbrs "pv" "pv")
+    (kubectl-abbrs "pvc" "pvc")
+    (kubectl-abbrs "r" "role")
+    (kubectl-abbrs "rb" "rolebinding")
+    (kubectl-abbrs "s" "service")
+    (kubectl-abbrs "sa" "serviceaccount")
+    (kubectl-abbrs "sc" "storageclass")
+    (kubectl-abbrs "sec" "secret")
+    (kubectl-abbrs "ss" "statefulset")
+    (kubectl-abbrs "g" "gateway")
+  ];
+
+  fishShellAliases = lib.mkMerge [shellAliases
+    {
+      # ZSH gets these completions from the ohmyzsh Git plugin
+      g = "git";
+      ga = "git add";
+      gaa = "git add --all";
+      gb = "git branch";
+      gbD = "git branch --delete --force";
+      gba = "git branch --all";
+      gbd = "git branch --delete";
+      gbm = "git branch --move";
+      gc = "git commit --verbose";
+      gcB = "git checkout -B";
+      gcb = "git checkout -b";
+      gcm = "git checkout $(git-main-branch)";
+      gco = "git checkout";
+      gcor = "git checkout --recurse-submodules";
+      gcp = "git cherry-pick";
+      gcpa = "git cherry-pick --abort";
+      gcpc = "git cherry-pick --continue";
+      gf = "git fetch";
+      gfa = "git fetch --all --prune --jobs=10";
+      gl = "git pull";
+      gla = "git pull --all --prune --jobs=10";
+      glog = "git log --oneline --decorate --graph";
+      gloga = "git log --oneline --decorate --graph --all";
+      gm = "git merge";
+      gma = "git merge --abort";
+      gmc = "git merge --continue";
+      gmom = "git merge origin/$(git-main-branch)";
+      gms = "git merge --squash";
+      gmum = "git merge upstream/$(git-main-branch)";
+      gp = "git push";
+      gpf = "git push --force-with-lease --force-if-includes";
+      gpristine = "git reset --hard && git clean --force -dfx";
+      gpsup = "git push -u origin $(git-current-branch)";
+      gr = "git remote";
+      gra = "git remote add";
+      grb = "git rebase";
+      grba = "git rebase --abort";
+      grbc = "git rebase --continue";
+      grbi = "git rebase --interactive";
+      grbm = "git rebase $(git-main-branch)";
+      grbo = "git rebase --onto";
+      grbom = "git rebase origin/$(git-main-branch)";
+      grbs = "git rebase --skip";
+      grbum = "git rebase upstream/$(git-main-branch)";
+      grev = "git revert";
+      greva = "git revert --abort";
+      grevc = "git revert --continue";
+      grh = "git reset";
+      grhh = "git reset --hard";
+      grhk = "git reset --keep";
+      grhs = "git reset --soft";
+      grm = "git rm";
+      grmc = "git rm --cached";
+      gru = "git reset --";
+      grv = "git remote --verbose";
+      gsb = "git status --short --branch";
+      gsh = "git show";
+      gsps = "git show --pretty=short --show-signature";
+      gss = "git status --short";
+      gst = "git status";
+      gsta = "git stash push";
+      gstaa = "git stash apply";
+      gstall = "git stash --all";
+      gstc = "git stash clear";
+      gstd = "git stash drop";
+      gstl = "git stash list";
+      gstp = "git stash pop";
+      gsw = "git switch";
+      gswc = "git switch --create";
+      gswm = "git switch $(git-main-branch)";
+      gta = "git tag --annotate";
+      gts = "git tag --sign";
+      gtv = "git tag | sort -V";
+    }
+  ];
+in {
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
@@ -27,6 +205,7 @@
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
+    #enableFishIntegration = true;
   };
 
   programs.zsh = {
@@ -55,107 +234,7 @@
       "rip" = "$HOME/code/ri/platform";
       "rik" = "$HOME/code/ri/kalle-fagerberg";
     };
-    shellAliases = let
-      kubectl-abbrs = moniker: resource: {
-        "kdel${moniker}" = "kubectl delete ${resource}";
-        "kd${moniker}" = "kubectl describe ${resource}";
-        "ke${moniker}" = "kubectl edit ${resource}";
-        "kw${moniker}" = "kubectl klock ${resource}";
-        "kw${moniker}A" = "kubectl klock ${resource} --all-namespaces";
-        "kg${moniker}" = "kubectl get ${resource}";
-        "kg${moniker}A" = "kubectl get ${resource} --all-namespaces";
-      };
-    in lib.mkMerge [{
-      grep = "grep --color";
-      cat = "bat --decorations never";
-      ls = "exa --color=always --group-directories-first -al --icons --git";
-
-      p = "podman";
-      docker = "podman";
-
-      u = "dinkur";
-      uy = "dinkur ls -r yesterday";
-      ud = "dinkur ls -r today";
-      uw = "dinkur ls -r week";
-      ulw = "dinkur ls -r lastweek";
-      ua = "dinkur ls -r all";
-
-      tf = "tofu";
-      tfi = "tofu init";
-      tfa = "tofu apply";
-      tfd = "tofu destroy";
-      tfp = "tofu plan";
-      tfo = "tofu output";
-
-      a = "ansible";
-      ag = "ansible-galaxy";
-      ai = "ansible-inventory";
-      ap = "ansible-playbook";
-      av = "ansible-vault";
-      avc = "ansible-vault create";
-      ave = "ansible-vault edit";
-      avv = "ansible-vault view";
-
-      # Additional git aliases
-      gla = "git pull --all --prune --jobs=10";
-      # Resetting weird Forgit aliases
-      gro = "cd $(git rev-parse --show-toplevel)";
-
-      kc = "kubectx";
-      kn = "kubens";
-
-      kubectl = "kubecolor";
-      k = "kubectl";
-      kd = "kubectl describe";
-      kg = "kubectl get";
-      kw = "kubectl klock";
-      ke = "kubectl edit";
-      kdel = "kubectl delete";
-      kdelf = "kubectl delete -f";
-      kcf = "kubectl create -f";
-      krf = "kubectl replace -f";
-      krr = "kubectl rollout restart";
-      krrd = "kubectl rollout restart deployment";
-      krrss = "kubectl rollout restart statefulset";
-      kv = "kubectl version";
-      ka = "kubectl apply";
-      kaf = "kubectl apply -f";
-      kl = "kubectl logs";
-      klf = "kubectl logs -f";
-      keti = "kubectl exec -it";
-      kpf = "kubectl port-forward";
-
-      #kdg = "kubectl debug";
-      #kdgti = "kubectl debug -it";
-    }
-
-      (kubectl-abbrs "c" "certificate")
-      (kubectl-abbrs "cj" "cronjob")
-      (kubectl-abbrs "cm" "configmap")
-      (kubectl-abbrs "cr" "clusterrole")
-      (kubectl-abbrs "crb" "clusterrolebinding")
-      (kubectl-abbrs "csec" "clustersecret")
-      (kubectl-abbrs "d" "deployment")
-      (kubectl-abbrs "ds" "daemonset")
-      (kubectl-abbrs "i" "ingress")
-      (kubectl-abbrs "ir" "ingressroute")
-      (kubectl-abbrs "irt" "ingressroutetcp")
-      (kubectl-abbrs "j" "job")
-      (kubectl-abbrs "n" "node")
-      (kubectl-abbrs "ns" "namespace")
-      (kubectl-abbrs "p" "pod")
-      (kubectl-abbrs "pv" "pv")
-      (kubectl-abbrs "pvc" "pvc")
-      (kubectl-abbrs "r" "role")
-      (kubectl-abbrs "rb" "rolebinding")
-      (kubectl-abbrs "s" "service")
-      (kubectl-abbrs "sa" "serviceaccount")
-      (kubectl-abbrs "sc" "storageclass")
-      (kubectl-abbrs "sec" "secret")
-      (kubectl-abbrs "ss" "statefulset")
-      (kubectl-abbrs "g" "gateway")
-
-    ];
+    shellAliases = shellAliases;
 
     shellGlobalAliases = {
       "%%" = "| grep";
@@ -215,22 +294,86 @@
     package = pkgs-unstable.carapace;
   };
 
-  programs.starship.enable = true;
-  programs.starship.enableZshIntegration = true;
+  programs.fish = {
+    enable = true;
+
+    shellAliases = fishShellAliases;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+
+    functions = {
+      git-main-branch = {
+        description = "Returns the main Git branch (if any)";
+        body = ''
+          if ! command git rev-parse &>/dev/null
+            return
+          end
+
+          for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk,mainline,default,stable,master}
+            if command git show-ref -q --verify $ref
+              string replace -r '^([^/]*/){2}' "" $ref
+              return 0
+            end
+          end
+
+          if command git config init.defaultBranch
+            return
+          end
+
+          echo master
+        '';
+      };
+      git-current-branch = {
+        description = "Returns the current Git branch (if any)";
+        body = ''
+          if ! command git rev-parse &>/dev/null
+            return
+          end
+          if ! command git symbolic-ref --quiet HEAD &>/dev/null
+            return
+          end
+          command git symbolic-ref --quiet --short HEAD
+        '';
+      };
+    };
+
+    plugins = [
+      {
+        name = "forgit";
+        src = pkgs-unstable.fishPlugins.forgit.src;
+      }
+    ];
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+  };
 
   programs.fzf = {
     enable = true;
+    enableFishIntegration = true;
     enableZshIntegration = true;
   };
 
   programs.navi = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.opam = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   services.ssh-agent.enable = true;
