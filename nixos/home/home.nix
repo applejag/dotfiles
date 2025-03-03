@@ -177,6 +177,40 @@ let
       gtv = "git tag | sort -V";
     }
   ];
+
+  shellGlobalAliases = {
+    "%%" = "| grep";
+    "%y" = "| bat -l yaml";
+    "%yq" = "| yq eval";
+    "%j" = "| bat -l json";
+    "%jq" = "| jq";
+    "%xml" = "| xmlstarlet fo | bat --language xml";
+    "%x" = "| xmlstarlet fo | bat --language xml";
+    "%html" = ''| xmlstarlet fo -H | sed "s/\]\]>//g; s/<!\[CDATA\[//g" |  bat --language html'';
+    "%h" = "| xmlstarlet fo -H | bat --language html";
+    "%oy" = "-o yaml | bat -l yaml";
+    "%doy" = "--dry-run=client -o yaml | bat -l yaml";
+    "%oyq" = "-o yaml | yq eval";
+    "%oj" = "-o json | bat -l json";
+    "%doj" = "--dry-run=client -o json | bat -l json";
+    "%ojq" = "-o json | jq";
+    "%jwt" = " | jwt decode - | bat --language json";
+    "%osks" = " -o yaml | showksec | bat --language yaml";
+    "%sks" = " | showksec | bat --language yaml";
+    "%l" = " | relog";
+
+    "%b64d" = " | base64 -d";
+    "%b64" = " | base64";
+    "%b64dx509" = " | base64 -d | openssl x509 -noout -text";
+    "%x509" = " | openssl x509 -noout -text";
+    "%ocacrt" = ''-o json | jq '.data["ca.crt"]' -r | base64 -d | openssl x509 -noout -text'';
+    "%otlscrt" = ''-o json | jq '.data["tls.crt"]' -r | base64 -d | openssl x509 -noout -text'';
+  };
+
+  fishShellAbbrs = builtins.mapAttrs (key: value: { 
+    position = "anywhere";
+    expansion = value;
+  }) shellGlobalAliases;
 in {
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -298,6 +332,7 @@ in {
     enable = true;
 
     shellAliases = fishShellAliases;
+    shellAbbrs = fishShellAbbrs;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
     '';
