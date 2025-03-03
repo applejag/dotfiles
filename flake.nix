@@ -56,6 +56,11 @@
       url = "github:applejag/rootless-personio";
       flake = false;
     };
+
+    jadolg-szero-src = {
+      url = "github:jadolg/szero";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -71,6 +76,7 @@
     applejag-dinkur-statusline-src,
     applejag-showksec-src,
     applejag-rootless-personio-src,
+    jadolg-szero-src,
     #nixos-cosmic,
     ghostty,
     ... }:
@@ -163,6 +169,7 @@
           ./nixos/home/dinkur.nix
           ./nixos/home/showksec.nix
           ./nixos/home/rootless-personio.nix
+          ./nixos/home/szero.nix
           ./nixos/home/pyenv.nix
         ];
         extraSpecialArgs = {
@@ -174,6 +181,7 @@
           inherit applejag-dinkur-statusline-src;
           inherit applejag-showksec-src;
           inherit applejag-rootless-personio-src;
+          inherit jadolg-szero-src;
         };
       };
     };

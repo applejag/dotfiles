@@ -180,6 +180,22 @@
         "type": "github"
       }
     },
+    "jadolg-szero-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739888147,
+        "narHash": "sha256-C1Yi/YAmV4UJVm40PTV6hjX1fyVELVs3MO3WKwTgpfM=",
+        "owner": "jadolg",
+        "repo": "szero",
+        "rev": "d6e7fe662ac3aedf3fcbf354ebfd49dd4e9ddf0d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jadolg",
+        "repo": "szero",
+        "type": "github"
+      }
+    },
     "nixos-cosmic": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -303,6 +319,7 @@
         "flake-programs-sqlite": "flake-programs-sqlite",
         "ghostty": "ghostty",
         "home-manager": "home-manager",
+        "jadolg-szero-src": "jadolg-szero-src",
         "nixos-cosmic": "nixos-cosmic",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
