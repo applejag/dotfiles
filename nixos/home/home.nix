@@ -338,6 +338,9 @@ in {
     '';
 
     functions = {
+      fish_user_key_bindings = ''
+        bind --preset \cw backward-kill-word
+      '';
       git-main-branch = {
         description = "Returns the main Git branch (if any)";
         body = ''
