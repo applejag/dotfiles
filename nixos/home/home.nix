@@ -299,19 +299,6 @@ in {
       "%otlscrt" = ''-o json | jq '.data["tls.crt"]' -r | base64 -d | openssl x509 -noout -text'';
     };
 
-    sessionVariables = {
-      KUBECOLOR_OBJ_FRESH = "20h";
-      PAGER = "less --raw-control-chars --quit-if-one-screen";
-      KIND_EXPERIMENTAL_PROVIDER = "podman";
-
-      # goss/dgoss
-      CONTAINER_RUNTIME = "podman";
-
-      FORGIT_PAGER = "bat";
-      FORGIT_DIFF_PAGER = "delta --line-numbers";
-      FORGIT_SHOW_PAGER = "delta --line-numbers";
-    };
-
     antidote = {
       enable = true;
       plugins = [
@@ -714,6 +701,17 @@ in {
     PNPM_HOME = "$HOME/.local/share/pnpm";
     EDITOR = "nvim";
     GOPRIVATE = "github.2rioffice.com";
+
+    KUBECOLOR_OBJ_FRESH = "20h";
+    PAGER = "less --raw-control-chars --quit-if-one-screen";
+    KIND_EXPERIMENTAL_PROVIDER = "podman";
+
+    # goss/dgoss
+    CONTAINER_RUNTIME = "podman";
+
+    FORGIT_PAGER = "bat";
+    FORGIT_DIFF_PAGER = "delta --line-numbers";
+    FORGIT_SHOW_PAGER = "delta --line-numbers";
   };
 
   home.sessionPath = [
