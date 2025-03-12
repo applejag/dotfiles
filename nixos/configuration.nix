@@ -300,6 +300,7 @@
         buildGoModule = prev.buildGo124Module;
       })).gopls
 
+      delve # debugger
       gore # REPL
       revive # linter
       goreleaser # release tool
