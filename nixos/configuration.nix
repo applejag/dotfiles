@@ -105,6 +105,9 @@
     ];
   };
 
+  # https://wiki.nixos.org/wiki/Displaylink
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+
   security.pam.loginLimits = [{
     domain = "*";
     type = "soft";
@@ -362,17 +365,17 @@
     xdg-utils
   ];
 
-
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "1password"
     "1password-cli"
+    "displaylink"
     "slack"
     "spotify"
-    "vault" # used by helm-secrets
     "steam"
     "steam-original"
     "steam-run"
     "steam-unwrapped"
+    "vault" # used by helm-secrets
   ];
 
   programs.wireshark.enable = true;
