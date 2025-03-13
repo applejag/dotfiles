@@ -26,4 +26,7 @@
       kde-rounded-corners # window borders theme
     ]);
   };
+
+  # Collides with services.power-profiles-daemon.enable from KDE
+  services.auto-cpufreq.enable = false;
 }
