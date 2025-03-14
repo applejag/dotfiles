@@ -23,6 +23,8 @@
       #  version = "47476380c587522cc1b2eb98aacd35a3c9e69241";
       #})
 
+      kdePackages.krohnkite # tiling window manager
+
       kde-rounded-corners # window borders theme
     ]);
   };
