@@ -9,17 +9,14 @@
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zig-src = {
-      url = "github:ziglang/zig/0.13.0";
-      flake = false;
+      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     zen-browser = {
@@ -64,13 +61,12 @@
   };
 
   outputs = {
-    nixpkgs,
+    #nixpkgs,
     nixpkgs-unstable,
     nixpkgs-master,
     flake-programs-sqlite,
     nixos-hardware,
     home-manager,
-    zig-src,
     zen-browser,
     applejag-dinkur-src,
     applejag-dinkur-statusline-src,
@@ -84,7 +80,8 @@
     system = "x86_64-linux";
     #lib = nixpkgs.lib;
     lib-unstable = nixpkgs-unstable.lib;
-    pkgs = nixpkgs.legacyPackages.${system};
+    #pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = nixpkgs-unstable.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     #pkgs-unstable = nixpkgs-unstable.legacyPackages.${system}.extend (final: prev: {
     #  go = prev.go_1_23;
@@ -139,16 +136,6 @@
           #./nixos/cosmic.nix
 
           nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
-
-          ({ ... }: {
-            nixpkgs.overlays = [
-              (self: super: {
-                zig = super.zig.overrideAttrs (final: prev: {
-                  src = zig-src;
-                });
-              })
-            ];
-          })
         ];
         specialArgs = {
           inherit username;
