@@ -106,7 +106,7 @@
   };
 
   # https://wiki.nixos.org/wiki/Displaylink
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  #services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
 
   security.pam.loginLimits = [{
     domain = "*";
@@ -368,7 +368,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "1password"
     "1password-cli"
-    "displaylink"
+    #"displaylink"
     "slack"
     "spotify"
     "steam"
