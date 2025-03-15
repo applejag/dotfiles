@@ -126,8 +126,8 @@
           ./nixos/ri-t-1010/configuration.nix
           ./nixos/configuration.nix
           #./nixos/hyprland.nix
-          ./nixos/kde.nix
-          #./nixos/niri.nix
+          #./nixos/kde.nix
+          ./nixos/niri.nix
 
           #nixos-cosmic.nixosModules.default
           #./nixos/cosmic.nix
@@ -148,7 +148,7 @@
         modules = [
           ./nixos/home/home.nix
           #./nixos/home/hyprland.nix
-          #./nixos/home/niri.nix
+          ./nixos/home/niri.nix
 
           ./nixos/home/dinkur.nix
           ./nixos/home/showksec.nix
