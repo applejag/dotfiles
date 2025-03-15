@@ -9,14 +9,12 @@
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      #inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
-      #inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
@@ -61,7 +59,7 @@
   };
 
   outputs = {
-    #nixpkgs,
+    nixpkgs,
     nixpkgs-unstable,
     nixpkgs-master,
     flake-programs-sqlite,
@@ -80,8 +78,7 @@
     system = "x86_64-linux";
     #lib = nixpkgs.lib;
     lib-unstable = nixpkgs-unstable.lib;
-    #pkgs = nixpkgs.legacyPackages.${system};
-    pkgs = nixpkgs-unstable.legacyPackages.${system};
+    pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     #pkgs-unstable = nixpkgs-unstable.legacyPackages.${system}.extend (final: prev: {
     #  go = prev.go_1_23;
