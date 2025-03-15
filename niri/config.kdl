@@ -17,43 +17,56 @@ environment {
 	DISPLAY ":0" // xwayland-satellite
 }
 
-// Laptop monitor (Samsung Display Corp.)
-output "eDP-1" {
+// My home setup monitor alignment chart
+// NOTE: Must not use negative numbers as that messes up XWayland:
+// https://github.com/Supreeeme/xwayland-satellite/issues/58#issuecomment-2460688816
+//          1645+1440=3085                                                       
+// ─────────────────────────────────►                                            
+// ┌───────────────► ┌─────────────┐            │                                
+// │    1645         │             │            │                                
+// │                 │             │            │ 544, no special alignment      
+// │                 │             │            │ it just felt better            
+// │                 │             │            │                                
+// │2560-1028=1532   │             │  1440x544  ▼                                
+// │ so it aligns    │             │ ┌───────────────────────────────────────┐   
+// │ along the bottom│             │ │                                       │   
+// ▼                 │  1440x2560  │ │                                       │   
+// ┌───────────────┐ │             │ │                                       │   
+// │               │ │             │ │              5120x1440                │   
+// │               │ │             │ │                                       │   
+// │   1645x1028   │ │             │ │                                       │   
+// │               │ │             │ │                                       │   
+// │               │ │             │ └─────────────────┬──┬──────────────────┘   
+// │               │ │             │                   │  │                      
+// ├┬┬┬┬┬┬┬┬┬┬┬┬┬┬─┤ └─────┬──┬────┘                   │  │                      
+// ├┼┼┼┼┼┼┼┼┼┼┼┼┼┼─┤   ┌───┴──┴──┐              ┌──────┴──┴──────┐               
+// ├┼┼┼┼┼┼┼┼┼┼┼┼┼┼┐│   └─────────┘              └────────────────┘               
+// ├┼┼┼┼┴┴┴┴┼┼┼┼┼┼┼┤                                                             
+// └┴┴┴┴────┴┴┴┴┴┴┴┘                                                             
+                                                                              
+
+// Laptop monitor
+output "Lenovo Group Limited 0x4145 Unknown" {
 	mode "2880x1800@60.001"
 	scale 1.75
 	// laptop monitor has size:
 	//   "Logical size: 1645x1028"
-	// desktop monitor @ home: "Logical size: 2560x1440"
-	// desktop monitor @ work: "Logical size: 2752x1152"
-	// We want bottoms of screens to match, therefore:
-	// 1440 - 1028 = 412
-	//
-	// NOTE: Must not use negative numbers as that messes up XWayland:
-	// https://github.com/Supreeeme/xwayland-satellite/issues/58#issuecomment-2460688816
-	position x=0 y=412
-}
-
-// Work monitor
-output "Lenovo Group Limited P34w-20 VVC74017" {
-	mode "3440x1440@59.973"
-	scale 1.25 // "Logical size: 2752x1152"
-	// 1440 - 1152 = 288
-	position x=1646 y=288
-}
-
-// Work monitor
-output "Lenovo Group Limited P34w-20 VVC73994" {
-	mode "3440x1440@59.973"
-	scale 1.25 // "Logical size: 2752x1152"
-	// 1440 - 1152 = 288
-	position x=1646 y=288
+	position x=0 y=1532
 }
 
 // Home monitor
-output "Microstep MEG 342C OLED Unknown" {
-	mode "3440x1440@174.962" // "Logical size: 3440x1440"
+output "Lenovo Group Limited LEN P27h-10 0x01010101" {
+	mode "2560x1440@59.951"
 	scale 1.0
+	transform "90"
 	position x=1646 y=0
+}
+
+// Home ultrawide
+output "Samsung Electric Company Odyssey G93SC HNTXB00486" {
+	mode "5120x1440@60.000"
+	scale 1.0
+	position x=3085 y=544
 }
 
 layout {
