@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, pkgs-master, ... }:
 
 {
   programs.niri = {
@@ -34,7 +34,7 @@
     ]) ++ (with pkgs-unstable; [
       alsa-utils # tools like amixer to control audio
       brightnessctl # screen brightness
-      pwvucontrol # Pipewire volume control
+      pkgs-master.pwvucontrol # Pipewire volume control
       #pavucontrol # PulseAudio volume control
       swww # wallpaper
       swayidle # detects idle
