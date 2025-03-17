@@ -58,7 +58,7 @@ output "Lenovo Group Limited 0x4145 Unknown" {
 output "Lenovo Group Limited LEN P27h-10 0x01010101" {
 	mode "2560x1440@59.951"
 	scale 1.0
-	transform "90"
+	transform "270"
 	position x=1646 y=0
 }
 
