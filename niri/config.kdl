@@ -66,7 +66,7 @@ output "Lenovo Group Limited LEN P27h-10 0x01010101" {
 output "Samsung Electric Company Odyssey G93SC HNTXB00486" {
 	mode "5120x1440@60.000"
 	scale 1.0
-	position x=3085 y=544
+	position x=3086 y=544
 }
 
 layout {
