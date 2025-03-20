@@ -34,9 +34,7 @@
     ]) ++ (with pkgs-unstable; [
       alsa-utils # tools like amixer to control audio
       brightnessctl # screen brightness
-      # TODO: Change back to pkgs-unstable when this is available in nixpkgs-unstable:
-      # https://github.com/NixOS/nixpkgs/commit/729fa0f994cdb42f87a543075a7e72948d8d8e6e
-      pkgs-master.pwvucontrol # Pipewire volume control
+      pwvucontrol # Pipewire volume control
       #pavucontrol # PulseAudio volume control
       swww # wallpaper
       swayidle # detects idle
