@@ -68,7 +68,9 @@ lspconfig.ts_ls.setup {}
 lspconfig.zls.setup {}
 lspconfig.gleam.setup {}
 lspconfig.yamlls.setup {}
-lspconfig.jsonnet_ls.setup {}
+lspconfig.jsonnet_ls.setup {
+    cmd = {"jsonnet-language-server", "-J", "vendor"}
+}
 
 local configs = require('lspconfig.configs')
 local util = require('lspconfig.util')
