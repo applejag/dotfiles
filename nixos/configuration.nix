@@ -228,6 +228,8 @@
       kind # Kubernetes in Docker
       wrk # HTTP benchmark tool
       graphviz-nox # Graph making tools, without X11
+      go-jsonnet # Go implementation of Jsonnet
+      jsonnet-bundler # basically a package manager for jsonnet
 
       age # encryption
       direnv # load .envrc files
@@ -249,6 +251,7 @@
       terraform-ls
       vscode-langservers-extracted
       yaml-language-server
+      jsonnet-language-server
 
       # Dev tools
       gcc

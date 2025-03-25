@@ -67,8 +67,8 @@ lspconfig.fish_lsp.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.zls.setup {}
 lspconfig.gleam.setup {}
-
 lspconfig.yamlls.setup {}
+lspconfig.jsonnet_ls.setup {}
 
 local configs = require('lspconfig.configs')
 local util = require('lspconfig.util')
