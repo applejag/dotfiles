@@ -68,6 +68,7 @@ lspconfig.ts_ls.setup {}
 lspconfig.zls.setup {}
 lspconfig.gleam.setup {}
 lspconfig.yamlls.setup {}
+lspconfig.metals.setup {}
 lspconfig.jsonnet_ls.setup {
     cmd = {"jsonnet-language-server", "-J", "vendor"}
 }

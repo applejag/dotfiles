@@ -252,6 +252,7 @@
       vscode-langservers-extracted
       yaml-language-server
       jsonnet-language-server
+      metals # Scala LSP
 
       # Dev tools
       gcc
