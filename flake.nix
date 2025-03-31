@@ -1,11 +1,24 @@
 {
   description = "My NixOS flake";
 
+  nixConfig = {
+    extra-trusted-substituters = [
+      "https://cosmic.cachix.org/" # https://github.com/lilyinstarlight/nixos-cosmic
+      "https://cache.flox.dev/" # https://flox.dev/docs/install-flox/
+    ];
+    extra-trusted-public-keys = [
+      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+      "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-master.url = "nixpkgs/master";
     nixos-hardware.url = "nixos-hardware/master";
+
+    flox.url = "github:flox/flox/v1.3.16";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -64,6 +77,7 @@
     nixpkgs-master,
     flake-programs-sqlite,
     nixos-hardware,
+    flox,
     home-manager,
     zen-browser,
     applejag-dinkur-src,
@@ -96,18 +110,21 @@
           {
             nix.settings = {
               experimental-features = [ "nix-command" "flakes" ];
-              substituters = [
+              trusted-substituters = [
                 "https://cosmic.cachix.org/" # https://github.com/lilyinstarlight/nixos-cosmic
+                "https://cache.flox.dev/" # https://flox.dev/docs/install-flox/
               ];
               trusted-public-keys = [
                 "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+                "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
               ];
             };
 
             users.users.${username} = {
               packages = [
-                zen-browser.packages."${system}".default
-                ghostty.packages."${system}".default
+                zen-browser.packages.${system}.default
+                ghostty.packages.${system}.default
+                flox.packages.${system}.default
               ];
             };
 
