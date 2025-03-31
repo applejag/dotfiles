@@ -215,10 +215,6 @@ in {
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "vscode"
-  ];
-
   programs.firefox = {
     enable = true;
     package = pkgs.firefox.override {
@@ -558,39 +554,6 @@ in {
 
       #(fromGitHub "HEAD" "vrischmann/tree-sitter-templ")
       indent-blankline-nvim
-    ];
-  };
-
-  programs.vscode = {
-    enable = true;
-    userSettings = {
-      # Crashes on launch in Hyprland without this.
-      # https://github.com/microsoft/vscode/issues/181533#issuecomment-1597187136
-      "window.titleBarStyle" = "custom";
-      "diffEditor.ignoreTrimWhitespace" = false;
-      "files.watcherExclude" = {
-        "**/.bloop" = true;
-        "**/.metals" = true;
-        "**/.ammonite" = true;
-      };
-      "cSpell.userWords" = [
-        "sasl" # Simple Authentication Security Layer
-        "jaas" # Java Authentication and Authorization Service
-      ];
-      "editor.rulers" = [
-        80
-      ];
-    };
-    extensions = with pkgs.vscode-extensions; [
-      bierner.markdown-mermaid
-      christian-kohler.path-intellisense
-      davidanson.vscode-markdownlint
-      dbaeumer.vscode-eslint
-      dracula-theme.theme-dracula
-      editorconfig.editorconfig
-      redhat.vscode-yaml
-      streetsidesoftware.code-spell-checker
-      vscodevim.vim
     ];
   };
 
