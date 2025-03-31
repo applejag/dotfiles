@@ -37,7 +37,7 @@ disabled = true
 disabled = true
 
 [kubernetes]
-disabled = false
+disabled = true
 style = "bright-blue"
 format = '\[[$symbol]($style)[$context](green bold):[$namespace]($style)\] '
 
