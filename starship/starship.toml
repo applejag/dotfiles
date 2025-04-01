@@ -4,8 +4,8 @@
 format = '''
 [┌─┄┈](dimmed cyan)${env_var.FLOX_PROMPT_ENVIRONMENTS}$kubernetes
 [│](dimmed cyan) $all
-[│](dimmed cyan) $directory$git_branch$cmd_duration
-[└](dimmed cyan) $git_status$character'''
+[│](dimmed cyan) $directory$git_branch$git_status$cmd_duration
+[└](dimmed cyan) $status$shlvl$character'''
 
 [hostname]
 ssh_only = true
@@ -84,3 +84,12 @@ detect_folders = []
 
 [line_break]
 disabled = true
+
+[shlvl]
+disabled = false
+threshold = 3
+symbol = '❯'
+format = '[$symbol]($style)'
+repeat = true
+repeat_offset = 2
+style = "dimmed yellow"
