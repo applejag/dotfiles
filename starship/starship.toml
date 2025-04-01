@@ -1,7 +1,11 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 #format = "$character"
-format = "$directory$git_branch$all$git_status$character"
+format = '''
+[┌─┄┈](dimmed cyan)${env_var.FLOX_PROMPT_ENVIRONMENTS}$kubernetes
+[│](dimmed cyan) $all
+[│](dimmed cyan) $directory$git_branch$cmd_duration
+[└](dimmed cyan) $git_status$character'''
 
 [hostname]
 ssh_only = true
@@ -37,9 +41,12 @@ disabled = true
 disabled = true
 
 [kubernetes]
-disabled = true
+disabled = false
 style = "bright-blue"
-format = '\[[$symbol]($style)[$context](green bold):[$namespace]($style)\] '
+symbol = " "
+format = '''
+
+[│](dimmed cyan) [$symbol]($style)[$context](green bold)/[$namespace]($style)'''
 
 contexts = [
   { context_pattern = ".*-prod|prod-.*", context_alias = "\u001B[1;4;38;5;197m🚨 $0" },
@@ -58,3 +65,22 @@ format = '([$all_status$ahead_behind]($style) )'
 ahead = '⇡${count}'
 diverged = '⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
+
+[env_var.FLOX_PROMPT_ENVIRONMENTS]
+format = '''[
+[│](dimmed cyan) [󱄅 flox](99) [\[$env_value\]]($style)](@$env_value)'''
+style = "bold 141"
+
+[golang]
+symbol = 'Go '
+
+[java]
+symbol = 'Java '
+style = 'red'
+
+[scala]
+symbol = 'Scala '
+detect_folders = []
+
+[line_break]
+disabled = true
