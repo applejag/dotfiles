@@ -27,6 +27,14 @@
             pname = "scala";
             version = version;
             src = pkgs.fetchurl scalaFor.${system};
+            nativeBuildInputs = [ pkgs.makeWrapper ];
+            propagatedBuildInputs = [
+              ncurses.dev
+            ];
+            installPhase = ''
+              mkdir -p $out
+              mv * $out
+            '';
             preFixup = ''
               bin_files=$(find $out/bin -type f ! -name "*common*" ! -name "scala-cli.jar")
               for f in $bin_files ; do
