@@ -69,6 +69,13 @@ output "Samsung Electric Company Odyssey G93SC HNTXB00486" {
 	position x=3086 y=544
 }
 
+// Office monitor
+output "Lenovo Group Limited P34w-20 VVC50886" {
+	mode "3440x1440@59.973"
+	scale 1.0
+	position x=1646 y=1532
+}
+
 layout {
 	gaps 8 // pixels
 
