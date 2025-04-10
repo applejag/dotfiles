@@ -699,7 +699,7 @@ in {
 
   xdg.mimeApps = let
     #browser = "firefox.desktop";
-    browser = "zen.desktop";
+    browser = "zen-beta.desktop";
     email = "thunderbird.desktop";
     editor = "dev.zed.Zed.desktop";
     files = "org.kde.dolphin.desktop";
