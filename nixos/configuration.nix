@@ -283,8 +283,7 @@
       zls # Zig language server
 
       # Gleam
-      gleam
-      erlang_nox
+      #gleam
 
       # Go
       go_1_24
