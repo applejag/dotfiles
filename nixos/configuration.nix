@@ -236,24 +236,6 @@
       nodejs_22
       deno # nodejs, but better
 
-      # Linters
-      shellcheck
-      shfmt
-      yamllint
-
-      # Language servers
-      fish-lsp
-      helm-ls
-      lua-language-server
-      nixd
-      nodePackages.bash-language-server
-      nodePackages.typescript-language-server
-      terraform-ls
-      vscode-langservers-extracted
-      yaml-language-server
-      jsonnet-language-server
-      metals # Scala LSP
-
       # Dev tools
       gcc
       editorconfig-core-c
@@ -325,6 +307,26 @@
       templ # HTML templating
       cue # config language
       ko # builder
+
+      # Linters
+      shellcheck
+      shfmt
+      yamllint
+
+      # Language servers
+      fish-lsp
+      helm-ls
+      lua-language-server
+      nixd
+      nodePackages.bash-language-server
+      nodePackages.typescript-language-server
+      terraform-ls
+      vscode-langservers-extracted
+      yaml-language-server
+      package-version-server
+      jsonnet-language-server
+      metals # Scala LSP
+
     ]) ++ (
     let
       my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
