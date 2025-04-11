@@ -226,6 +226,7 @@
       viddy # watch alternative
       nh # nix helper CLI
       kind # Kubernetes in Docker
+      minikube # Kubernetes in VMs or in Docker
       wrk # HTTP benchmark tool
       graphviz-nox # Graph making tools, without X11
       go-jsonnet # Go implementation of Jsonnet
