@@ -1,9 +1,5 @@
 {
 	"$schema": "https://github.com/ErikReider/SwayNotificationCenter/raw/main/src/configSchema.json",
 	"scripts": {
-		//"slack-sound": {
-		//	"exec": "sh -c ~/dotfiles/scripts/swaync-slack.sh",
-		//	"app-name": "Slack"
-		//}
 	}
 }
