@@ -1,9 +1,9 @@
 {
 	"$schema": "https://github.com/ErikReider/SwayNotificationCenter/raw/main/src/configSchema.json",
 	"scripts": {
-		"example-script": {
-			"exec": "uptime",
-			"run-on": "action"
+		"slack-sound": {
+			"exec": "~/dotfiles/scripts/swaync-slack.sh",
+			"app-name": "Slack"
 		}
 	}
 }
