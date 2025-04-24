@@ -36,6 +36,7 @@
   networking.hosts = {
     "52.204.183.147" = [ "lalia-berlin.com" ];
     "172.22.10.224" = [ "iphh-elk7-live.jsctool.com" ];
+    "127.0.0.1" = [ "api.localhost" "backoffice.localhost" ];
   };
 
   # Set your time zone.
