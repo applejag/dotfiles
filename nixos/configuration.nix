@@ -232,6 +232,7 @@
       graphviz-nox # Graph making tools, without X11
       go-jsonnet # Go implementation of Jsonnet
       jsonnet-bundler # basically a package manager for jsonnet
+      btop-rocm # better htop
 
       age # encryption
       direnv # load .envrc files
