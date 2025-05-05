@@ -122,7 +122,7 @@
 
             users.users.${username} = {
               packages = [
-                zen-browser.packages.${system}.default
+                zen-browser.packages.${system}.beta-unwrapped
                 ghostty.packages.${system}.default
                 flox.packages.${system}.default
               ];
@@ -133,6 +133,7 @@
                 text = ''
                   .zen-wrapped
                   zen-beta
+                  zen
                 '';
                 mode = "0755";
               };

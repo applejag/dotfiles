@@ -1,10 +1,10 @@
-{ pkgs, jadolg-szero-src, ... }:
+{ pkgs-unstable, jadolg-szero-src, ... }:
 let
-  rootless-personio = pkgs.buildGoModule {
+  rootless-personio = pkgs-unstable.buildGoModule {
     pname = "szero";
     version = jadolg-szero-src.rev;
     src = jadolg-szero-src;
-    vendorHash = "sha256-lSAHEiDoBIS48dymXvi6CO0kIAEIqxIshG6gbQVzQlY=";
+    vendorHash = "sha256-OvdE9hkrCZ506FmjsbMgcOZHFtwX6ZBISjB+c3YebKc=";
   };
 in
 {
