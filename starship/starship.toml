@@ -5,7 +5,7 @@ format = '''
 [┌─┄┈](dimmed cyan)${env_var.FLOX_PROMPT_ENVIRONMENTS}$kubernetes
 [│](dimmed cyan) $all
 [│](dimmed cyan) $directory$git_branch$git_status$cmd_duration
-[└](dimmed cyan) $status$shlvl$character'''
+[└](dimmed cyan) $jobs$status$shlvl$character'''
 
 [hostname]
 ssh_only = true
