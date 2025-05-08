@@ -122,7 +122,9 @@
 
             users.users.${username} = {
               packages = [
-                zen-browser.packages.${system}.beta-unwrapped
+                (zen-browser.packages.${system}.default.override {
+                  nativeMessagingHosts = [pkgs-unstable.firefoxpwa];
+                })
                 ghostty.packages.${system}.default
                 flox.packages.${system}.default
               ];
