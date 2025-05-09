@@ -549,6 +549,7 @@ in {
       nvim-treesitter-parsers.typescript
       nvim-treesitter-parsers.vhs
       nvim-treesitter-parsers.vimdoc
+      nvim-treesitter-parsers.wit
       nvim-treesitter-parsers.yaml
       nvim-treesitter-parsers.zig
 
