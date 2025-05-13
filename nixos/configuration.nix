@@ -280,6 +280,7 @@
       kubebuilder # operator CLI tool
       vcluster # virtual cluster, i.e kubernetes in kubernetes
       chart-testing
+      argocd # ArgoCD CLI
 
       # Zig
       zig
