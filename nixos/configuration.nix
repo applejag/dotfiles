@@ -190,7 +190,7 @@
     packages =
     (with pkgs; [
       # GUI apps
-      thunderbird
+      thunderbird-bin
       birdtray # tray icon for Thunderbird
       slack
       nextcloud-client
