@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 
 
-{ pkgs, pkgs-unstable, pkgs-master, lib, ... }:
+{ pkgs, pkgs-unstable, pkgs-master, lib, helm-values-schema-json, ... }:
 
 {
   imports = [
@@ -336,6 +336,7 @@
         plugins = with kubernetes-helmPlugins; [
           helm-diff
           helm-secrets
+          helm-values-schema-json
         ];
       };
       my-helmfile = pkgs-unstable.helmfile-wrapped.override {

@@ -257,6 +257,40 @@
         "type": "github"
       }
     },
+    "helm-values-schema-json": {
+      "inputs": {
+        "helm-values-schema-json-src": "helm-values-schema-json-src",
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "path": "flakes/helm-values-schema-json",
+        "type": "path"
+      },
+      "original": {
+        "path": "flakes/helm-values-schema-json",
+        "type": "path"
+      },
+      "parent": []
+    },
+    "helm-values-schema-json-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748357368,
+        "narHash": "sha256-rYK14clhwhRbF8+zdz2u/6QkGg3zzTzoqqCOLKtc6sU=",
+        "owner": "applejag",
+        "repo": "helm-values-schema-json",
+        "rev": "8729c8091d76dc2c83323ba5cc30aa0e81c4954a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "applejag",
+        "repo": "helm-values-schema-json",
+        "rev": "8729c8091d76dc2c83323ba5cc30aa0e81c4954a",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -478,6 +512,7 @@
         "flake-programs-sqlite": "flake-programs-sqlite",
         "flox": "flox",
         "ghostty": "ghostty",
+        "helm-values-schema-json": "helm-values-schema-json",
         "home-manager": "home-manager",
         "jadolg-szero-src": "jadolg-szero-src",
         "nixos-cosmic": "nixos-cosmic",

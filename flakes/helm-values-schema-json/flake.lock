@@ -1,0 +1,44 @@
+{
+  "nodes": {
+    "helm-values-schema-json-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748357368,
+        "narHash": "sha256-rYK14clhwhRbF8+zdz2u/6QkGg3zzTzoqqCOLKtc6sU=",
+        "owner": "applejag",
+        "repo": "helm-values-schema-json",
+        "rev": "8729c8091d76dc2c83323ba5cc30aa0e81c4954a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "applejag",
+        "repo": "helm-values-schema-json",
+        "rev": "8729c8091d76dc2c83323ba5cc30aa0e81c4954a",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1748356125,
+        "narHash": "sha256-qK/q96io8Ew40CH8KJwGhDS0iw/7IsuJUJM1juModd0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "042b603d44ce6933c64d7fa0b13285a30b364bb1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "helm-values-schema-json-src": "helm-values-schema-json-src",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

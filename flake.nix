@@ -69,6 +69,11 @@
       url = "github:jadolg/szero";
       flake = false;
     };
+
+    helm-values-schema-json = {
+      url = ./flakes/helm-values-schema-json;
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {
@@ -85,6 +90,7 @@
     applejag-showksec-src,
     applejag-rootless-personio-src,
     jadolg-szero-src,
+    helm-values-schema-json,
     #nixos-cosmic,
     ghostty,
     ... }:
@@ -160,6 +166,7 @@
           inherit name;
           inherit pkgs-unstable;
           inherit pkgs-master;
+          helm-values-schema-json = helm-values-schema-json.packages.${system}.default;
         };
       };
     };
