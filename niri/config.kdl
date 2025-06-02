@@ -166,6 +166,15 @@ binds {
 	Mod+Shift+U         { move-window-to-workspace-down; }
 	Mod+Shift+I         { move-window-to-workspace-up; }
 
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
 	Mod+1 { focus-workspace 1; }
 	Mod+2 { focus-workspace 2; }
 	Mod+3 { focus-workspace 3; }
@@ -205,10 +214,16 @@ binds {
 	Mod+Ctrl+F { expand-column-to-available-width; }
 	Mod+F { maximize-column; }
 	Mod+Shift+F { fullscreen-window; }
+	Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
 	Mod+C { center-column; }
+	Mod+Ctrl+C { center-visible-columns; }
 
 	Mod+Space       { switch-layout "next"; }
 	Mod+Shift+Space { switch-layout "prev"; }
+
+    // Move the focused window between the floating and the tiling layout.
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
 	Mod+W { toggle-column-tabbed-display; }
 
@@ -216,6 +231,10 @@ binds {
 	Ctrl+Print { screenshot-screen; }
 	Alt+Print { screenshot-window; }
 	Mod+Ctrl+Alt+Shift+P { screenshot; }
+
+	// Screencasting features
+	Mod+Ctrl+Alt+Shift+N { set-dynamic-cast-window; }
+	Mod+Ctrl+Alt+Shift+M { set-dynamic-cast-monitor; }
 
 	Mod+Shift+P { power-off-monitors; }
 
