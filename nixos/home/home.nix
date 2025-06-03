@@ -566,7 +566,7 @@ in {
   programs.git = {
     enable = true;
 
-    signing.key = "748D7ADC975211B2";
+    signing.key = "4C48E82B9DDB0951";
     signing.signByDefault = true;
     lfs.enable = true;
 
