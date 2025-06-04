@@ -452,18 +452,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
-  nix.buildMachines = [{
-    hostName = "superburk";
-    system = "x86_64-linux";
-    protocol = "ssh-ng";
-    maxJobs = 3;
-    speedFactor = 4;
-    supportedFeatures = [ ];
-    mandatoryFeatures = [ ];
-  }];
-  nix.distributedBuilds = true;
-  nix.extraOptions = ''
-    builders-use-substitutes = true
-  '';
 }
