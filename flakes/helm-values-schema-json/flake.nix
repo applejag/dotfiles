@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs";
 
     helm-values-schema-json-src = {
-      url = "github:applejag/helm-values-schema-json/8729c8091d76dc2c83323ba5cc30aa0e81c4954a";
+      url = "github:losisin/helm-values-schema-json/v1.9.0";
       flake = false;
     };
   };
