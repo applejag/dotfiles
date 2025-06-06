@@ -37,6 +37,7 @@
               mv $out/bin/helm-values-schema-json $out/${name}/schema
               rmdir $out/bin
               install -m644 -Dt $out/${name} plugin.yaml
+              install -m755 -Dt $out/${name} plugin.complete
             '';
 
             meta = with pkgs.lib; {

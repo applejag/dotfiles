@@ -339,12 +339,8 @@
           helm-values-schema-json
         ];
       };
-      my-helmfile = pkgs-unstable.helmfile-wrapped.override {
-        inherit (my-kubernetes-helm.passthru) pluginsDir;
-      };
     in [
       my-kubernetes-helm
-      my-helmfile
     ]);
   };
 
