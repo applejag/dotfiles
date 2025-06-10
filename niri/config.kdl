@@ -120,7 +120,7 @@ binds {
 	Mod+Return                repeat=false { spawn "alacritty"; }
 	//Mod+Return                repeat=false { spawn "ghostty" "--gtk-single-instance=true"; }
 	Mod+P                     repeat=false { spawn "sh" "-c" "pkill fuzzel || fuzzel"; }
-	Mod+Ctrl+Alt+Shift+L      repeat=false { spawn "sh" "-c" "hyprlock -c ~/dotfiles/hypr/hyprlock.conf"; }
+	Mod+Ctrl+Alt+Shift+L      repeat=false allow-when-locked=true { spawn "sh" "-c" "hyprlock -c ~/dotfiles/hypr/hyprlock.conf"; }
 
 	Mod+Shift+C { close-window; }
 
