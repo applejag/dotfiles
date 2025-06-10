@@ -3,27 +3,27 @@
     "helm-values-schema-json-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1749191181,
-        "narHash": "sha256-QYqi4uQ3+ik+vPiR/KafXW+BixmFdqV4yFD4YNKUauI=",
+        "lastModified": 1749587199,
+        "narHash": "sha256-rF9w5PRL9d2X+/TlrfbIUmYghW0Xgu84mhi94T4J90k=",
         "owner": "losisin",
         "repo": "helm-values-schema-json",
-        "rev": "e34b88cde61d8fdca9ae3ac3d1fa866178fc4e4e",
+        "rev": "0793302c682da6b886f01fa7f7d04f5ad381bbb6",
         "type": "github"
       },
       "original": {
         "owner": "losisin",
-        "ref": "v1.9.0",
+        "ref": "v2.0.0",
         "repo": "helm-values-schema-json",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1749193060,
-        "narHash": "sha256-nReWraqFTm1h6fXlTmRD7CaWz9C6RgEZIOwF0FkJA9M=",
+        "lastModified": 1749587175,
+        "narHash": "sha256-zWnOUFA4MFT7YhJ5dT1e3dwJQPWkvZkmOPwzR1c0Mns=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6452f8e92dcc4f74cf31f44dedd275f3a810f186",
+        "rev": "8e860188fd9d0a1f45cbdf8d1ffe33cb701616df",
         "type": "github"
       },
       "original": {

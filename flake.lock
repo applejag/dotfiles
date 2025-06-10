@@ -157,11 +157,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1749538075,
-        "narHash": "sha256-9bFD7UxOlSIZV++mvNZYNMMlleRLP2hA+G2FjQVikDo=",
+        "lastModified": 1749552831,
+        "narHash": "sha256-XxTgi2xMr5iwA/8D9dKS6Icv/FcVGGdBqzq4bSEAZ5M=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "c5bcf9bb908d3ba3e2df3d7ccf7187847cd2ccc9",
+        "rev": "e8747118c5cb9cbb9db3ba43f826304082c821f9",
         "type": "github"
       },
       "original": {
@@ -277,16 +277,16 @@
     "helm-values-schema-json-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1749191181,
-        "narHash": "sha256-QYqi4uQ3+ik+vPiR/KafXW+BixmFdqV4yFD4YNKUauI=",
+        "lastModified": 1749587199,
+        "narHash": "sha256-rF9w5PRL9d2X+/TlrfbIUmYghW0Xgu84mhi94T4J90k=",
         "owner": "losisin",
         "repo": "helm-values-schema-json",
-        "rev": "e34b88cde61d8fdca9ae3ac3d1fa866178fc4e4e",
+        "rev": "0793302c682da6b886f01fa7f7d04f5ad381bbb6",
         "type": "github"
       },
       "original": {
         "owner": "losisin",
-        "ref": "v1.9.0",
+        "ref": "v2.0.0",
         "repo": "helm-values-schema-json",
         "type": "github"
       }
@@ -405,11 +405,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1749539306,
-        "narHash": "sha256-rbkKgLtQQ+wXdJsz2KAtnKw2QzvrTyUzI7cVbmPBcH8=",
+        "lastModified": 1749587175,
+        "narHash": "sha256-zWnOUFA4MFT7YhJ5dT1e3dwJQPWkvZkmOPwzR1c0Mns=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "cc3c0c7a679c794f119676abcb07cdc0d730f117",
+        "rev": "8e860188fd9d0a1f45cbdf8d1ffe33cb701616df",
         "type": "github"
       },
       "original": {
