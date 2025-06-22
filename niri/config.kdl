@@ -80,6 +80,11 @@ output "Lenovo Group Limited P34w-20 VVC74018" {
 	scale 1.0
 	position x=1646 y=1532
 }
+output "Lenovo Group Limited P34w-20 VVC74017" {
+	mode "3440x1440@59.973"
+	scale 1.0
+	position x=1646 y=1532
+}
 output "Dell Inc. DELL U3421WE 310S653" {
 	mode "3440x1440@59.973"
 	scale 1.0
