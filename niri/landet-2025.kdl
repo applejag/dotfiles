@@ -64,7 +64,7 @@ layout {
 		//proportion 0.833333
     }
 
-    default-column-width { proportion 0.25; }
+    default-column-width { proportion 0.33333; }
 
 	shadow {
 		on
