@@ -261,6 +261,7 @@
       # GUI apps
       zed-editor
       alacritty
+      godot
 
       # CLI tools
       sops
