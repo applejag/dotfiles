@@ -1,0 +1,282 @@
+spawn-at-startup "waybar"
+spawn-at-startup "nm-applet"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "birdtray"
+spawn-at-startup "swaync"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "swayidle" "-w" "timeout" "300" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "timeout" "310" "hyprlock" "before-sleep" "hyprlock"
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+environment {
+	QT_QPA_PLATFORM "wayland"
+	DISPLAY ":0" // xwayland-satellite
+}
+
+// My home setup monitor alignment chart
+// NOTE: Must not use negative numbers as that messes up XWayland:
+// https://github.com/Supreeeme/xwayland-satellite/issues/58#issuecomment-2460688816
+//
+//  0x0                  1493x0
+//  ┌──────────────────┐ ┌───────────────┐
+//  │                  │ │               │
+//  │                  │ │               │
+//  │                  │ │   1645x1028   │
+//  │     1493x933     │ │               │
+//  │                  │ │               │
+//  │                  │ │               │
+//  │                  │ ├┬┬┬┬┬┬┬┬┬┬┬┬┬┬─┤
+//  └──────────────────┘ ├┼┼┼┼┼┼┼┼┼┼┼┼┼┼─┤
+//                       ├┼┼┼┼┼┼┼┼┼┼┼┼┼┼┐│
+//                       ├┼┼┼┼┴┴┴┴┼┼┼┼┼┼┼┤
+//                       └┴┴┴┴────┴┴┴┴┴┴┴┘
+
+// Laptop monitor
+output "Lenovo Group Limited 0x4145 Unknown" {
+	mode "2880x1800@60.001"
+	scale 1.75
+	// laptop monitor has size:
+	//   "Logical size: 1645x1028"
+	position x=1493 y=0
+}
+
+// Portable monitor
+output "Lenovo Group Limited M14d V90EAK6M" {
+	mode "2240x1400@59.968"
+	scale 1.5
+	// monitor has size:
+	//   "Logical size: 1493x933"
+	position x=0 y=0
+}
+
+layout {
+	gaps 8 // pixels
+
+    preset-column-widths {
+		// split into 1/6ths
+        proportion 0.166667
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+		proportion 0.833333
+    }
+
+    default-column-width { proportion 0.25; }
+
+	shadow {
+		on
+	}
+
+	focus-ring {
+		off
+	}
+
+	border {
+		width 2 // pixels
+		active-gradient from="#80c8ff" to="#bbddff" angle=45 relative-to="workspace-view"
+		inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+	}
+}
+
+binds {
+	// Slash = /, Shift+Slash = ?
+	Mod+Shift+Slash { show-hotkey-overlay; }
+
+	Mod+Shift+E { quit; }
+	Ctrl+Alt+Delete { quit; }
+
+	Mod+Return                repeat=false { spawn "alacritty"; }
+	//Mod+Return                repeat=false { spawn "ghostty" "--gtk-single-instance=true"; }
+	Mod+P                     repeat=false { spawn "sh" "-c" "pkill fuzzel || fuzzel"; }
+	Mod+Ctrl+Alt+Shift+L      repeat=false allow-when-locked=true { spawn "sh" "-c" "hyprlock -c ~/dotfiles/hypr/hyprlock.conf"; }
+
+	Mod+Shift+C { close-window; }
+
+	//Mod+Left  { focus-column-left; }
+	//Mod+Down  { focus-window-down; }
+	//Mod+Up    { focus-window-up; }
+	//Mod+Right { focus-column-right; }
+	Mod+H     { focus-column-left; }
+	Mod+J     { focus-window-down; }
+	Mod+K     { focus-window-up; }
+	Mod+L     { focus-column-right; }
+
+	//Mod+Shift+Left  { move-column-left; }
+	//Mod+Shift+Down  { move-window-down; }
+	//Mod+Shift+Up    { move-window-up; }
+	//Mod+Shift+Right { move-column-right; }
+	Mod+Shift+H     { move-column-left; }
+	Mod+Shift+J     { move-window-down; }
+	Mod+Shift+K     { move-window-up; }
+	Mod+Shift+L     { move-column-right; }
+
+	Mod+Home { focus-column-first; }
+	Mod+End  { focus-column-last; }
+	Mod+Shift+Home { move-column-to-first; }
+	Mod+Shift+End  { move-column-to-last; }
+
+	//Mod+Ctrl+Left  { focus-monitor-left; }
+	//Mod+Ctrl+Down  { focus-monitor-down; }
+	//Mod+Ctrl+Up    { focus-monitor-up; }
+	//Mod+Ctrl+Right { focus-monitor-right; }
+	Mod+Ctrl+H     { focus-monitor-left; }
+	Mod+Ctrl+J     { focus-monitor-down; }
+	Mod+Ctrl+K     { focus-monitor-up; }
+	Mod+Ctrl+L     { focus-monitor-right; }
+
+	Mod+Down           { focus-workspace-down; }
+	Mod+Up             { focus-workspace-up; }
+	Mod+U              { focus-workspace-down; }
+	Mod+I              { focus-workspace-up; }
+
+	Mod+Shift+Down      { move-window-to-workspace-down; }
+	Mod+Shift+Up        { move-window-to-workspace-up; }
+	Mod+Shift+U         { move-window-to-workspace-down; }
+	Mod+Shift+I         { move-window-to-workspace-up; }
+
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+	Mod+1 { focus-workspace 1; }
+	Mod+2 { focus-workspace 2; }
+	Mod+3 { focus-workspace 3; }
+	Mod+4 { focus-workspace 4; }
+	Mod+5 { focus-workspace 5; }
+	Mod+6 { focus-workspace 6; }
+	Mod+7 { focus-workspace 7; }
+	Mod+8 { focus-workspace 8; }
+	Mod+9 { focus-workspace 9; }
+
+	Mod+Shift+1 { move-window-to-workspace 1; }
+	Mod+Shift+2 { move-window-to-workspace 2; }
+	Mod+Shift+3 { move-window-to-workspace 3; }
+	Mod+Shift+4 { move-window-to-workspace 4; }
+	Mod+Shift+5 { move-window-to-workspace 5; }
+	Mod+Shift+6 { move-window-to-workspace 6; }
+	Mod+Shift+7 { move-window-to-workspace 7; }
+	Mod+Shift+8 { move-window-to-workspace 8; }
+	Mod+Shift+9 { move-window-to-workspace 9; }
+
+	Mod+Tab { focus-workspace-previous; }
+
+	// The following binds move the focused window in and out of a column.
+	// If the window is alone, they will consume it into the nearby column to the side.
+	// IF the window is already in a column, they will expel it out.
+	Mod+BracketLeft  { consume-or-expel-window-left; }
+	Mod+BracketRight { consume-or-expel-window-right; }
+
+	// Consume one window from the right to the bottom of the focused column.
+	Mod+Comma  { consume-window-into-column; }
+	// Expel the bottom window from the focused column to the right.
+	Mod+Period { expel-window-from-column; }
+
+	Mod+R { switch-preset-column-width; }
+	Mod+Shift+R { switch-preset-window-height; }
+	Mod+Ctrl+R { reset-window-height; }
+	Mod+Ctrl+F { expand-column-to-available-width; }
+	Mod+F { maximize-column; }
+	Mod+Shift+F { fullscreen-window; }
+	Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
+	Mod+C { center-column; }
+	Mod+Ctrl+C { center-visible-columns; }
+
+	Mod+Space       { switch-layout "next"; }
+	Mod+Shift+Space { switch-layout "prev"; }
+
+    // Move the focused window between the floating and the tiling layout.
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+	Mod+W { toggle-column-tabbed-display; }
+
+	Print { screenshot; }
+	Ctrl+Print { screenshot-screen; }
+	Alt+Print { screenshot-window; }
+	Mod+Ctrl+Alt+Shift+P { screenshot; }
+
+	// Screencasting features
+	Mod+Ctrl+Alt+Shift+N { set-dynamic-cast-window; }
+	Mod+Ctrl+Alt+Shift+M { set-dynamic-cast-monitor; }
+
+	Mod+Shift+P { power-off-monitors; }
+
+	// Volume Keybinds
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "sh" "-c" "~/dotfiles/scripts/wpctl-set-volume.sh 0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "sh" "-c" "~/dotfiles/scripts/wpctl-set-volume.sh 0.05-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+}
+
+cursor {
+	xcursor-theme "Bibata-Modern-Ice"
+	xcursor-size 24
+}
+
+window-rule {
+	//open-maximized true
+	geometry-corner-radius 4
+	clip-to-geometry true
+}
+
+window-rule {
+	match app-id="Alacritty"
+	open-maximized false
+}
+
+window-rule {
+	match app-id="Slack"
+	match app-id="thunderbird"
+	open-maximized true
+}
+
+window-rule {
+	match app-id="nm-openconnect-auth-dialog"
+	match app-id=".blueman-manager-wrapped"
+	match app-id="com.saivert.pwvucontrol"
+	open-floating true
+}
+
+window-rule {
+	match app-id="thunderbird" title=r#"Reminder"#
+	open-floating true
+}
+
+// Indicate screencasted windows with red colors.
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+// Block out password managers from screencasts.
+window-rule {
+    match app-id=r#"1Password"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screencast"
+}

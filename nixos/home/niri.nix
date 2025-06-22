@@ -12,7 +12,7 @@
   };
 
   home.file.".config/niri/config.kdl" = {
-    source = ../../niri/config.kdl;
+    source = ../../niri/landet-2025.kdl;
   };
 
   home.file."hyprlock.conf" = {
