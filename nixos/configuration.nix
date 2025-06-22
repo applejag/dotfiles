@@ -440,6 +440,10 @@
     { from = 8000; to = 8100; }
     { from = 10000; to = 20000; }
   ];
+  networking.firewall.allowedUDPPortRanges = [
+    { from = 8000; to = 8100; }
+    { from = 10000; to = 20000; }
+  ];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
