@@ -37,6 +37,7 @@
     "52.204.183.147" = [ "lalia-berlin.com" ];
     "172.22.10.224" = [ "iphh-elk7-live.jsctool.com" ];
     "127.0.0.1" = [ "api.localhost" "backoffice.localhost" ];
+    "10.0.0.2" = [ "japan" ];
   };
 
   # Set your time zone.
@@ -435,6 +436,9 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 8000; to = 8100; }
+  ];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
