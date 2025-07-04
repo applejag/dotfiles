@@ -263,6 +263,7 @@
       zed-editor
       alacritty
       godot
+      blender
 
       # CLI tools
       sops
