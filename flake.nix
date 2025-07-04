@@ -13,7 +13,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-master.url = "nixpkgs/master";
     nixos-hardware.url = "nixos-hardware/master";
@@ -21,7 +21,7 @@
     flox.url = "github:flox/flox/v1.3.16";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -38,11 +38,6 @@
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty/v1.0.1";
-      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
     };
 
     applejag-dinkur-src = {
@@ -92,7 +87,6 @@
     jadolg-szero-src,
     helm-values-schema-json,
     #nixos-cosmic,
-    ghostty,
     ... }:
   let
     system = "x86_64-linux";
@@ -131,7 +125,6 @@
                 (zen-browser.packages.${system}.default.override {
                   nativeMessagingHosts = [pkgs-unstable.firefoxpwa];
                 })
-                ghostty.packages.${system}.default
                 flox.packages.${system}.default
               ];
             };
