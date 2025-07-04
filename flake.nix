@@ -146,6 +146,8 @@
                 mode = "0755";
               };
             };
+
+            programs.command-not-found.enable = true;
           }
 
           flake-programs-sqlite.nixosModules.programs-sqlite

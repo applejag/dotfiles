@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs";
 
     helm-values-schema-json-src = {
-      url = "github:losisin/helm-values-schema-json/v2.0.0";
+      url = "github:losisin/helm-values-schema-json/v2.1.0";
       flake = false;
     };
   };
@@ -25,7 +25,7 @@
 
             src = helm-values-schema-json-src;
 
-            vendorHash = "sha256-JXg1ngqTOi2/f+1JuPTGA0lNPiYAsw8loKZ+CFv4sBM=";
+            vendorHash = "sha256-DOXn3TKZkqj43EMPb+z/0yuO8nHuuKUIgS8JO8x7ITw=";
 
             # NOTE: Remove the install and upgrade hooks.
             postPatch = ''
