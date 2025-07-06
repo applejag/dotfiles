@@ -241,7 +241,7 @@ in {
   programs.zsh = {
     enable = true;
     autocd = true;
-    initExtra = ''
+    initContent = ''
       compdef kubecolor=kubectl
 
       autoload -Uz select-word-style
