@@ -15,7 +15,7 @@
     modules-center = [];
     modules-right = [
       #"custom/prs-github-com"
-      #"custom/prs-internal"
+      "custom/prs-internal"
       "tray"
       "custom/notification"
       "idle_inhibitor"

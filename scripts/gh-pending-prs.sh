@@ -17,7 +17,9 @@ function fetch() {
 		echo "<span foreground='red'>failed to load</span>"
 
 		echo "Waiting until host can be resolved" >&2
-		while ! nslookup "$GH_HOST" >/dev/null 2>/dev/null; do
+		while ! curl -sS --connect-timeout 2s "$GH_HOST" >/dev/null 2>/dev/null; do
+			echo -n "<b>$icon</b>  "
+			echo "<span foreground='gray'>waiting</span>"
 			sleep 5s
 		done
 		echo "Host resolved successfully. Retrying search..." >&2
