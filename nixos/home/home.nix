@@ -685,17 +685,17 @@ in {
     "$HOME/.local/bin"
   ];
 
-  #qt = {
-  #  enable = true;
-  #  platformTheme.name = "kde";
-  #  style = {
-  #    name = "kvantum";
-  #    package = with pkgs; [
-  #      kdePackages.qtstyleplugin-kvantum
-  #      kdePackages.breeze-icons
-  #    ];
-  #  };
-  #};
+  qt = {
+    enable = true;
+    platformTheme.name = "kde6";
+    style = {
+      name = "breeze";
+      package = with pkgs; [
+        #kdePackages.qtstyleplugin-kvantum
+        kdePackages.breeze-icons
+      ];
+    };
+  };
 
   xdg.mimeApps = let
     #browser = "firefox.desktop";
