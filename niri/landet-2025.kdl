@@ -40,15 +40,15 @@ output "Lenovo Group Limited 0x4145 Unknown" {
 	scale 1.75
 	// laptop monitor has size:
 	//   "Logical size: 1645x1028"
-	position x=1493 y=0
+	position x=1792 y=0
 }
 
 // Portable monitor
 output "Lenovo Group Limited M14d V90EAK6M" {
 	mode "2240x1400@59.968"
-	scale 1.5
+	scale 1.25
 	// monitor has size:
-	//   "Logical size: 1493x933"
+	//   "Logical size: 1792x1120"
 	position x=0 y=0
 }
 
