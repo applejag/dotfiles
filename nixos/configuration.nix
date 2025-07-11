@@ -271,6 +271,7 @@
       risor # Go scripting language
       charm-freeze
       jwt-cli # jwt parser/encoder
+      typos # typo checker: https://github.com/crate-ci/typos
 
       # Kubernetes
       kubecolor
@@ -320,6 +321,7 @@
       yamllint
 
       # Language servers
+      typos-lsp # typo checker: https://github.com/tekumara/typos-lsp
       fish-lsp
       helm-ls
       lua-language-server

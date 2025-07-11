@@ -73,6 +73,8 @@ lspconfig.jsonnet_ls.setup {
     cmd = {"jsonnet-language-server", "-J", "vendor"}
 }
 
+vim.lsp.enable('typos_lsp')
+
 local configs = require('lspconfig.configs')
 local util = require('lspconfig.util')
 
