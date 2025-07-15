@@ -219,16 +219,16 @@
     "helm-values-schema-json-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1750086670,
-        "narHash": "sha256-MAvv6xk+v39+snRdAOJNfFBYdpzw8cSpcC2ZTfWMbmY=",
+        "lastModified": 1752414164,
+        "narHash": "sha256-CiH3N/Ji4KaJheqI0aTkt3GkJgalREAZgOfVM48oI2g=",
         "owner": "losisin",
         "repo": "helm-values-schema-json",
-        "rev": "c04e6c4d0e3e6899999869e3f7aae8d4f059abff",
+        "rev": "cda6e15ced5fa4ea684b6418ff9fdd411b49a374",
         "type": "github"
       },
       "original": {
         "owner": "losisin",
-        "ref": "v2.1.0",
+        "ref": "v2.2.0",
         "repo": "helm-values-schema-json",
         "type": "github"
       }
