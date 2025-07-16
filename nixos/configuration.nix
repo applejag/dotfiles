@@ -31,7 +31,12 @@
 
   # Pick only one of the below networking options.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager = {
+    enable = true;  # Easiest to use and most distros use this by default.
+    plugins = with pkgs; [
+      networkmanager-openconnect
+    ];
+  };
 
   networking.hosts = {
     "52.204.183.147" = [ "lalia-berlin.com" ];
