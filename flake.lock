@@ -141,11 +141,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1751627040,
-        "narHash": "sha256-HPSJ9QKI/jgHYclGCu2YC7nddhsu1SBenPb9ui0cfSI=",
+        "lastModified": 1752652072,
+        "narHash": "sha256-h+Pid09X3DuVyAVs5GjnFvntq62SKRDJ3mtDSVw9HdI=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "f760756096c106b15764d467feb0adb067cc94c3",
+        "rev": "c6b95bd912ad3d76d72d75afcc91f5c8fd21c020",
         "type": "github"
       },
       "original": {
@@ -240,11 +240,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751468302,
-        "narHash": "sha256-tWosziZTT039x6PgEZUhzGlV8oLvdDmIgKTE8ESMaEA=",
+        "lastModified": 1752544374,
+        "narHash": "sha256-ReX0NG6nIAEtQQjLqeu1vUU2jjZuMlpymNtb4VQYeus=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "501cfec8277f931a9c9af9f23d3105c537faeafe",
+        "rev": "2e00ed310c218127e02ffcf28ddd4e0f669fde3e",
         "type": "github"
       },
       "original": {
@@ -278,11 +278,11 @@
     "jadolg-szero-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1750833322,
-        "narHash": "sha256-9tZTDW9JyFDEUw4MZy9/pSRcfImUCU75+FJx0IfedRc=",
+        "lastModified": 1751878988,
+        "narHash": "sha256-4IFmIOovRvSyOQc87E8MFbNfF61Zy1cPyj1hNxV91oE=",
         "owner": "jadolg",
         "repo": "szero",
-        "rev": "616a1fabee921294eebdba2fd133c61ee0d8173e",
+        "rev": "65148e0ef791c5035522a9a727d900d6c64a16cd",
         "type": "github"
       },
       "original": {
@@ -316,11 +316,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1751432711,
-        "narHash": "sha256-136MeWtckSHTN9Z2WRNRdZ8oRP3vyx3L8UxeBYE+J9w=",
+        "lastModified": 1752048960,
+        "narHash": "sha256-gATnkOe37eeVwKKYCsL+OnS2gU4MmLuZFzzWCtaKLI8=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "497ae1357f1ac97f1aea31a4cb74ad0d534ef41f",
+        "rev": "7ced9122cff2163c6a0212b8d1ec8c33a1660806",
         "type": "github"
       },
       "original": {
@@ -347,11 +347,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1751655236,
-        "narHash": "sha256-2QDfhYjPFui9iQNTXBLcbffWVWbYLntm9EM/eFU3kX8=",
+        "lastModified": 1752657953,
+        "narHash": "sha256-ZPVpiYjth2tWCPccN7D+ZHZ5+0UTKvelkmejYX4imNA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e1dca425c33650ae9ea15e577012d49586f29cef",
+        "rev": "da6da6de14417e2d5ad26fa2ce1ba2f40a9607e7",
         "type": "github"
       },
       "original": {
@@ -378,11 +378,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1751271578,
-        "narHash": "sha256-P/SQmKDu06x8yv7i0s8bvnnuJYkxVGBWLWHaU+tt4YY=",
+        "lastModified": 1752480373,
+        "narHash": "sha256-JHQbm+OcGp32wAsXTE/FLYGNpb+4GLi5oTvCxwSoBOA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3016b4b15d13f3089db8a41ef937b13a9e33a8df",
+        "rev": "62e0f05ede1da0d54515d4ea8ce9c733f12d9f08",
         "type": "github"
       },
       "original": {
@@ -393,11 +393,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1751582995,
-        "narHash": "sha256-u7ubvtxdTnFPpV27AHpgoKn7qHuE7sgWgza/1oj5nzA=",
+        "lastModified": 1752436162,
+        "narHash": "sha256-Kt1UIPi7kZqkSc5HVj6UY5YLHHEzPBkgpNUByuyxtlw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7a732ed41ca0dd64b4b71b563ab9805a80a7d693",
+        "rev": "dfcd5b901dbab46c9c6e80b265648481aafb01f8",
         "type": "github"
       },
       "original": {
@@ -526,11 +526,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751599118,
-        "narHash": "sha256-3a47LxEZ7751Wd5upwZa8psX5mRsYACQgS2WxY5zitc=",
+        "lastModified": 1752584655,
+        "narHash": "sha256-nPHrsq0vSh0+BqV2xAAVsfoVqzP9KYG7Zicc6oA0nfk=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "a3566f5b9c6ec2fa490976051889ebada20910b4",
+        "rev": "759a7860416dfd8c86f383d4ea4009bb034d869c",
         "type": "github"
       },
       "original": {
