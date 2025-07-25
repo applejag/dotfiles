@@ -18,7 +18,7 @@
     nixpkgs-master.url = "nixpkgs/master";
     nixos-hardware.url = "nixos-hardware/master";
 
-    flox.url = "github:flox/flox/v1.3.16";
+    flox.url = "github:flox/flox/v1.6.0";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -110,7 +110,7 @@
           {
             nix.settings = {
               experimental-features = [ "nix-command" "flakes" ];
-              trusted-substituters = [
+              substituters = [
                 "https://cosmic.cachix.org/" # https://github.com/lilyinstarlight/nixos-cosmic
                 "https://cache.flox.dev/" # https://flox.dev/docs/install-flox/
               ];
