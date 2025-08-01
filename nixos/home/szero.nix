@@ -4,7 +4,7 @@ let
     pname = "szero";
     version = jadolg-szero-src.rev;
     src = jadolg-szero-src;
-    vendorHash = "sha256-Qxc39NP0r4kc2PLpUikcBShVwYSk2i8HewFnRbsVoOg=";
+    vendorHash = "sha256-RKr59/XXWxMhL578jJ8pboriQdRutX+9mVBYAYsWllg=";
   };
 in
 {
