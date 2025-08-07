@@ -18,8 +18,6 @@
     nixpkgs-master.url = "nixpkgs/master";
     nixos-hardware.url = "nixos-hardware/master";
 
-    flox.url = "github:flox/flox/v1.6.0";
-
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -77,7 +75,6 @@
     nixpkgs-master,
     flake-programs-sqlite,
     nixos-hardware,
-    flox,
     home-manager,
     zen-browser,
     applejag-dinkur-src,
@@ -112,11 +109,9 @@
               experimental-features = [ "nix-command" "flakes" ];
               substituters = [
                 "https://cosmic.cachix.org/" # https://github.com/lilyinstarlight/nixos-cosmic
-                "https://cache.flox.dev/" # https://flox.dev/docs/install-flox/
               ];
               trusted-public-keys = [
                 "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-                "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
               ];
             };
 
@@ -125,7 +120,6 @@
                 (zen-browser.packages.${system}.default.override {
                   nativeMessagingHosts = [pkgs-unstable.firefoxpwa];
                 })
-                flox.packages.${system}.default
               ];
             };
 
