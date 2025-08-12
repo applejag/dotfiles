@@ -277,6 +277,7 @@
       charm-freeze
       jwt-cli # jwt parser/encoder
       typos # typo checker: https://github.com/crate-ci/typos
+      minio-client # mc
 
       # Kubernetes
       kubecolor
