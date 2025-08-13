@@ -1,9 +1,10 @@
 # https://carapace-sh.github.io/carapace-bin/bridges.html
 dinkur: cobra
 git-forgit: zsh
+helm: cobra
 helmfile: cobra
 hof: cobra
-kinf: cobra
+kind: cobra
 kubebuilder: cobra
 kubecolor: cobra
 kubectl-klock: cobra

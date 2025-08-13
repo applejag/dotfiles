@@ -73,6 +73,11 @@ lspconfig.jsonnet_ls.setup {
     cmd = {"jsonnet-language-server", "-J", "vendor"}
 }
 
+vim.lsp.config('yamlls', {
+    root_markers = { '.git', 'Chart.yaml' },
+})
+vim.lsp.enable('yamlls')
+
 vim.lsp.enable('typos_lsp')
 
 local configs = require('lspconfig.configs')
@@ -102,6 +107,13 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.jsonls.setup {
     capabilities = capabilities,
 }
+
+vim.lsp.config('zizmor', {
+    cmd = { 'zizmor',  '--lsp' },
+    filetypes = { 'yaml' },
+    root_markers = { '.github', '.git' },
+})
+vim.lsp.enable('zizmor')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),

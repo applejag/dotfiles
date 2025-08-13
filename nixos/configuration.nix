@@ -325,6 +325,7 @@
       shellcheck
       shfmt
       yamllint
+      zizmor # github action linter
 
       # Language servers
       typos-lsp # typo checker: https://github.com/tekumara/typos-lsp

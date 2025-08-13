@@ -308,6 +308,7 @@ in {
   programs.carapace = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = false;
     package = pkgs-unstable.carapace;
   };
 
