@@ -14,7 +14,7 @@
   services.greetd = {
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --asterisks --remember --remember-session --time --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --user-menu --asterisks --remember --remember-session --time --cmd Hyprland";
         user = "greeter";
       };
     };
