@@ -341,7 +341,6 @@
       yaml-language-server
       package-version-server
       jsonnet-language-server
-      metals # Scala LSP
 
     ]) ++ (
     let
