@@ -26,10 +26,9 @@
     packages = (with pkgs; [
       # Desktop environment
       kdePackages.elisa
-      #kdePackages.dolphin # KDE file manager
-      #kdePackages.kdialog # KDE file picker
+      kdePackages.dolphin # KDE file manager
+      kdePackages.kdialog # KDE file picker
       networkmanagerapplet # NetworkManager (nm-applet)
-
 
     ]) ++ (with pkgs-unstable; [
       alsa-utils # tools like amixer to control audio
