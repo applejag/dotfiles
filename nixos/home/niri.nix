@@ -61,4 +61,16 @@
       };
     };
   };
+
+  xdg.mimeApps = let
+    files = "org.gnome.Nautilus.desktop";
+  in {
+    enable = true;
+    # Find names of applications installed by Nix in ~/.nix-profile/share/applications
+    # Flatpak apps are visible at /var/lib/flatpak/exports/share/applications
+    defaultApplications = {
+      "inode/directory" = files;
+      "application/x-directory" = files;
+    };
+  };
 }

@@ -25,17 +25,22 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
     ];
-    config.common.default = "kde";
+    config.common = {
+      default = "gnome;gtk;";
+      "org.freedesktop.impl.portal.Access" = "gtk";
+      "org.freedesktop.impl.portal.Notification" = "gtk";
+      "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+    };
   };
 
   users.users.kallefagerberg = {
     packages = (with pkgs; [
       # Desktop environment
       kdePackages.elisa
-      kdePackages.dolphin # KDE file manager
-      kdePackages.kdialog # KDE file picker
+      nautilus # Gnome file manager
       networkmanagerapplet # NetworkManager (nm-applet)
 
     ]) ++ (with pkgs-unstable; [
@@ -60,7 +65,6 @@
 
   security.polkit.enable = true;
 
-  # KDE polkit
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
     wantedBy = [ "graphical-session.target" ];
