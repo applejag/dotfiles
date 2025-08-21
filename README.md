@@ -41,6 +41,8 @@ ln -vfs ~/dotfiles/X11/.xinitrc ~/.xinitrc
 
 ln -vfs ~/{dotfiles,.config}/waybar
 
+ln -vfs ~/{dotfiles,.config}/fuzzel
+
 ln -vfs ~/{dotfiles,.config}/swaylock
 
 ln -vfs ~/{dotfiles,.config}/swaync
