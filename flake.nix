@@ -87,7 +87,7 @@
     ... }:
   let
     system = "x86_64-linux";
-    #lib = nixpkgs.lib;
+    lib = nixpkgs.lib;
     lib-unstable = nixpkgs-unstable.lib;
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
@@ -101,7 +101,7 @@
   in {
     nixosConfigurations = {
       #ri-t-1010 = lib.nixosSystem {
-      ri-t-1010 = lib-unstable.nixosSystem {
+      ri-t-1010 = lib.nixosSystem {
         inherit system;
         modules = [
           {

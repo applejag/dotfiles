@@ -16,7 +16,7 @@
   services.greetd = {
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --user-menu --asterisks --remember --remember-session --time --cmd niri-session";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --asterisks --remember --remember-session --time --cmd niri-session";
         user = "greeter";
       };
     };

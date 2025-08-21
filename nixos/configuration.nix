@@ -331,7 +331,6 @@
       # Language servers
       typos-lsp # typo checker: https://github.com/tekumara/typos-lsp
       fish-lsp
-      helm-ls
       lua-language-server
       nixd
       nodePackages.bash-language-server
@@ -344,7 +343,7 @@
 
     ]) ++ (
     let
-      my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
+      my-kubernetes-helm = with pkgs; wrapHelm kubernetes-helm {
         plugins = with kubernetes-helmPlugins; [
           helm-diff
           helm-secrets
@@ -353,6 +352,7 @@
       };
     in [
       my-kubernetes-helm
+      pkgs.helm-ls
     ]);
   };
 
