@@ -300,17 +300,18 @@
       #gleam
 
       # Go
-      go_1_24
+      go_1_25
       gotools # e.g goimports
       gofumpt # formatter
       #gopls # language server
       (extend (final: prev: {
-        go = prev.go_1_24;
-        buildGoModule = prev.buildGo124Module;
+        go = prev.go_1_25;
+        buildGoModule = prev.buildGo125Module;
       })).gopls
 
       delve # debugger
       gore # REPL
+      gocode-gomod # autocompletion daemon
       revive # linter
       goreleaser # release tool
       golangci-lint # linter
