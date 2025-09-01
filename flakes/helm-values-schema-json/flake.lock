@@ -3,16 +3,16 @@
     "helm-values-schema-json-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1752414164,
-        "narHash": "sha256-CiH3N/Ji4KaJheqI0aTkt3GkJgalREAZgOfVM48oI2g=",
+        "lastModified": 1756642746,
+        "narHash": "sha256-q5A+tCnuHTtUyejP4flID7XhsoBfWGge2jCgsL0uEOc=",
         "owner": "losisin",
         "repo": "helm-values-schema-json",
-        "rev": "cda6e15ced5fa4ea684b6418ff9fdd411b49a374",
+        "rev": "5f22cd9c7d71c6bb028bf301b6a73fbfe5e4c8cf",
         "type": "github"
       },
       "original": {
         "owner": "losisin",
-        "ref": "v2.2.0",
+        "ref": "v2.3.0",
         "repo": "helm-values-schema-json",
         "type": "github"
       }
