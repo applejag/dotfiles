@@ -261,7 +261,14 @@
       ffmpeg-full
       glibcLocales
 
-    ]) ++ (with pkgs-unstable; [
+    ]) ++ (with pkgs-unstable;
+      let
+        pkgs-go_1_25 = (extend (final: prev: {
+          go = prev.go_1_25;
+          buildGoModule = prev.buildGo125Module;
+        }));
+      in
+      [
       #====== Unstable packages ======
 
       # GUI apps
@@ -302,19 +309,15 @@
       # Go
       go_1_25
       gotools # e.g goimports
-      gofumpt # formatter
-      #gopls # language server
-      (extend (final: prev: {
-        go = prev.go_1_25;
-        buildGoModule = prev.buildGo125Module;
-      })).gopls
+      pkgs-go_1_25.gofumpt # formatter
+      pkgs-go_1_25.gopls # language server
+      pkgs-go_1_25.golangci-lint # linter
+      pkgs-go_1_25.delve # debugger
 
-      delve # debugger
       gore # REPL
       gocode-gomod # autocompletion daemon
       revive # linter
       goreleaser # release tool
-      golangci-lint # linter
       gomodifytags # manipulate struct tags (e.g in Emacs)
       gotestsum
       govulncheck # SAST
