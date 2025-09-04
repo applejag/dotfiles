@@ -546,6 +546,7 @@ in {
       nvim-treesitter-parsers.sql
       nvim-treesitter-parsers.ssh_config
       nvim-treesitter-parsers.terraform
+      nvim-treesitter-parsers.toml
       nvim-treesitter-parsers.typescript
       nvim-treesitter-parsers.vhs
       nvim-treesitter-parsers.vimdoc
