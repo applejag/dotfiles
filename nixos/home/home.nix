@@ -522,6 +522,8 @@ in {
       nvim-treesitter-parsers.html
       nvim-treesitter-parsers.ini
       nvim-treesitter-parsers.javascript
+      nvim-treesitter-parsers.jinja
+      nvim-treesitter-parsers.jinja_inline
       nvim-treesitter-parsers.jq
       nvim-treesitter-parsers.json
       nvim-treesitter-parsers.json5

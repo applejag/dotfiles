@@ -392,6 +392,7 @@ vim.cmd [[
     autocmd BufRead,BufNewFile JenkinsFile set filetype=Jenkinsfile
     autocmd BufRead,BufNewFile */templates/NOTES.txt set filetype=gotexttmpl
     autocmd BufRead,BufNewFile PROJECT set filetype=yaml
+    autocmd BufRead,BufNewFile *.j2 set filetype=jinja
 ]]
 
 -- YAML indent fix
