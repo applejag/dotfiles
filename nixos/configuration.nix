@@ -347,7 +347,7 @@
 
     ]) ++ (
     let
-      my-kubernetes-helm = with pkgs; wrapHelm kubernetes-helm {
+      my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
         plugins = with kubernetes-helmPlugins; [
           helm-diff
           helm-secrets
@@ -356,7 +356,7 @@
       };
     in [
       my-kubernetes-helm
-      pkgs.helm-ls
+      pkgs-unstable.helm-ls
     ]);
   };
 
