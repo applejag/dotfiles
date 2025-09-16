@@ -74,7 +74,7 @@ lspconfig.jsonnet_ls.setup {
 }
 
 vim.lsp.config('yamlls', {
-    root_markers = { '.git', 'Chart.yaml' },
+    root_markers = { '.git', '.jj', 'Chart.yaml' },
 })
 vim.lsp.enable('yamlls')
 
@@ -111,7 +111,7 @@ lspconfig.jsonls.setup {
 vim.lsp.config('zizmor', {
     cmd = { 'zizmor',  '--lsp' },
     filetypes = { 'yaml' },
-    root_markers = { '.github', '.git' },
+    root_markers = { '.github', '.git', '.jj' },
 })
 vim.lsp.enable('zizmor')
 
