@@ -561,11 +561,6 @@ in {
     ];
   };
 
-  home.file."init.lua" = {
-    source = ../../nvim/init.lua;
-    target = ".config/nvim/init.lua";
-  };
-
   programs.git = {
     enable = true;
 

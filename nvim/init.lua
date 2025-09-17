@@ -2,118 +2,28 @@
 vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
 vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
-vim.g.mapleader = " "
-
-local border = {
-    { "╭", "FloatBorder" },
-    { "─", "FloatBorder" },
-    { "╮", "FloatBorder" },
-    { "│", "FloatBorder" },
-    { "╯", "FloatBorder" },
-    { "─", "FloatBorder" },
-    { "╰", "FloatBorder" },
-    { "│", "FloatBorder" },
-}
-
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = opts.border or border
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
 vim.api.nvim_set_keymap('n', '<space>k', '<cmd>lua vim.diagnostic.open_float()<CR>', {
     noremap=true,
     silent=true
 })
 
 -- Setup language servers.
-local lspconfig = require 'lspconfig'
-lspconfig.gopls.setup {}
-lspconfig.lua_ls.setup {
-    on_init = function(client)
-        local path = client.workspace_folders[1].name
-        if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-            client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
-                Lua = {
-                    runtime = {
-                        -- Tell the language server which version of Lua you're using
-                        -- (most likely LuaJIT in the case of Neovim)
-                        version = 'LuaJIT'
-                    },
-                    -- Make the server aware of Neovim runtime files
-                    workspace = {
-                        checkThirdParty = false,
-                        library = {
-                            vim.env.VIMRUNTIME
-                            -- "${3rd}/luv/library"
-                            -- "${3rd}/busted/library",
-                        }
-                        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-                        -- library = vim.api.nvim_get_runtime_file("", true)
-                    }
-                }
-            })
-
-            client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-        end
-        return true
-    end
-}
-lspconfig.nixd.setup {}
-lspconfig.terraformls.setup {}
-lspconfig.astro.setup {}
-lspconfig.bashls.setup {}
-lspconfig.fish_lsp.setup {}
-lspconfig.ts_ls.setup {}
-lspconfig.zls.setup {}
-lspconfig.gleam.setup {}
-lspconfig.yamlls.setup {}
-lspconfig.metals.setup {}
-lspconfig.jsonnet_ls.setup {
-    cmd = {"jsonnet-language-server", "-J", "vendor"}
-}
-
-vim.lsp.config('yamlls', {
-    root_markers = { '.git', '.jj', 'Chart.yaml' },
-})
-vim.lsp.enable('yamlls')
-
+vim.lsp.enable('astro')
+vim.lsp.enable('bashls')
+vim.lsp.enable('fish_lsp')
+vim.lsp.enable('gleam')
+vim.lsp.enable('gopls')
+vim.lsp.enable('helm_ls')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('jsonnet_ls')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('nixd')
+vim.lsp.enable('terraformls')
+vim.lsp.enable('ts_lsp')
 vim.lsp.enable('typos_lsp')
-
-local configs = require('lspconfig.configs')
-local util = require('lspconfig.util')
-
-if not configs.helm_ls then
-    configs.helm_ls = {
-        default_config = {
-            cmd = { "helm_ls", "serve" },
-            filetypes = { 'helm' },
-            root_dir = function(fname)
-                return util.root_pattern('Chart.yaml')(fname)
-            end,
-        },
-    }
-end
-
-lspconfig.helm_ls.setup {
-    filetypes = { "helm" },
-    cmd = { "helm_ls", "serve" },
-}
-
---Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-lspconfig.jsonls.setup {
-    capabilities = capabilities,
-}
-
-vim.lsp.config('zizmor', {
-    cmd = { 'zizmor',  '--lsp' },
-    filetypes = { 'yaml' },
-    root_markers = { '.github', '.git', '.jj' },
-})
+vim.lsp.enable('yamlls')
 vim.lsp.enable('zizmor')
+vim.lsp.enable('zls')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -197,7 +107,7 @@ cmp.setup {
             elseif has_words_before() then
                 cmp.complete()
             else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+                fallback() -- The fallback function sends a already mapped key. In this case, it's probably '<Tab>'.
             end
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function()
@@ -408,27 +318,28 @@ vim.cmd [[
 
 vim.cmd [[colorscheme dracula]]
 
-local o = vim.opt
-o.wrap = false -- disable word wrapping
-o.termguicolors = true
-o.encoding = "UTF-8"
-o.listchars = {
+vim.g.mapleader = " "
+vim.opt.winborder = "rounded"
+vim.opt.wrap = false -- disable word wrapping
+vim.opt.termguicolors = true
+vim.opt.encoding = "UTF-8"
+vim.opt.listchars = {
     space = "⋅",
 }
-o.mouse = "nvi"      -- mouse support in normal, visual, and insert modes
-o.signcolumn = "yes" -- always show line alert column
+vim.opt.mouse = "nvi"      -- mouse support in normal, visual, and insert modes
+vim.opt.signcolumn = "yes" -- always show line alert column
 
-o.smartindent = true
-o.smarttab = true
-o.tabstop = 4 -- tab visual size
-o.shiftwidth = 4
+vim.opt.smartindent = true
+vim.opt.smarttab = true
+vim.opt.tabstop = 4 -- tab visual size
+vim.opt.shiftwidth = 4
 
-o.number = true             -- show line numbers
---o.relativenumber = true
-o.clipboard = "unnamedplus" -- use system clipboard
+vim.opt.number = true             -- show line numbers
+--vim.opt.relativenumber = true
+vim.opt.clipboard = "unnamedplus" -- use system clipboard
 
-o.showtabline = 2           -- 2=always
-o.cursorline = true         -- highlight current line
-o.colorcolumn = { 80 }
+vim.opt.showtabline = 2           -- 2=always
+vim.opt.cursorline = true         -- highlight current line
+vim.opt.colorcolumn = { 80 }
 
-o.updatetime = 500
+vim.opt.updatetime = 500
