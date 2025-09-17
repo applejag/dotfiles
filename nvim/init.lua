@@ -8,14 +8,11 @@ vim.api.nvim_set_keymap('n', '<space>k', '<cmd>lua vim.diagnostic.open_float()<C
 })
 
 -- Setup language servers.
-vim.lsp.enable('astro')
 vim.lsp.enable('bashls')
 vim.lsp.enable('fish_lsp')
-vim.lsp.enable('gleam')
 vim.lsp.enable('gopls')
 vim.lsp.enable('helm_ls')
 vim.lsp.enable('jsonls')
-vim.lsp.enable('jsonnet_ls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('nixd')
 vim.lsp.enable('terraformls')
