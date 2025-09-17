@@ -67,6 +67,11 @@
       url = ./flakes/helm-values-schema-json;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    lanastara_foss-starship-jj = {
+      url = "gitlab:lanastara_foss/starship-jj";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {
@@ -83,6 +88,7 @@
     applejag-rootless-personio-src,
     jadolg-szero-src,
     helm-values-schema-json,
+    lanastara_foss-starship-jj,
     #nixos-cosmic,
     ... }:
   let
@@ -120,6 +126,8 @@
                 (zen-browser.packages.${system}.default.override {
                   nativeMessagingHosts = [pkgs-unstable.firefoxpwa];
                 })
+
+                lanastara_foss-starship-jj.packages.${system}.default
               ];
             };
 
