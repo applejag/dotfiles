@@ -10,7 +10,7 @@
       "image#nix-snowflake"
       "niri/workspaces"
       "custom/dinkur"
-      "niri/window"
+      #"niri/window"
     ];
     modules-center = [];
     modules-right = [
