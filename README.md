@@ -30,9 +30,6 @@ ln -vfs ~/{dotfiles/picom,.config}/picom.conf
 
 ln -vfs ~/{dotfiles/starship,.config}/starship.toml
 
-mkdir -pv ~/.config/starship-jj
-ln -vfs ~/{dotfiles/starship,.config/starship-jj}/starship-jj.toml
-
 mkdir -pv ~/.config/mpd
 ln -vfs ~/{dotfiles,.config}/mpd/mpd.conf
 

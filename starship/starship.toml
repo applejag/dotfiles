@@ -4,7 +4,7 @@
 format = '''
 [┌─┄┈](dimmed cyan)${env_var.FLOX_PROMPT_ENVIRONMENTS}$kubernetes
 [│](dimmed cyan) $all
-[│](dimmed cyan) $directory$git_branch$git_status${custom.jj}$cmd_duration
+[│](dimmed cyan) $directory$git_branch$git_status$cmd_duration
 [└](dimmed cyan) $jobs$status$shlvl$character'''
 
 [hostname]
@@ -103,11 +103,3 @@ format = '[$symbol]($style)'
 repeat = true
 repeat_offset = 2
 style = "dimmed yellow"
-
-[custom.jj]
-command = "prompt"
-format = "$output"
-ignore_timeout = true
-shell = ["starship-jj", "--ignore-working-copy", "starship"]
-use_stdin = false
-when = true
