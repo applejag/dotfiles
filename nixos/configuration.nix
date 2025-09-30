@@ -183,6 +183,11 @@
     enable = true;
   };
 
+  programs.evolution = {
+    # GNOME email client
+    enable = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kallefagerberg = {
     isNormalUser = true;
