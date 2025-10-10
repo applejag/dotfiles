@@ -319,6 +319,8 @@ in {
     shellAbbrs = fishShellAbbrs;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+
+      mise activate fish | source
     '';
 
     functions = {

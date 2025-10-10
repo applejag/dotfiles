@@ -291,6 +291,9 @@
       typos # typo checker: https://github.com/crate-ci/typos
       minio-client # mc
 
+      mise # tool package manager
+      usage # CLI completion tool, used by mise
+
       # Kubernetes
       kubecolor
       kubectl
