@@ -163,6 +163,13 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "kallefagerberg";
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libz
+    ];
+  };
+
   programs.zsh = {
     enable = true;
     autosuggestions = {
