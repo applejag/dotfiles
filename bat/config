@@ -8,4 +8,5 @@
 --map-syntax 'templates/NOTES.txt:Jinja2'
 --map-syntax 'templates/_helpers.tpl:Jinja2'
 --map-syntax '.*ignore:Git Ignore'
+--map-syntax '*.cdx:JSON'
 
