@@ -55,6 +55,15 @@ output "Lenovo Group Limited 0x4145 Unknown" {
 	position x=0 y=1532
 }
 
+// it changed name????
+output "Samsung Display Corp. 0x4167 Unknown" {
+	mode "2880x1800@60.001"
+	scale 1.75
+	// laptop monitor has size:
+	//   "Logical size: 1645x1028"
+	position x=0 y=1532
+}
+
 // Home monitor
 output "Lenovo Group Limited LEN P27h-10 0x01010101" {
 	mode "2560x1440@59.951"
@@ -97,6 +106,11 @@ output "Lenovo Group Limited P34w-20 VVC50526" {
 	position x=1646 y=1532
 }
 output "Dell Inc. DELL U3421WE 310S653" {
+	mode "3440x1440@59.973"
+	scale 1.0
+	position x=1646 y=1532
+}
+output "Lenovo Group Limited P34w-20 VVC50865" {
 	mode "3440x1440@59.973"
 	scale 1.0
 	position x=1646 y=1532
