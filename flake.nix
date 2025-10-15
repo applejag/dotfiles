@@ -16,6 +16,7 @@
     nixpkgs.url = "nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-master.url = "nixpkgs/master";
+    nixpkgs-wifi-fix.url = "nixpkgs/c23193b943c6c689d70ee98ce3128239ed9e32d1";
     nixos-hardware.url = "nixos-hardware/master";
 
     home-manager = {
@@ -74,6 +75,7 @@
     nixpkgs,
     nixpkgs-unstable,
     nixpkgs-master,
+    nixpkgs-wifi-fix,
     flake-programs-sqlite,
     nixos-hardware,
     home-manager,
@@ -104,8 +106,15 @@
       #ri-t-1010 = lib.nixosSystem {
       ri-t-1010 = lib.nixosSystem {
         inherit system;
+
         modules = [
           {
+            nixpkgs.overlays = [
+              (final: prev: {
+                inherit (nixpkgs-wifi-fix.legacyPackages.${system}) linux-firmware;
+              })
+            ];
+
             nix.settings = {
               experimental-features = [ "nix-command" "flakes" ];
               substituters = [

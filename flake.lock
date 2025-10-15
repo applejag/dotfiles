@@ -292,6 +292,21 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-wifi-fix": {
+      "locked": {
+        "lastModified": 1757745802,
+        "narHash": "sha256-hLEO2TPj55KcUFUU1vgtHE9UEIOjRcH/4QbmfHNF820=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+        "type": "indirect"
+      }
+    },
     "root": {
       "inputs": {
         "applejag-dinkur-src": "applejag-dinkur-src",
@@ -307,6 +322,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "nixpkgs-wifi-fix": "nixpkgs-wifi-fix",
         "zen-browser": "zen-browser"
       }
     },

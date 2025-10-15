@@ -11,7 +11,8 @@
     ./flatpak.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Let's not use latest kernel actually
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "preempt=full" ];
 
   # Use the systemd-boot EFI boot loader.
@@ -203,6 +204,7 @@
       "libvirtd" # Run VMs without needing sudo
       "dialout" # Talk through serial for IoT
       "wireshark" # capture network dumps
+      "networkmanager" # manage network connections
     ];
     shell = pkgs.fish;
     packages =
