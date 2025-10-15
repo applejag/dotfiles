@@ -75,11 +75,6 @@ behind = '⇣${count}'
 [git_commit]
 disabled = true
 
-[env_var.FLOX_PROMPT_ENVIRONMENTS]
-format = '''[
-[│](dimmed cyan) [󱄅 flox](99) [\[$env_value\]]($style)](@$env_value)'''
-style = "bold 141"
-
 [golang]
 disabled = true
 symbol = 'Go '
