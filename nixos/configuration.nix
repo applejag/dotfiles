@@ -168,6 +168,12 @@
     enable = true;
     libraries = with pkgs; [
       libz
+      zstd
+      stdenv.cc.cc
+      libgcc
+      libcxx
+      glib
+      musl
     ];
   };
 
