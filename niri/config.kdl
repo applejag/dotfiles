@@ -299,6 +299,7 @@ window-rule {
 window-rule {
 	match app-id="Slack"
 	match app-id="thunderbird"
+	match app-id="org.gnome.Evolution"
 	open-maximized true
 }
 
