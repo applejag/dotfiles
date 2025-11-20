@@ -294,14 +294,10 @@
       # GUI apps
       zed-editor
       alacritty
-      godot
-      blender
 
       # CLI tools
       sops
       opentofu # terraform alternative
-      risor # Go scripting language
-      charm-freeze
       jwt-cli # jwt parser/encoder
       typos # typo checker: https://github.com/crate-ci/typos
       minio-client # mc
@@ -316,9 +312,7 @@
       kubectl-cnpg # CloudNativePG (Postgres operator)
       kubectx
       kubelogin-oidc
-      stern # logs aggregator
       kubebuilder # operator CLI tool
-      vcluster # virtual cluster, i.e kubernetes in kubernetes
       chart-testing
       argocd # ArgoCD CLI
 
@@ -344,8 +338,6 @@
       gomodifytags # manipulate struct tags (e.g in Emacs)
       gotestsum
       govulncheck # SAST
-      templ # HTML templating
-      cue # config language
       ko # builder
 
       # Linters
