@@ -120,6 +120,11 @@ output "Lenovo Group Limited P34w-20 VVC50863" {
 	scale 1.0
 	position x=1646 y=1532
 }
+output "Lenovo Group Limited P34w-20 VVC74003" {
+	mode "3440x1440@59.973"
+	scale 1.0
+	position x=1646 y=1532
+}
 
 layout {
 	gaps 8 // pixels
