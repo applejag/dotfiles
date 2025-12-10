@@ -221,7 +221,6 @@
       slack
       nextcloud-client
       spotify
-      onlyoffice-bin
       #emacs-git # Emacs 28+, for Doom Emacs
       #emacs29-pgtk
       #hedgewars # TODO: reenable, but for now it fails to build
@@ -294,6 +293,7 @@
       # GUI apps
       zed-editor
       alacritty
+      onlyoffice-desktopeditors
 
       # CLI tools
       sops
