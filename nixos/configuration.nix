@@ -294,6 +294,7 @@
       zed-editor
       alacritty
       onlyoffice-desktopeditors
+      libreoffice
 
       # CLI tools
       sops
