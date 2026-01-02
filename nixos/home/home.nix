@@ -403,8 +403,11 @@ in {
   services.ssh-agent.enable = true;
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    enableDefaultConfig = false;
     includes = [ "custom.conf" ];
+    matchBlocks."*" = {
+      addKeysToAgent = "yes";
+    };
   };
 
   # Seems to be bugged until https://github.com/NixOS/nixpkgs/pull/267878
@@ -570,15 +573,16 @@ in {
     signing.signByDefault = true;
     lfs.enable = true;
 
-    userName = "Kalle Fagerberg";
-    userEmail = "kalle.fagerberg@riskident.com";
+    settings = {
+      user = {
+        name = "Kalle Fagerberg";
+        email = "kalle.fagerberg@riskident.com";
+      };
 
-    aliases = {
-      ss = "status --short";
-      root = "rev-parse --show-toplevel";
-    };
-
-    extraConfig = {
+      aliases = {
+        ss = "status --short";
+        root = "rev-parse --show-toplevel";
+      };
       tag = {
         forceSignAnnotated = true;
       };
@@ -688,7 +692,7 @@ in {
 
   qt = {
     enable = true;
-    platformTheme.name = "kde6";
+    platformTheme.name = "kde";
     style = {
       name = "breeze";
       package = with pkgs; [

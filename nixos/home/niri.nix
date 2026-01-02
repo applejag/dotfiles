@@ -40,7 +40,7 @@
         };
         Service = {
           Type = "oneshot";
-          ExecStart = ../../scripts/swww-img.sh;
+          ExecStart = "${../../scripts/swww-img.sh}";
         };
         Install = {
           WantedBy = ["default.target"];

@@ -96,18 +96,11 @@
     openFirewall = true;
   };
 
-  # Hardware-accelerated video encoding/decoding
-  # https://nixos.wiki/wiki/Accelerated_Video_Playback
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
-
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      vaapiIntel # older but works better for Firefox/Chromium
-      vaapiVdpau # VDPAU driver for the VAAPI lib
+      libva-vdpau-driver # VDPAU driver for the VAAPI lib
       libvdpau-va-gl # VDPAU driver with OpenGL/VAAPI backend
       libvpx # WebM VP8/VP9 codec
     ];
@@ -378,8 +371,8 @@
 
   fonts.packages = (with pkgs; [
     noto-fonts
-    noto-fonts-emoji
-    ubuntu_font_family
+    noto-fonts-color-emoji
+    ubuntu-classic
     font-awesome
     intel-one-mono
     nerd-fonts.fira-code # FiraCode
@@ -392,7 +385,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    curlHTTP3
+    curl
     file
     git
     gnumake
