@@ -377,6 +377,7 @@
     intel-one-mono
     nerd-fonts.fira-code # FiraCode
     nerd-fonts.intone-mono # IntoneMono (Intel One Mono)
+    nerd-fonts.fantasque-sans-mono # used in Waybar config
   ]) ++ (with pkgs-unstable; [
     monocraft
     miracode # monocraft but vectorized

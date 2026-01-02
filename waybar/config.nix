@@ -2,9 +2,6 @@
   mainBar = {
     layer = "top"; # top | bottom
     # position = "bottom"; # Waybar position (top|bottom|left|right)
-    height = 48; # Waybar height (to be removed for auto height)
-    # width = 1280; # Waybar width
-    spacing = 4; # Gaps between modules (4px)
     # Choose the order of the modules
     modules-left = [
       "image#nix-snowflake"
@@ -18,12 +15,12 @@
       "custom/prs-internal"
       "tray"
       "custom/notification"
-      "idle_inhibitor"
       "pulseaudio"
       #"network"
       "cpu"
       "backlight"
       "battery"
+      "idle_inhibitor"
       "clock"
     ];
     "image#nix-snowflake" = {
@@ -148,10 +145,32 @@
     clock = {
       # timezone = "America/New_York";
       today-format = "<span color='#ff6699'><b>{}</b></span>";
-      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+      tooltip-format = "<tt><small>{calendar}</small></tt>";
       locale = "";
       format = "{:%Y-%m-%d %H:%M}";
       format-alt = "{:%H:%M}";
+      calendar= {
+        mode         = "year";
+        mode-mon-col = 3;
+        weeks-pos    = "right";
+        on-scroll    = 1;
+        format= {
+          months =   "<span color='#eed49f'><b>{}</b></span>";
+          days =     "<span color='#b8c0e0'>{}</span>";
+          weeks =    "<span color='#c6a0f6'><b>W{}</b></span>";
+          weekdays = "<span color='#f5a97f'><b>{}</b></span>";
+          today =    "<span color='#ed8796'><b>{}</b></span>";
+        };
+      };
+      actions = {
+        on-click-right = "mode";
+        on-scroll-up = "shift_up";
+        on-scroll-down = "shift_down";
+      };
+    };
+    tray = {
+      icon-size = 21;
+      spacing = 10;
     };
     cpu = {
       interval = 2;
@@ -197,19 +216,11 @@
     };
     pulseaudio = {
       # scroll-step = 1; # %, can be a float
-      format = "{volume}% {icon} {format_source}";
-      format-bluetooth = "{volume}% {icon} {format_source}";
-      format-bluetooth-muted = "🔇 {icon} {format_source}";
-      format-muted = "🔇 {format_source}";
-      format-source = "{volume}% ";
-      format-source-muted = "";
+      format = "{icon} {volume}%";
+      format-bluetooth = "{icon} {volume}%";
+      format-bluetooth-muted = "🔇 {volume}%";
+      format-muted = "🔇 {volume}%";
       format-icons = {
-        headphone = "";
-        hands-free = "";
-        headset = "";
-        phone = "";
-        portable = "";
-        car = "";
         default = ["" "" ""];
       };
       on-click = "pwvucontrol";
