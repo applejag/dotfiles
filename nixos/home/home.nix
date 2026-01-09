@@ -579,7 +579,7 @@ in {
         email = "kalle.fagerberg@riskident.com";
       };
 
-      aliases = {
+      alias = {
         ss = "status --short";
         root = "rev-parse --show-toplevel";
       };
