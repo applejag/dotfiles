@@ -76,6 +76,7 @@
 #custom-prs-github-com,
 #workspaces,
 #custom-dinkur,
+#custom-next-meeting,
 .nix-snowflake {
   background-color: @surface0;
   padding: 0.5rem 1rem;
@@ -148,9 +149,10 @@
 }
 
 /* Dinkur */
-#custom-dinkur {
+#custom-next-meeting {
   border-radius: 0px 1rem 1rem 0px;
   color: @text;
+  margin-right: 1rem;
 }
 
 #custom-prs-github-com,

@@ -7,6 +7,7 @@
       "image#nix-snowflake"
       "niri/workspaces"
       "custom/dinkur"
+      "custom/next-meeting"
       #"niri/window"
     ];
     modules-center = [];
@@ -77,6 +78,10 @@
     "custom/dinkur" = {
       exec = "dinkur-statusline --color pango";
       interval = 1;
+    };
+    "custom/next-meeting" = {
+      exec = "next-meeting";
+      interval = 5;
     };
     "custom/prs-internal" = {
       exec = "${../scripts/gh-pending-prs.sh} github.2rioffice.com 󰦝";
