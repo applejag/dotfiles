@@ -62,6 +62,11 @@
       flake = false;
     };
 
+    jadolg-next-meeting-src = {
+      url = "github:jadolg/next-meeting";
+      flake = false;
+    };
+
     helm-values-schema-json = {
       url = ./flakes/helm-values-schema-json;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -83,6 +88,7 @@
     applejag-showksec-src,
     applejag-rootless-personio-src,
     jadolg-szero-src,
+    jadolg-next-meeting-src,
     helm-values-schema-json,
     #nixos-cosmic,
     ... }:
@@ -179,6 +185,7 @@
           ./nixos/home/showksec.nix
           ./nixos/home/rootless-personio.nix
           ./nixos/home/szero.nix
+          ./nixos/home/next-meeting.nix
           ./nixos/home/pyenv.nix
         ];
         extraSpecialArgs = {
@@ -191,6 +198,7 @@
           inherit applejag-showksec-src;
           inherit applejag-rootless-personio-src;
           inherit jadolg-szero-src;
+          inherit jadolg-next-meeting-src;
         };
       };
     };

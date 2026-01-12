@@ -1,6 +1,6 @@
 { pkgs-unstable, jadolg-szero-src, ... }:
 let
-  rootless-personio = pkgs-unstable.buildGoModule {
+  szero = pkgs-unstable.buildGoModule {
     pname = "szero";
     version = jadolg-szero-src.rev;
     src = jadolg-szero-src;
@@ -9,7 +9,7 @@ let
 in
 {
   home.packages = [
-    rootless-personio
+    szero
   ];
 }
 

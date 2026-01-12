@@ -177,6 +177,22 @@
         "type": "github"
       }
     },
+    "jadolg-next-meeting-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767969613,
+        "narHash": "sha256-N8ovx7BIxKQ6BspICOox4Q4J+fltS0bBSnAvbTaPoQ0=",
+        "owner": "jadolg",
+        "repo": "next-meeting",
+        "rev": "312ec80b7dba5cc91104dcdeee2f9636829fd4df",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jadolg",
+        "repo": "next-meeting",
+        "type": "github"
+      }
+    },
     "jadolg-szero-src": {
       "flake": false,
       "locked": {
@@ -316,6 +332,7 @@
         "flake-programs-sqlite": "flake-programs-sqlite",
         "helm-values-schema-json": "helm-values-schema-json",
         "home-manager": "home-manager",
+        "jadolg-next-meeting-src": "jadolg-next-meeting-src",
         "jadolg-szero-src": "jadolg-szero-src",
         "nixos-cosmic": "nixos-cosmic",
         "nixos-hardware": "nixos-hardware",
