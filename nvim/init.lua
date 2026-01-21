@@ -277,6 +277,7 @@ require 'ibl'.setup()
 -- Special file associations
 vim.cmd [[
     autocmd BufRead,BufNewFile */.kube/config set filetype=yaml nowrap
+    autocmd BufRead,BufNewFile */.kube/kuberc set filetype=yaml nowrap
     autocmd BufRead,BufNewFile *kubeconfig set filetype=yaml nowrap
     autocmd BufRead,BufNewFile *kubeconfig.yml set filetype=yaml nowrap
     autocmd BufRead,BufNewFile *kubeconfig.yaml set filetype=yaml nowrap
