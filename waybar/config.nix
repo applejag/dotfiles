@@ -80,7 +80,7 @@
       interval = 1;
     };
     "custom/next-meeting" = {
-      exec = "next-meeting";
+      exec = "next-meeting --notify 1m";
       interval = 5;
     };
     "custom/prs-internal" = {

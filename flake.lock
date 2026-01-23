@@ -180,11 +180,11 @@
     "jadolg-next-meeting-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1767969613,
-        "narHash": "sha256-N8ovx7BIxKQ6BspICOox4Q4J+fltS0bBSnAvbTaPoQ0=",
+        "lastModified": 1769184071,
+        "narHash": "sha256-zLOI1Q8QsiRoj/JGzhzEWmol4+xH99HozjxRP6uh30E=",
         "owner": "jadolg",
         "repo": "next-meeting",
-        "rev": "312ec80b7dba5cc91104dcdeee2f9636829fd4df",
+        "rev": "464e6c22efbcddaf6d0aa61bccc60fdd094e6a53",
         "type": "github"
       },
       "original": {
