@@ -16,7 +16,7 @@ let
     pname = "dinkur-statusline";
     version = applejag-dinkur-statusline-src.rev;
     src = applejag-dinkur-statusline-src;
-    vendorHash = "sha256-OQBV51bTr+xTOvuen4kTk7Ft+zvE7OkaQ6r3lu/SZsg=";
+    vendorHash = "sha256-zbhAbO+4+C0qtiGXeeUt0kTjSFNWxkXIvdhf+ElvbEk=";
   };
 in
 {

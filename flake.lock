@@ -19,11 +19,11 @@
     "applejag-dinkur-statusline-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1694587217,
-        "narHash": "sha256-EiUDmDiYOGZ31p3M6W1lM9yZYU6k4ACG5GSOmCGok2s=",
+        "lastModified": 1769542159,
+        "narHash": "sha256-/+Uf8o55T4x1hdejDSNSx5Zk2ckBTfaWeAMq9mbZGQM=",
         "owner": "applejag",
         "repo": "dinkur-statusline",
-        "rev": "d7f9c7ec70a4a3357428ab5da116e3fdbfc588ca",
+        "rev": "ada027b46257677d8ac610db1c0f3e7784f250a3",
         "type": "github"
       },
       "original": {

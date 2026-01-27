@@ -193,6 +193,7 @@
       "dialout" # Talk through serial for IoT
       "wireshark" # capture network dumps
       "networkmanager" # manage network connections
+      "greeter" # greetd https://danklinux.com/docs/dankgreeter/configuration#manual-sync
     ];
     shell = pkgs.fish;
     packages =

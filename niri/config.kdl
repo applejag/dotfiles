@@ -3,6 +3,8 @@ include "dms/layout.kdl"
 include "dms/alttab.kdl"
 include "dms/binds.kdl"
 include "dms/outputs.kdl"
+include "dms/cursor.kdl"
+include "dms/wpblur.kdl"
 
 //spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
@@ -34,7 +36,7 @@ environment {
 	// DankMaterialShell
 	// https://danklinux.com/docs/dankmaterialshell/advanced-configuration#niri
 	//DMS_DISABLE_MATUGEN "1"
-	//DMS_DANKBAR_LAYER "overlay"
+	DMS_DANKBAR_LAYER "overlay"
 	//DMS_HIDE_TRAYIDS "discord,spotify"
 }
 
@@ -232,11 +234,6 @@ binds {
     }
 }
 
-cursor {
-	xcursor-theme "Bibata-Modern-Ice"
-	xcursor-size 24
-}
-
 window-rule {
 	//open-maximized true
 	geometry-corner-radius 4
@@ -298,7 +295,18 @@ window-rule {
     block-out-from "screencast"
 }
 
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
+}
+
 // DankMaterialShell suggestions
+layer-rule {
+    match namespace="^dms:clipboard$"
+
+    block-out-from "screencast"
+}
+
 window-rule {
     match app-id=r#"^org\.gnome\."#
     draw-border-with-background false
@@ -329,14 +337,4 @@ window-rule {
 window-rule {
     match app-id=r#"org.quickshell$"#
     open-floating true
-}
-
-layer-rule {
-    match namespace="^quickshell$"
-    place-within-backdrop true
-}
-
-layer-rule {
-    match namespace="dms:blurwallpaper"
-    place-within-backdrop true
 }
