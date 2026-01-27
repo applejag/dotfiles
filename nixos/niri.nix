@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, pkgs-master, dms, dgop, danksearch, ... }:
+{ pkgs, pkgs-unstable, pkgs-master, dms, dgop, danksearch, username, ... }:
 
 {
   imports = [
@@ -26,6 +26,8 @@
     greeter = {
       enable = true;
       compositor.name = "niri";
+
+      configHome = "/home/${username}";
     };
   };
 
