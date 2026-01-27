@@ -333,10 +333,10 @@ window-rule {
     draw-border-with-background false
 }
 
-window-rule {
-    match is-active=false
-    opacity 0.9
-}
+//window-rule {
+//    match is-active=false
+//    opacity 0.95
+//}
 
 window-rule {
     geometry-corner-radius 12
