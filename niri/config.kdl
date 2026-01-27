@@ -37,6 +37,7 @@ environment {
 	// https://danklinux.com/docs/dankmaterialshell/advanced-configuration#niri
 	//DMS_DISABLE_MATUGEN "1"
 	DMS_DANKBAR_LAYER "overlay"
+	DMS_SCREENSHOT_EDITOR "satty"
 	//DMS_HIDE_TRAYIDS "discord,spotify"
 
 	// GTK Passthrough
@@ -194,10 +195,14 @@ binds {
 
 	Mod+W { toggle-column-tabbed-display; }
 
-	Print { screenshot; }
-	Ctrl+Print { screenshot-screen; }
-	Alt+Print { screenshot-window; }
-	Mod+Ctrl+Alt+Shift+P { screenshot; }
+	//Print { screenshot; }
+	//Ctrl+Print { screenshot-screen; }
+	//Alt+Print { screenshot-window; }
+	//Mod+Ctrl+Alt+Shift+P { screenshot; }
+	Print { spawn "dms" "ipc" "call" "niri" "screenshot"; }
+	Ctrl+Print { spawn "dms" "ipc" "call" "niri" "screenshotScreen"; }
+	Alt+Print { spawn "dms" "ipc" "call" "niri" "screenshotWindow"; }
+	Mod+Ctrl+Alt+Shift+P { spawn "dms" "ipc" "call" "niri" "screenshot"; }
 
 	// Screencasting features
 	Mod+Ctrl+Alt+Shift+N { set-dynamic-cast-window; }

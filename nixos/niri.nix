@@ -91,7 +91,7 @@
       wlogout # logout screen
       swaynotificationcenter
       fuzzel # runner
-      swappy # screenshot editor
+      satty # screenshot editor
       wl-clipboard # paste to clipboard
       xwayland-satellite # rootless xwayland
     ]);
