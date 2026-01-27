@@ -21,6 +21,7 @@ vim.lsp.enable('typos_lsp')
 vim.lsp.enable('yamlls')
 vim.lsp.enable('zizmor')
 vim.lsp.enable('zls')
+vim.lsp.enable('cue')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
