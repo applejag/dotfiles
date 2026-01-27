@@ -77,6 +77,7 @@
       kdePackages.elisa
       nautilus # Gnome file manager
       networkmanagerapplet # NetworkManager (nm-applet)
+      kdePackages.qt6ct # theme required for Dolphin
 
     ]) ++ (with pkgs-unstable; [
       alsa-utils # tools like amixer to control audio
