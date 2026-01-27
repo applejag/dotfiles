@@ -505,6 +505,8 @@ in {
       nvim-treesitter
       nvim-treesitter-refactor
 
+      base16-nvim # utility for building themes. Used by other dependencies like DankMaterialShell
+
       nvim-treesitter-parsers.astro
       nvim-treesitter-parsers.bash
       nvim-treesitter-parsers.comment

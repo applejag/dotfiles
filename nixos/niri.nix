@@ -1,9 +1,42 @@
-{ pkgs, pkgs-unstable, pkgs-master, ... }:
+{ pkgs, pkgs-unstable, pkgs-master, dms, dgop, danksearch, ... }:
 
 {
+  imports = [
+    dms.nixosModules.dank-material-shell
+    dms.nixosModules.greeter
+  ];
+
   programs.niri = {
     enable = true;
   };
+
+  programs.dank-material-shell = {
+    enable = true;
+    systemd.enable = true;
+
+    enableSystemMonitoring = true;     # System monitoring widgets (dgop)
+    enableVPN = true;                  # VPN management widget
+    enableDynamicTheming = true;       # Wallpaper-based theming (matugen)
+    enableAudioWavelength = true;      # Audio visualizer (cava)
+    enableCalendarEvents = true;       # Calendar integration (khal)
+    enableClipboardPaste = true;       # Pasting items from the clipboard (wtype)
+
+    dgop.package = dgop.packages.${pkgs.system}.default;
+
+    greeter = {
+      enable = true;
+      compositor.name = "niri";
+    };
+  };
+
+  #programs.dsearch = {
+  #  enable = true;
+  #  systemd = {
+  #    enable = true;
+  #    target = "graphical-session.target";
+  #  };
+  #  package = danksearch.packages.${pkgs.system}.default;
+  #};
 
   # Hint electron apps to use Wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -13,14 +46,14 @@
   #'';
   security.pam.services.hyprlock = {};
 
-  services.greetd = {
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --user-menu --asterisks --remember --remember-session --time --cmd niri-session";
-        user = "greeter";
-      };
-    };
-  };
+  #services.greetd = {
+  #  settings = {
+  #    default_session = {
+  #      command = "${pkgs.tuigreet}/bin/tuigreet --user-menu --asterisks --remember --remember-session --time --cmd niri-session";
+  #      user = "greeter";
+  #    };
+  #  };
+  #};
 
   xdg.portal = {
     enable = true;
@@ -55,10 +88,15 @@
       wlogout # logout screen
       swaynotificationcenter
       fuzzel # runner
+      swappy # screenshot editor
       wl-clipboard # paste to clipboard
       xwayland-satellite # rootless xwayland
     ]);
   };
+
+  #services.tlp.enable = false;
+  # Collides with DankMaterialShell
+  services.auto-cpufreq.enable = false;
 
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;

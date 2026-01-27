@@ -1,13 +1,21 @@
+include "dms/colors.kdl"
+include "dms/layout.kdl"
+include "dms/alttab.kdl"
+include "dms/binds.kdl"
+include "dms/outputs.kdl"
 
-spawn-at-startup "waybar"
+//spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
-spawn-at-startup "blueman-applet"
+//spawn-at-startup "blueman-applet"
 //spawn-at-startup "birdtray"
-spawn-at-startup "swaync"
-spawn-at-startup "swww-daemon"
+//spawn-at-startup "swaync"
+//spawn-at-startup "swww-daemon"
 //spawn-at-startup "xwayland-satellite"
 //spawn-at-startup "swayidle" "-w" "timeout" "300" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "timeout" "310" "hyprlock" "before-sleep" "hyprlock"
-spawn-at-startup "swayidle" "-w" "resume" "niri msg action power-on-monitors" "timeout" "300" "hyprlock" "before-sleep" "hyprlock"
+//spawn-at-startup "swayidle" "-w" "resume" "niri msg action power-on-monitors" "timeout" "300" "hyprlock" "before-sleep" "hyprlock"
+
+// Clipboard history
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
 
 prefer-no-csd
 
@@ -16,119 +24,18 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 environment {
 	QT_QPA_PLATFORM "wayland"
 	DISPLAY ":0" // xwayland-satellite
-}
 
-// My home setup monitor alignment chart
-// NOTE: Must not use negative numbers as that messes up XWayland:
-// https://github.com/Supreeeme/xwayland-satellite/issues/58#issuecomment-2460688816
-//          1645+1440=3085                                                       
-// ─────────────────────────────────►                                            
-// ┌───────────────► ┌─────────────┐            │                                
-// │    1645         │             │            │                                
-// │                 │             │            │ 544, no special alignment      
-// │                 │             │            │ it just felt better            
-// │                 │             │            │                                
-// │2560-1028=1532   │             │  1440x544  ▼                                
-// │ so it aligns    │             │ ┌───────────────────────────────────────┐   
-// │ along the bottom│             │ │                                       │   
-// ▼                 │  1440x2560  │ │                                       │   
-// ┌───────────────┐ │             │ │                                       │   
-// │               │ │             │ │              5120x1440                │   
-// │               │ │             │ │                                       │   
-// │   1645x1028   │ │             │ │                                       │   
-// │               │ │             │ │                                       │   
-// │               │ │             │ └─────────────────┬──┬──────────────────┘   
-// │               │ │             │                   │  │                      
-// ├┬┬┬┬┬┬┬┬┬┬┬┬┬┬─┤ └─────┬──┬────┘                   │  │                      
-// ├┼┼┼┼┼┼┼┼┼┼┼┼┼┼─┤   ┌───┴──┴──┐              ┌──────┴──┴──────┐               
-// ├┼┼┼┼┼┼┼┼┼┼┼┼┼┼┐│   └─────────┘              └────────────────┘               
-// ├┼┼┼┼┴┴┴┴┼┼┼┼┼┼┼┤                                                             
-// └┴┴┴┴────┴┴┴┴┴┴┴┘                                                             
-                                                                              
+	XDG_CURRENT_DESKTOP "niri"
+	QT_QPA_PLATFORM "wayland"
+	ELECTRON_OZONE_PLATFORM_HINT "auto"
+	QT_QPA_PLATFORMTHEME "gtk3"
+	QT_QPA_PLATFORMTHEME_QT6 "gtk3"
 
-// Laptop monitor
-output "Lenovo Group Limited 0x4145 Unknown" {
-	mode "2880x1800@60.001"
-	scale 1.75
-	// laptop monitor has size:
-	//   "Logical size: 1645x1028"
-	position x=0 y=1532
-}
-
-// it changed name????
-output "Samsung Display Corp. 0x4167 Unknown" {
-	mode "2880x1800@60.001"
-	scale 1.75
-	// laptop monitor has size:
-	//   "Logical size: 1645x1028"
-	position x=0 y=1532
-}
-
-// Home monitor
-output "Lenovo Group Limited LEN P27h-10 0x01010101" {
-	mode "2560x1440@59.951"
-	scale 1.0
-	transform "270"
-	position x=1646 y=0
-}
-
-// Home ultrawide
-output "Samsung Electric Company Odyssey G93SC HNTXB00486" {
-	mode "5120x1440@60.000"
-	scale 1.0
-	position x=3086 y=544
-}
-
-// Office monitor
-output "Lenovo Group Limited P34w-20 VVC50886" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
-}
-output "Lenovo Group Limited P34w-20 VVC74018" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
-}
-output "Lenovo Group Limited P34w-20 VVC74017" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
-}
-output "Lenovo Group Limited P34w-20 VVC50866" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
-}
-output "Lenovo Group Limited P34w-20 VVC50526" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
-}
-output "Dell Inc. DELL U3421WE 310S653" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
-}
-output "Lenovo Group Limited P34w-20 VVC50865" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
-}
-output "Lenovo Group Limited P34w-20 VVC50863" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
-}
-output "Lenovo Group Limited P34w-20 VVC74003" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
-}
-output "Lenovo Group Limited P34w-20 VVC73996" {
-	mode "3440x1440@59.973"
-	scale 1.0
-	position x=1646 y=1532
+	// DankMaterialShell
+	// https://danklinux.com/docs/dankmaterialshell/advanced-configuration#niri
+	//DMS_DISABLE_MATUGEN "1"
+	//DMS_DANKBAR_LAYER "overlay"
+	//DMS_HIDE_TRAYIDS "discord,spotify"
 }
 
 layout {
@@ -158,6 +65,9 @@ layout {
 		active-gradient from="#80c8ff" to="#bbddff" angle=45 relative-to="workspace-view"
 		inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
 	}
+
+	// required by DankMaterialShell
+    background-color "transparent"
 }
 
 binds {
@@ -169,8 +79,8 @@ binds {
 
 	Mod+Return                repeat=false { spawn "alacritty"; }
 	//Mod+Return                repeat=false { spawn "ghostty" "--gtk-single-instance=true"; }
-	Mod+P                     repeat=false { spawn-sh "pkill fuzzel || fuzzel"; }
-	Mod+Ctrl+Alt+Shift+L      repeat=false allow-when-locked=true { spawn-sh "hyprlock -c ~/dotfiles/hypr/hyprlock.conf"; }
+	//Mod+P                     repeat=false { spawn-sh "pkill fuzzel || fuzzel"; }
+	//Mod+Ctrl+Alt+Shift+L      repeat=false allow-when-locked=true { spawn-sh "hyprlock -c ~/dotfiles/hypr/hyprlock.conf"; }
 
 	Mod+Shift+C { close-window; }
 
@@ -272,7 +182,7 @@ binds {
 	Mod+Shift+Space { switch-layout "prev"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
+    //Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
 	Mod+W { toggle-column-tabbed-display; }
@@ -291,8 +201,35 @@ binds {
 	// Volume Keybinds
     XF86AudioRaiseVolume allow-when-locked=true { spawn "sh" "-c" "~/dotfiles/scripts/wpctl-set-volume.sh 0.05+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "sh" "-c" "~/dotfiles/scripts/wpctl-set-volume.sh 0.05-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+	//XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+	//XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+    //XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    //XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+	// DankMaterialShell specific binds
+	Mod+P hotkey-overlay-title="Application Launcher" {
+        spawn "dms" "ipc" "call" "spotlight" "toggle";
+    }
+	Mod+V hotkey-overlay-title="Clipboard Manager" {
+        spawn "dms" "ipc" "call" "clipboard" "toggle";
+    }
+	Mod+Alt+L hotkey-overlay-title="Lock Screen" {
+        spawn "dms" "ipc" "call" "lock" "lock";
+    }
+	Mod+Ctrl+Alt+Shift+L hotkey-overlay-title="Lock Screen" {
+        spawn "dms" "ipc" "call" "lock" "lock";
+    }
+
+    //XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
+    //XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
+    XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+
+	XF86MonBrightnessUp allow-when-locked=true {
+       spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+       spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+    }
 }
 
 cursor {
@@ -359,4 +296,47 @@ window-rule {
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
     block-out-from "screencast"
+}
+
+// DankMaterialShell suggestions
+window-rule {
+    match app-id=r#"^org\.gnome\."#
+    draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    match app-id="Alacritty"
+    match app-id="zen"
+    match app-id="com.mitchellh.ghostty"
+    match app-id="kitty"
+    draw-border-with-background false
+}
+
+window-rule {
+    match is-active=false
+    opacity 0.9
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// Open DMS windows as floating by default
+window-rule {
+    match app-id=r#"org.quickshell$"#
+    open-floating true
+}
+
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="dms:blurwallpaper"
+    place-within-backdrop true
 }

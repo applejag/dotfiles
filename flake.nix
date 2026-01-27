@@ -22,6 +22,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    danksearch = {
+      url = "github:AvengeMedia/danksearch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,6 +97,9 @@
     flake-programs-sqlite,
     nixos-hardware,
     home-manager,
+    dms,
+    dgop,
+    danksearch,
     zen-browser,
     applejag-dinkur-src,
     applejag-dinkur-statusline-src,
@@ -169,6 +187,9 @@
           inherit name;
           inherit pkgs-unstable;
           inherit pkgs-master;
+          inherit dms;
+          inherit dgop;
+          inherit danksearch;
           helm-values-schema-json = helm-values-schema-json.packages.${system}.default;
         };
       };

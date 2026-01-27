@@ -45,6 +45,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+-- hacky way to load a LazyVim plugin without LazyVim
+local dankcolors = require 'plugins.dankcolors'
+print("dankcolors", dankcolors)
+dankcolors[1].config()
+
 -- Snippets plugin, used by cmp
 local snippy = require 'snippy'
 snippy.setup {
@@ -314,7 +319,7 @@ vim.cmd [[
 
 -- Options
 
-vim.cmd [[colorscheme dracula]]
+--vim.cmd [[colorscheme dracula]]
 
 vim.g.mapleader = " "
 vim.opt.winborder = "rounded"

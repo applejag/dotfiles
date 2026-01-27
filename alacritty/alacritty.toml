@@ -1,5 +1,5 @@
 [general]
-import = [ "~/.config/alacritty/themes/themes/dracula.toml" ]
+import = [ "~/.config/alacritty/dank-theme.toml" ]
 
 [font.normal]
 family = "Miracode"

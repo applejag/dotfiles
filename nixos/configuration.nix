@@ -140,17 +140,6 @@
 
   services.hardware.bolt.enable = true;
 
-  services.greetd = {
-    # https://man.sr.ht/~kennylevinsen/greetd/
-    enable = lib.mkDefault true;
-  };
-  environment.etc."greetd/environments".text = ''
-    zsh
-    plasma
-    Hyprland
-    niri-session
-  '';
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -453,14 +442,6 @@
     updater.enable = true;
     scanner.enable = true;
     fangfrisch.enable = true;
-  };
-
-  services.tlp = {
-    enable = true;
-    settings = {
-      START_CHARGE_THRESH_BAT0 = 75;
-      STOP_CHARGE_THRESH_BAT0 = 80;
-    };
   };
 
   # Open ports in the firewall.
