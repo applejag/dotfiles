@@ -1,6 +1,6 @@
 { pkgs-unstable, jadolg-szero-src, ... }:
 let
-  szero = pkgs-unstable.buildGoModule {
+  szero = pkgs-unstable.buildGo126Module {
     pname = "szero";
     version = jadolg-szero-src.rev;
     src = jadolg-szero-src;
