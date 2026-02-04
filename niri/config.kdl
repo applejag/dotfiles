@@ -340,6 +340,12 @@ window-rule {
 
 // Open DMS windows as floating by default
 window-rule {
-    match app-id=r#"org.quickshell$"#
+    match app-id="org.quickshell"
+    open-floating true
+}
+
+// Floating screenshot editor
+window-rule {
+    match app-id="com.gabm.satty"
     open-floating true
 }
