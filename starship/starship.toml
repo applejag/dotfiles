@@ -96,5 +96,5 @@ threshold = 3
 symbol = '❯'
 format = '[$symbol]($style)'
 repeat = true
-repeat_offset = 2
+repeat_offset = 3
 style = "dimmed yellow"

@@ -93,6 +93,7 @@
       fuzzel # runner
       satty # screenshot editor
       wl-clipboard # paste to clipboard
+      cliphist # clipboard history
       xwayland-satellite # rootless xwayland
     ]);
   };

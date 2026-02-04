@@ -17,7 +17,8 @@ spawn-at-startup "nm-applet"
 //spawn-at-startup "swayidle" "-w" "resume" "niri msg action power-on-monitors" "timeout" "300" "hyprlock" "before-sleep" "hyprlock"
 
 // Clipboard history
-spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+spawn-sh-at-startup "wl-paste --watch cliphist store &"
+spawn-sh-at-startup "alacritty --socket $XDG_RUNTIME_DIR/Alacritty.sock --daemon"
 
 prefer-no-csd
 
@@ -85,7 +86,8 @@ binds {
 	Mod+Shift+E { quit; }
 	Ctrl+Alt+Delete { quit; }
 
-	Mod+Return                repeat=false { spawn "alacritty"; }
+	Mod+Return                  repeat=false { spawn-sh "alacritty --socket $XDG_RUNTIME_DIR/Alacritty.sock msg create-window"; }
+	Mod+Shift+Return            repeat=false { spawn "alacritty"; }
 	//Mod+Return                repeat=false { spawn "ghostty" "--gtk-single-instance=true"; }
 	//Mod+P                     repeat=false { spawn-sh "pkill fuzzel || fuzzel"; }
 	//Mod+Ctrl+Alt+Shift+L      repeat=false allow-when-locked=true { spawn-sh "hyprlock -c ~/dotfiles/hypr/hyprlock.conf"; }
