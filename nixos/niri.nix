@@ -40,8 +40,15 @@
   #  package = danksearch.packages.${pkgs.system}.default;
   #};
 
-  # Hint electron apps to use Wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    # Hint electron apps to use Wayland
+    NIXOS_OZONE_WL = "1";
+
+    # DankMaterialShell
+    # https://danklinux.com/docs/dankmaterialshell/advanced-configuration#niri
+    DMS_SCREENSHOT_EDITOR = "satty";
+    #DMS_HIDE_TRAYIDS "discord,spotify"
+  };
 
   #security.pam.services.swaylock.text = ''
   #  auth include login

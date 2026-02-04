@@ -34,13 +34,6 @@ environment {
 	QT_QPA_PLATFORMTHEME "gtk3"
 	QT_QPA_PLATFORMTHEME_QT6 "gtk3"
 
-	// DankMaterialShell
-	// https://danklinux.com/docs/dankmaterialshell/advanced-configuration#niri
-	//DMS_DISABLE_MATUGEN "1"
-	DMS_DANKBAR_LAYER "overlay"
-	DMS_SCREENSHOT_EDITOR "satty"
-	//DMS_HIDE_TRAYIDS "discord,spotify"
-
 	// GTK Passthrough
 	// https://danklinux.com/docs/dankmaterialshell/application-themes#qt-applications
 	QT_QPA_PLATFORMTHEME "gtk3"
