@@ -20,12 +20,12 @@ function fetch() {
 
 	if ! PRS_TO_REVIEW="$(gh search prs --review-requested "$GH_USER" --state open --review required --archived=false --draft=false --json id --template '{{len .}}' "${extraArgs[@]}")"; then
 		echo -n "<b>$icon</b>  "
-		echo "<span foreground='$C_RED'>failed to load</span>"
+		echo "<font color='$C_RED'>failed to load</font>"
 
 		echo "Waiting until host can be resolved" >&2
 		while ! curl -sS --connect-timeout 2s "$GH_HOST" >/dev/null 2>/dev/null; do
 			echo -n "<b>$icon</b>  "
-			echo "<span foreground='$C_GRAY'>waiting</span>"
+			echo "<font color='$C_GRAY'>waiting</font>"
 			sleep 5s
 		done
 		echo "Host resolved successfully. Retrying search..." >&2
@@ -40,31 +40,31 @@ function fetch() {
 	echo -n "<b>$icon</b>  "
 
 	if [[ "$PRS_TO_REVIEW" == 0 ]]; then
-		echo -n "<span foreground='$C_GRAY'> $PRS_TO_REVIEW</span>"
+		echo -n "<font color='$C_GRAY'> $PRS_TO_REVIEW</font>"
 	else
-		echo -n "<span foreground='$C_ORANGE'> $PRS_TO_REVIEW</span>"
+		echo -n "<font color='$C_ORANGE'> $PRS_TO_REVIEW</font>"
 	fi
 
 	echo -n " "
 
 	if [[ "$PRS_TO_MERGE" == 0 ]]; then
-		echo -n "<span foreground='$C_GRAY'> $PRS_TO_MERGE</span>"
+		echo -n "<font color='$C_GRAY'> $PRS_TO_MERGE</font>"
 	else
-		echo -n "<span foreground='$C_GREEN'> $PRS_TO_MERGE</span>"
+		echo -n "<font color='$C_GREEN'> $PRS_TO_MERGE</font>"
 	fi
 
 	echo -n " "
 
 	if [[ "$PRS_TO_CHANGE" == 0 ]]; then
-		echo -n "<span foreground='$C_GRAY'> $PRS_TO_CHANGE</span>"
+		echo -n "<font color='$C_GRAY'> $PRS_TO_CHANGE</font>"
 	else
-		echo -n "<span foreground='$C_RED'> $PRS_TO_CHANGE</span>"
+		echo -n "<font color='$C_RED'> $PRS_TO_CHANGE</font>"
 	fi
 
 	echo
 }
 
-echo "<b>$icon</b> <span foreground='$C_GRAY'><i>loading…</i></span>"
+echo "<b>$icon</b> <font color='$C_GRAY'><i>loading…</i></font>"
 
 while true; do
 	fetch
