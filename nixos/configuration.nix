@@ -301,8 +301,8 @@
       argocd # ArgoCD CLI
 
       # Zig
-      zig
-      zls # Zig language server
+      #zig
+      #zls # Zig language server
 
       # Gleam
       #gleam
