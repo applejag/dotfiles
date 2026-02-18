@@ -545,6 +545,7 @@ in {
       nvim-treesitter-parsers.nix
       nvim-treesitter-parsers.ocaml
       nvim-treesitter-parsers.passwd
+      nvim-treesitter-parsers.pkl
       nvim-treesitter-parsers.promql
       nvim-treesitter-parsers.python
       nvim-treesitter-parsers.regex

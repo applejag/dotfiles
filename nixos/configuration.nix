@@ -343,7 +343,6 @@
       yaml-language-server
       package-version-server
       jsonnet-language-server
-
     ]) ++ (
     let
       my-kubernetes-helm = with pkgs-unstable; wrapHelm kubernetes-helm {
