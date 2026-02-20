@@ -5,6 +5,7 @@ include "dms/binds.kdl"
 include "dms/outputs.kdl"
 include "dms/cursor.kdl"
 include "dms/wpblur.kdl"
+include "dms/windowrules.kdl"
 
 //spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
