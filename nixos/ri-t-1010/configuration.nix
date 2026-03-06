@@ -8,10 +8,6 @@
 
   networking.hostName = "ri-t-1010"; # Define your hostname.
 
-  environment.variables = {
-    GOPROXY = "https://nexus3.2rioffice.com/repository/go/|https://proxy.golang.org|direct";
-  };
-
   # Bees: btrfs de-duplication on the "nixos" drive
   services.beesd.filesystems."nixos" = {
     spec = "LABEL=nixos";
