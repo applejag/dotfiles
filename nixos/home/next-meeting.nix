@@ -4,7 +4,7 @@ let
     pname = "next-meeting";
     version = jadolg-next-meeting-src.rev;
     src = jadolg-next-meeting-src;
-    vendorHash = "sha256-z09NryetWOJs1gGlyVlfh9Skrj71f4CpgXn0HVhOZoY=";
+    vendorHash = "sha256-LLwKShUyavbFeZEzY6wwEZ+HPQ2ewHzlR0U00oSpEhU=";
   };
 in
 {
