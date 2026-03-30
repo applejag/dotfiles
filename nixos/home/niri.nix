@@ -5,7 +5,7 @@
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   programs.waybar = {
-    enable = true;
+    enable = false;
     settings = import ../../waybar/config.nix;
     style = ../../waybar/style.css;
     package = pkgs-unstable.waybar;
