@@ -336,8 +336,8 @@
       fish-lsp
       lua-language-server
       nixd
-      nodePackages.bash-language-server
-      nodePackages.typescript-language-server
+      bash-language-server
+      typescript-language-server
       terraform-ls
       vscode-langservers-extracted
       yaml-language-server
