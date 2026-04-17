@@ -181,7 +181,7 @@
 
   programs.evolution = {
     # GNOME email client
-    enable = true;
+    enable = false;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -264,12 +264,12 @@
       glibcLocales
 
     ]) ++ (with pkgs-unstable;
-      let
-        pkgs-go_1_25 = (extend (final: prev: {
-          go = prev.go_1_25;
-          buildGoModule = prev.buildGo125Module;
-        }));
-      in
+      #let
+      #  pkgs-go_1_25 = (extend (final: prev: {
+      #    go = prev.go_1_25;
+      #    buildGoModule = prev.buildGo125Module;
+      #  }));
+      #in
       [
       #====== Unstable packages ======
 
@@ -308,12 +308,12 @@
       #gleam
 
       # Go
-      go_1_25
+      go
       gotools # e.g goimports
-      pkgs-go_1_25.gofumpt # formatter
-      pkgs-go_1_25.gopls # language server
-      pkgs-go_1_25.golangci-lint # linter
-      pkgs-go_1_25.delve # debugger
+      gofumpt # formatter
+      gopls # language server
+      golangci-lint # linter
+      delve # debugger
 
       gore # REPL
       gocode-gomod # autocompletion daemon

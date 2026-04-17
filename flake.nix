@@ -73,12 +73,12 @@
     };
 
     jadolg-szero-src = {
-      url = "github:jadolg/szero";
+      url = "github:jadolg/szero/v1.14.2";
       flake = false;
     };
 
     jadolg-next-meeting-src = {
-      url = "github:jadolg/next-meeting";
+      url = "github:jadolg/next-meeting/v1.1.1";
       flake = false;
     };
 

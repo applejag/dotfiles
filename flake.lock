@@ -91,11 +91,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771868032,
-        "narHash": "sha256-l8+LOd+QJuapv/21+juetZeedrlYY1QNXwcI27ACgiI=",
+        "lastModified": 1776181116,
+        "narHash": "sha256-aUNKF+jzGY+jRlR7Bp82v/zNHdI9bFELLuYYWbaM6fo=",
         "owner": "AvengeMedia",
         "repo": "dgop",
-        "rev": "361b4f7041cd27381ee3eeb36774faf10747e0c3",
+        "rev": "e2078a7c5620be2e4897e7dabc08ade6dac9a454",
         "type": "github"
       },
       "original": {
@@ -150,11 +150,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1775708086,
-        "narHash": "sha256-Ejm5UGLByp/h0E7uWSYcOvKS+gY9bl9bwOw/3uIHqWM=",
+        "lastModified": 1776366939,
+        "narHash": "sha256-Vm1HUzh1QAbLDQ5DQjRYZoQAi7olx2IcQ8qw+HqjgCs=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "6c18effab3091c26fadd742298cdb69c282b4c99",
+        "rev": "fae4ff8048b7e30446b12e3d280884c0e49ac372",
         "type": "github"
       },
       "original": {
@@ -242,15 +242,16 @@
     "jadolg-next-meeting-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1774213339,
-        "narHash": "sha256-oCkOIzzmQdza3IQdgbOyUJgB/oSvoU93kamBPgZvDSw=",
+        "lastModified": 1773790366,
+        "narHash": "sha256-rkSCT7gOPAk6mD/1J6/F4RFGEaA7CYUSnnxnTRFXEuo=",
         "owner": "jadolg",
         "repo": "next-meeting",
-        "rev": "7bed3f9932c61d614767291b034b68306dfd4a2f",
+        "rev": "8ac6a4d5e437575ece4571c699077197e516f6c0",
         "type": "github"
       },
       "original": {
         "owner": "jadolg",
+        "ref": "v1.1.1",
         "repo": "next-meeting",
         "type": "github"
       }
@@ -258,15 +259,16 @@
     "jadolg-szero-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1775041973,
-        "narHash": "sha256-s9PhSlNGXGjRPloqVM+1PR0Xnubo+DNc+9b2uYcy/gU=",
+        "lastModified": 1773678973,
+        "narHash": "sha256-+JMPV5s7dWMfYI+my4GinqwpzuEyLigfutKOiUguJRE=",
         "owner": "jadolg",
         "repo": "szero",
-        "rev": "fdaeb3109c4840a4b8f9fefe52ece09a35bf6997",
+        "rev": "b312f66857aa810c8c0402bcdd67c4150a1fadc9",
         "type": "github"
       },
       "original": {
         "owner": "jadolg",
+        "ref": "v1.14.2",
         "repo": "szero",
         "type": "github"
       }
@@ -311,11 +313,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1775595990,
-        "narHash": "sha256-OEf7YqhF9IjJFYZJyuhAypgU+VsRB5lD4DuiMws5Ltc=",
+        "lastModified": 1776221942,
+        "narHash": "sha256-FbQAeVNi7G4v3QCSThrSAAvzQTmrmyDLiHNPvTF2qFM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4e92bbcdb030f3b4782be4751dc08e6b6cb6ccf2",
+        "rev": "1766437c5509f444c1b15331e82b8b6a9b967000",
         "type": "github"
       },
       "original": {
@@ -326,11 +328,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1775715082,
-        "narHash": "sha256-JPhAzqJCqn4BmSQLK+lrKNHetjMVpfqh32usaeRz+n8=",
+        "lastModified": 1776413569,
+        "narHash": "sha256-YekNDmQXIXDrhfjyFZ+BSAZ61T1XmFJp/4Kx6kez5HU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5a670b6912f19d26a280c6a61c88e90d47d5fc70",
+        "rev": "9ce3498fba4cc4d08e471e951357ce7378ff3dbb",
         "type": "github"
       },
       "original": {
@@ -357,11 +359,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1775423009,
-        "narHash": "sha256-vPKLpjhIVWdDrfiUM8atW6YkIggCEKdSAlJPzzhkQlw=",
+        "lastModified": 1776169885,
+        "narHash": "sha256-l/iNYDZ4bGOAFQY2q8y5OAfBBtrDAaPuRQqWaFHVRXM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "68d8aa3d661f0e6bd5862291b5bb263b2a6595c9",
+        "rev": "4bd9165a9165d7b5e33ae57f3eecbcb28fb231c9",
         "type": "github"
       },
       "original": {
@@ -492,11 +494,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775699406,
-        "narHash": "sha256-YpDALorsidLjSyS5ozvsNI7Gz/bkmDs/ls/9oHKPv40=",
+        "lastModified": 1776403742,
+        "narHash": "sha256-ZmGY9XiOsuMS/THsSNkgp2fnc3asXQX/xRrQpWnY9nA=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "b05c87c1a474cdd6979a4e5f7058edf4073554df",
+        "rev": "ca7077bea5c830470437ea878da2a1940773324c",
         "type": "github"
       },
       "original": {
