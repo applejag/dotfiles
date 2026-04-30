@@ -350,3 +350,20 @@ window-rule {
     match app-id="com.gabm.satty"
     open-floating true
 }
+
+// Blurred backgrounds
+window-rule {
+    background-effect {
+		xray true
+		blur true
+		noise 0.05
+		saturation 3
+	}
+}
+
+window-rule {
+	match is-floating=true
+    background-effect {
+		xray false
+	}
+}
