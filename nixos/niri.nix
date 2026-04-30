@@ -8,6 +8,7 @@
 
   programs.niri = {
     enable = true;
+    package = pkgs-unstable.niri;
   };
 
   programs.dank-material-shell = {
