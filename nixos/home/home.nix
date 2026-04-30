@@ -448,15 +448,10 @@ in {
         sso_role_name = "AdministratorAccess";
       };
 
-      "profile frida-dr" = {
+      "profile dr-dev-admin" = {
         sso_session = "riskident";
-        sso_account_id = 686255960303;
+        sso_account_id = 132153511048;
         sso_role_name = "PowerUserAccess";
-      };
-      "profile frida-dr-admin" = {
-        sso_session = "riskident";
-        sso_account_id = 686255960303;
-        sso_role_name = "AdministratorAccess";
       };
 
       "profile shared-services" = {
