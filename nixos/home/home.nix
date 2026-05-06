@@ -320,6 +320,8 @@ in {
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
 
+      set -x DAGGER_NO_NAG 1
+
       mise activate fish | source
     '';
 
