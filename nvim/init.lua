@@ -22,8 +22,18 @@ vim.lsp.enable('yamlls')
 vim.lsp.enable('zizmor')
 vim.lsp.enable('zls')
 vim.lsp.enable('cue')
-vim.lsp.enable('harper_ls')
 vim.lsp.enable('rumdl')
+
+vim.lsp.config('harper_ls', {
+    settings = {
+        ["harper-ls"] = {
+            linters = {
+                UseTitleCase = false,
+            }
+        }
+    }
+})
+vim.lsp.enable('harper_ls')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
