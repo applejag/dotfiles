@@ -478,7 +478,7 @@ in {
   programs.neovim = {
     enable = true;
 
-    plugins = with pkgs.vimPlugins; [
+    plugins = with pkgs-unstable.vimPlugins; [
       nvim-lspconfig # configs for common LSP servers
 
       nvim-cmp # completion engine
@@ -487,20 +487,17 @@ in {
       cmp-buffer # completion for words from buffers
       cmp-path # completion for paths
       cmp-git # completion for commits, PRs, user mentions
-      nvim-snippy # snippets plugin
-      cmp-snippy # completion for snippets (provided by e.g LSP)
       lspkind-nvim # VS Code-like icons
 
       nvim-surround
       guess-indent-nvim
       dracula-nvim # theme
       plenary-nvim # utility Lua functions used by other plugins
-      vim-mustache-handlebars # {{ templates }}
       vim-helm # gotmpl
       nvim-sops # SOPS integration
       which-key-nvim # help popup on keybindings
       nvim-treesitter
-      nvim-treesitter-refactor
+      nvim-treesitter-locals
 
       base16-nvim # utility for building themes. Used by other dependencies like DankMaterialShell
 
@@ -531,7 +528,6 @@ in {
       nvim-treesitter-parsers.jq
       nvim-treesitter-parsers.json
       nvim-treesitter-parsers.json5
-      nvim-treesitter-parsers.jsonc
       nvim-treesitter-parsers.jsonnet
       nvim-treesitter-parsers.kdl
       nvim-treesitter-parsers.lua

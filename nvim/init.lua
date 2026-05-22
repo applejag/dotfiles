@@ -23,6 +23,7 @@ vim.lsp.enable('zizmor')
 vim.lsp.enable('zls')
 vim.lsp.enable('cue')
 vim.lsp.enable('harper_ls')
+vim.lsp.enable('rumdl')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -52,17 +53,6 @@ local dankcolors = require 'plugins.dankcolors'
 print("dankcolors", dankcolors)
 dankcolors[1].config()
 
--- Snippets plugin, used by cmp
-local snippy = require 'snippy'
-snippy.setup {
-    mappings = {
-        is = {
-            ['<Tab>'] = 'expand_or_advance',
-            ['<S-Tab>'] = 'previous',
-        },
-    },
-}
-
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -72,19 +62,11 @@ local cmp = require 'cmp'
 cmp.setup {
     preselect = cmp.PreselectMode.None,
 
-    snippet = {
-        expand = function(args)
-            snippy.expand_snippet(args.body)
-        end,
-    },
-
     sources = cmp.config.sources({
         -- function signatures: https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
         { name = 'nvim_lsp_signature_help' },
         -- neovim's LSP: https://github.com/hrsh7th/cmp-nvim-lsp/
         { name = 'nvim_lsp' },
-        -- snippets expansion: https://github.com/dcampos/cmp-snippy
-        { name = 'snippy' },
         -- git commits, PRs, user mentions: https://github.com/petertriho/cmp-git
         { name = 'git' },
         -- paths: https://github.com/hrsh7th/cmp-path/
@@ -222,7 +204,7 @@ vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = "#D8EEEB", bg = "#58B5A8" 
 vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#D8EEEB", bg = "#58B5A8" })
 vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#D8EEEB", bg = "#58B5A8" })
 
-require 'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.config'.setup {
     parser_install_dir = "~/.config/nvim",
     highlight = {
         enable = true,
@@ -245,35 +227,6 @@ if file ~= nil then
     vim.treesitter.query.set("yaml", "injections", file:read("a"))
     file:close()
 end
-
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-
---[[--
-parser_config.templ = {
-  install_info = {
-    url = "https://github.com/vrischmann/tree-sitter-templ.git",
-    files = {"src/parser.c", "src/scanner.c"},
-    branch = "master",
-  },
-}
-
-vim.treesitter.language.register('templ', 'templ')
---]]
-
-vim.filetype.add({
-    extension = {
-        risor = "risor",
-        rsr = "risor",
-    },
-})
-
-parser_config.risor = {
-    install_info = {
-        url = "~/code/github.com/jillejr/tree-sitter-risor",
-        files = { "src/parser.c" },
-    }
-}
-vim.treesitter.language.register('risor', 'risor')
 
 require 'guess-indent'.setup {}
 
