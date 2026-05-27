@@ -23,6 +23,7 @@ vim.lsp.enable('zizmor')
 vim.lsp.enable('zls')
 vim.lsp.enable('cue')
 vim.lsp.enable('rumdl')
+vim.lsp.enable('jsonnet_ls')
 
 vim.lsp.config('harper_ls', {
     settings = {
