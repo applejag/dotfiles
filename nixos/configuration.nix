@@ -12,7 +12,7 @@
   ];
 
   # Let's not use latest kernel actually
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs-unstable.linuxPackages_latest; # bluetooth issue with Linux v6.18.30-v7.0.9
   boot.kernelParams = [ "preempt=full" ];
 
   # Use the systemd-boot EFI boot loader.
