@@ -1,4 +1,7 @@
-# Dotfiles of jilleJr
+# Dotfiles of applejag
+
+> [!WARNING]
+> Moved to <https://git.sr.ht/~applejag/dotfiles>
 
 ## Make links to dotfiles, Linux
 
